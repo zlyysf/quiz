@@ -7,8 +7,8 @@
 //
 
 #import "LZViewController.h"
-
-@interface LZViewController ()
+#import "GADMasterViewController.h"
+@interface LZViewController ()<GADBannerViewDelegate>
 
 @end
 
@@ -18,6 +18,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    GADMasterViewController *shared = [GADMasterViewController singleton];
+    [shared resetAdView:self];
 }
 
 - (void)didReceiveMemoryWarning
