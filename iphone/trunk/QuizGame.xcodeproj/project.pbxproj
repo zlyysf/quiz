@@ -146,6 +146,53 @@
 			name = image;
 			sourceTree = "<group>";
 		};
+		5F91539116BAE8600074FFF2 /* BaseComponent */ = {
+			isa = PBXGroup;
+			children = (
+				5FE7372F16B8E08400194CF0 /* LZAppDelegate.h */,
+				5FE7373016B8E08400194CF0 /* LZAppDelegate.m */,
+				5F91536C16BA38D50074FFF2 /* LZTopNavView.h */,
+				5F91536D16BA38D50074FFF2 /* LZTopNavView.m */,
+				5F91536F16BA44C00074FFF2 /* LZFactoryViewController.h */,
+				5F91537016BA44C00074FFF2 /* LZFactoryViewController.m */,
+				5FE7375E16B9012700194CF0 /* GADMasterViewController.h */,
+				5FE7375F16B9012700194CF0 /* GADMasterViewController.m */,
+			);
+			name = BaseComponent;
+			sourceTree = "<group>";
+		};
+		5F91539216BAE8AF0074FFF2 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5F91537216BA49BD0074FFF2 /* LZSettingsViewController.h */,
+				5F91537316BA49BD0074FFF2 /* LZSettingsViewController.m */,
+				5FE7373B16B8E08400194CF0 /* LZViewController.h */,
+				5FE7373C16B8E08400194CF0 /* LZViewController.m */,
+				5FE7376D16B9078B00194CF0 /* LZPackageViewController.h */,
+				5FE7376E16B9078B00194CF0 /* LZPackageViewController.m */,
+				5F91538516BAD6410074FFF2 /* LZLevelViewController.h */,
+				5F91538616BAD6410074FFF2 /* LZLevelViewController.m */,
+				5F91538E16BAE6830074FFF2 /* LZGamingViewController.h */,
+				5F91538F16BAE6840074FFF2 /* LZGamingViewController.m */,
+				5F91537916BA50E30074FFF2 /* LZStoreViewController.h */,
+				5F91537A16BA50E30074FFF2 /* LZStoreViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		5F91539316BAE8DC0074FFF2 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5F91536316BA27180074FFF2 /* PackageCell.h */,
+				5F91536416BA27180074FFF2 /* PackageCell.m */,
+				5F91538816BAD8BF0074FFF2 /* LevelCell.h */,
+				5F91538916BAD8BF0074FFF2 /* LevelCell.m */,
+				5F91538B16BADF9C0074FFF2 /* SettingCell.h */,
+				5F91538C16BADF9D0074FFF2 /* SettingCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		5FE7371116B8E08400194CF0 = {
 			isa = PBXGroup;
 			children = (
@@ -182,37 +229,14 @@
 			isa = PBXGroup;
 			children = (
 				5FE7375016B9005D00194CF0 /* AdMob */,
-				5FE7372F16B8E08400194CF0 /* LZAppDelegate.h */,
-				5FE7373016B8E08400194CF0 /* LZAppDelegate.m */,
+				5F91539316BAE8DC0074FFF2 /* Cells */,
+				5F91539216BAE8AF0074FFF2 /* Controllers */,
+				5F91539116BAE8600074FFF2 /* BaseComponent */,
 				5FE7373816B8E08400194CF0 /* MainStoryboard.storyboard */,
-				5F91536C16BA38D50074FFF2 /* LZTopNavView.h */,
-				5F91536D16BA38D50074FFF2 /* LZTopNavView.m */,
-				5F91536F16BA44C00074FFF2 /* LZFactoryViewController.h */,
-				5F91537016BA44C00074FFF2 /* LZFactoryViewController.m */,
-				5F91537216BA49BD0074FFF2 /* LZSettingsViewController.h */,
-				5F91537316BA49BD0074FFF2 /* LZSettingsViewController.m */,
-				5FE7373B16B8E08400194CF0 /* LZViewController.h */,
-				5FE7373C16B8E08400194CF0 /* LZViewController.m */,
-				5FE7375E16B9012700194CF0 /* GADMasterViewController.h */,
-				5FE7375F16B9012700194CF0 /* GADMasterViewController.m */,
-				5FE7376D16B9078B00194CF0 /* LZPackageViewController.h */,
-				5FE7376E16B9078B00194CF0 /* LZPackageViewController.m */,
-				5F91538516BAD6410074FFF2 /* LZLevelViewController.h */,
-				5F91538616BAD6410074FFF2 /* LZLevelViewController.m */,
-				5F91538E16BAE6830074FFF2 /* LZGamingViewController.h */,
-				5F91538F16BAE6840074FFF2 /* LZGamingViewController.m */,
-				5F91537916BA50E30074FFF2 /* LZStoreViewController.h */,
-				5F91537A16BA50E30074FFF2 /* LZStoreViewController.m */,
 				5FE7377016B90FB900194CF0 /* SeguePush.h */,
 				5FE7377116B90FB900194CF0 /* SeguePush.m */,
 				5FE7377316B9163100194CF0 /* SeguePop.h */,
 				5FE7377416B9163100194CF0 /* SeguePop.m */,
-				5F91536316BA27180074FFF2 /* PackageCell.h */,
-				5F91536416BA27180074FFF2 /* PackageCell.m */,
-				5F91538816BAD8BF0074FFF2 /* LevelCell.h */,
-				5F91538916BAD8BF0074FFF2 /* LevelCell.m */,
-				5F91538B16BADF9C0074FFF2 /* SettingCell.h */,
-				5F91538C16BADF9D0074FFF2 /* SettingCell.m */,
 				5FE7372716B8E08400194CF0 /* Supporting Files */,
 			);
 			path = QuizGame;
