@@ -14,6 +14,10 @@
 		5F91537616BA4B560074FFF2 /* top_back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F91537516BA4B560074FFF2 /* top_back_button@2x.png */; };
 		5F91537816BA4D0F0074FFF2 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F91537716BA4D0F0074FFF2 /* background@2x.png */; };
 		5F91537B16BA50E30074FFF2 /* LZStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91537A16BA50E30074FFF2 /* LZStoreViewController.m */; };
+		5F91538016BA62570074FFF2 /* wrong@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F91537D16BA62570074FFF2 /* wrong@2x.png */; };
+		5F91538116BA62570074FFF2 /* correct@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F91537E16BA62570074FFF2 /* correct@2x.png */; };
+		5F91538216BA62570074FFF2 /* gold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F91537F16BA62570074FFF2 /* gold@2x.png */; };
+		5F91538416BA6FD00074FFF2 /* top_back_ground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F91538316BA6FD00074FFF2 /* top_back_ground@2x.png */; };
 		5FE7372116B8E08400194CF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7372016B8E08400194CF0 /* UIKit.framework */; };
 		5FE7372316B8E08400194CF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7372216B8E08400194CF0 /* Foundation.framework */; };
 		5FE7372516B8E08400194CF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7372416B8E08400194CF0 /* CoreGraphics.framework */; };
@@ -51,6 +55,10 @@
 		5F91537716BA4D0F0074FFF2 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
 		5F91537916BA50E30074FFF2 /* LZStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZStoreViewController.h; sourceTree = "<group>"; };
 		5F91537A16BA50E30074FFF2 /* LZStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZStoreViewController.m; sourceTree = "<group>"; };
+		5F91537D16BA62570074FFF2 /* wrong@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wrong@2x.png"; sourceTree = "<group>"; };
+		5F91537E16BA62570074FFF2 /* correct@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "correct@2x.png"; sourceTree = "<group>"; };
+		5F91537F16BA62570074FFF2 /* gold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gold@2x.png"; sourceTree = "<group>"; };
+		5F91538316BA6FD00074FFF2 /* top_back_ground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_back_ground@2x.png"; sourceTree = "<group>"; };
 		5FE7371C16B8E08400194CF0 /* QuizGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE7372016B8E08400194CF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5FE7372216B8E08400194CF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -113,6 +121,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F91537C16BA62490074FFF2 /* image */ = {
+			isa = PBXGroup;
+			children = (
+				5F91537516BA4B560074FFF2 /* top_back_button@2x.png */,
+				5F91537716BA4D0F0074FFF2 /* background@2x.png */,
+				5F91538316BA6FD00074FFF2 /* top_back_ground@2x.png */,
+				5F91537D16BA62570074FFF2 /* wrong@2x.png */,
+				5F91537E16BA62570074FFF2 /* correct@2x.png */,
+				5F91537F16BA62570074FFF2 /* gold@2x.png */,
+			);
+			name = image;
+			sourceTree = "<group>";
+		};
 		5FE7371116B8E08400194CF0 = {
 			isa = PBXGroup;
 			children = (
@@ -180,8 +201,7 @@
 		5FE7372716B8E08400194CF0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5F91537516BA4B560074FFF2 /* top_back_button@2x.png */,
-				5F91537716BA4D0F0074FFF2 /* background@2x.png */,
+				5F91537C16BA62490074FFF2 /* image */,
 				5FE7372816B8E08400194CF0 /* QuizGame-Info.plist */,
 				5FE7372916B8E08400194CF0 /* InfoPlist.strings */,
 				5FE7372C16B8E08400194CF0 /* main.m */,
@@ -271,6 +291,10 @@
 				5FE7375D16B9007200194CF0 /* README.txt in Resources */,
 				5F91537616BA4B560074FFF2 /* top_back_button@2x.png in Resources */,
 				5F91537816BA4D0F0074FFF2 /* background@2x.png in Resources */,
+				5F91538016BA62570074FFF2 /* wrong@2x.png in Resources */,
+				5F91538116BA62570074FFF2 /* correct@2x.png in Resources */,
+				5F91538216BA62570074FFF2 /* gold@2x.png in Resources */,
+				5F91538416BA6FD00074FFF2 /* top_back_ground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

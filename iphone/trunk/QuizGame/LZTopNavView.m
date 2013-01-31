@@ -7,8 +7,14 @@
 //
 
 #import "LZTopNavView.h"
-#define kTopBackButtonWidth 40
-#define kTopBackButtonHeight 40
+#define kBackgroundImageViewFrame CGRectMake(0, 0, 320, 44)
+#define kBackButtonFrame CGRectMake(5, 2, 40, 40)
+#define kGoldButtonFrame CGRectMake(55, 2, 40, 40)
+#define kGoldCountLabelFrame CGRectMake(100, 2, 30, 40)
+#define kCorrectImageFrame CGRectMake(140, 12, 20, 20)
+#define kCorrectCountLabelFrame CGRectMake(185, 2, 30, 40)
+#define kWrongImageFrame CGRectMake(225, 12, 20, 20)
+#define kWrongCountLabelFrame CGRectMake(270, 2, 30, 40)
 @implementation LZTopNavView
 @synthesize delegate;
 @synthesize backgroundImageView;
@@ -27,17 +33,49 @@
     if (self) {
         self.delegate = target;
         // Initialization code
-        self.backgroundImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
+        self.backgroundImageView = [[UIImageView alloc]initWithFrame:kBackgroundImageViewFrame];
+        [self.backgroundImageView setImage:[UIImage imageNamed:@"top_back_ground.png"]];
         [self addSubview:self.backgroundImageView];
-        self.backButton = [[UIButton alloc]initWithFrame:CGRectMake(0 , 2 , kTopBackButtonWidth, kTopBackButtonHeight)];
+        
+        self.backButton = [[UIButton alloc]initWithFrame:kBackButtonFrame];
         [self.backButton setImage:[UIImage imageNamed:@"top_back_button.png"] forState:UIControlStateNormal];
         [self.backButton addTarget:self action:@selector(backButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.backButton];
-        self.goldButton = [[UIButton alloc]initWithFrame:CGRectMake(50 , 2 , kTopBackButtonWidth, kTopBackButtonHeight)];
-        [self.goldButton setImage:[UIImage imageNamed:@"top_back_button.png"] forState:UIControlStateNormal];
+        
+        self.goldButton = [[UIButton alloc]initWithFrame:kGoldButtonFrame];
+        [self.goldButton setImage:[UIImage imageNamed:@"gold.png"] forState:UIControlStateNormal];
         [self.goldButton addTarget:self action:@selector(goldButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.goldButton];
         
+        self.goldCountLabel = [[UILabel alloc]initWithFrame:kGoldCountLabelFrame];
+        self.goldCountLabel.text = @"300";
+        self.goldCountLabel.textColor = [UIColor whiteColor];
+        self.goldCountLabel.backgroundColor = [UIColor clearColor];
+        self.goldCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.f];
+        [self addSubview:self.goldCountLabel];
+        
+        self.correctIconImageView = [[UIImageView alloc]initWithFrame:kCorrectImageFrame];
+        [self.correctIconImageView setImage:[UIImage imageNamed:@"correct.png"]];
+        [self addSubview:self.correctIconImageView];
+        
+        self.correctCountLabel = [[UILabel alloc]initWithFrame:kCorrectCountLabelFrame];
+        self.correctCountLabel.text = @"3";
+        self.correctCountLabel.textColor = [UIColor whiteColor];
+        self.correctCountLabel.backgroundColor = [UIColor clearColor];
+        self.correctCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.f];
+        [self addSubview:self.correctCountLabel];
+
+        self.wrongIconImageView = [[UIImageView alloc]initWithFrame:kWrongImageFrame];
+        [self.wrongIconImageView setImage:[UIImage imageNamed:@"wrong.png"]];
+        [self addSubview:self.wrongIconImageView];
+        
+        self.wrongCountLabel = [[UILabel alloc]initWithFrame:kWrongCountLabelFrame];
+        self.wrongCountLabel.text = @"3";
+        self.wrongCountLabel.textColor = [UIColor whiteColor];
+        self.wrongCountLabel.backgroundColor = [UIColor clearColor];
+        self.wrongCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.f];
+        [self addSubview:self.wrongCountLabel];
+
     }
     return self;
 }
@@ -63,7 +101,7 @@
         self.correctCountLabel.hidden = YES;
         self.wrongIconImageView.hidden = YES;
         self.wrongCountLabel.hidden = YES;
-        self.goldButton.userInteractionEnabled = YES;
+        self.goldButton.Enabled = YES;
     }
     else if (topNavType == TopNavTypeGaming)
     {
@@ -71,7 +109,7 @@
         self.correctCountLabel.hidden = NO;
         self.wrongIconImageView.hidden = NO;
         self.wrongCountLabel.hidden = NO;
-        self.goldButton.userInteractionEnabled = YES;
+        self.goldButton.Enabled = YES;
     }
     else
     {
@@ -79,7 +117,7 @@
         self.correctCountLabel.hidden = YES;
         self.wrongIconImageView.hidden = YES;
         self.wrongCountLabel.hidden = YES;
-        self.goldButton.userInteractionEnabled = NO;
+        self.goldButton.Enabled = NO;
     }
     _topNavType = topNavType;
 }

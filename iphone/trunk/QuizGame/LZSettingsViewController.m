@@ -32,10 +32,6 @@
 {
     [super viewWillAppear:animated];
 }
-#pragma -mark TopNavViewDelegate
-- (void)goldButtonTapped{
-    NSLog(@"settings goldButtonTapped");
-}
 
 - (void)didReceiveMemoryWarning
 {
