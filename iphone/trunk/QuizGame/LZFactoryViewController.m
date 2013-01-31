@@ -28,7 +28,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.controllerBackImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 480)];
+    CGSize screenSize = [[UIScreen mainScreen]bounds].size;
+    self.controllerBackImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
     [self.controllerBackImageView setImage:[UIImage imageNamed:@"background.png"]];
     [self.view addSubview:controllerBackImageView];
     self.topNavView = [[LZTopNavView alloc]initWithFrame:kTopNavViewFrame delegate:self];
@@ -43,13 +44,13 @@
 }
 #pragma -mark TopNavViewDelegate
 - (void)backButtonTapped{
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:NO];
     NSLog(@"backButtonTapped");
 }
 - (void)goldButtonTapped{
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     LZStoreViewController * storeViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZStoreViewController"];
-    [self.navigationController pushViewController:storeViewController animated:YES];
+    [self.navigationController pushViewController:storeViewController animated:NO];
    NSLog(@"goldButtonTapped");
 }
 - (void)didReceiveMemoryWarning

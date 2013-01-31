@@ -81,8 +81,8 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="Eqf-K1-HOb">
-                                <rect key="frame" x="0.0" y="44" width="320" height="386"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="Eqf-K1-HOb">
+                                <rect key="frame" x="0.0" y="44" width="320" height="366"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -111,6 +111,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="selectButton" destination="6u1-FT-B9W" id="d7W-9s-XFT"/>
+                                            <segue destination="7Ov-VL-bXq" kind="custom" customClass="SeguePush" id="NOS-RN-Evc"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -130,6 +131,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JY8-n7-U0m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="748" y="-373"/>
+        </scene>
+        <!--Level View Controller-->
+        <scene sceneID="Chw-Rv-d2X">
+            <objects>
+                <viewController id="7Ov-VL-bXq" customClass="LZLevelViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="klW-AP-GfS">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="jnC-n6-um8">
+                                <rect key="frame" x="0.0" y="44" width="320" height="366"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="LevelCell" rowHeight="84" id="Igf-0o-3Hg" customClass="LevelCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="84"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3c3-xr-ECL">
+                                                    <rect key="frame" x="20" y="10" width="280" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Button">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="selectButton" destination="3c3-xr-ECL" id="Ew8-Fx-fug"/>
+                                            <segue destination="vSd-wA-bMV" kind="custom" customClass="SeguePush" id="UbK-ca-lZX"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="7Ov-VL-bXq" id="erl-OE-IsE"/>
+                                    <outlet property="delegate" destination="7Ov-VL-bXq" id="We7-UH-Cjo"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="listView" destination="jnC-n6-um8" id="aZm-6E-uCV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s3W-s0-zvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1206" y="-374"/>
+        </scene>
+        <!--Gaming View Controller-->
+        <scene sceneID="1UT-Pn-ZS8">
+            <objects>
+                <viewController id="vSd-wA-bMV" customClass="LZGamingViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="EGr-Px-34X">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sL7-dM-1ac" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1704" y="-357"/>
         </scene>
         <!--Store View Controller-->
         <scene sceneID="lxm-u8-6pk">
@@ -152,8 +225,51 @@
                     <view key="view" contentMode="scaleToFill" id="tJa-r9-gmY">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="mFY-5b-zPH">
+                                <rect key="frame" x="0.0" y="44" width="320" height="366"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SettingCell" rowHeight="84" id="dfl-ae-kEX" customClass="SettingCell">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="84"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uhs-HD-Tj0">
+                                                    <rect key="frame" x="37" y="20" width="231" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Statistics">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <outlet property="selectButton" destination="uhs-HD-Tj0" id="GIq-tJ-1kx"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="NOi-5Q-ZBU" id="kFP-cB-cHA"/>
+                                    <outlet property="delegate" destination="NOi-5Q-ZBU" id="4vj-Fd-ryN"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="listView" destination="mFY-5b-zPH" id="6gN-8Q-3o2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nt4-fa-0tf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,6 +301,15 @@
         <class className="LZFactoryViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LZFactoryViewController.h"/>
         </class>
+        <class className="LZGamingViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LZGamingViewController.h"/>
+        </class>
+        <class className="LZLevelViewController" superclassName="LZFactoryViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LZLevelViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="listView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
         <class className="LZPackageViewController" superclassName="LZFactoryViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LZPackageViewController.h"/>
             <relationships>
@@ -193,6 +318,9 @@
         </class>
         <class className="LZSettingsViewController" superclassName="LZFactoryViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LZSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="listView" candidateClass="UITableView"/>
+            </relationships>
         </class>
         <class className="LZStoreViewController" superclassName="LZFactoryViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LZStoreViewController.h"/>
@@ -200,8 +328,20 @@
         <class className="LZViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LZViewController.h"/>
         </class>
+        <class className="LevelCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LevelCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="selectButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
         <class className="PackageCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PackageCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="selectButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="SettingCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="selectButton" candidateClass="UIButton"/>
             </relationships>

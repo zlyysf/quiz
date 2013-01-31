@@ -1,18 +1,18 @@
 //
-//  LZSettingsViewController.m
+//  LZLevelViewController.m
 //  QuizGame
 //
-//  Created by liu miao on 1/31/13.
+//  Created by liu miao on 2/1/13.
 //  Copyright (c) 2013 lingzhi mobile. All rights reserved.
 //
 
-#import "LZSettingsViewController.h"
-#import "SettingCell.h"
-@interface LZSettingsViewController ()
+#import "LZLevelViewController.h"
+#import "LevelCell.h"
+@interface LZLevelViewController ()
 
 @end
 
-@implementation LZSettingsViewController
+@implementation LZLevelViewController
 @synthesize listView;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,19 +30,15 @@
     [self.view addSubview:self.listView];
 	// Do any additional setup after loading the view.
 }
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    return 3;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    SettingCell *cell = (SettingCell *)[tableView dequeueReusableCellWithIdentifier:@"SettingCell"];
-    [cell.selectButton setTitle:[NSString stringWithFormat:@"setting %d",indexPath.row+1] forState:UIControlStateNormal];
+    LevelCell *cell = (LevelCell *)[tableView dequeueReusableCellWithIdentifier:@"LevelCell"];
+    [cell.selectButton setTitle:[NSString stringWithFormat:@"level %d",indexPath.row+1] forState:UIControlStateNormal];
     return cell;
 }
 

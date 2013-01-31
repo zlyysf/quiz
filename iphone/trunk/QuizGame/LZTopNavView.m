@@ -10,11 +10,11 @@
 #define kBackgroundImageViewFrame CGRectMake(0, 0, 320, 44)
 #define kBackButtonFrame CGRectMake(5, 2, 40, 40)
 #define kGoldButtonFrame CGRectMake(55, 2, 40, 40)
-#define kGoldCountLabelFrame CGRectMake(100, 2, 30, 40)
-#define kCorrectImageFrame CGRectMake(140, 12, 20, 20)
-#define kCorrectCountLabelFrame CGRectMake(185, 2, 30, 40)
-#define kWrongImageFrame CGRectMake(225, 12, 20, 20)
-#define kWrongCountLabelFrame CGRectMake(270, 2, 30, 40)
+#define kGoldCountLabelFrame CGRectMake(100, 2, 50, 40)
+#define kCorrectImageFrame CGRectMake(160, 12, 20, 20)
+#define kCorrectCountLabelFrame CGRectMake(205, 2, 30, 40)
+#define kWrongImageFrame CGRectMake(245, 12, 20, 20)
+#define kWrongCountLabelFrame CGRectMake(290, 2, 30, 40)
 @implementation LZTopNavView
 @synthesize delegate;
 @synthesize backgroundImageView;

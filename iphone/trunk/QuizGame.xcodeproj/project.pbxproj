@@ -18,6 +18,10 @@
 		5F91538116BA62570074FFF2 /* correct@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F91537E16BA62570074FFF2 /* correct@2x.png */; };
 		5F91538216BA62570074FFF2 /* gold@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F91537F16BA62570074FFF2 /* gold@2x.png */; };
 		5F91538416BA6FD00074FFF2 /* top_back_ground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F91538316BA6FD00074FFF2 /* top_back_ground@2x.png */; };
+		5F91538716BAD6410074FFF2 /* LZLevelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91538616BAD6410074FFF2 /* LZLevelViewController.m */; };
+		5F91538A16BAD8C00074FFF2 /* LevelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91538916BAD8BF0074FFF2 /* LevelCell.m */; };
+		5F91538D16BADF9D0074FFF2 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91538C16BADF9D0074FFF2 /* SettingCell.m */; };
+		5F91539016BAE6840074FFF2 /* LZGamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91538F16BAE6840074FFF2 /* LZGamingViewController.m */; };
 		5FE7372116B8E08400194CF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7372016B8E08400194CF0 /* UIKit.framework */; };
 		5FE7372316B8E08400194CF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7372216B8E08400194CF0 /* Foundation.framework */; };
 		5FE7372516B8E08400194CF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7372416B8E08400194CF0 /* CoreGraphics.framework */; };
@@ -59,6 +63,14 @@
 		5F91537E16BA62570074FFF2 /* correct@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "correct@2x.png"; sourceTree = "<group>"; };
 		5F91537F16BA62570074FFF2 /* gold@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gold@2x.png"; sourceTree = "<group>"; };
 		5F91538316BA6FD00074FFF2 /* top_back_ground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_back_ground@2x.png"; sourceTree = "<group>"; };
+		5F91538516BAD6410074FFF2 /* LZLevelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZLevelViewController.h; sourceTree = "<group>"; };
+		5F91538616BAD6410074FFF2 /* LZLevelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZLevelViewController.m; sourceTree = "<group>"; };
+		5F91538816BAD8BF0074FFF2 /* LevelCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelCell.h; sourceTree = "<group>"; };
+		5F91538916BAD8BF0074FFF2 /* LevelCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelCell.m; sourceTree = "<group>"; };
+		5F91538B16BADF9C0074FFF2 /* SettingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingCell.h; sourceTree = "<group>"; };
+		5F91538C16BADF9D0074FFF2 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
+		5F91538E16BAE6830074FFF2 /* LZGamingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZGamingViewController.h; sourceTree = "<group>"; };
+		5F91538F16BAE6840074FFF2 /* LZGamingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZGamingViewController.m; sourceTree = "<group>"; };
 		5FE7371C16B8E08400194CF0 /* QuizGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE7372016B8E08400194CF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5FE7372216B8E08400194CF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -185,6 +197,10 @@
 				5FE7375F16B9012700194CF0 /* GADMasterViewController.m */,
 				5FE7376D16B9078B00194CF0 /* LZPackageViewController.h */,
 				5FE7376E16B9078B00194CF0 /* LZPackageViewController.m */,
+				5F91538516BAD6410074FFF2 /* LZLevelViewController.h */,
+				5F91538616BAD6410074FFF2 /* LZLevelViewController.m */,
+				5F91538E16BAE6830074FFF2 /* LZGamingViewController.h */,
+				5F91538F16BAE6840074FFF2 /* LZGamingViewController.m */,
 				5F91537916BA50E30074FFF2 /* LZStoreViewController.h */,
 				5F91537A16BA50E30074FFF2 /* LZStoreViewController.m */,
 				5FE7377016B90FB900194CF0 /* SeguePush.h */,
@@ -193,6 +209,10 @@
 				5FE7377416B9163100194CF0 /* SeguePop.m */,
 				5F91536316BA27180074FFF2 /* PackageCell.h */,
 				5F91536416BA27180074FFF2 /* PackageCell.m */,
+				5F91538816BAD8BF0074FFF2 /* LevelCell.h */,
+				5F91538916BAD8BF0074FFF2 /* LevelCell.m */,
+				5F91538B16BADF9C0074FFF2 /* SettingCell.h */,
+				5F91538C16BADF9D0074FFF2 /* SettingCell.m */,
 				5FE7372716B8E08400194CF0 /* Supporting Files */,
 			);
 			path = QuizGame;
@@ -317,6 +337,10 @@
 				5F91537116BA44C00074FFF2 /* LZFactoryViewController.m in Sources */,
 				5F91537416BA49BD0074FFF2 /* LZSettingsViewController.m in Sources */,
 				5F91537B16BA50E30074FFF2 /* LZStoreViewController.m in Sources */,
+				5F91538716BAD6410074FFF2 /* LZLevelViewController.m in Sources */,
+				5F91538A16BAD8C00074FFF2 /* LevelCell.m in Sources */,
+				5F91538D16BADF9D0074FFF2 /* SettingCell.m in Sources */,
+				5F91539016BAE6840074FFF2 /* LZGamingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

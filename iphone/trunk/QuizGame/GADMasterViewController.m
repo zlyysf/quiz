@@ -17,10 +17,13 @@
 
 +(GADMasterViewController *)singleton {
     static dispatch_once_t pred;
-    static GADMasterViewController *shared;
+    static GADMasterViewController *shared = nil;
     // Will only be run once, the first time this is called
     dispatch_once(&pred, ^{
-        shared = [[GADMasterViewController alloc] init];
+        if (shared == nil)
+        {
+            shared = [[GADMasterViewController alloc] init];
+        }
     });
     return shared;
 }
@@ -32,6 +35,7 @@
                                               screenSize.height - GAD_SIZE_320x50.height,
                                               GAD_SIZE_320x50.width,
                                               GAD_SIZE_320x50.height)];
+        NSLog(@"admob view width %f ,height %f",adBanner_.frame.size.width,adBanner_.frame.size.height);
         // Has an ad request already been made
         isLoaded_ = NO;
     }

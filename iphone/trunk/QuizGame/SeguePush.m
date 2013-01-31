@@ -12,6 +12,6 @@
 -(void)perform{
     UIViewController *source = (UIViewController*)self.sourceViewController;
     UIViewController *dest = (UIViewController *)self.destinationViewController;
-    [source.navigationController pushViewController:dest animated:YES];
+    [source.navigationController pushViewController:dest animated:NO];
 }
 @end
