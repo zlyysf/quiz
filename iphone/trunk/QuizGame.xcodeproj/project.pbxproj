@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5F91536516BA27180074FFF2 /* PackageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536416BA27180074FFF2 /* PackageCell.m */; };
+		5F91536E16BA38D50074FFF2 /* LZTopNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536D16BA38D50074FFF2 /* LZTopNavView.m */; };
+		5F91537116BA44C00074FFF2 /* LZFactoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91537016BA44C00074FFF2 /* LZFactoryViewController.m */; };
+		5F91537416BA49BD0074FFF2 /* LZSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91537316BA49BD0074FFF2 /* LZSettingsViewController.m */; };
+		5F91537616BA4B560074FFF2 /* top_back_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F91537516BA4B560074FFF2 /* top_back_button@2x.png */; };
+		5F91537816BA4D0F0074FFF2 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F91537716BA4D0F0074FFF2 /* background@2x.png */; };
+		5F91537B16BA50E30074FFF2 /* LZStoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91537A16BA50E30074FFF2 /* LZStoreViewController.m */; };
 		5FE7372116B8E08400194CF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7372016B8E08400194CF0 /* UIKit.framework */; };
 		5FE7372316B8E08400194CF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7372216B8E08400194CF0 /* Foundation.framework */; };
 		5FE7372516B8E08400194CF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7372416B8E08400194CF0 /* CoreGraphics.framework */; };
@@ -35,6 +41,16 @@
 /* Begin PBXFileReference section */
 		5F91536316BA27180074FFF2 /* PackageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageCell.h; sourceTree = "<group>"; };
 		5F91536416BA27180074FFF2 /* PackageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageCell.m; sourceTree = "<group>"; };
+		5F91536C16BA38D50074FFF2 /* LZTopNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTopNavView.h; sourceTree = "<group>"; };
+		5F91536D16BA38D50074FFF2 /* LZTopNavView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZTopNavView.m; sourceTree = "<group>"; };
+		5F91536F16BA44C00074FFF2 /* LZFactoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZFactoryViewController.h; sourceTree = "<group>"; };
+		5F91537016BA44C00074FFF2 /* LZFactoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZFactoryViewController.m; sourceTree = "<group>"; };
+		5F91537216BA49BD0074FFF2 /* LZSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSettingsViewController.h; sourceTree = "<group>"; };
+		5F91537316BA49BD0074FFF2 /* LZSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSettingsViewController.m; sourceTree = "<group>"; };
+		5F91537516BA4B560074FFF2 /* top_back_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "top_back_button@2x.png"; sourceTree = "<group>"; };
+		5F91537716BA4D0F0074FFF2 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		5F91537916BA50E30074FFF2 /* LZStoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZStoreViewController.h; sourceTree = "<group>"; };
+		5F91537A16BA50E30074FFF2 /* LZStoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZStoreViewController.m; sourceTree = "<group>"; };
 		5FE7371C16B8E08400194CF0 /* QuizGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE7372016B8E08400194CF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5FE7372216B8E08400194CF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -136,19 +152,27 @@
 				5FE7372F16B8E08400194CF0 /* LZAppDelegate.h */,
 				5FE7373016B8E08400194CF0 /* LZAppDelegate.m */,
 				5FE7373816B8E08400194CF0 /* MainStoryboard.storyboard */,
+				5F91536C16BA38D50074FFF2 /* LZTopNavView.h */,
+				5F91536D16BA38D50074FFF2 /* LZTopNavView.m */,
+				5F91536F16BA44C00074FFF2 /* LZFactoryViewController.h */,
+				5F91537016BA44C00074FFF2 /* LZFactoryViewController.m */,
+				5F91537216BA49BD0074FFF2 /* LZSettingsViewController.h */,
+				5F91537316BA49BD0074FFF2 /* LZSettingsViewController.m */,
 				5FE7373B16B8E08400194CF0 /* LZViewController.h */,
 				5FE7373C16B8E08400194CF0 /* LZViewController.m */,
 				5FE7375E16B9012700194CF0 /* GADMasterViewController.h */,
 				5FE7375F16B9012700194CF0 /* GADMasterViewController.m */,
 				5FE7376D16B9078B00194CF0 /* LZPackageViewController.h */,
 				5FE7376E16B9078B00194CF0 /* LZPackageViewController.m */,
-				5FE7372716B8E08400194CF0 /* Supporting Files */,
+				5F91537916BA50E30074FFF2 /* LZStoreViewController.h */,
+				5F91537A16BA50E30074FFF2 /* LZStoreViewController.m */,
 				5FE7377016B90FB900194CF0 /* SeguePush.h */,
 				5FE7377116B90FB900194CF0 /* SeguePush.m */,
 				5FE7377316B9163100194CF0 /* SeguePop.h */,
 				5FE7377416B9163100194CF0 /* SeguePop.m */,
 				5F91536316BA27180074FFF2 /* PackageCell.h */,
 				5F91536416BA27180074FFF2 /* PackageCell.m */,
+				5FE7372716B8E08400194CF0 /* Supporting Files */,
 			);
 			path = QuizGame;
 			sourceTree = "<group>";
@@ -156,6 +180,8 @@
 		5FE7372716B8E08400194CF0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5F91537516BA4B560074FFF2 /* top_back_button@2x.png */,
+				5F91537716BA4D0F0074FFF2 /* background@2x.png */,
 				5FE7372816B8E08400194CF0 /* QuizGame-Info.plist */,
 				5FE7372916B8E08400194CF0 /* InfoPlist.strings */,
 				5FE7372C16B8E08400194CF0 /* main.m */,
@@ -243,6 +269,8 @@
 				5FE7373716B8E08400194CF0 /* Default-568h@2x.png in Resources */,
 				5FE7373A16B8E08400194CF0 /* MainStoryboard.storyboard in Resources */,
 				5FE7375D16B9007200194CF0 /* README.txt in Resources */,
+				5F91537616BA4B560074FFF2 /* top_back_button@2x.png in Resources */,
+				5F91537816BA4D0F0074FFF2 /* background@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +289,10 @@
 				5FE7377216B90FB900194CF0 /* SeguePush.m in Sources */,
 				5FE7377516B9163200194CF0 /* SeguePop.m in Sources */,
 				5F91536516BA27180074FFF2 /* PackageCell.m in Sources */,
+				5F91536E16BA38D50074FFF2 /* LZTopNavView.m in Sources */,
+				5F91537116BA44C00074FFF2 /* LZFactoryViewController.m in Sources */,
+				5F91537416BA49BD0074FFF2 /* LZSettingsViewController.m in Sources */,
+				5F91537B16BA50E30074FFF2 /* LZStoreViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

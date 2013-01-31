@@ -7,8 +7,6 @@
 //
 
 #import "LZPackageViewController.h"
-#import "GADBannerView.h"
-#import "GADMasterViewController.h"
 #import "PackageCell.h"
 @interface LZPackageViewController ()
 
@@ -29,8 +27,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    GADMasterViewController *shared = [GADMasterViewController singleton];
-    [shared resetAdView:self];
+    [super viewWillAppear:animated];
 
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
@@ -44,9 +41,16 @@
     [cell.selectButton setTitle:[NSString stringWithFormat:@"package %d",indexPath.row+1] forState:UIControlStateNormal];
     return cell;
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"select");
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.topNavView.topNavType = TopNavTypeNormal;
+    [self.view addSubview:self.listView];
 	// Do any additional setup after loading the view.
 }
 

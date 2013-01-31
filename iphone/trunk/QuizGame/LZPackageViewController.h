@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 lingzhi mobile. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "LZFactoryViewController.h"
 
-@interface LZPackageViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface LZPackageViewController : LZFactoryViewController<UITableViewDataSource,UITableViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UITableView *listView;
 @end
