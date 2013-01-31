@@ -11,6 +11,6 @@
 @implementation SeguePop
 -(void)perform{
     UIViewController *source = (UIViewController*)self.sourceViewController;
-    [source.navigationController popViewControllerAnimated:NO];
+    [source.navigationController popViewControllerAnimated:YES];
 }
 @end

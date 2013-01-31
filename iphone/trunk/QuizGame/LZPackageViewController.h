@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LZPackageViewController : UIViewController
+@interface LZPackageViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UITableView *listView;
 @end

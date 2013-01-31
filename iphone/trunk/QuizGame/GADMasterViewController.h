@@ -15,5 +15,5 @@
     id currentDelegate_;
 }
 +(GADMasterViewController *)singleton;
--(void)resetAdView:(UIViewController<GADBannerViewDelegate> *)rootViewController;
+-(void)resetAdView:(UIViewController *)rootViewController;
 @end

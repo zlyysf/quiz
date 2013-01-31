@@ -38,16 +38,13 @@
     return self;
 }
 
--(void)resetAdView:(UIViewController<GADBannerViewDelegate> *)rootViewController {
+-(void)resetAdView:(UIViewController *)rootViewController {
     // Always keep track of currentDelegate for notification forwarding
     currentDelegate_ = rootViewController;
     // Ad already requested, simply add it into the view
     if (isLoaded_) {
         [rootViewController.view addSubview:adBanner_];
-        for (UIView * view in rootViewController.view.subviews)
-        {
-            NSLog(@"%@",[view description]);
-        }
+
     } else {
         
         adBanner_.delegate = self;
@@ -61,6 +58,14 @@
     }
 }
 - (void)adViewDidReceiveAd:(GADBannerView *)view {
+    if (adBanner_.hasAutoRefreshed)
+    {
+        NSLog(@"hasAutoRefreshed YES");
+    }
+    else
+    {
+        NSLog(@"hasAutoRefreshed NO");
+    }
     if ([currentDelegate_ respondsToSelector:@selector(adViewDidReceiveAd:)]) {
         [currentDelegate_ adViewDidReceiveAd:view];
     }
@@ -69,6 +74,14 @@
 didFailToReceiveAdWithError:(GADRequestError *)error
 {
     NSLog(@"Admob Error %@",[error description]);
+    if (adBanner_.hasAutoRefreshed)
+    {
+        NSLog(@"hasAutoRefreshed YES");
+    }
+    else
+    {
+        NSLog(@"hasAutoRefreshed NO");
+    }
 }
 - (void)didReceiveMemoryWarning
 {
