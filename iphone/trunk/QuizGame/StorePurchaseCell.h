@@ -1,5 +1,5 @@
 //
-//  SettingCell.h
+//  StorePurchaseCell.h
 //  QuizGame
 //
 //  Created by liu miao on 2/1/13.
@@ -8,7 +8,9 @@
 
 #import "LZCell.h"
 
-@interface SettingCell : LZCell
-
+@interface StorePurchaseCell : LZCell
 @property (strong, nonatomic) IBOutlet LZButton *selectButton;
+@property (strong, nonatomic) IBOutlet UILabel *productNameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *productPriceLabel;
+
 @end

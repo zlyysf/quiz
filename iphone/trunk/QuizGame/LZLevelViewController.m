@@ -9,7 +9,7 @@
 #import "LZLevelViewController.h"
 #import "LZGamingViewController.h"
 #import "LevelCell.h"
-@interface LZLevelViewController ()<LevelCellDelegate>
+@interface LZLevelViewController ()<LZCellDelegate>
 
 @end
 
@@ -42,14 +42,14 @@
     //[cell.selectButton setTitle:[NSString stringWithFormat:@"level %d",indexPath.row+1] forState:UIControlStateNormal];
     cell.delegate = self;
     cell.levelNameLabel.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
-    cell.levelCellIndexPath = indexPath;
+    cell.cellIndexPath = indexPath;
     int num = rand()%10+1;
     cell.levelScoreLabel.text = [NSString stringWithFormat:@"Score : %d",num*100];
     cell.levelProgressLabel.text = [NSString stringWithFormat:@"%d / 10",num];
     return cell;
 }
-#pragma -mark Level Cell Delegate
-- (void)selectedLevel:(NSIndexPath *)cellIndexPath
+#pragma -mark  LZCell Delegate
+-(void)selectedLZCell:(NSIndexPath *)LZCellIndexPath
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     LZGamingViewController * gamingViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZGamingViewController"];

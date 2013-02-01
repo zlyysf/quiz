@@ -8,6 +8,7 @@
 
 #import "LZFactoryViewController.h"
 
-@interface LZStoreViewController : LZFactoryViewController
+@interface LZStoreViewController : LZFactoryViewController<UITableViewDataSource,UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet UITableView *listView;
 
 @end

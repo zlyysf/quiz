@@ -6,15 +6,10 @@
 //  Copyright (c) 2013 lingzhi mobile. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-@protocol LevelCellDelegate<NSObject>
-- (void)selectedLevel:(NSIndexPath *)cellIndexPath;
-@end
-@interface LevelCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIButton *selectButton;
-@property (nonatomic,strong)NSIndexPath * levelCellIndexPath;
+#import "LZCell.h"
+@interface LevelCell : LZCell
+@property (strong, nonatomic) IBOutlet LZButton *selectButton;
 @property (strong, nonatomic) IBOutlet UILabel *levelNameLabel;
-@property (nonatomic,weak)id<LevelCellDelegate>delegate;
 @property (strong, nonatomic) IBOutlet UILabel *levelScoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *levelProgressLabel;
 @end

@@ -10,30 +10,31 @@
 
 @implementation PackageCell
 @synthesize selectButton;
-@synthesize delegate;
 @synthesize packageNameLabel;
 @synthesize packageTotalSubjectCountLabel;
-@synthesize packageCellIndexPath;
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
     }
     return self;
 }
+
+/*
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
+
 - (IBAction)buttonTapped {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedPackage:) ])
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedLZCell:) ])
     {
-        [self.delegate selectedPackage:self.packageCellIndexPath];
+        [self.delegate selectedLZCell:self.cellIndexPath];
     }
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 @end

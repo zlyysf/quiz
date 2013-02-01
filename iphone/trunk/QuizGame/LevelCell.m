@@ -10,30 +10,32 @@
 
 @implementation LevelCell
 @synthesize selectButton;
-@synthesize levelCellIndexPath;
 @synthesize levelNameLabel;
-@synthesize delegate;
 @synthesize levelScoreLabel;
 @synthesize levelProgressLabel;
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+- (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
+    self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
     }
     return self;
 }
-- (IBAction)buttonTapped {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedLevel:) ])
-    {
-        [self.delegate selectedLevel:self.levelCellIndexPath];
-    }
-}
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+/*
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect
+ {
+ // Drawing code
+ }
+ */
+
+- (IBAction)buttonTapped {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedLZCell:) ])
+    {
+        [self.delegate selectedLZCell:self.cellIndexPath];
+    }
 }
 
 @end

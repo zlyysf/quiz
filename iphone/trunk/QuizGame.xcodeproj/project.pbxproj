@@ -22,6 +22,15 @@
 		5F91538A16BAD8C00074FFF2 /* LevelCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91538916BAD8BF0074FFF2 /* LevelCell.m */; };
 		5F91538D16BADF9D0074FFF2 /* SettingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91538C16BADF9D0074FFF2 /* SettingCell.m */; };
 		5F91539016BAE6840074FFF2 /* LZGamingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91538F16BAE6840074FFF2 /* LZGamingViewController.m */; };
+		5F91539916BBA5080074FFF2 /* LZCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91539816BBA5080074FFF2 /* LZCell.m */; };
+		5F91539C16BBA5D70074FFF2 /* StorePurchaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91539B16BBA5D70074FFF2 /* StorePurchaseCell.m */; };
+		5F91539F16BBADEF0074FFF2 /* LZButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91539E16BBADEF0074FFF2 /* LZButton.m */; };
+		5F9153A316BBB0580074FFF2 /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9153A016BBB0580074FFF2 /* facebook@2x.png */; };
+		5F9153A416BBB0580074FFF2 /* lzbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9153A116BBB0580074FFF2 /* lzbutton@2x.png */; };
+		5F9153A516BBB0580074FFF2 /* review@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9153A216BBB0580074FFF2 /* review@2x.png */; };
+		5F9153A716BBB06C0074FFF2 /* twitter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9153A616BBB06C0074FFF2 /* twitter@2x.png */; };
+		5F98A12C16BBB6810084A2F5 /* StoreFreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F98A12B16BBB6810084A2F5 /* StoreFreeCell.m */; };
+		5F98A12F16BBB6C80084A2F5 /* RestorePurchaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F98A12E16BBB6C80084A2F5 /* RestorePurchaseCell.m */; };
 		5FE7372116B8E08400194CF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7372016B8E08400194CF0 /* UIKit.framework */; };
 		5FE7372316B8E08400194CF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7372216B8E08400194CF0 /* Foundation.framework */; };
 		5FE7372516B8E08400194CF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7372416B8E08400194CF0 /* CoreGraphics.framework */; };
@@ -71,6 +80,20 @@
 		5F91538C16BADF9D0074FFF2 /* SettingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingCell.m; sourceTree = "<group>"; };
 		5F91538E16BAE6830074FFF2 /* LZGamingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZGamingViewController.h; sourceTree = "<group>"; };
 		5F91538F16BAE6840074FFF2 /* LZGamingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZGamingViewController.m; sourceTree = "<group>"; };
+		5F91539716BBA5080074FFF2 /* LZCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZCell.h; sourceTree = "<group>"; };
+		5F91539816BBA5080074FFF2 /* LZCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZCell.m; sourceTree = "<group>"; };
+		5F91539A16BBA5D60074FFF2 /* StorePurchaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StorePurchaseCell.h; sourceTree = "<group>"; };
+		5F91539B16BBA5D70074FFF2 /* StorePurchaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StorePurchaseCell.m; sourceTree = "<group>"; };
+		5F91539D16BBADEF0074FFF2 /* LZButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZButton.h; sourceTree = "<group>"; };
+		5F91539E16BBADEF0074FFF2 /* LZButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZButton.m; sourceTree = "<group>"; };
+		5F9153A016BBB0580074FFF2 /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook@2x.png"; sourceTree = "<group>"; };
+		5F9153A116BBB0580074FFF2 /* lzbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lzbutton@2x.png"; sourceTree = "<group>"; };
+		5F9153A216BBB0580074FFF2 /* review@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "review@2x.png"; sourceTree = "<group>"; };
+		5F9153A616BBB06C0074FFF2 /* twitter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter@2x.png"; sourceTree = "<group>"; };
+		5F98A12A16BBB6810084A2F5 /* StoreFreeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreFreeCell.h; sourceTree = "<group>"; };
+		5F98A12B16BBB6810084A2F5 /* StoreFreeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreFreeCell.m; sourceTree = "<group>"; };
+		5F98A12D16BBB6C80084A2F5 /* RestorePurchaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestorePurchaseCell.h; sourceTree = "<group>"; };
+		5F98A12E16BBB6C80084A2F5 /* RestorePurchaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestorePurchaseCell.m; sourceTree = "<group>"; };
 		5FE7371C16B8E08400194CF0 /* QuizGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE7372016B8E08400194CF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5FE7372216B8E08400194CF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -136,6 +159,10 @@
 		5F91537C16BA62490074FFF2 /* image */ = {
 			isa = PBXGroup;
 			children = (
+				5F9153A616BBB06C0074FFF2 /* twitter@2x.png */,
+				5F9153A016BBB0580074FFF2 /* facebook@2x.png */,
+				5F9153A116BBB0580074FFF2 /* lzbutton@2x.png */,
+				5F9153A216BBB0580074FFF2 /* review@2x.png */,
 				5F91537516BA4B560074FFF2 /* top_back_button@2x.png */,
 				5F91537716BA4D0F0074FFF2 /* background@2x.png */,
 				5F91538316BA6FD00074FFF2 /* top_back_ground@2x.png */,
@@ -157,6 +184,8 @@
 				5F91537016BA44C00074FFF2 /* LZFactoryViewController.m */,
 				5FE7375E16B9012700194CF0 /* GADMasterViewController.h */,
 				5FE7375F16B9012700194CF0 /* GADMasterViewController.m */,
+				5F91539D16BBADEF0074FFF2 /* LZButton.h */,
+				5F91539E16BBADEF0074FFF2 /* LZButton.m */,
 			);
 			name = BaseComponent;
 			sourceTree = "<group>";
@@ -189,6 +218,14 @@
 				5F91538916BAD8BF0074FFF2 /* LevelCell.m */,
 				5F91538B16BADF9C0074FFF2 /* SettingCell.h */,
 				5F91538C16BADF9D0074FFF2 /* SettingCell.m */,
+				5F91539716BBA5080074FFF2 /* LZCell.h */,
+				5F91539816BBA5080074FFF2 /* LZCell.m */,
+				5F91539A16BBA5D60074FFF2 /* StorePurchaseCell.h */,
+				5F91539B16BBA5D70074FFF2 /* StorePurchaseCell.m */,
+				5F98A12A16BBB6810084A2F5 /* StoreFreeCell.h */,
+				5F98A12B16BBB6810084A2F5 /* StoreFreeCell.m */,
+				5F98A12D16BBB6C80084A2F5 /* RestorePurchaseCell.h */,
+				5F98A12E16BBB6C80084A2F5 /* RestorePurchaseCell.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -339,6 +376,10 @@
 				5F91538116BA62570074FFF2 /* correct@2x.png in Resources */,
 				5F91538216BA62570074FFF2 /* gold@2x.png in Resources */,
 				5F91538416BA6FD00074FFF2 /* top_back_ground@2x.png in Resources */,
+				5F9153A316BBB0580074FFF2 /* facebook@2x.png in Resources */,
+				5F9153A416BBB0580074FFF2 /* lzbutton@2x.png in Resources */,
+				5F9153A516BBB0580074FFF2 /* review@2x.png in Resources */,
+				5F9153A716BBB06C0074FFF2 /* twitter@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +406,11 @@
 				5F91538A16BAD8C00074FFF2 /* LevelCell.m in Sources */,
 				5F91538D16BADF9D0074FFF2 /* SettingCell.m in Sources */,
 				5F91539016BAE6840074FFF2 /* LZGamingViewController.m in Sources */,
+				5F91539916BBA5080074FFF2 /* LZCell.m in Sources */,
+				5F91539C16BBA5D70074FFF2 /* StorePurchaseCell.m in Sources */,
+				5F91539F16BBADEF0074FFF2 /* LZButton.m in Sources */,
+				5F98A12C16BBB6810084A2F5 /* StoreFreeCell.m in Sources */,
+				5F98A12F16BBB6C80084A2F5 /* RestorePurchaseCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

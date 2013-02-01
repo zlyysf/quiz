@@ -1,5 +1,5 @@
 //
-//  SettingCell.h
+//  RestorePurchaseCell.h
 //  QuizGame
 //
 //  Created by liu miao on 2/1/13.
@@ -8,7 +8,7 @@
 
 #import "LZCell.h"
 
-@interface SettingCell : LZCell
+@interface RestorePurchaseCell : LZCell
 
 @property (strong, nonatomic) IBOutlet LZButton *selectButton;
 @end

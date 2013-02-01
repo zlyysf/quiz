@@ -8,7 +8,7 @@
 
 #import "LZSettingsViewController.h"
 #import "SettingCell.h"
-@interface LZSettingsViewController ()
+@interface LZSettingsViewController ()<LZCellDelegate>
 
 @end
 
@@ -43,9 +43,15 @@
 {
     SettingCell *cell = (SettingCell *)[tableView dequeueReusableCellWithIdentifier:@"SettingCell"];
     [cell.selectButton setTitle:[NSString stringWithFormat:@"setting %d",indexPath.row+1] forState:UIControlStateNormal];
+    cell.cellIndexPath = indexPath;
+    cell.delegate = self;
     return cell;
 }
-
+#pragma -mark  LZCell Delegate
+-(void)selectedLZCell:(NSIndexPath *)LZCellIndexPath
+{
+    NSLog(@"select setting cell %d",LZCellIndexPath.row);
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

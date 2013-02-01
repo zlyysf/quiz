@@ -9,7 +9,7 @@
 #import "LZPackageViewController.h"
 #import "LZLevelViewController.h"
 #import "PackageCell.h"
-@interface LZPackageViewController ()<PackageCellDelegate>
+@interface LZPackageViewController ()<LZCellDelegate>
 
 @end
 
@@ -50,11 +50,11 @@
     cell.packageNameLabel.text = @"Apparel and shoes";
     cell.packageTotalSubjectCountLabel.text = @"200";
     cell.delegate = self;
-    cell.packageCellIndexPath = indexPath;
+    cell.cellIndexPath = indexPath;
     return cell;
 }
-#pragma -mark Package Cell Delegate
--(void)selectedPackage:(NSIndexPath *)cellIndexPath
+#pragma -mark  LZCell Delegate
+-(void)selectedLZCell:(NSIndexPath *)LZCellIndexPath
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     LZLevelViewController * levelViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZLevelViewController"];
