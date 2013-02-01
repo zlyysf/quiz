@@ -38,6 +38,10 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 1)
+    {
+        return 44;
+    }
     return 84;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
@@ -49,20 +53,17 @@
     return 0;
 }
 
-//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
-//{
-//    
-//}
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 4;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
     if (section == 0)
         return 6;
-    else
-        return 4;
+    else if (section == 2)
+        return 3;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,27 +77,31 @@
         cell.delegate = self;
         return cell;
     }
+    else if (indexPath.section == 1)
+    {
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"StoreSeparateCell"];
+        return cell;
+
+    }
+    else if (indexPath.section == 2)
+    {
+        
+        StoreFreeCell *cell = (StoreFreeCell *)[tableView dequeueReusableCellWithIdentifier:@"StoreFreeCell"];
+        [cell.iconImageView setImage:[UIImage imageNamed:@"facebook.png"]];
+        cell.descriptionLabel.text = @"Tell your facebook friends.";
+        cell.profitLabel.text = @"Get 50 Tokens.";
+        cell.cellIndexPath = indexPath;
+        cell.delegate = self;
+        return cell;
+
+    }
     else
     {
-        if (indexPath.row == 3)
-        {
-            RestorePurchaseCell *cell = (RestorePurchaseCell *)[tableView dequeueReusableCellWithIdentifier:@"RestorePurchaseCell"];
-            [cell.selectButton setTitle:@"Restore purchase" forState:UIControlStateNormal];
-            cell.cellIndexPath = indexPath;
-            cell.delegate = self;
-            return cell;
-        }
-        else
-        {
-            StoreFreeCell *cell = (StoreFreeCell *)[tableView dequeueReusableCellWithIdentifier:@"StoreFreeCell"];
-            [cell.iconImageView setImage:[UIImage imageNamed:@"facebook.png"]];
-            cell.descriptionLabel.text = @"Tell your facebook friends.";
-            cell.profitLabel.text = @"Get 50 Tokens.";
-            cell.cellIndexPath = indexPath;
-            cell.delegate = self;
-            return cell;
-            
-        }
+        RestorePurchaseCell *cell = (RestorePurchaseCell *)[tableView dequeueReusableCellWithIdentifier:@"RestorePurchaseCell"];
+        [cell.selectButton setTitle:@"Restore purchase" forState:UIControlStateNormal];
+        cell.cellIndexPath = indexPath;
+        cell.delegate = self;
+        return cell;
     }
     
 }

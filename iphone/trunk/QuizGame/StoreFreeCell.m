@@ -22,6 +22,11 @@
     return self;
 }
 - (IBAction)selectButtonTapped {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedLZCell:)])
+    {
+        [self.delegate selectedLZCell:self.cellIndexPath];
+    }
+
 }
 
 /*
