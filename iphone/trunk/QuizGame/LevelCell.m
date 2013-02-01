@@ -10,6 +10,11 @@
 
 @implementation LevelCell
 @synthesize selectButton;
+@synthesize levelCellIndexPath;
+@synthesize levelNameLabel;
+@synthesize delegate;
+@synthesize levelScoreLabel;
+@synthesize levelProgressLabel;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -18,7 +23,12 @@
     }
     return self;
 }
-
+- (IBAction)buttonTapped {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedLevel:) ])
+    {
+        [self.delegate selectedLevel:self.levelCellIndexPath];
+    }
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];

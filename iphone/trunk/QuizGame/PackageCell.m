@@ -10,6 +10,10 @@
 
 @implementation PackageCell
 @synthesize selectButton;
+@synthesize delegate;
+@synthesize packageNameLabel;
+@synthesize packageTotalSubjectCountLabel;
+@synthesize packageCellIndexPath;
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
@@ -17,6 +21,12 @@
         // Initialization code
     }
     return self;
+}
+- (IBAction)buttonTapped {
+    if (self.delegate && [self.delegate respondsToSelector:@selector(selectedPackage:) ])
+    {
+        [self.delegate selectedPackage:self.packageCellIndexPath];
+    }
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

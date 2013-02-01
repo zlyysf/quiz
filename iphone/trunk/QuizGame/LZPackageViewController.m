@@ -7,8 +7,9 @@
 //
 
 #import "LZPackageViewController.h"
+#import "LZLevelViewController.h"
 #import "PackageCell.h"
-@interface LZPackageViewController ()
+@interface LZPackageViewController ()<PackageCellDelegate>
 
 @end
 
@@ -21,6 +22,13 @@
         // Custom initialization
     }
     return self;
+}
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.topNavView.topNavType = TopNavTypeNormal;
+    [self.view addSubview:self.listView];
+	// Do any additional setup after loading the view.
 }
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -38,21 +46,21 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     PackageCell *cell = (PackageCell *)[tableView dequeueReusableCellWithIdentifier:@"PackageCell"];
-    [cell.selectButton setTitle:[NSString stringWithFormat:@"package %d",indexPath.row+1] forState:UIControlStateNormal];
+    //[cell.selectButton setTitle:[NSString stringWithFormat:@"package %d",indexPath.row+1] forState:UIControlStateNormal];
+    cell.packageNameLabel.text = @"Apparel and shoes";
+    cell.packageTotalSubjectCountLabel.text = @"200";
+    cell.delegate = self;
+    cell.packageCellIndexPath = indexPath;
     return cell;
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+#pragma -mark Package Cell Delegate
+-(void)selectedPackage:(NSIndexPath *)cellIndexPath
 {
-    NSLog(@"select");
-    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    LZLevelViewController * levelViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZLevelViewController"];
+    [self.navigationController pushViewController:levelViewController animated:NO];
 }
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    self.topNavView.topNavType = TopNavTypeNormal;
-    [self.view addSubview:self.listView];
-	// Do any additional setup after loading the view.
-}
+
 
 - (void)didReceiveMemoryWarning
 {
