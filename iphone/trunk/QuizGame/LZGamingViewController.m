@@ -13,7 +13,7 @@
 @end
 
 @implementation LZGamingViewController
-
+@synthesize playView1;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
     self.topNavView.topNavType = TopNavTypeGaming;
+    CGSize screenSize = [[UIScreen mainScreen]bounds].size;
+    playView1 = [[LZPlayView alloc]initWithFrame:CGRectMake(0, self.topNavView.frame.origin.y+self.topNavView.frame.size.height, screenSize.width, screenSize.height-self.topNavView.frame.size.height-50)];
+    [self.view addSubview:playView1];
 	// Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated

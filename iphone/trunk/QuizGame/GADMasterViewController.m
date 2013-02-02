@@ -17,13 +17,10 @@
 
 +(GADMasterViewController *)singleton {
     static dispatch_once_t pred;
-    static GADMasterViewController *shared = nil;
+    static GADMasterViewController *shared;
     // Will only be run once, the first time this is called
     dispatch_once(&pred, ^{
-        if (shared == nil)
-        {
-            shared = [[GADMasterViewController alloc] init];
-        }
+        shared = [[GADMasterViewController alloc] init];
     });
     return shared;
 }
