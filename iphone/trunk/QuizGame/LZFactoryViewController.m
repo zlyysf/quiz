@@ -7,7 +7,7 @@
 //
 
 #import "LZFactoryViewController.h"
-#import "GADMasterViewController.h"
+
 #import "LZStoreViewController.h"
 @interface LZFactoryViewController ()
 

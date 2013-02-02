@@ -16,4 +16,5 @@
 }
 +(GADMasterViewController *)singleton;
 -(void)resetAdView:(UIViewController *)rootViewController;
+-(void)removeAds;
 @end

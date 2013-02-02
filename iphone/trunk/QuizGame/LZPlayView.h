@@ -16,7 +16,11 @@
 #define kAnswerDownRightButtonTag 204
 #define kAnswerButtonSideLength 120
 #define kHelpButtonSideLength 40
+@protocol LZPlayViewDelegate<NSObject>
+- (void)playViewButtonClicked:(UIButton*)button;
+@end
 @interface LZPlayView : UIView
+@property (nonatomic,weak)id<LZPlayViewDelegate>delegate;
 @property (nonatomic,strong)UILabel *progressLabel;
 @property (nonatomic,strong)UILabel *questionLabel;
 @property (nonatomic,strong)UIButton *winButton;

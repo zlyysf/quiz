@@ -10,4 +10,5 @@
 #import "LZPlayView.h"
 @interface LZGamingViewController : LZFactoryViewController
 @property (nonatomic,strong)LZPlayView *playView1;
+@property (nonatomic,strong)LZPlayView *playView2;
 @end

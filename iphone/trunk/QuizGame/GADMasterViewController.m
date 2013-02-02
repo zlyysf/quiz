@@ -58,6 +58,11 @@
         isLoaded_ = YES;
     }
 }
+-(void)removeAds
+{
+    adBanner_.delegate = nil;
+    [adBanner_ removeFromSuperview];
+}
 - (void)adViewDidReceiveAd:(GADBannerView *)view {
     if (adBanner_.hasAutoRefreshed)
     {

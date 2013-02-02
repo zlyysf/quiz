@@ -15,6 +15,7 @@
 		5F16FDAE16BCCE77005EE2F5 /* icon_3@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F16FDAA16BCCE77005EE2F5 /* icon_3@2x.jpg */; };
 		5F16FDAF16BCCE77005EE2F5 /* icon_4@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F16FDAB16BCCE77005EE2F5 /* icon_4@2x.jpg */; };
 		5F16FDB016BCCE77005EE2F5 /* icon_2@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F16FDAC16BCCE77005EE2F5 /* icon_2@2x.jpg */; };
+		5F16FDB216BCE84A005EE2F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F16FDB116BCE84A005EE2F5 /* QuartzCore.framework */; };
 		5F91536516BA27180074FFF2 /* PackageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536416BA27180074FFF2 /* PackageCell.m */; };
 		5F91536E16BA38D50074FFF2 /* LZTopNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536D16BA38D50074FFF2 /* LZTopNavView.m */; };
 		5F91537116BA44C00074FFF2 /* LZFactoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91537016BA44C00074FFF2 /* LZFactoryViewController.m */; };
@@ -73,6 +74,7 @@
 		5F16FDAA16BCCE77005EE2F5 /* icon_3@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon_3@2x.jpg"; sourceTree = "<group>"; };
 		5F16FDAB16BCCE77005EE2F5 /* icon_4@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon_4@2x.jpg"; sourceTree = "<group>"; };
 		5F16FDAC16BCCE77005EE2F5 /* icon_2@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "icon_2@2x.jpg"; sourceTree = "<group>"; };
+		5F16FDB116BCE84A005EE2F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5F91536316BA27180074FFF2 /* PackageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageCell.h; sourceTree = "<group>"; };
 		5F91536416BA27180074FFF2 /* PackageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageCell.m; sourceTree = "<group>"; };
 		5F91536C16BA38D50074FFF2 /* LZTopNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTopNavView.h; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				5FE7376816B903C900194CF0 /* SystemConfiguration.framework in Frameworks */,
 				5FE7376A16B903DC00194CF0 /* MessageUI.framework in Frameworks */,
 				5FE7376C16B903E800194CF0 /* AudioToolbox.framework in Frameworks */,
+				5F16FDB216BCE84A005EE2F5 /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -306,6 +309,7 @@
 		5FE7371F16B8E08400194CF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5F16FDB116BCE84A005EE2F5 /* QuartzCore.framework */,
 				5FE7376B16B903E800194CF0 /* AudioToolbox.framework */,
 				5FE7376916B903DC00194CF0 /* MessageUI.framework */,
 				5FE7376716B903C900194CF0 /* SystemConfiguration.framework */,
