@@ -12,4 +12,11 @@
 @property (strong, nonatomic) IBOutlet UILabel *packageNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *packageTotalSubjectCountLabel;
 @property (nonatomic,strong)IBOutlet LZButton *selectButton;
+@property (strong, nonatomic) IBOutlet UILabel *packageTotalScoreLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *questionIconImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *scoreIconImageView;
+@property (strong, nonatomic) IBOutlet UILabel *packageProgressLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *progressIconImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *packageLockImageView;
+-(void)setLocked:(BOOL)lock;
 @end

@@ -10,11 +10,12 @@
 #import "LZGamingViewController.h"
 #import "LevelCell.h"
 @interface LZLevelViewController ()<LZCellDelegate>
-
+@property(nonatomic,strong)NSArray *levelArray;
 @end
 
 @implementation LZLevelViewController
 @synthesize listView;
+@synthesize levelArray = _levelArray;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -23,7 +24,14 @@
     }
     return self;
 }
-
+-(void)setLevelArray:(NSArray *)levelArray
+{
+    if(levelArray != nil)
+    {
+        _levelArray = levelArray;
+        [self.listView reloadData];
+    }
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -31,15 +39,35 @@
     [self.view addSubview:self.listView];
 	// Do any additional setup after loading the view.
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+-(void)viewWillAppear:(BOOL)animated
 {
-    return 10;
+    [super viewWillAppear:animated];
+//** -(FMResultSet *) getPackageGroups:(NSString *)pkgname; getpackageArray list view update also set top bar gold amount
+    NSArray *date = [[NSArray alloc]initWithObjects:@"haha",@"haha", nil];
+    self.levelArray = date;
+    NSString *goldAmount = @"1000";
+    self.topNavView.goldCountLabel.text = goldAmount;
+}
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setListView:nil];
+    [super viewDidUnload];
+}
+
+#pragma -mark TableView DataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
+{
+    return [self.levelArray count];
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     LevelCell *cell = (LevelCell *)[tableView dequeueReusableCellWithIdentifier:@"LevelCell"];
-    //[cell.selectButton setTitle:[NSString stringWithFormat:@"level %d",indexPath.row+1] forState:UIControlStateNormal];
+    //name, seqInPkg, locked, passed, gotScoreSum, quizCount
     cell.delegate = self;
     cell.levelNameLabel.text = [NSString stringWithFormat:@"%d",indexPath.row+1];
     cell.cellIndexPath = indexPath;
@@ -51,18 +79,10 @@
 #pragma -mark  LZCell Delegate
 -(void)selectedLZCell:(NSIndexPath *)LZCellIndexPath
 {
+    //judge locked status
+    //-(FMResultSet *) getGroupQuiz:(NSString *)grpkey; give gaming controller grpkey
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     LZGamingViewController * gamingViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZGamingViewController"];
     [self.navigationController pushViewController:gamingViewController animated:NO];
-}
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)viewDidUnload {
-    [self setListView:nil];
-    [super viewDidUnload];
 }
 @end

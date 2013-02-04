@@ -42,6 +42,11 @@
     [shared resetAdView:self];
     
 }
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
 #pragma -mark TopNavViewDelegate
 - (void)backButtonTapped{
     [self.navigationController popViewControllerAnimated:NO];
@@ -53,10 +58,4 @@
     [self.navigationController pushViewController:storeViewController animated:NO];
    NSLog(@"goldButtonTapped");
 }
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 @end

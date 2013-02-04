@@ -13,6 +13,9 @@
 @synthesize levelNameLabel;
 @synthesize levelScoreLabel;
 @synthesize levelProgressLabel;
+@synthesize levelScoreImageView;
+@synthesize levelProgressImageView;
+@synthesize levelLockImageView;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -30,7 +33,27 @@
  // Drawing code
  }
  */
-
+-(void)setLocked:(BOOL)lock
+{
+    if(lock)
+    {
+        self.levelNameLabel.hidden = YES;
+        self.levelScoreLabel.hidden = YES;
+        self.levelProgressLabel.hidden = YES;
+        self.levelScoreImageView.hidden = YES;
+        self.levelProgressImageView.hidden = YES;
+        self.levelLockImageView.hidden = NO;
+    }
+    else
+    {
+        self.levelNameLabel.hidden = NO;
+        self.levelScoreLabel.hidden = NO;
+        self.levelProgressLabel.hidden = NO;
+        self.levelScoreImageView.hidden = NO;
+        self.levelProgressImageView.hidden = NO;
+        self.levelLockImageView.hidden = YES;
+    }
+}
 - (IBAction)buttonTapped {
     if (self.delegate && [self.delegate respondsToSelector:@selector(selectedLZCell:) ])
     {

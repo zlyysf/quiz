@@ -12,6 +12,12 @@
 @synthesize selectButton;
 @synthesize packageNameLabel;
 @synthesize packageTotalSubjectCountLabel;
+@synthesize packageTotalScoreLabel;
+@synthesize questionIconImageView;
+@synthesize scoreIconImageView;
+@synthesize packageProgressLabel;
+@synthesize progressIconImageView;
+@synthesize packageLockImageView;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -29,7 +35,16 @@
  // Drawing code
  }
  */
-
+-(void)setLocked:(BOOL)lock
+{
+    if (lock) {
+        self.packageLockImageView.hidden = NO;
+    }
+    else
+    {
+        self.packageLockImageView.hidden = YES;
+    }
+}
 - (IBAction)buttonTapped {
     if (self.delegate && [self.delegate respondsToSelector:@selector(selectedLZCell:) ])
     {

@@ -113,19 +113,55 @@
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pyi-Bg-AnP">
-                                                    <rect key="frame" x="211" y="30" width="71" height="33"/>
+                                                    <rect key="frame" x="229" y="52" width="71" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hw3-oj-lY6">
+                                                    <rect key="frame" x="229" y="29" width="71" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="crF-6c-A29">
+                                                    <rect key="frame" x="229" y="12" width="71" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="tvf-9C-ffL">
+                                                    <rect key="frame" x="193" y="51" width="28" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="r70-Xi-T0w">
+                                                    <rect key="frame" x="193" y="31" width="28" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="eTM-xM-eqE">
+                                                    <rect key="frame" x="193" y="12" width="28" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Ub1-g5-9IK">
+                                                    <rect key="frame" x="20" y="10" width="280" height="63"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="packageLockImageView" destination="Ub1-g5-9IK" id="2Sm-DT-YYh"/>
                                             <outlet property="packageNameLabel" destination="bCZ-uG-K0H" id="tZD-vG-BRo"/>
+                                            <outlet property="packageProgressLabel" destination="crF-6c-A29" id="uvU-Sg-Yku"/>
+                                            <outlet property="packageTotalScoreLabel" destination="hw3-oj-lY6" id="5RQ-Ei-LFJ"/>
                                             <outlet property="packageTotalSubjectCountLabel" destination="pyi-Bg-AnP" id="UmS-fr-2vp"/>
+                                            <outlet property="progressIconImageView" destination="eTM-xM-eqE" id="wti-eY-xrP"/>
+                                            <outlet property="questionIconImageView" destination="tvf-9C-ffL" id="Ql4-F6-Ein"/>
+                                            <outlet property="scoreIconImageView" destination="r70-Xi-T0w" id="fR8-0j-3SI"/>
                                             <outlet property="selectButton" destination="6u1-FT-B9W" id="d7W-9s-XFT"/>
                                         </connections>
                                     </tableViewCell>
@@ -203,13 +239,28 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="ayC-z6-Gpt">
+                                                    <rect key="frame" x="106" y="17" width="25" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="O37-AL-2EL">
+                                                    <rect key="frame" x="106" y="47" width="25" height="27"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Uiu-Ag-lCE">
+                                                    <rect key="frame" x="20" y="10" width="280" height="64"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="levelLockImageView" destination="Uiu-Ag-lCE" id="qXn-T3-NCx"/>
                                             <outlet property="levelNameLabel" destination="uiI-rj-A2x" id="T9b-2J-GLv"/>
+                                            <outlet property="levelProgressImageView" destination="O37-AL-2EL" id="kQx-MY-hef"/>
                                             <outlet property="levelProgressLabel" destination="Slg-XO-xzT" id="j6E-B5-YYE"/>
+                                            <outlet property="levelScoreImageView" destination="ayC-z6-Gpt" id="LVk-mv-BjN"/>
                                             <outlet property="levelScoreLabel" destination="FIa-Ex-kvd" id="3KG-qD-WGd"/>
                                             <outlet property="selectButton" destination="3c3-xr-ECL" id="Ew8-Fx-fug"/>
                                         </connections>
@@ -546,8 +597,11 @@
         <class className="LevelCell" superclassName="LZCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LevelCell.h"/>
             <relationships>
+                <relationship kind="outlet" name="levelLockImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="levelNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="levelProgressImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="levelProgressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="levelScoreImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="levelScoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="selectButton" candidateClass="LZButton"/>
             </relationships>
@@ -555,8 +609,14 @@
         <class className="PackageCell" superclassName="LZCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PackageCell.h"/>
             <relationships>
+                <relationship kind="outlet" name="packageLockImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="packageNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="packageProgressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="packageTotalScoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="packageTotalSubjectCountLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="progressIconImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="questionIconImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="scoreIconImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="selectButton" candidateClass="LZButton"/>
             </relationships>
         </class>
