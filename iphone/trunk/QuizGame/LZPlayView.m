@@ -27,13 +27,11 @@
         progressLabel= [[UILabel alloc]initWithFrame:CGRectMake(10, 10,200 , 40)];
         progressLabel.backgroundColor = [UIColor clearColor];
         progressLabel.textColor = [UIColor whiteColor];
-        progressLabel.text = @"5/10";
         [self addSubview:progressLabel];
         
         questionLabel = [[UILabel alloc]initWithFrame:CGRectMake(progressLabel.frame.origin.x, progressLabel.frame.origin.y+progressLabel.frame.size.height + 10, 200, 40)];
         questionLabel.backgroundColor = [UIColor clearColor];
         questionLabel.textColor = [UIColor whiteColor];
-        questionLabel.text = @"LOUIS LU?DY";
         [self addSubview:questionLabel];
         
         winButton = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width-40,  10, kHelpButtonSideLength, kHelpButtonSideLength)];

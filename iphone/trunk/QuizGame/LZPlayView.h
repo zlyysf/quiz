@@ -10,10 +10,10 @@
 #define kWinButtonTag 101
 #define kCutWrongButtonTag 102
 #define kAskFriendsButtonTag 103
-#define kAnswerUpLeftButtonTag 201
-#define kAnswerUpRightButtonTag 202
-#define kAnswerDownLeftButtonTag 203
-#define kAnswerDownRightButtonTag 204
+#define kAnswerUpLeftButtonTag 200
+#define kAnswerUpRightButtonTag 201
+#define kAnswerDownLeftButtonTag 202
+#define kAnswerDownRightButtonTag 203
 #define kAnswerButtonSideLength 120
 #define kHelpButtonSideLength 40
 @protocol LZPlayViewDelegate<NSObject>

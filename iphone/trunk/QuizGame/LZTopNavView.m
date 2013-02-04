@@ -48,7 +48,7 @@
         [self addSubview:self.goldButton];
         
         self.goldCountLabel = [[UILabel alloc]initWithFrame:kGoldCountLabelFrame];
-        self.goldCountLabel.text = @"300";
+        self.goldCountLabel.text = @"0";
         self.goldCountLabel.textColor = [UIColor whiteColor];
         self.goldCountLabel.backgroundColor = [UIColor clearColor];
         self.goldCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.f];
@@ -59,7 +59,7 @@
         [self addSubview:self.correctIconImageView];
         
         self.correctCountLabel = [[UILabel alloc]initWithFrame:kCorrectCountLabelFrame];
-        self.correctCountLabel.text = @"3";
+        self.correctCountLabel.text = @"0";
         self.correctCountLabel.textColor = [UIColor whiteColor];
         self.correctCountLabel.backgroundColor = [UIColor clearColor];
         self.correctCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.f];
@@ -70,7 +70,7 @@
         [self addSubview:self.wrongIconImageView];
         
         self.wrongCountLabel = [[UILabel alloc]initWithFrame:kWrongCountLabelFrame];
-        self.wrongCountLabel.text = @"3";
+        self.wrongCountLabel.text = @"0";
         self.wrongCountLabel.textColor = [UIColor whiteColor];
         self.wrongCountLabel.backgroundColor = [UIColor clearColor];
         self.wrongCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.f];
