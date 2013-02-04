@@ -53,10 +53,10 @@
     playView2 = [[LZPlayView alloc]initWithFrame:playFrame];
     playView2.delegate = self;
     self.currentOptionArray = [[NSMutableArray alloc]initWithCapacity:1+kTotalOptionCount];
-    NSDictionary *quiz1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"quiz1",@"questionWord", nil];
-    NSDictionary *quiz2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"quiz2",@"questionWord", nil];
-    NSDictionary *quiz3 = [[NSDictionary alloc]initWithObjectsAndKeys:@"quiz3",@"questionWord", nil];
-    NSDictionary *quiz4 = [[NSDictionary alloc]initWithObjectsAndKeys:@"quiz4",@"questionWord", nil];
+    NSDictionary *quiz1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"松子",@"questionWord", @"icon_1.jpg",@"answerPic",nil];
+    NSDictionary *quiz2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"阿迪达斯",@"questionWord",@"icon_2.jpg",@"answerPic", nil];
+    NSDictionary *quiz3 = [[NSDictionary alloc]initWithObjectsAndKeys:@"老鹰",@"questionWord", @"icon_3.jpg",@"answerPic",nil];
+    NSDictionary *quiz4 = [[NSDictionary alloc]initWithObjectsAndKeys:@"柠檬",@"questionWord", @"icon_4.jpg",@"answerPic",nil];
     self.quizArray = [[NSArray alloc]initWithObjects:quiz1,quiz2,quiz3, quiz4,nil];
     NSLog(@"quizArray %@",[self.quizArray description]);
     //-(FMResultSet *) getGroupQuiz:(NSString *)grpkey;
@@ -198,7 +198,25 @@
      3.facebook/ twitter kAskFriendsButtonTag
      UI update
     */
-    
+    int tag = button.tag;
+    if (tag == kWinButtonTag || tag == kCutWrongButtonTag || tag == kAskFriendsButtonTag)
+    {
+        if(tag == kWinButtonTag)
+        {
+            NSString *message = [NSString stringWithFormat:@"正确 tapped button tag %d",button.tag];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            answeredRightCount++;
+            self.topNavView.correctCountLabel.text = [NSString stringWithFormat:@"%d",answeredRightCount];
+            if(currentQuizIndex < totalQuizCount-1)
+            {
+                currentQuizIndex++;
+                [self displayGameView:currentQuizIndex];
+            }
+        }
+    }
+    else
+    {
     
     /*case2 select an answer kAnswerUp(Down)Left(Right)ButtonTag
      1.right answer
@@ -206,18 +224,34 @@
      update gold quiz answerright
      topbar progress
      */
-    
-    
-    NSString *message = [NSString stringWithFormat:@"tapped button tag %d",button.tag];
-    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alert show];
-    
-    if(currentQuizIndex < totalQuizCount-1)
-    {
-        currentQuizIndex++;
-       [self displayGameView:currentQuizIndex]; 
+        int selected = button.tag-200;
+        NSString *selectedPic = [self.currentOptionArray objectAtIndex:selected];
+        NSNumber *current= [self.orderArray objectAtIndex:currentQuizIndex];
+        NSDictionary *quiz = [self.quizArray objectAtIndex:[current integerValue]];
+        //NSLog(@"quiz content %@",quiz);
+        NSString *answerPic = [quiz objectForKey:@"answerPic"];
+        if([selectedPic isEqualToString:answerPic])
+        {
+            NSString *message = [NSString stringWithFormat:@"正确 tapped button tag %d",button.tag];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            answeredRightCount++;
+            self.topNavView.correctCountLabel.text = [NSString stringWithFormat:@"%d",answeredRightCount];
+        }
+        else
+        {
+            NSString *message = [NSString stringWithFormat:@"错误 tapped button tag %d",button.tag];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            answeredWrongCount++;
+            self.topNavView.wrongCountLabel.text = [NSString stringWithFormat:@"%d",answeredWrongCount];
+        }
+        if(currentQuizIndex < totalQuizCount-1)
+        {
+            currentQuizIndex++;
+           [self displayGameView:currentQuizIndex]; 
+        }
     }
-    
     
     
 }
