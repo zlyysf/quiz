@@ -9,7 +9,7 @@
 #import "LZLevelViewController.h"
 #import "LZGamingViewController.h"
 #import "LevelCell.h"
-#import "LZDataAccess.h"
+
 @interface LZLevelViewController ()<LZCellDelegate>
 @property(nonatomic,strong)NSArray *levelArray;
 @end
@@ -47,8 +47,6 @@
 //** -(FMResultSet *) getPackageGroups:(NSString *)pkgname; getpackageArray list view update also set top bar gold amount
     NSArray *data = [[LZDataAccess singleton]getPackageGroups:self.currentPackageName];;
     self.levelArray = data;
-    NSString *goldAmount = @"1000";
-    self.topNavView.goldCountLabel.text = goldAmount;
 }
 - (void)didReceiveMemoryWarning
 {

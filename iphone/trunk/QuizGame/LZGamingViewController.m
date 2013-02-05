@@ -8,9 +8,9 @@
 
 #import "LZGamingViewController.h"
 #import <QuartzCore/QuartzCore.h>
-#import "LZDataAccess.h"
 #define kTotalOptionCount 3
 #define kSelectedAnswerInterval 0.5
+#define kDirectAnswerInterval 1.0
 #define kSwitchNextQuestionInterval 0.5
 @interface LZGamingViewController ()<LZPlayViewDelegate,UIAlertViewDelegate>
 @property(nonatomic,strong)NSArray *quizArray;
@@ -257,10 +257,13 @@
                 }
             }
             answeredRightCount++;
+            NSString *quizkey = [quiz objectForKey:@"quizkey"];
+            NSDictionary *updateResult = [[LZDataAccess singleton]obtainQuizAward:quizkey];
+            NSLog(@"%@",updateResult);
             self.topNavView.correctCountLabel.text = [NSString stringWithFormat:@"%d",answeredRightCount];
             [self.playView1 setUserInteractionEnabled:NO];
             [self.playView2 setUserInteractionEnabled:NO];
-            [self performSelector:@selector(displayNext) withObject:nil afterDelay:kSelectedAnswerInterval];
+            [self performSelector:@selector(displayNext) withObject:nil afterDelay:kDirectAnswerInterval];
 
         }
         if(tag == kCutWrongButtonTag)
@@ -338,6 +341,9 @@
                 
             }
             answeredRightCount++;
+            NSString *quizkey = [quiz objectForKey:@"quizkey"];
+            NSDictionary *updateResult = [[LZDataAccess singleton]obtainQuizAward:quizkey];
+            NSLog(@"%@",updateResult);
             self.topNavView.correctCountLabel.text = [NSString stringWithFormat:@"%d",answeredRightCount];
         }
         else

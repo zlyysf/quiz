@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "GADMasterViewController.h"
 #import "LZTopNavView.h"
+#import "LZDataAccess.h"
 @interface LZFactoryViewController : UIViewController<LZTopNavViewDelegate>
 @property (nonatomic,strong)LZTopNavView *topNavView;
 @property (nonatomic,strong)UIImageView *controllerBackImageView;

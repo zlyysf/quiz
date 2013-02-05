@@ -40,6 +40,10 @@
 {
     GADMasterViewController *shared = [GADMasterViewController singleton];
     [shared resetAdView:self];
+    NSDictionary *userInfo = [[LZDataAccess singleton]getUserTotalScore];
+    NSLog(@"%@",userInfo);
+    int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
+    self.topNavView.goldCountLabel.text = [NSString stringWithFormat:@"%d",userGold];
     
 }
 - (void)didReceiveMemoryWarning

@@ -9,7 +9,6 @@
 #import "LZPackageViewController.h"
 #import "LZLevelViewController.h"
 #import "PackageCell.h"
-#import "LZDataAccess.h"
 @interface LZPackageViewController ()<LZCellDelegate>
 @property (nonatomic,strong)NSArray *packageArray;
 @end
@@ -48,8 +47,6 @@
 //** -(FMResultSet *) getPackages; getpackageArray list view update also set top bar gold amount
     NSArray *date = [[LZDataAccess singleton]getPackages]; ;
     self.packageArray = date;
-    NSString *goldAmount = @"1000";
-    self.topNavView.goldCountLabel.text = goldAmount;
 }
 - (void)didReceiveMemoryWarning
 {
