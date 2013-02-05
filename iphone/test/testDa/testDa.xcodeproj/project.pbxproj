@@ -10,14 +10,8 @@
 		083ED12C16C0C1460010AF13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED12B16C0C1460010AF13 /* UIKit.framework */; };
 		083ED12E16C0C1460010AF13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED12D16C0C1460010AF13 /* Foundation.framework */; };
 		083ED13016C0C1460010AF13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED12F16C0C1460010AF13 /* CoreGraphics.framework */; };
-		083ED13616C0C1460010AF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 083ED13416C0C1460010AF13 /* InfoPlist.strings */; };
-		083ED13816C0C1460010AF13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED13716C0C1460010AF13 /* main.m */; };
 		083ED13C16C0C1460010AF13 /* LZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED13B16C0C1460010AF13 /* LZAppDelegate.m */; };
-		083ED13E16C0C1460010AF13 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 083ED13D16C0C1460010AF13 /* Default.png */; };
-		083ED14016C0C1460010AF13 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 083ED13F16C0C1460010AF13 /* Default@2x.png */; };
-		083ED14216C0C1460010AF13 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 083ED14116C0C1460010AF13 /* Default-568h@2x.png */; };
 		083ED14516C0C1460010AF13 /* LZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED14416C0C1460010AF13 /* LZViewController.m */; };
-		083ED14816C0C1460010AF13 /* LZViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083ED14616C0C1460010AF13 /* LZViewController.xib */; };
 		083ED15016C0C1460010AF13 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED14F16C0C1460010AF13 /* SenTestingKit.framework */; };
 		083ED15116C0C1460010AF13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED12B16C0C1460010AF13 /* UIKit.framework */; };
 		083ED15216C0C1460010AF13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED12D16C0C1460010AF13 /* Foundation.framework */; };
@@ -33,6 +27,13 @@
 		083ED18416C0C3470010AF13 /* quizicons in Resources */ = {isa = PBXBuildFile; fileRef = 083ED18316C0C3470010AF13 /* quizicons */; };
 		083ED18616C0C6280010AF13 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED18516C0C6280010AF13 /* libsqlite3.dylib */; };
 		083ED18816C0C8210010AF13 /* initdb2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 083ED18716C0C8210010AF13 /* initdb2.sql */; };
+		083ED19C16C139FF0010AF13 /* LZViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083ED19A16C139FF0010AF13 /* LZViewController.xib */; };
+		083ED19E16C13A450010AF13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED19D16C13A450010AF13 /* main.m */; };
+		083ED1A216C13A910010AF13 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 083ED19F16C13A910010AF13 /* Default-568h@2x.png */; };
+		083ED1A316C13A910010AF13 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A016C13A910010AF13 /* Default.png */; };
+		083ED1A416C13A910010AF13 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A116C13A910010AF13 /* Default@2x.png */; };
+		083ED1A616C13AC20010AF13 /* testDa-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A516C13AC20010AF13 /* testDa-Info.plist */; };
+		083ED1A916C13AE10010AF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A716C13AE10010AF13 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,18 +51,10 @@
 		083ED12B16C0C1460010AF13 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		083ED12D16C0C1460010AF13 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		083ED12F16C0C1460010AF13 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		083ED13316C0C1460010AF13 /* testDa-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "testDa-Info.plist"; sourceTree = "<group>"; };
-		083ED13516C0C1460010AF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		083ED13716C0C1460010AF13 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		083ED13916C0C1460010AF13 /* testDa-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "testDa-Prefix.pch"; sourceTree = "<group>"; };
 		083ED13A16C0C1460010AF13 /* LZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZAppDelegate.h; sourceTree = "<group>"; };
 		083ED13B16C0C1460010AF13 /* LZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZAppDelegate.m; sourceTree = "<group>"; };
-		083ED13D16C0C1460010AF13 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		083ED13F16C0C1460010AF13 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		083ED14116C0C1460010AF13 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		083ED14316C0C1460010AF13 /* LZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZViewController.h; sourceTree = "<group>"; };
 		083ED14416C0C1460010AF13 /* LZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZViewController.m; sourceTree = "<group>"; };
-		083ED14716C0C1460010AF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LZViewController.xib; sourceTree = "<group>"; };
 		083ED14E16C0C1460010AF13 /* testDaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testDaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		083ED14F16C0C1460010AF13 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		083ED15716C0C1470010AF13 /* testDaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "testDaTests-Info.plist"; sourceTree = "<group>"; };
@@ -84,6 +77,14 @@
 		083ED18316C0C3470010AF13 /* quizicons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = quizicons; path = ../../trunk/quizicons; sourceTree = "<group>"; };
 		083ED18516C0C6280010AF13 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		083ED18716C0C8210010AF13 /* initdb2.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = initdb2.sql; path = ../../trunk/initdb2.sql; sourceTree = "<group>"; };
+		083ED19B16C139FF0010AF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LZViewController.xib; sourceTree = "<group>"; };
+		083ED19D16C13A450010AF13 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		083ED19F16C13A910010AF13 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		083ED1A016C13A910010AF13 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		083ED1A116C13A910010AF13 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		083ED1A516C13AC20010AF13 /* testDa-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "testDa-Info.plist"; sourceTree = "<group>"; };
+		083ED1A816C13AE10010AF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		083ED1AA16C13AF10010AF13 /* testDa-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "testDa-Prefix.pch"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,11 +150,11 @@
 		083ED13116C0C1460010AF13 /* testDa */ = {
 			isa = PBXGroup;
 			children = (
+				083ED19A16C139FF0010AF13 /* LZViewController.xib */,
 				083ED13A16C0C1460010AF13 /* LZAppDelegate.h */,
 				083ED13B16C0C1460010AF13 /* LZAppDelegate.m */,
 				083ED14316C0C1460010AF13 /* LZViewController.h */,
 				083ED14416C0C1460010AF13 /* LZViewController.m */,
-				083ED14616C0C1460010AF13 /* LZViewController.xib */,
 				083ED13216C0C1460010AF13 /* Supporting Files */,
 			);
 			path = testDa;
@@ -162,13 +163,13 @@
 		083ED13216C0C1460010AF13 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				083ED13316C0C1460010AF13 /* testDa-Info.plist */,
-				083ED13416C0C1460010AF13 /* InfoPlist.strings */,
-				083ED13716C0C1460010AF13 /* main.m */,
-				083ED13916C0C1460010AF13 /* testDa-Prefix.pch */,
-				083ED13D16C0C1460010AF13 /* Default.png */,
-				083ED13F16C0C1460010AF13 /* Default@2x.png */,
-				083ED14116C0C1460010AF13 /* Default-568h@2x.png */,
+				083ED1AA16C13AF10010AF13 /* testDa-Prefix.pch */,
+				083ED1A716C13AE10010AF13 /* InfoPlist.strings */,
+				083ED1A516C13AC20010AF13 /* testDa-Info.plist */,
+				083ED19F16C13A910010AF13 /* Default-568h@2x.png */,
+				083ED1A016C13A910010AF13 /* Default.png */,
+				083ED1A116C13A910010AF13 /* Default@2x.png */,
+				083ED19D16C13A450010AF13 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -293,13 +294,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				083ED13616C0C1460010AF13 /* InfoPlist.strings in Resources */,
-				083ED13E16C0C1460010AF13 /* Default.png in Resources */,
-				083ED14016C0C1460010AF13 /* Default@2x.png in Resources */,
-				083ED14216C0C1460010AF13 /* Default-568h@2x.png in Resources */,
-				083ED14816C0C1460010AF13 /* LZViewController.xib in Resources */,
 				083ED18416C0C3470010AF13 /* quizicons in Resources */,
 				083ED18816C0C8210010AF13 /* initdb2.sql in Resources */,
+				083ED19C16C139FF0010AF13 /* LZViewController.xib in Resources */,
+				083ED1A216C13A910010AF13 /* Default-568h@2x.png in Resources */,
+				083ED1A316C13A910010AF13 /* Default.png in Resources */,
+				083ED1A416C13A910010AF13 /* Default@2x.png in Resources */,
+				083ED1A616C13AC20010AF13 /* testDa-Info.plist in Resources */,
+				083ED1A916C13AE10010AF13 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,7 +336,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				083ED13816C0C1460010AF13 /* main.m in Sources */,
 				083ED13C16C0C1460010AF13 /* LZAppDelegate.m in Sources */,
 				083ED14516C0C1460010AF13 /* LZViewController.m in Sources */,
 				083ED17916C0C2F40010AF13 /* LZDataAccess.m in Sources */,
@@ -344,6 +345,7 @@
 				083ED17D16C0C2F40010AF13 /* FMDatabaseQueue.m in Sources */,
 				083ED17E16C0C2F40010AF13 /* fmdb.m in Sources */,
 				083ED17F16C0C2F40010AF13 /* FMResultSet.m in Sources */,
+				083ED19E16C13A450010AF13 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,26 +368,26 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		083ED13416C0C1460010AF13 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				083ED13516C0C1460010AF13 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		083ED14616C0C1460010AF13 /* LZViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				083ED14716C0C1460010AF13 /* en */,
-			);
-			name = LZViewController.xib;
-			sourceTree = "<group>";
-		};
 		083ED15816C0C1470010AF13 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				083ED15916C0C1470010AF13 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		083ED19A16C139FF0010AF13 /* LZViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				083ED19B16C139FF0010AF13 /* en */,
+			);
+			name = LZViewController.xib;
+			sourceTree = "<group>";
+		};
+		083ED1A716C13AE10010AF13 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				083ED1A816C13AE10010AF13 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

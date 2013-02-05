@@ -19,11 +19,16 @@
 - (void)initDb;
 
 -(NSArray *) getPackages;
--(NSDictionary *) getUserTotalScore;
+
 -(NSArray *) getPackageGroups:(NSString *)pkgkey;
 -(NSArray *) getGroupQuizzes:(NSString *)grpkey;
 -(NSArray *) getGroupQuizOptions:(NSString *)grpkey;
 
 -(NSDictionary *)obtainQuizAward:(NSString *)quizkey;
+-(BOOL) updateUserTotalCoinByDelta:(int) totalCoinDelta;
+-(NSDictionary *) getUserTotalScore;
+
+-(NSDictionary *)updateGroupScoreAndRightQuizAmount:(NSString *)grpkey andScore:(int)score andRightQuizAmount:(int)rightQuizAmount;
+-(NSDictionary *)updateGroupLockState:(NSString *)grpkey andLocked:(int)locked;
 
 @end

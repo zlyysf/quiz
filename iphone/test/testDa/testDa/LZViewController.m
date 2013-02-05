@@ -34,16 +34,27 @@
 }
 
 - (IBAction)btnSelect_touchUpInside:(id)sender {
-    //[da getPackages];
-    //[da getPackageGroups:@"shoe t2"];
-    //[da getGroupQuizzes:@"apparel t1:group 2"];
+    [da getPackages];
+    
+    //[da getGroupQuizzes:@"apparel t1:group 1"];
     //[da getGroupQuizOptions:@"apparel t1:group 2"];
-    [da getUserTotalScore];
+    //[da getUserTotalScore];
+}
+
+- (IBAction)btnSelGrp_touchUpInside:(id)sender {
+    [da getPackageGroups:@"apparel t1"];
 }
 
 - (IBAction)btnUpdate_touchUpInside:(id)sender {
-    [da obtainQuizAward:@"apparel t1:7 For All Mankind"];
-    [da obtainQuizAward:@"apparel t1:7 For All Mankind"];
+//    [da obtainQuizAward:@"apparel t1:7 For All Mankind"];
+//    [da obtainQuizAward:@"apparel t1:7 For All Mankind"];
+//    [da updateUserTotalCoinByDelta:123];
+//    [da updateUserTotalCoinByDelta:-3];
+    
+    [da updateGroupScoreAndRightQuizAmount:@"apparel t1:group 2" andScore:10 andRightQuizAmount:11];
+    [da updateGroupScoreAndRightQuizAmount:@"apparel t1:group 2" andScore:5 andRightQuizAmount:22];
+
+    
 
 }
 

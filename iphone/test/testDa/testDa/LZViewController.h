@@ -16,5 +16,6 @@
 - (IBAction)btnInit_touchUpInside:(id)sender;
 - (IBAction)btnSelect_touchUpInside:(id)sender;
 - (IBAction)btnUpdate_touchUpInside:(id)sender;
+- (IBAction)btnSelGrp_touchUpInside:(id)sender;
 
 @end
