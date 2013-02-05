@@ -80,7 +80,7 @@
 //        return;
         NSLog(@"open db failed, %@", dbFilePath);
     }
-    
+    //TODO added score of package, order by seq
     NSMutableArray *pkgAry = [NSMutableArray arrayWithCapacity:10];
     NSString *query = @""
     "SELECT pd1.name name,seq,locked,price, groupCount,passedGroupCount,quizCount"
@@ -111,6 +111,26 @@
 }
 
 
+
+-(NSDictionary *) getUserTotalScore{
+    NSDictionary *rowDict = Nil;
+    NSString *dbFilePath = [self dbFilePath];
+    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
+    if (![dbfm open]) {
+        //        //[dbfm release];
+        //        return;
+        NSLog(@"open db failed, %@", dbFilePath);
+    }
+    NSString *query = @"SELECT name, totalScore, totalCoin FROM user";
+    FMResultSet *rs = [dbfm executeQuery:query];
+    if ([rs next]) {
+        rowDict = rs.resultDictionary;
+    }
+    [dbfm close];
+    NSLog(@"getUserTotalScore ret:\n%@",rowDict);
+    return rowDict;
+}
+
 //SELECT gd.grpkey grpkey, name, pkgkey, seqInPkg,
 //    ifnull(locked,0) locked, ifnull(passed,0) passed, ifnull(gotScoreSum,0) gotScoreSum, ifnull(answerRightMax,0) answerRightMax, quizCount
 //  FROM groupDef gd
@@ -121,24 +141,7 @@
 //        WHERE gd1.pkgkey='apparel t1' GROUP BY qd.grpkey
 //    ) gqc ON gd.grpkey=gqc.grpkey
 //  WHERE gd.pkgkey='apparel t1'
--(int) getUserTotalScore{
-    int userTotalScore = 0;
-    NSString *dbFilePath = [self dbFilePath];
-    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
-    if (![dbfm open]) {
-        //        //[dbfm release];
-        //        return;
-        NSLog(@"open db failed, %@", dbFilePath);
-    }
-    NSString *query = @"";
-    FMResultSet *rs = [dbfm executeQuery:query];
-    if ([rs next]) {
-        userTotalScore = [rs intForColumn:@"totalScore"];
-    }
-    [dbfm close];
-    return userTotalScore;
-}
-
+//TODO  order by seq
 -(NSArray *) getPackageGroups:(NSString *)pkgkey{
     NSString *dbFilePath = [self dbFilePath];
     FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
@@ -272,8 +275,73 @@
 }
 
 
+//SELECT qd.quizkey, awardCoin, awardScore, ifnull(haveAwardCoin,0) haveAwardCoin
+//  FROM quizDef qd JOIN groupDef gd ON qd.grpkey=gd.grpkey
+//    LEFT OUTER JOIN quizRun qr ON qd.quizkey=qr.quizkey
+//  WHERE qd.quizkey='apparel t1:Abercrombie & Fitch'
+-(NSDictionary *)obtainQuizAward:(NSString *)quizkey{
+    NSString *dbFilePath = [self dbFilePath];
+    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
+    if (![dbfm open]) {
+        //        //[dbfm release];
+        //        return;
+        NSLog(@"FMDatabase open failed, %@", dbFilePath);
+    }
+    NSString *query = @""
+    "SELECT qd.quizkey, awardCoin, awardScore, haveAwardCoin, ifnull(haveAwardCoin,0) haveAwardCoinNoNull"
+    "  FROM quizDef qd JOIN groupDef gd ON qd.grpkey=gd.grpkey"
+    "    LEFT OUTER JOIN quizRun qr ON qd.quizkey=qr.quizkey   "
+    "  WHERE qd.quizkey=:quizkey"
+    ;    
+    NSDictionary *dictQueryParam = [NSDictionary dictionaryWithObjectsAndKeys:quizkey, @"quizkey", nil];
+    FMResultSet *rs = [dbfm executeQuery:query withParameterDictionary:dictQueryParam];
+    NSDictionary *dictquizInfo;
+    if ([rs next]) {
+        dictquizInfo = rs.resultDictionary;
+    }
+    NSLog(@"obtainQuizAward dictquizInfo:\n%@",dictquizInfo);
 
+    NSNumber *haveAwardCoinNoNullObj = (NSNumber *)[dictquizInfo objectForKey:@"haveAwardCoinNoNull"];
+    NSNumber *haveAwardCoinObj = (NSNumber *)[dictquizInfo objectForKey:@"haveAwardCoin"];
+    NSNumber *awardCoin = (NSNumber *)[dictquizInfo objectForKey:@"awardCoin"];
+    NSNumber *awardScore = (NSNumber *)[dictquizInfo objectForKey:@"awardScore"];
+    NSLog(@"in obtainQuizAward haveAwardCoinObj=%@, haveAwardCoinNoNullObj=%@", haveAwardCoinObj, haveAwardCoinNoNullObj);
 
+    NSMutableDictionary *retDict = [NSMutableDictionary dictionaryWithCapacity:5];
+    
+    int haveAwardCoin = [haveAwardCoinNoNullObj intValue];
+    if(haveAwardCoin == 1){
+        [retDict setValue:haveAwardCoinNoNullObj forKey:@"haveAwardCoin"];
+        [retDict setValue:[NSNumber numberWithInt:0] forKey:@"awardCoin"];
+        [retDict setValue:[NSNumber numberWithInt:0] forKey:@"awardScore"];
+    }else{
+        NSString *updateQuizSql;
+        
+        if ([haveAwardCoinObj isEqual:[NSNull null]]){//TODO to be check value
+        //if ([[NSNull null] isEqual:haveAwardCoinNoNullObj]){//TODO to be check value
+            updateQuizSql = @"INSERT INTO quizRun(quizkey,haveAwardCoin) VALUES (:quizkey,:haveAwardCoin)";
+        }else{
+            updateQuizSql = @"UPDATE quizRun SET haveAwardCoin=:haveAwardCoin WHERE quizkey=:quizkey";
+        }
+        NSLog(@"in obtainQuizAward updateQuizSql=%@", updateQuizSql);
+
+        NSDictionary *dictUpdateQuiz = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            [NSNumber numberWithInt:1], @"haveAwardCoin",
+                                            quizkey, @"quizkey",nil];
+        //BOOL updateRet = [dbfm executeUpdate:updateQuizSql withParameterDictionary:dictUpdateQuiz];
+        NSError *outErr = Nil;
+        BOOL updateRet = [dbfm executeUpdate:updateQuizSql error:&outErr withArgumentsInArray:nil orDictionary:dictUpdateQuiz orVAList:nil];
+        if (outErr != nil)
+            NSLog(@"in obtainQuizAward outErr=%@", outErr);            
+        
+        NSLog(@"in obtainQuizAward updateRet=%d", updateRet);
+        [retDict setValue:haveAwardCoinNoNullObj forKey:@"haveAwardCoin"];
+        [retDict setValue:awardCoin forKey:@"awardCoin"];
+        [retDict setValue:awardScore forKey:@"awardScore"];
+    }
+    [dbfm close];
+    return retDict;
+}
 
 
 

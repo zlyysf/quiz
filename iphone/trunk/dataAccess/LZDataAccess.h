@@ -19,9 +19,11 @@
 - (void)initDb;
 
 -(NSArray *) getPackages;
--(int) getUserTotalScore;
+-(NSDictionary *) getUserTotalScore;
 -(NSArray *) getPackageGroups:(NSString *)pkgkey;
 -(NSArray *) getGroupQuizzes:(NSString *)grpkey;
 -(NSArray *) getGroupQuizOptions:(NSString *)grpkey;
+
+-(NSDictionary *)obtainQuizAward:(NSString *)quizkey;
 
 @end
