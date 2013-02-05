@@ -22,9 +22,11 @@ INSERT INTO groupDef (grpkey, name, pkgkey, seqInPkg, awardCoin, awardScore) VAL
 
 INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('apparel t1:7 For All Mankind', 'apparel t1:group 1', 'apparel t1',  '7 For All Mankind', 'apparel t1/group 1/7 For All Mankind.jpg');
 INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('apparel t1:Abercrombie & Fitch', 'apparel t1:group 1', 'apparel t1',  '7Abercrombie & Fitch', 'apparel t1/group 1/Abercrombie & Fitch.jpg');
+INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('apparel t1:Acorn Stores', 'apparel t1:group 1', 'apparel t1',  'Acorn Stores', 'apparel t1/group 1/Acorn Stores.jpg');
 
 INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('apparel t1:Al Wissam', 'apparel t1:group 2', 'apparel t1',  'Al Wissam', 'apparel t1/group 2/Al Wissam.jpg');
 INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('apparel t1:Alden', 'apparel t1:group 2', 'apparel t1',  'Alden', 'apparel t1/group 2/Alden.jpg');
+INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('apparel t1:AllSaints Spitalfields', 'apparel t1:group 2', 'apparel t1',  'AllSaints Spitalfields', 'apparel t1/group 2/AllSaints Spitalfields.jpg');
 
 INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('shoe t2:Arc''Teryx Salomon', 'shoe t2:group 1', 'shoe t2',  'Arc''Teryx Salomon', 'shoe t2/group 1/Arc''Teryx Salomon.jpg');
 INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('shoe t2:Arthur Galan', 'shoe t2:group 1', 'shoe t2',  'Arthur Galan', 'shoe t2/group 1/Arthur Galan.jpg');

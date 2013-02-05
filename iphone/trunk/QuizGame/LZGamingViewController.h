@@ -11,4 +11,5 @@
 @interface LZGamingViewController : LZFactoryViewController
 @property (nonatomic,strong)LZPlayView *playView1;
 @property (nonatomic,strong)LZPlayView *playView2;
+@property (nonatomic,strong)NSString *currentGroupKey;
 @end

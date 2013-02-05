@@ -9,6 +9,7 @@
 #import "LZPackageViewController.h"
 #import "LZLevelViewController.h"
 #import "PackageCell.h"
+#import "LZDataAccess.h"
 @interface LZPackageViewController ()<LZCellDelegate>
 @property (nonatomic,strong)NSArray *packageArray;
 @end
@@ -45,7 +46,7 @@
     [super viewWillAppear:animated];
     
 //** -(FMResultSet *) getPackages; getpackageArray list view update also set top bar gold amount
-    NSArray *date = [[NSArray alloc]initWithObjects:@"haha",@"haha", nil];
+    NSArray *date = [[LZDataAccess singleton]getPackages]; ;
     self.packageArray = date;
     NSString *goldAmount = @"1000";
     self.topNavView.goldCountLabel.text = goldAmount;
@@ -70,10 +71,17 @@
 {
     PackageCell *cell = (PackageCell *)[tableView dequeueReusableCellWithIdentifier:@"PackageCell"];
     //name, seq, locked, userTotalScore, quizCount, groupCount, passedGroupCount
-    cell.packageNameLabel.text = @"Apparel and shoes";
-    cell.packageTotalSubjectCountLabel.text = @"200";
+    NSDictionary *package = [self.packageArray objectAtIndex:indexPath.row];
+    
+    cell.packageNameLabel.text = [package objectForKey:@"name"];
+    int quizCount = [[package objectForKey:@"quizCount"] integerValue];
+    cell.packageTotalSubjectCountLabel.text = [NSString stringWithFormat:@"%d",quizCount];
+    int passedGroupCount = [[package objectForKey:@"passedGroupCount"] integerValue];
+    int groupCount = [[package objectForKey:@"groupCount"] integerValue];
+    cell.packageProgressLabel.text = [NSString stringWithFormat:@"%d / %d",passedGroupCount,groupCount];
     cell.delegate = self;
     cell.cellIndexPath = indexPath;
+    cell.packageTotalScoreLabel.text = @"package total score";
     return cell;
 }
 #pragma -mark  LZCell Delegate
@@ -81,8 +89,12 @@
 {
     //judge locked status
     //-(FMResultSet *) getPackageGroups:(NSString *)pkgname give level controller pkgname
+    NSDictionary *package = [self.packageArray objectAtIndex:LZCellIndexPath.row];
+    NSString *packageName = [package objectForKey:@"name"];
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     LZLevelViewController * levelViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZLevelViewController"];
+    levelViewController.currentPackageName = packageName;
     [self.navigationController pushViewController:levelViewController animated:NO];
 }
 @end

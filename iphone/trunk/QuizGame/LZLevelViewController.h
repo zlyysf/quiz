@@ -10,5 +10,5 @@
 
 @interface LZLevelViewController : LZFactoryViewController<UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *listView;
-
+@property (strong, nonatomic) NSString *currentPackageName;
 @end

@@ -8,6 +8,7 @@
 
 #import "LZGamingViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "LZDataAccess.h"
 #define kTotalOptionCount 3
 @interface LZGamingViewController ()<LZPlayViewDelegate>
 @property(nonatomic,strong)NSArray *quizArray;
@@ -33,6 +34,7 @@
 @synthesize currentOptionArray;
 @synthesize rightIconImageView;
 @synthesize wrongIconImageView;
+@synthesize currentGroupKey;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -57,15 +59,16 @@
     playView2 = [[LZPlayView alloc]initWithFrame:playFrame];
     playView2.delegate = self;
     self.currentOptionArray = [[NSMutableArray alloc]initWithCapacity:1+kTotalOptionCount];
-    NSArray *option1 = [[NSArray alloc]initWithObjects:@"icon_2.jpg",@"icon_3.jpg",@"icon_4.jpg", nil];
-    NSDictionary *quiz1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"松子",@"questionWord", @"icon_1.jpg",@"answerPic",option1,@"options", nil];
-    NSArray *option2 = [[NSArray alloc]initWithObjects:@"icon_1.jpg",@"icon_3.jpg",@"icon_4.jpg", nil];
-    NSDictionary *quiz2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"阿迪达斯",@"questionWord",@"icon_2.jpg",@"answerPic",option2,@"options", nil];
-    NSArray *option3 = [[NSArray alloc]initWithObjects:@"icon_2.jpg",@"icon_1.jpg",@"icon_4.jpg", nil];
-    NSDictionary *quiz3 = [[NSDictionary alloc]initWithObjectsAndKeys:@"老鹰",@"questionWord", @"icon_3.jpg",@"answerPic",option3,@"options",nil];
-    NSArray *option4 = [[NSArray alloc]initWithObjects:@"icon_2.jpg",@"icon_3.jpg",@"icon_1.jpg", nil];
-    NSDictionary *quiz4 = [[NSDictionary alloc]initWithObjectsAndKeys:@"柠檬",@"questionWord", @"icon_4.jpg",@"answerPic",option4,@"options",nil];
-    self.quizArray = [[NSArray alloc]initWithObjects:quiz1,quiz2,quiz3, quiz4,nil];
+//    NSArray *option1 = [[NSArray alloc]initWithObjects:@"icon_2.jpg",@"icon_3.jpg",@"icon_4.jpg", nil];
+//    NSDictionary *quiz1 = [[NSDictionary alloc]initWithObjectsAndKeys:@"松子",@"questionWord", @"icon_1.jpg",@"answerPic",option1,@"options", nil];
+//    NSArray *option2 = [[NSArray alloc]initWithObjects:@"icon_1.jpg",@"icon_3.jpg",@"icon_4.jpg", nil];
+//    NSDictionary *quiz2 = [[NSDictionary alloc]initWithObjectsAndKeys:@"阿迪达斯",@"questionWord",@"icon_2.jpg",@"answerPic",option2,@"options", nil];
+//    NSArray *option3 = [[NSArray alloc]initWithObjects:@"icon_2.jpg",@"icon_1.jpg",@"icon_4.jpg", nil];
+//    NSDictionary *quiz3 = [[NSDictionary alloc]initWithObjectsAndKeys:@"老鹰",@"questionWord", @"icon_3.jpg",@"answerPic",option3,@"options",nil];
+//    NSArray *option4 = [[NSArray alloc]initWithObjects:@"icon_2.jpg",@"icon_3.jpg",@"icon_1.jpg", nil];
+//    NSDictionary *quiz4 = [[NSDictionary alloc]initWithObjectsAndKeys:@"柠檬",@"questionWord", @"icon_4.jpg",@"answerPic",option4,@"options",nil];
+    
+    self.quizArray = [[LZDataAccess singleton] getGroupQuizzes:currentGroupKey];
     NSLog(@"quizArray %@",[self.quizArray description]);
     //-(FMResultSet *) getGroupQuiz:(NSString *)grpkey;
     totalQuizCount = [self.quizArray count];
@@ -143,7 +146,7 @@
         
         for (int i=0; i<kTotalOptionCount; i++)
         {
-            NSString *pic = [option objectAtIndex:i];
+            NSString *pic = [[option objectAtIndex:i] objectForKey:@"answerPic"];
             [self.currentOptionArray addObject:pic];
             //[self.currentOptionArray addObject:pic];
         }
@@ -172,8 +175,7 @@
             for (int i=0;i<[self.currentOptionArray count];i++)
             {
                 NSString *optionPic = [self.currentOptionArray objectAtIndex:i];
-                //[[NSBundle mainBundle] bundlePath]
-                UIImage *iconImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@",optionPic]];
+                UIImage *iconImage = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/quizicons/%@",[[NSBundle mainBundle] bundlePath],optionPic]];
                 UIButton *answerButton = (UIButton*)[playView1 viewWithTag:200+i];
                 [answerButton setBackgroundImage:iconImage forState:UIControlStateNormal];
                 answerButton.hidden = NO;
@@ -190,8 +192,7 @@
             for (int i=0;i<[self.currentOptionArray count];i++)
             {
                 NSString *optionPic = [self.currentOptionArray objectAtIndex:i];
-                //[[NSBundle mainBundle] bundlePath]
-                UIImage *iconImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@",optionPic]];
+                UIImage *iconImage = [UIImage imageWithContentsOfFile:[NSString stringWithFormat:@"%@/quizicons/%@",[[NSBundle mainBundle] bundlePath],optionPic]];
                 UIButton *answerButton = (UIButton*)[playView2 viewWithTag:200+i];
                 [answerButton setBackgroundImage:iconImage forState:UIControlStateNormal];
                 answerButton.hidden = NO;

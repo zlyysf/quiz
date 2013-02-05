@@ -7,12 +7,13 @@
 //
 
 #import "LZAppDelegate.h"
-
+#import "LZDataAccess.h"
 @implementation LZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[LZDataAccess singleton]initDb];
     return YES;
 }
 							
