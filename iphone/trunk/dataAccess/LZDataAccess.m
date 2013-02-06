@@ -15,16 +15,54 @@
     static LZDataAccess *shared;
     // Will only be run once, the first time this is called
     dispatch_once(&pred, ^{
-        shared = [[LZDataAccess alloc] init];
+        shared = [[LZDataAccess alloc] initDBConnection];
     });
     return shared;
 }
+
+- (id)initDBConnection{
+    self = [super init];
+    if (self) {
+        NSString *dbFilePath = [self dbFilePath];
+        dbfm = [FMDatabase databaseWithPath:dbFilePath];
+        if (![dbfm open]) {
+            //[dbfm release];
+            NSLog(@"initDBConnection, FMDatabase databaseWithPath failed, %@", dbFilePath);
+        }
+    }
+    return self;
+}
+
+//TODO check programmar
+- (void)finalize {
+    NSLog(@"LZDataAccess finalize begin");
+    [dbfm close];
+    [super finalize];
+}
+//TODO check programmar
+- (void)dealloc {
+    NSLog(@"LZDataAccess dealloc begin");
+    [dbfm close];    
+#if ! __has_feature(objc_arc)
+    [super dealloc];
+#endif
+}
+
 
 - (NSString *)dbFilePath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     return [documentsDirectory stringByAppendingPathComponent:cDbFile];
 }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -81,13 +119,13 @@
 //  WHERE pd1.name=pgc.pkgkey and pd1.name=pgpc.pkgkey and pd1.name=pqc.pkgkey and pd1.name=ps.name
 //  ORDER BY seq
 - (NSArray *)getPackages {
-    NSString *dbFilePath = [self dbFilePath];
-    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
-    if (![dbfm open]) {
-//        //[dbfm release];
-//        return;
-        NSLog(@"open db failed, %@", dbFilePath);
-    }
+//    NSString *dbFilePath = [self dbFilePath];
+//    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
+//    if (![dbfm open]) {
+////        //[dbfm release];
+////        return;
+//        NSLog(@"open db failed, %@", dbFilePath);
+//    }
 
     NSMutableArray *pkgAry = [NSMutableArray arrayWithCapacity:10];
     NSString *query = @""
@@ -121,7 +159,7 @@
         [pkgAry addObject:rowDict];
     }
     NSLog(@"getPackages ret:\n%@",pkgAry);
-    [dbfm close];
+//    [dbfm close];
     return pkgAry;
 }
 
@@ -139,13 +177,13 @@
 //    ) gqc ON gd.grpkey=gqc.grpkey
 //  WHERE gd.pkgkey='apparel t1' ORDER BY seqInPkg
 -(NSArray *) getPackageGroups:(NSString *)pkgkey{
-    NSString *dbFilePath = [self dbFilePath];
-    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
-    if (![dbfm open]) {
-        //        //[dbfm release];
-        //        return;
-        NSLog(@"FMDatabase open failed, %@", dbFilePath);
-    }
+//    NSString *dbFilePath = [self dbFilePath];
+//    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
+//    if (![dbfm open]) {
+//        //        //[dbfm release];
+//        //        return;
+//        NSLog(@"FMDatabase open failed, %@", dbFilePath);
+//    }
     
     NSMutableArray *grpAry = [NSMutableArray arrayWithCapacity:10];
     NSString *query = @""    
@@ -167,7 +205,7 @@
         [grpAry addObject:rowDict];
     }
     NSLog(@"getPackageGroups ret:\n%@",grpAry);
-    [dbfm close];
+//    [dbfm close];
     return grpAry;
 }
 
@@ -211,13 +249,13 @@
 //    ifnull(haveAwardCoin,0) haveAwardCoin, ifnull(haveAwardScore,0) haveAwardScore
 //  FROM quizDef qd LEFT OUTER JOIN quizRun qr ON qd.quizkey=qr.quizkey WHERE qd.grpkey='apparel t1:group 1'
 -(NSArray *) getGroupQuiz:(NSString *)grpkey{
-    NSString *dbFilePath = [self dbFilePath];
-    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
-    if (![dbfm open]) {
-        //        //[dbfm release];
-        //        return;
-        NSLog(@"FMDatabase open failed, %@", dbFilePath);
-    }
+//    NSString *dbFilePath = [self dbFilePath];
+//    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
+//    if (![dbfm open]) {
+//        //        //[dbfm release];
+//        //        return;
+//        NSLog(@"FMDatabase open failed, %@", dbFilePath);
+//    }
     
     NSMutableArray *quizAry = [NSMutableArray arrayWithCapacity:10];
     NSString *query = @""
@@ -232,7 +270,7 @@
         [quizAry addObject:rowDict];
     }
     NSLog(@"getGroupQuiz ret:\n%@",quizAry);
-    [dbfm close];
+//    [dbfm close];
     return quizAry;
 }
 
@@ -242,13 +280,13 @@
 //    and qd.grpkey<>'apparel t1:group 1'
 //  LIMIT 1
 -(NSArray *) getGroupQuizOptions:(NSString *)grpkey{
-    NSString *dbFilePath = [self dbFilePath];
-    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
-    if (![dbfm open]) {
-        //        //[dbfm release];
-        //        return;
-        NSLog(@"FMDatabase open failed, %@", dbFilePath);
-    }
+//    NSString *dbFilePath = [self dbFilePath];
+//    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
+//    if (![dbfm open]) {
+//        //        //[dbfm release];
+//        //        return;
+//        NSLog(@"FMDatabase open failed, %@", dbFilePath);
+//    }
     NSMutableArray *quizOptionAry = [NSMutableArray arrayWithCapacity:10];
     NSString *query = @""    
     "SELECT quizkey, answerPic, grpkey, pkgkey"
@@ -266,7 +304,7 @@
         [quizOptionAry addObject:rowDict];
     }
     NSLog(@"getGroupQuizOptions ret:\n%@",quizOptionAry);
-    [dbfm close];
+//    [dbfm close];
     return quizOptionAry;
 }
 
@@ -279,13 +317,13 @@
  除了标记haveAwardCoin，还会修改user的totalCoin。
  */
 -(NSDictionary *)obtainQuizAward:(NSString *)quizkey{
-    NSString *dbFilePath = [self dbFilePath];
-    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
-    if (![dbfm open]) {
-        //        //[dbfm release];
-        //        return;
-        NSLog(@"FMDatabase open failed, %@", dbFilePath);
-    }
+//    NSString *dbFilePath = [self dbFilePath];
+//    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
+//    if (![dbfm open]) {
+//        //        //[dbfm release];
+//        //        return;
+//        NSLog(@"FMDatabase open failed, %@", dbFilePath);
+//    }
     NSString *query = @""
     "SELECT qd.quizkey, awardCoin, awardScore, haveAwardCoin, ifnull(haveAwardCoin,0) haveAwardCoinNoNull"
     "  FROM quizDef qd JOIN groupDef gd ON qd.grpkey=gd.grpkey"
@@ -341,19 +379,19 @@
         [retDict setValue:awardCoin forKey:@"awardCoin"];
         [retDict setValue:awardScore forKey:@"awardScore"];
     }
-    [dbfm close];
+//    [dbfm close];
     return retDict;
 }
 
 
 -(BOOL) updateUserTotalCoinByDelta:(int) totalCoinDelta{
-    NSString *dbFilePath = [self dbFilePath];
-    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
-    if (![dbfm open]) {
-        //        //[dbfm release];
-        //        return;
-        NSLog(@"FMDatabase open failed, %@", dbFilePath);
-    }
+//    NSString *dbFilePath = [self dbFilePath];
+//    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
+//    if (![dbfm open]) {
+//        //        //[dbfm release];
+//        //        return;
+//        NSLog(@"FMDatabase open failed, %@", dbFilePath);
+//    }
     NSString *updateSql = @"UPDATE user SET totalCoin=totalCoin+:delta WHERE 1=1";
     NSDictionary *dictUpdate = [NSDictionary dictionaryWithObjectsAndKeys:
                                     [NSNumber numberWithInt:totalCoinDelta], @"delta",nil];
@@ -363,25 +401,25 @@
         NSLog(@"in updateUserTotalCoinByDelta executeUpdate outErr=%@", outErr);
     if (!updateRet)
         NSLog(@"in updateUserTotalCoinByDelta executeUpdate Failed");
-    
+//    [dbfm close];
     return updateRet;
 }
 
 -(NSDictionary *) getUserTotalScore{
     NSDictionary *rowDict = Nil;
-    NSString *dbFilePath = [self dbFilePath];
-    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
-    if (![dbfm open]) {
-        //        //[dbfm release];
-        //        return;
-        NSLog(@"open db failed, %@", dbFilePath);
-    }
+//    NSString *dbFilePath = [self dbFilePath];
+//    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
+//    if (![dbfm open]) {
+//        //        //[dbfm release];
+//        //        return;
+//        NSLog(@"open db failed, %@", dbFilePath);
+//    }
     NSString *query = @"SELECT name, totalScore, totalCoin FROM user";
     FMResultSet *rs = [dbfm executeQuery:query];
     if ([rs next]) {
         rowDict = rs.resultDictionary;
     }
-    [dbfm close];
+//    [dbfm close];
     NSLog(@"getUserTotalScore ret:\n%@",rowDict);
     return rowDict;
 }
@@ -391,13 +429,13 @@
  当前的值与老的值相比，取较大的更新
  */
 -(NSDictionary *)updateGroupScoreAndRightQuizAmount:(NSString *)grpkey andScore:(int)score andRightQuizAmount:(int)rightQuizAmount{
-    NSString *dbFilePath = [self dbFilePath];
-    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
-    if (![dbfm open]) {
-        //        //[dbfm release];
-        //        return;
-        NSLog(@"FMDatabase open failed, %@", dbFilePath);
-    }
+//    NSString *dbFilePath = [self dbFilePath];
+//    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
+//    if (![dbfm open]) {
+//        //        //[dbfm release];
+//        //        return;
+//        NSLog(@"FMDatabase open failed, %@", dbFilePath);
+//    }
     NSString *query = @""
     "SELECT grpkey, gotScoreSum, answerRightMax FROM groupRun WHERE grpkey=:grpkey"
     ;
@@ -421,6 +459,7 @@
             NSLog(@"in updateGroupScoreAndRightQuizAmount executeUpdate insertSql Failed");
 //        [retDict setObject:[NSNumber numberWithInt:score] forKey:@"gotScoreSum"];
 //        [retDict setObject:[NSNumber numberWithInt:rightQuizAmount] forKey:@"answerRightMax"];
+        [self updateUserTotalCoinByDelta:score];
         NSLog(@"updateGroupScoreAndRightQuizAmount dictInsert=%@",dictInsert);
         return dictInsert;
     }
@@ -446,12 +485,58 @@
     if (!updateRet)
         NSLog(@"in updateGroupScoreAndRightQuizAmount executeUpdate updateSql Failed");
     NSLog(@"updateGroupScoreAndRightQuizAmount dictUpdate=%@",dictUpdate);
-
+    
+    int scoreDelta = gotScoreSum - [gotScoreSumNmOld intValue];
+    if (scoreDelta > 0){
+        [self updateUserTotalCoinByDelta:scoreDelta];
+    }
+//    [dbfm close];
     return dictUpdate;
 }
 
--(NSDictionary *)updateGroupLockState:(NSString *)grpkey andLocked:(int)locked{
-    return Nil;
+-(BOOL)updateGroupLockState:(NSString *)grpkey andLocked:(int)locked{
+    NSString *query = @""
+    "SELECT grpkey, locked FROM groupRun WHERE grpkey=:grpkey"
+    ;
+    NSDictionary *dictQueryParam = [NSDictionary dictionaryWithObjectsAndKeys:grpkey, @"grpkey", nil];
+    FMResultSet *rs = [dbfm executeQuery:query withParameterDictionary:dictQueryParam];
+    NSDictionary *dictGrpInfo;
+    if ([rs next]) {
+        dictGrpInfo = rs.resultDictionary;
+    }else{
+        NSString *insertSql = @"INSERT INTO groupRun(grpkey,locked) VALUES (:grpkey,:locked)";
+        NSDictionary *dictInsert = [NSDictionary dictionaryWithObjectsAndKeys:
+                                    grpkey,@"grpkey",
+                                    [NSNumber numberWithInt:locked], @"locked",
+                                    nil];
+        NSError *outErr = Nil;
+        BOOL insertRet = [dbfm executeUpdate:insertSql error:&outErr withArgumentsInArray:nil orDictionary:dictInsert orVAList:nil];
+        if (outErr != nil)
+            NSLog(@"in updateGroupLockState executeUpdate insertSql outErr=%@", outErr);
+        if (!insertRet)
+            NSLog(@"in updateGroupLockState executeUpdate insertSql Failed");
+        NSLog(@"updateGroupLockState dictInsert=%@",dictInsert);
+        return insertRet;
+    }
+    NSNumber *lockedNmOld = [dictGrpInfo objectForKey:@"locked"];
+    int lockedOld = [lockedNmOld intValue];
+    if (lockedOld == locked){
+        return TRUE;
+    }
+    
+    NSString *updateSql = @"UPDATE groupRun SET locked=:locked WHERE grpkey=:grpkey";
+    NSDictionary *dictUpdate = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [NSNumber numberWithInt:locked], @"locked",
+                                grpkey,@"grpkey",
+                                nil];
+    NSError *outErr = Nil;
+    BOOL updateRet = [dbfm executeUpdate:updateSql error:&outErr withArgumentsInArray:nil orDictionary:dictUpdate orVAList:nil];
+    if (outErr != nil)
+        NSLog(@"in updateGroupLockState executeUpdate updateSql outErr=%@", outErr);
+    if (!updateRet)
+        NSLog(@"in updateGroupLockState executeUpdate updateSql Failed");
+    NSLog(@"updateGroupLockState dictUpdate=%@",dictUpdate);
+    return updateRet;
 }
 
 

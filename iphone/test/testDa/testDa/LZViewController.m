@@ -38,7 +38,7 @@
     
     //[da getGroupQuizzes:@"apparel t1:group 1"];
     //[da getGroupQuizOptions:@"apparel t1:group 2"];
-    //[da getUserTotalScore];
+    [da getUserTotalScore];
 }
 
 - (IBAction)btnSelGrp_touchUpInside:(id)sender {
@@ -51,10 +51,11 @@
 //    [da updateUserTotalCoinByDelta:123];
 //    [da updateUserTotalCoinByDelta:-3];
     
-    [da updateGroupScoreAndRightQuizAmount:@"apparel t1:group 2" andScore:10 andRightQuizAmount:11];
-    [da updateGroupScoreAndRightQuizAmount:@"apparel t1:group 2" andScore:5 andRightQuizAmount:22];
+//    [da updateGroupScoreAndRightQuizAmount:@"apparel t1:group 2" andScore:10 andRightQuizAmount:11];
+//    [da updateGroupScoreAndRightQuizAmount:@"apparel t1:group 2" andScore:15 andRightQuizAmount:22];
 
-    
+    [da updateGroupLockState:@"apparel t1:group 2" andLocked:1];
+    [da updateGroupLockState:@"apparel t1:group 2" andLocked:2];
 
 }
 

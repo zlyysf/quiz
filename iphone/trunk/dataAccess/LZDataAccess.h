@@ -11,8 +11,11 @@
 
 #define cDbFile    @"db.dat"
 
-@interface LZDataAccess : NSObject
+@interface LZDataAccess : NSObject{
+    FMDatabase *dbfm;
+}
 +(LZDataAccess *)singleton;
+- (id)initDBConnection;
 
 - (NSString *)dbFilePath;
 
@@ -29,6 +32,6 @@
 -(NSDictionary *) getUserTotalScore;
 
 -(NSDictionary *)updateGroupScoreAndRightQuizAmount:(NSString *)grpkey andScore:(int)score andRightQuizAmount:(int)rightQuizAmount;
--(NSDictionary *)updateGroupLockState:(NSString *)grpkey andLocked:(int)locked;
+-(BOOL)updateGroupLockState:(NSString *)grpkey andLocked:(int)locked;
 
 @end
