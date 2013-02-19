@@ -118,6 +118,12 @@
 //    ) ps
 //  WHERE pd1.name=pgc.pkgkey and pd1.name=pgpc.pkgkey and pd1.name=pqc.pkgkey and pd1.name=ps.name
 //  ORDER BY seq
+/**
+ get all packages.
+ the SQL is like above.
+ return an array which item is NSDictionary.
+ and the keys of the dictionary are the columns in the Sql sentence.
+ */
 - (NSArray *)getPackages {
 //    NSString *dbFilePath = [self dbFilePath];
 //    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
@@ -176,6 +182,13 @@
 //        WHERE gd1.pkgkey='apparel t1' GROUP BY qd.grpkey
 //    ) gqc ON gd.grpkey=gqc.grpkey
 //  WHERE gd.pkgkey='apparel t1' ORDER BY seqInPkg
+
+/**
+  get groups of a package.
+  the SQL is like above.
+  return an array which item is NSDictionary.
+  and the keys of the dictionary are the columns in the Sql sentence.
+ */
 -(NSArray *) getPackageGroups:(NSString *)pkgkey{
 //    NSString *dbFilePath = [self dbFilePath];
 //    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
@@ -209,7 +222,11 @@
     return grpAry;
 }
 
-
+/**
+ get quizzes of a group.
+ return an array which item is NSDictionary.
+ and the keys of the dictionary are the columns in the Sql sentence.
+ */
 -(NSArray *) getGroupQuizzes:(NSString *)grpkey{
     NSArray *quizAry = [self getGroupQuiz:grpkey];
     NSArray *quizOptionAry = [self getGroupQuizOptions:grpkey];
@@ -248,6 +265,12 @@
 //SELECT qd.quizkey quizkey, grpkey, pkgkey, questionWord, answerPic,
 //    ifnull(haveAwardCoin,0) haveAwardCoin, ifnull(haveAwardScore,0) haveAwardScore
 //  FROM quizDef qd LEFT OUTER JOIN quizRun qr ON qd.quizkey=qr.quizkey WHERE qd.grpkey='apparel t1:group 1'
+/**
+ get quizzes of a group.
+ the SQL is like above.
+ return an array which item is NSDictionary.
+ and the keys of the dictionary are the columns in the Sql sentence.
+ */
 -(NSArray *) getGroupQuiz:(NSString *)grpkey{
 //    NSString *dbFilePath = [self dbFilePath];
 //    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
@@ -279,6 +302,15 @@
 //  WHERE qd.pkgkey IN (SELECT pkgkey FROM quizDef WHERE grpkey='apparel t1:group 1')
 //    and qd.grpkey<>'apparel t1:group 1'
 //  LIMIT 1
+/**
+ get all options of all quizzes of a group.
+ any of the answers of the quizzes is not in the options.
+ each quiz has 3 options.
+ the options should be random, but now is fixed order, TODO to make them random.
+ the SQL is like above.
+ return an array which item is NSDictionary.
+ and the keys of the dictionary are the columns in the Sql sentence.
+ */
 -(NSArray *) getGroupQuizOptions:(NSString *)grpkey{
 //    NSString *dbFilePath = [self dbFilePath];
 //    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
@@ -313,8 +345,12 @@
 //  FROM quizDef qd JOIN groupDef gd ON qd.grpkey=gd.grpkey
 //    LEFT OUTER JOIN quizRun qr ON qd.quizkey=qr.quizkey
 //  WHERE qd.quizkey='apparel t1:Abercrombie & Fitch'
-/*
- 除了标记haveAwardCoin，还会修改user的totalCoin。
+/**
+ when user answer right a quiz, we should award the user about coin and score.
+ but here we only modify about coin because score need be updated with statics.
+ if the user already obtained the coin of the quiz, we will not give the coin again.
+ if the user has not obtained the coin of the quiz, we will give the coin.
+ here the give action is to modify the flag haveAwardCoin of the quiz, and totalCoin of the user.
  */
 -(NSDictionary *)obtainQuizAward:(NSString *)quizkey{
 //    NSString *dbFilePath = [self dbFilePath];
@@ -383,7 +419,9 @@
     return retDict;
 }
 
-
+/**
+ simply update totalCoin of the user by delta amount
+ */
 -(BOOL) updateUserTotalCoinByDelta:(int) totalCoinDelta{
 //    NSString *dbFilePath = [self dbFilePath];
 //    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
@@ -405,6 +443,12 @@
     return updateRet;
 }
 
+/**
+ get totalScore of the user. 
+ return a dictionary.
+ and the keys of the dictionary are the columns in the Sql sentence.
+ here the dictionary contains other fields. if other fields necessary, the function name may be changed.
+ */
 -(NSDictionary *) getUserTotalScore{
     NSDictionary *rowDict = Nil;
 //    NSString *dbFilePath = [self dbFilePath];
@@ -425,8 +469,9 @@
 }
 
 
-/*
- 当前的值与老的值相比，取较大的更新
+/**
+ when user finish answering a whole group of quizzes, 
+ we will update the score sum and the right quiz amount in the group if the values are bigger than old.
  */
 -(NSDictionary *)updateGroupScoreAndRightQuizAmount:(NSString *)grpkey andScore:(int)score andRightQuizAmount:(int)rightQuizAmount{
 //    NSString *dbFilePath = [self dbFilePath];
@@ -493,7 +538,11 @@
 //    [dbfm close];
     return dictUpdate;
 }
-
+/**
+ change lock state of a given group.
+ when user finish answering a whole group of quizzes and can pass the group,
+ we will unlock the next group. and here need ui layer know which group should be unlocked.
+ */
 -(BOOL)updateGroupLockState:(NSString *)grpkey andLocked:(int)locked{
     NSString *query = @""
     "SELECT grpkey, locked FROM groupRun WHERE grpkey=:grpkey"
