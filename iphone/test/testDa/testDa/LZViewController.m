@@ -54,8 +54,10 @@
 //    [da updateGroupScoreAndRightQuizAmount:@"apparel t1:group 2" andScore:10 andRightQuizAmount:11];
 //    [da updateGroupScoreAndRightQuizAmount:@"apparel t1:group 2" andScore:15 andRightQuizAmount:22];
 
-    [da updateGroupLockState:@"apparel t1:group 2" andLocked:1];
-    [da updateGroupLockState:@"apparel t1:group 2" andLocked:2];
+//    [da updateGroupLockState:@"apparel t1:group 2" andLocked:1];
+//    [da updateGroupLockState:@"apparel t1:group 2" andLocked:2];
+    
+    [da updatePackageLockState:@"apparel t1" andLocked:1];
 
 }
 

@@ -123,6 +123,7 @@
  the SQL is like above.
  return an array which item is NSDictionary.
  and the keys of the dictionary are the columns in the Sql sentence.
+ package price info stored in other place, here not provide.
  */
 - (NSArray *)getPackages {
 //    NSString *dbFilePath = [self dbFilePath];
@@ -135,7 +136,7 @@
 
     NSMutableArray *pkgAry = [NSMutableArray arrayWithCapacity:10];
     NSString *query = @""
-    "SELECT pd1.name name,seq,locked,price, groupCount,passedGroupCount,quizCount,scoreSum"
+    "SELECT pd1.name name,seq,locked, groupCount,passedGroupCount,quizCount,scoreSum"
     "  FROM"
     "    packageDef pd1, "
     "    (SELECT pkgkey, count(grpkey) groupCount FROM groupDef GROUP BY pkgkey) pgc,"
@@ -538,6 +539,7 @@
 //    [dbfm close];
     return dictUpdate;
 }
+
 /**
  change lock state of a given group.
  when user finish answering a whole group of quizzes and can pass the group,
@@ -588,8 +590,45 @@
     return updateRet;
 }
 
+/**
+ change lock state of a given package.
+ when user finish answering a whole package of groups and can pass the package,
+ we will unlock the next package. and here need ui layer know which package should be unlocked.
+ */
+-(BOOL)updatePackageLockState:(NSString *)pkgkey andLocked:(int)locked{
+    NSString *query = @""
+    "SELECT locked FROM packageDef WHERE name=:pkgkey"
+    ;
+    NSDictionary *dictQueryParam = [NSDictionary dictionaryWithObjectsAndKeys:pkgkey, @"pkgkey", nil];
+    FMResultSet *rs = [dbfm executeQuery:query withParameterDictionary:dictQueryParam];
+    NSDictionary *dict;
+    if ([rs next]) {
+        dict = rs.resultDictionary;
+    }else{
+        NSLog(@"updatePackageLockState fail, NO record of %@",pkgkey);
+        return FALSE;
+    }
+    NSNumber *lockedNmOld = [dict objectForKey:@"locked"];
+    int lockedOld = [lockedNmOld intValue];
+    if (lockedOld == locked){
+        return TRUE;
+    }
+    
+    NSString *updateSql = @"UPDATE packageDef SET locked=:locked WHERE name=:pkgkey";
+    NSDictionary *dictUpdate = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [NSNumber numberWithInt:locked], @"locked",
+                                pkgkey,@"pkgkey",
+                                nil];
+    NSError *outErr = Nil;
+    BOOL updateRet = [dbfm executeUpdate:updateSql error:&outErr withArgumentsInArray:nil orDictionary:dictUpdate orVAList:nil];
+    if (outErr != nil)
+        NSLog(@"in updatePackageLockState executeUpdate updateSql outErr=%@", outErr);
+    if (!updateRet)
+        NSLog(@"in updatePackageLockState executeUpdate updateSql Failed");
+    NSLog(@"updateGroupLockState dictUpdate=%@",dictUpdate);
+    return updateRet;
 
-
+}
 
 
 

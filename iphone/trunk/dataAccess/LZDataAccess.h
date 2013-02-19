@@ -33,5 +33,6 @@
 
 -(NSDictionary *)updateGroupScoreAndRightQuizAmount:(NSString *)grpkey andScore:(int)score andRightQuizAmount:(int)rightQuizAmount;
 -(BOOL)updateGroupLockState:(NSString *)grpkey andLocked:(int)locked;
+-(BOOL)updatePackageLockState:(NSString *)pkgkey andLocked:(int)locked;
 
 @end
