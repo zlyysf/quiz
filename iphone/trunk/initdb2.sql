@@ -30,8 +30,10 @@ INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('
 
 INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('shoe t2:Arc''Teryx Salomon', 'shoe t2:group 1', 'shoe t2',  'Arc''Teryx Salomon', 'shoe t2/group 1/Arc''Teryx Salomon.jpg');
 INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('shoe t2:Arthur Galan', 'shoe t2:group 1', 'shoe t2',  'Arthur Galan', 'shoe t2/group 1/Arthur Galan.jpg');
+INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('shoe t2:Ashworth', 'shoe t2:group 1', 'shoe t2',  'Ashworth', 'shoe t2/group 1/Ashworth.jpg');
 
 INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('shoe t2:Bearpaw', 'shoe t2:group 2', 'shoe t2',  'Bearpaw', 'shoe t2/group 2/Bearpaw.jpg');
 INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('shoe t2:Beauty Express', 'shoe t2:group 2', 'shoe t2',  'Beauty Express', 'shoe t2/group 2/Beauty Express.jpg');
+INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('shoe t2:Ben Davis', 'shoe t2:group 2', 'shoe t2',  'Ben Davis', 'shoe t2/group 2/Ben Davis.jpg');
 
 INSERT INTO user (name, totalScore, totalCoin) VALUES ('u1',0,0);

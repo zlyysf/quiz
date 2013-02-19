@@ -12,6 +12,10 @@
 #define kSelectedAnswerInterval 0.5
 #define kDirectAnswerInterval 1.0
 #define kSwitchNextQuestionInterval 0.5
+#define kDirectWinCost 4
+#define kDirectWinConstDelta -4
+#define kCutWrongCost 2
+#define kCutWrongCostDelta -2
 @interface LZGamingViewController ()<LZPlayViewDelegate,UIAlertViewDelegate>
 @property(nonatomic,strong)NSArray *quizArray;
 @property(nonatomic,assign)int currentQuizIndex;
@@ -231,6 +235,15 @@
     {
         if(tag == kWinButtonTag)
         {
+            NSDictionary *userInfo = [[LZDataAccess singleton]getUserTotalScore];
+            int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
+            if (userGold < kDirectWinCost)
+            {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Not Enough Coin" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                return;
+            }
+            [[LZDataAccess singleton]updateUserTotalCoinByDelta:kDirectWinConstDelta];
             NSNumber *current= [self.orderArray objectAtIndex:currentQuizIndex];
             NSDictionary *quiz = [self.quizArray objectAtIndex:[current integerValue]];
             NSString *answerPic = [quiz objectForKey:@"answerPic"];
@@ -258,8 +271,14 @@
             }
             answeredRightCount++;
             NSString *quizkey = [quiz objectForKey:@"quizkey"];
+
             NSDictionary *updateResult = [[LZDataAccess singleton]obtainQuizAward:quizkey];
             NSLog(@"%@",updateResult);
+            NSDictionary *newUserInfo = [[LZDataAccess singleton]getUserTotalScore];
+            int newUserGold = [[newUserInfo objectForKey:@"totalCoin"] integerValue];
+            self.topNavView.goldCountLabel.text = [NSString stringWithFormat:@"%d",newUserGold];
+            NSLog(@"%@",updateResult);
+            self.topNavView.correctCountLabel.text = [NSString stringWithFormat:@"%d",answeredRightCount];
             self.topNavView.correctCountLabel.text = [NSString stringWithFormat:@"%d",answeredRightCount];
             [self.playView1 setUserInteractionEnabled:NO];
             [self.playView2 setUserInteractionEnabled:NO];
@@ -268,7 +287,18 @@
         }
         if(tag == kCutWrongButtonTag)
         {
-            
+            NSDictionary *userInfo = [[LZDataAccess singleton]getUserTotalScore];
+            int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
+            if (userGold < kCutWrongCost)
+            {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Not Enough Coin" message:@"" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                return;
+            }
+            [[LZDataAccess singleton]updateUserTotalCoinByDelta:kCutWrongCostDelta];
+            NSDictionary *newUserInfo = [[LZDataAccess singleton]getUserTotalScore];
+            int newUserGold = [[newUserInfo objectForKey:@"totalCoin"] integerValue];
+            self.topNavView.goldCountLabel.text = [NSString stringWithFormat:@"%d",newUserGold];
             int remainOption = rand()%kTotalOptionCount;
             NSNumber *current= [self.orderArray objectAtIndex:currentQuizIndex];
             NSDictionary *quiz = [self.quizArray objectAtIndex:[current integerValue]];
@@ -343,6 +373,9 @@
             answeredRightCount++;
             NSString *quizkey = [quiz objectForKey:@"quizkey"];
             NSDictionary *updateResult = [[LZDataAccess singleton]obtainQuizAward:quizkey];
+            NSDictionary *userInfo = [[LZDataAccess singleton]getUserTotalScore];
+            int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
+            self.topNavView.goldCountLabel.text = [NSString stringWithFormat:@"%d",userGold];
             NSLog(@"%@",updateResult);
             self.topNavView.correctCountLabel.text = [NSString stringWithFormat:@"%d",answeredRightCount];
         }
