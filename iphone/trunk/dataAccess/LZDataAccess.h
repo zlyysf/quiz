@@ -21,7 +21,10 @@
 - (NSString *)dbFilePath;
 
 - (void)initDb;
+- (void)initDbByGeneratedSql;
+-(void)cleanDb;
 -(NSMutableString*)generateInitSqlForPackages:(NSString *)topDirPath;
+-(void)generateConfigTemplateForPackages:(NSString *)topDirPath;
 
 -(NSArray *) getPackages;
 

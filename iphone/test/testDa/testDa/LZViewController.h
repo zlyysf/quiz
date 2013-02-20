@@ -17,5 +17,6 @@
 - (IBAction)btnSelect_touchUpInside:(id)sender;
 - (IBAction)btnUpdate_touchUpInside:(id)sender;
 - (IBAction)btnSelGrp_touchUpInside:(id)sender;
+- (IBAction)btnGenSql_touchUpInside:(id)sender;
 
 @end

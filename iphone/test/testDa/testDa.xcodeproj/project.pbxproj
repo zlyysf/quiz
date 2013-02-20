@@ -24,7 +24,6 @@
 		083ED17D16C0C2F40010AF13 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED17516C0C2F30010AF13 /* FMDatabaseQueue.m */; };
 		083ED17E16C0C2F40010AF13 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED17616C0C2F30010AF13 /* fmdb.m */; };
 		083ED17F16C0C2F40010AF13 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED17816C0C2F30010AF13 /* FMResultSet.m */; };
-		083ED18416C0C3470010AF13 /* quizicons in Resources */ = {isa = PBXBuildFile; fileRef = 083ED18316C0C3470010AF13 /* quizicons */; };
 		083ED18616C0C6280010AF13 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED18516C0C6280010AF13 /* libsqlite3.dylib */; };
 		083ED18816C0C8210010AF13 /* initdb2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 083ED18716C0C8210010AF13 /* initdb2.sql */; };
 		083ED19C16C139FF0010AF13 /* LZViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083ED19A16C139FF0010AF13 /* LZViewController.xib */; };
@@ -34,6 +33,7 @@
 		083ED1A416C13A910010AF13 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A116C13A910010AF13 /* Default@2x.png */; };
 		083ED1A616C13AC20010AF13 /* testDa-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A516C13AC20010AF13 /* testDa-Info.plist */; };
 		083ED1A916C13AE10010AF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A716C13AE10010AF13 /* InfoPlist.strings */; };
+		0882BEE616D3585F00D15CFA /* quizicons in Resources */ = {isa = PBXBuildFile; fileRef = 0882BEE516D3585F00D15CFA /* quizicons */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +74,6 @@
 		083ED17616C0C2F30010AF13 /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
 		083ED17716C0C2F30010AF13 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		083ED17816C0C2F30010AF13 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
-		083ED18316C0C3470010AF13 /* quizicons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = quizicons; path = ../../trunk/quizicons; sourceTree = "<group>"; };
 		083ED18516C0C6280010AF13 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		083ED18716C0C8210010AF13 /* initdb2.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = initdb2.sql; path = ../../trunk/initdb2.sql; sourceTree = "<group>"; };
 		083ED19B16C139FF0010AF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LZViewController.xib; sourceTree = "<group>"; };
@@ -85,6 +84,7 @@
 		083ED1A516C13AC20010AF13 /* testDa-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "testDa-Info.plist"; sourceTree = "<group>"; };
 		083ED1A816C13AE10010AF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		083ED1AA16C13AF10010AF13 /* testDa-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "testDa-Prefix.pch"; sourceTree = "<group>"; };
+		0882BEE516D3585F00D15CFA /* quizicons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = quizicons; path = ../../trunk/quizicons; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +115,8 @@
 		083ED11C16C0C1460010AF13 = {
 			isa = PBXGroup;
 			children = (
+				0882BEE516D3585F00D15CFA /* quizicons */,
 				083ED18716C0C8210010AF13 /* initdb2.sql */,
-				083ED18316C0C3470010AF13 /* quizicons */,
 				083ED16A16C0C2F30010AF13 /* dataAccess */,
 				083ED16D16C0C2F30010AF13 /* FMDB */,
 				083ED13116C0C1460010AF13 /* testDa */,
@@ -294,7 +294,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				083ED18416C0C3470010AF13 /* quizicons in Resources */,
 				083ED18816C0C8210010AF13 /* initdb2.sql in Resources */,
 				083ED19C16C139FF0010AF13 /* LZViewController.xib in Resources */,
 				083ED1A216C13A910010AF13 /* Default-568h@2x.png in Resources */,
@@ -302,6 +301,7 @@
 				083ED1A416C13A910010AF13 /* Default@2x.png in Resources */,
 				083ED1A616C13AC20010AF13 /* testDa-Info.plist in Resources */,
 				083ED1A916C13AE10010AF13 /* InfoPlist.strings in Resources */,
+				0882BEE616D3585F00D15CFA /* quizicons in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +450,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testDa/testDa-Prefix.pch";
 				INFOPLIST_FILE = "testDa/testDa-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -461,6 +462,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "testDa/testDa-Prefix.pch";
 				INFOPLIST_FILE = "testDa/testDa-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>awardCoin</key>
+	<string>2</string>
+	<key>awardScore</key>
+	<string>200</string>
+	<key>packages</key>
+	<dict>
+		<key>Apparel 1</key>
+		<dict>
+			<key>groups</key>
+			<dict>
+				<key>group 1</key>
+				<dict>
+					<key>locked</key>
+					<string>0</string>
+				</dict>
+				<key>group 2</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 3</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 4</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+			</dict>
+			<key>locked</key>
+			<string>0</string>
+			<key>seq</key>
+			<string>1</string>
+		</dict>
+		<key>Apparel 2</key>
+		<dict>
+			<key>groups</key>
+			<dict>
+				<key>group 1</key>
+				<dict>
+					<key>locked</key>
+					<string>0</string>
+				</dict>
+				<key>group 2</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 3</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 4</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+			</dict>
+			<key>locked</key>
+			<string>0</string>
+			<key>seq</key>
+			<string>2</string>
+		</dict>
+		<key>apparel t1</key>
+		<dict>
+			<key>groups</key>
+			<dict>
+				<key>group 1</key>
+				<dict>
+					<key>locked</key>
+					<string>0</string>
+				</dict>
+				<key>group 2</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+			</dict>
+			<key>locked</key>
+			<string>1</string>
+			<key>seq</key>
+			<string>3</string>
+		</dict>
+		<key>shoe t2</key>
+		<dict>
+			<key>groups</key>
+			<dict>
+				<key>group 1</key>
+				<dict>
+					<key>locked</key>
+					<string>0</string>
+				</dict>
+				<key>group 2</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+			</dict>
+			<key>locked</key>
+			<string>1</string>
+			<key>seq</key>
+			<string>4</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
