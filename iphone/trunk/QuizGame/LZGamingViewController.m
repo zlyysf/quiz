@@ -7,6 +7,8 @@
 //
 
 #import "LZGamingViewController.h"
+#import <Twitter/Twitter.h>
+#import <Accounts/Accounts.h>
 #import <QuartzCore/QuartzCore.h>
 #define kTotalOptionCount 3
 #define kSelectedAnswerInterval 0.5
@@ -16,6 +18,7 @@
 #define kDirectWinConstDelta -4
 #define kCutWrongCost 2
 #define kCutWrongCostDelta -2
+#define kAskAlertTag 22
 @interface LZGamingViewController ()<LZPlayViewDelegate,UIAlertViewDelegate>
 @property(nonatomic,strong)NSArray *quizArray;
 @property(nonatomic,assign)int currentQuizIndex;
@@ -337,6 +340,10 @@
         }
         if(tag == kAskFriendsButtonTag)
         {
+            UIAlertView *askAlert = [[UIAlertView alloc]initWithTitle:@"Ask Friend For Help" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"FACEBOOK",@"TWITTER", nil];
+            askAlert.tag = kAskAlertTag;
+            [askAlert show];
+           
             
         }
     }
@@ -410,6 +417,7 @@
     {
         //display end view then get back to the group list view
         //lock or not lock the next level or next package
+        [[LZDataAccess singleton] updateGroupScoreAndRightQuizAmount:self.currentGroupKey andScore:answeredRightCount*100 andRightQuizAmount:answeredRightCount];
         NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
         UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:@"Quiz Finished" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [endAlert show];
@@ -423,10 +431,73 @@
 }
 -(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
-    if (buttonIndex == alertView.cancelButtonIndex)
+    if (alertView.tag == kAskAlertTag)
+    {
+        if (buttonIndex == 1)
+        {
+            NSURL *facebookUrl = [ [ NSURL alloc ] initWithString: @"https://m.facebook.com/dialog/feed?app_id=451167864925310&link=https%3A%2F%2Fitunes.apple.com%2Fapp%2Fid568334356&picture=http%3A%2F%2Fimg.iconpop.co%2F01x.png&name=Guess+who...&caption=Answer+in+the+comments+or+join+the+fun+by+downloading+the+free+Icon+Pop+Quiz+game%21&description=http%3A%2F%2Fwww.iconpopquiz.com&redirect_uri=http%3A%2F%2Fwww.facebook.com" ];
+            [[UIApplication sharedApplication] openURL:facebookUrl];
+        }
+        else if (buttonIndex == 2)
+        {
+            // Create an account store object.
+            ACAccountStore *accountStore = [[ACAccountStore alloc] init];
+            
+            // Create an account type that ensures Twitter accounts are retrieved.
+            ACAccountType *accountType = [accountStore accountTypeWithAccountTypeIdentifier:ACAccountTypeIdentifierTwitter];
+            
+            // Request access from the user to use their Twitter accounts.
+            [accountStore requestAccessToAccountsWithType:accountType withCompletionHandler:^(BOOL granted, NSError *error) {
+                if(granted) {
+                    // Get the list of Twitter accounts.
+                    NSArray *accountsArray = [accountStore accountsWithAccountType:accountType];
+                    
+                    // For the sake of brevity, we'll assume there is only one Twitter account present.
+                    // You would ideally ask the user which account they want to tweet from, if there is more than one Twitter account present.
+                    if ([accountsArray count] > 0) {
+                        // Grab the initial Twitter account to tweet from.
+                        ACAccount *twitterAccount = [accountsArray objectAtIndex:0];
+                        
+                        // Create a request, which in this example, posts a tweet to the user's timeline.
+                        // This example uses version 1 of the Twitter API.
+                        // This may need to be changed to whichever version is currently appropriate.
+                        TWRequest *postRequest = [[TWRequest alloc] initWithURL:[NSURL URLWithString:@"https://upload.twitter.com/1/statuses/update_with_media.json"] parameters:nil requestMethod:TWRequestMethodPOST];
+                        UIImage *questionImg = [self imageFromView:self.view atFrame:[[UIScreen mainScreen]bounds]];
+                        NSData *myData = UIImagePNGRepresentation(questionImg);
+                        [postRequest addMultiPartData:myData withName:@"media" type:@"image/png"];
+                        myData = [[NSString stringWithFormat:@"Anybody Know The Answer?"] dataUsingEncoding:NSUTF8StringEncoding];
+                        [postRequest addMultiPartData:myData withName:@"status" type:@"text/plain"];
+                        
+                        // Set the account used to post the tweet.
+                        [postRequest setAccount:twitterAccount];
+                        
+                        // Perform the request created above and create a handler block to handle the response.
+                        [postRequest performRequestWithHandler:^(NSData *responseData, NSHTTPURLResponse *urlResponse, NSError *error) {
+                            NSString *output = [NSString stringWithFormat:@"HTTP response status: %i", [urlResponse statusCode]];
+                            //[self performSelectorOnMainThread:@selector(displayText:) withObject:output waitUntilDone:NO];
+                        }];
+                    }
+                }
+            }];
+            
+        }
+    }
+    else if (buttonIndex == alertView.cancelButtonIndex)
     {
         [self backButtonTapped];
     }
 
+}
+- (UIImage *)imageFromView: (UIView *) theView   atFrame:(CGRect)r
+{
+    UIGraphicsBeginImageContext(theView.frame.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGContextSaveGState(context);
+    UIRectClip(r);
+    [theView.layer renderInContext:context];
+    UIImage *theImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return  theImage;//[self getImageAreaFromImage:theImage atFrame:r];
 }
 @end

@@ -79,6 +79,8 @@
 		5FE7376F16B9078B00194CF0 /* LZPackageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7376E16B9078B00194CF0 /* LZPackageViewController.m */; };
 		5FE7377216B90FB900194CF0 /* SeguePush.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7377116B90FB900194CF0 /* SeguePush.m */; };
 		5FE7377516B9163200194CF0 /* SeguePop.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7377416B9163100194CF0 /* SeguePop.m */; };
+		5FEBED7C16D4C070003A5408 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBED7B16D4C070003A5408 /* Twitter.framework */; };
+		5FEBED7E16D4C07D003A5408 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBED7D16D4C07D003A5408 /* Accounts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -193,6 +195,8 @@
 		5FE7377116B90FB900194CF0 /* SeguePush.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeguePush.m; sourceTree = "<group>"; };
 		5FE7377316B9163100194CF0 /* SeguePop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SeguePop.h; sourceTree = "<group>"; };
 		5FE7377416B9163100194CF0 /* SeguePop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SeguePop.m; sourceTree = "<group>"; };
+		5FEBED7B16D4C070003A5408 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		5FEBED7D16D4C07D003A5408 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +215,8 @@
 				5FE7376A16B903DC00194CF0 /* MessageUI.framework in Frameworks */,
 				5FE7376C16B903E800194CF0 /* AudioToolbox.framework in Frameworks */,
 				5F16FDB216BCE84A005EE2F5 /* QuartzCore.framework in Frameworks */,
+				5FEBED7C16D4C070003A5408 /* Twitter.framework in Frameworks */,
+				5FEBED7E16D4C07D003A5408 /* Accounts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +395,8 @@
 			isa = PBXGroup;
 			children = (
 				5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */,
+				5FEBED7D16D4C07D003A5408 /* Accounts.framework */,
+				5FEBED7B16D4C070003A5408 /* Twitter.framework */,
 				5F16FDB116BCE84A005EE2F5 /* QuartzCore.framework */,
 				5FE7376B16B903E800194CF0 /* AudioToolbox.framework */,
 				5FE7376916B903DC00194CF0 /* MessageUI.framework */,
