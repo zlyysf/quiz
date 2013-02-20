@@ -10,6 +10,7 @@
 #import "FMDatabase.h"
 
 #define cDbFile    @"db.dat"
+//#define cConfigTemplateFile    @"packagesConfigTemplate.plist"
 
 @interface LZDataAccess : NSObject{
     FMDatabase *dbfm;
@@ -20,6 +21,7 @@
 - (NSString *)dbFilePath;
 
 - (void)initDb;
+-(NSMutableString*)generateInitSqlForPackages:(NSString *)topDirPath;
 
 -(NSArray *) getPackages;
 

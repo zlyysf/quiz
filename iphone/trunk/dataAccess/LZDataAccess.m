@@ -94,6 +94,278 @@
 }
 
 
+-(NSString *)replaceForSqlText:(NSString *)origin
+{
+    return [origin stringByReplacingOccurrencesOfString:@"'" withString:@"''"];
+}
+
+
+-(NSMutableString*)generateInitSqlForPackages:(NSString *)topDirPath
+{
+    NSLog(@"generateInitSqlForPackages enter");
+    NSMutableString * allSql = [[NSMutableString alloc] init];
+    NSString *createTablesSql = @""
+    "CREATE TABLE IF NOT EXISTS packageDef (name TEXT PRIMARY KEY, seq INTEGER, locked INTEGER);\n"
+    "CREATE TABLE IF NOT EXISTS groupDef (grpkey TEXT PRIMARY KEY, name TEXT, pkgkey TEXT, seqInPkg INTEGER, awardCoin INTEGER, awardScore INTEGER);\n"
+    "CREATE TABLE IF NOT EXISTS groupRun (grpkey TEXT PRIMARY KEY, locked INTEGER, passed INTEGER, gotScoreSum INTEGER, answerRightMax INTEGER);\n"
+    "CREATE TABLE IF NOT EXISTS quizDef (quizkey TEXT PRIMARY KEY, grpkey TEXT, pkgkey TEXT, questionWord TEXT, answerPic TEXT);\n"
+    "CREATE TABLE IF NOT EXISTS quizRun (quizkey TEXT PRIMARY KEY, haveAwardCoin INTEGER, haveAwardScore INTEGER);\n"
+    "CREATE TABLE IF NOT EXISTS user (name TEXT PRIMARY KEY, totalScore INTEGER, totalCoin INTEGER);\n"
+    ;
+    [allSql appendString:createTablesSql];
+    NSFileManager * defFileManager = [NSFileManager defaultManager];
+    
+    NSString *configFileName = @"config.cfg";
+    NSString *configFilePath = [topDirPath stringByAppendingPathComponent:configFileName];
+    BOOL fileExists,isDir;
+    fileExists = [defFileManager fileExistsAtPath:configFilePath isDirectory:&isDir];
+    if (!fileExists){
+        NSLog(@"generateInitSqlForPackages, config file %@ not exist in %@",configFileName,topDirPath);
+    }else{
+        //TODO get config from the file
+    }
+
+    NSError *err = Nil;
+    NSArray * fileNamesForPkg = [defFileManager contentsOfDirectoryAtPath:topDirPath error:&err];
+    if (err != Nil){
+        NSLog(@"generateInitSqlForPackages contentsOfDirectoryAtPath err:%@",err);
+        return nil;
+    }
+    
+    for (NSString * fileNameForPkg in fileNamesForPkg) {
+        //NSLog(@"fileName item: %@",fileName);
+        NSString *pathForPkg = [topDirPath stringByAppendingPathComponent:fileNameForPkg];
+        fileExists = [defFileManager fileExistsAtPath:pathForPkg isDirectory:&isDir];
+        //NSLog(@"%@ exist=%d isDir=%d",filePath,fileExists,isDir);
+        if (fileExists && isDir){
+            NSMutableDictionary *pkgInfo = [NSMutableDictionary dictionaryWithDictionary:nil];
+            [pkgInfo setObject:fileNameForPkg forKey:@"packageName"];
+            [pkgInfo setObject:fileNameForPkg forKey:@"pkgkey"];
+
+            NSMutableString* packageSql = [self generateInitSqlForPackage:pathForPkg withPackageInfo:pkgInfo];
+            [allSql appendString:packageSql];
+        }
+    }
+    NSLog(@"generateInitSqlForPackages return:\n%@",allSql);
+    return allSql;
+}
+
+-(NSMutableString*)generateInitSqlForPackage:(NSString *)packagePath withPackageInfo:(NSDictionary *)pkgInfo
+{
+    NSFileManager * defFileManager = [NSFileManager defaultManager];
+    NSError *err = Nil;
+    NSArray * fileNamesForGrp = [defFileManager contentsOfDirectoryAtPath:packagePath error:&err];
+    if (err != Nil){
+        NSLog(@"generateInitSqlForPackages contentsOfDirectoryAtPath err:%@",err);
+        return nil;
+    }
+    NSString *pkgkey = [pkgInfo objectForKey:@"pkgkey"];
+    NSString *packageName = [pkgInfo objectForKey:@"packageName"];
+    NSString *packageSeq = @"1";//TODO
+    NSString *locked = @"0";//TODO
+    NSMutableString * allSql = [[NSMutableString alloc] init];
+    NSString *insertPD = [NSString stringWithFormat:
+                          @"INSERT INTO packageDef (name, seq, locked) VALUES ('%@',%@,%@);\n"
+                          ,[self replaceForSqlText:packageName],packageSeq,locked];
+    [allSql appendString:insertPD];
+
+    
+    BOOL fileExists,isDir;
+    for (NSString * fileNameForGrp in fileNamesForGrp) {
+        //NSLog(@"fileName item: %@",fileName);
+        NSString *pathForGrp = [packagePath stringByAppendingPathComponent:fileNameForGrp];
+        fileExists = [defFileManager fileExistsAtPath:pathForGrp isDirectory:&isDir];
+        //NSLog(@"%@ exist=%d isDir=%d",filePath,fileExists,isDir);
+        if (fileExists && isDir){
+            NSMutableDictionary *grpInfo = [NSMutableDictionary dictionaryWithDictionary:pkgInfo];
+            NSString * groupName = fileNameForGrp;
+            NSArray * grpInfoAry = [groupName componentsSeparatedByString:@" "];
+            if (grpInfoAry.count < 2){
+                NSLog(@"bad group name for %@",groupName);
+            }else{
+                NSString *seqPart = grpInfoAry[1];
+                NSString *grpkey = [[pkgkey stringByAppendingString:@":"] stringByAppendingString:groupName];
+                [grpInfo setObject:fileNameForGrp forKey:@"groupName"];
+                [grpInfo setObject:[NSNumber numberWithInteger:[seqPart integerValue]] forKey:@"groupSeq"];
+                [grpInfo setObject:grpkey forKey:@"grpkey"];
+                NSString *awardCoin = @"1";//TODO
+                NSString *awardScore = @"100";//TODO
+                NSString *locked = @"0";//TODO
+                [grpInfo setObject:awardCoin forKey:@"awardCoin"];
+                [grpInfo setObject:awardScore forKey:@"awardScore"];
+                [grpInfo setObject:locked forKey:@"locked"];
+                NSMutableString* groupSql = [self generateInitSqlForGroup:pathForGrp withGroupInfo:grpInfo];
+                [allSql appendString:groupSql];
+            }
+        }
+    }
+    //NSLog(@"generateInitSqlForPackage return:\n%@",allSql);
+    return allSql;
+}
+
+-(NSMutableString*)generateInitSqlForGroup:(NSString *)groupPath withGroupInfo:(NSDictionary *)grpInfo
+{
+    NSFileManager * defFileManager = [NSFileManager defaultManager];
+    NSError *err = Nil;
+    NSArray * fileNamesForQuiz = [defFileManager contentsOfDirectoryAtPath:groupPath error:&err];
+    if (err != Nil){
+        NSLog(@"generateInitSqlForGroup contentsOfDirectoryAtPath err:%@",err);
+        return nil;
+    }
+    
+    NSMutableString * allSql = [[NSMutableString alloc] init];
+    
+    NSString *pkgkey = [grpInfo objectForKey:@"pkgkey"];
+    NSString *packageName = [grpInfo objectForKey:@"packageName"];
+    NSString *grpkey = [grpInfo objectForKey:@"grpkey"];
+    NSString *groupName = [grpInfo objectForKey:@"groupName"];
+    NSNumber *groupSeq = [grpInfo objectForKey:@"groupSeq"];
+    NSString *awardCoin = [grpInfo objectForKey:@"awardCoin"];
+    NSString *awardScore = [grpInfo objectForKey:@"awardScore"];
+    NSString *locked = [grpInfo objectForKey:@"locked"];
+
+    NSString *insertGD = [NSString stringWithFormat:
+                          @"  INSERT INTO groupDef (grpkey, name, pkgkey, seqInPkg, awardCoin, awardScore) VALUES ('%@', '%@', '%@', %@, %@, %@);\n"
+                          ,[self replaceForSqlText:grpkey],[self replaceForSqlText:groupName],[self replaceForSqlText:pkgkey],groupSeq,awardCoin,awardScore];
+    NSString *insertGR = [NSString stringWithFormat:
+                          @"  INSERT INTO groupRun (grpkey, locked, passed, gotScoreSum, answerRightMax) VALUES ('%@', %@, 0, 0, 0);\n"
+                          ,[self replaceForSqlText:grpkey],locked];
+    [allSql appendString:insertGD];
+    [allSql appendString:insertGR];
+    
+    
+    BOOL fileExists,isDir;
+    for (NSString * fileNameForQuiz in fileNamesForQuiz) {
+        //NSLog(@"fileName item: %@",fileName);
+        NSString *pathForQuiz = [groupPath stringByAppendingPathComponent:fileNameForQuiz];
+        fileExists = [defFileManager fileExistsAtPath:pathForQuiz isDirectory:&isDir];
+        //NSLog(@"%@ exist=%d isDir=%d",filePath,fileExists,isDir);
+        if (fileExists && !isDir){
+            NSString *extName = [fileNameForQuiz pathExtension];
+            NSString *quizName = [fileNameForQuiz substringToIndex:(fileNameForQuiz.length - 1 - extName.length)];
+            NSString *quizkey = [[grpkey stringByAppendingString:@":"] stringByAppendingString:quizName];
+            NSString *questionWord = quizName;
+            NSString *answerPic = [[packageName stringByAppendingPathComponent:groupName]stringByAppendingPathComponent:fileNameForQuiz];
+            NSString *insertQD = [NSString stringWithFormat:
+                                  @"    INSERT INTO quizDef (quizkey, grpkey, pkgkey, questionWord, answerPic) VALUES ('%@', '%@', '%@',  '%@', '%@');\n"
+                                  ,[self replaceForSqlText:quizkey],[self replaceForSqlText:grpkey],[self replaceForSqlText:pkgkey],[self replaceForSqlText:questionWord], [self replaceForSqlText:answerPic]];
+            [allSql appendString:insertQD];
+        }
+    }
+    //NSLog(@"generateInitSqlForGroup return:\n%@",allSql);
+    return allSql;
+}
+
+
+
+
+
+
+
+//
+//
+//-(NSMutableString*)generateConfigTemplateForPackages:(NSString *)topDirPath
+//{
+//    NSLog(@"generateConfigTemplateForPackages enter");
+//    NSMutableDictionary *rootItem = [[NSMutableDictionary alloc]init];
+//    
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSString *documentsDirectory = [paths objectAtIndex:0];
+//    NSString *configTemplateFileName = @"packagesConfigTemplate.plist";
+//    NSString *configTemplateFilePath = [documentsDirectory stringByAppendingPathComponent:configTemplateFileName];
+//
+//    NSFileManager * defFileManager = [NSFileManager defaultManager];
+//    NSError *err = Nil;
+//    NSArray * fileNamesForPkg = [defFileManager contentsOfDirectoryAtPath:topDirPath error:&err];
+//    if (err != Nil){
+//        NSLog(@"generateConfigTemplateForPackages contentsOfDirectoryAtPath err:%@",err);
+//        return nil;
+//    }
+//    BOOL fileExists,isDir;
+//    int seq = 1;
+//    for (NSString * fileNameForPkg in fileNamesForPkg) {
+//        NSString *pathForPkg = [topDirPath stringByAppendingPathComponent:fileNameForPkg];
+//        fileExists = [defFileManager fileExistsAtPath:pathForPkg isDirectory:&isDir];
+//        if (fileExists && isDir){
+//            NSMutableDictionary *pkgItem = [NSMutableDictionary dictionaryWithDictionary:nil];
+//            [pkgItem setObject:fileNameForPkg forKey:@"name"];
+//            NSString *seqStr = [NSString stringWithFormat:@"%d",seq];
+//            [pkgItem setObject:seqStr forKey:@"seq"];
+//            [pkgItem setObject:@"0" forKey:@"locked"];
+//            
+//            NSArray* pkuGroups = [self generateConfigTemplateForPackage:pathForPkg withPackageInfo:pkgItem];
+//            [allSql appendString:packageSql];
+//            seq++;
+//        }
+//    }
+//    NSLog(@"generateInitSqlForPackages return:\n%@",allSql);
+//    return allSql;
+//}
+//
+//-(NSMutableString*)generateConfigTemplateForPackage:(NSString *)packagePath withPackageInfo:(NSDictionary *)pkgInfo
+//{
+//    NSFileManager * defFileManager = [NSFileManager defaultManager];
+//    NSError *err = Nil;
+//    NSArray * fileNamesForGrp = [defFileManager contentsOfDirectoryAtPath:packagePath error:&err];
+//    if (err != Nil){
+//        NSLog(@"generateInitSqlForPackages contentsOfDirectoryAtPath err:%@",err);
+//        return nil;
+//    }
+//    NSString *pkgkey = [pkgInfo objectForKey:@"pkgkey"];
+//    NSString *packageName = [pkgInfo objectForKey:@"packageName"];
+//    NSString *packageSeq = @"1";//TODO
+//    NSString *locked = @"0";//TODO
+//    NSMutableString * allSql = [[NSMutableString alloc] init];
+//    NSString *insertPD = [NSString stringWithFormat:
+//                          @"INSERT INTO packageDef (name, seq, locked) VALUES ('%@',%@,%@);\n"
+//                          ,[self replaceForSqlText:packageName],packageSeq,locked];
+//    [allSql appendString:insertPD];
+//    
+//    
+//    BOOL fileExists,isDir;
+//    for (NSString * fileNameForGrp in fileNamesForGrp) {
+//        //NSLog(@"fileName item: %@",fileName);
+//        NSString *pathForGrp = [packagePath stringByAppendingPathComponent:fileNameForGrp];
+//        fileExists = [defFileManager fileExistsAtPath:pathForGrp isDirectory:&isDir];
+//        //NSLog(@"%@ exist=%d isDir=%d",filePath,fileExists,isDir);
+//        if (fileExists && isDir){
+//            NSMutableDictionary *grpInfo = [NSMutableDictionary dictionaryWithDictionary:pkgInfo];
+//            NSString * groupName = fileNameForGrp;
+//            NSArray * grpInfoAry = [groupName componentsSeparatedByString:@" "];
+//            if (grpInfoAry.count < 2){
+//                NSLog(@"bad group name for %@",groupName);
+//            }else{
+//                NSString *seqPart = grpInfoAry[1];
+//                NSString *grpkey = [[pkgkey stringByAppendingString:@":"] stringByAppendingString:groupName];
+//                [grpInfo setObject:fileNameForGrp forKey:@"groupName"];
+//                [grpInfo setObject:[NSNumber numberWithInteger:[seqPart integerValue]] forKey:@"groupSeq"];
+//                [grpInfo setObject:grpkey forKey:@"grpkey"];
+//                NSString *awardCoin = @"1";//TODO
+//                NSString *awardScore = @"100";//TODO
+//                NSString *locked = @"0";//TODO
+//                [grpInfo setObject:awardCoin forKey:@"awardCoin"];
+//                [grpInfo setObject:awardScore forKey:@"awardScore"];
+//                [grpInfo setObject:locked forKey:@"locked"];
+//                NSMutableString* groupSql = [self generateInitSqlForGroup:pathForGrp withGroupInfo:grpInfo];
+//                [allSql appendString:groupSql];
+//            }
+//        }
+//    }
+//    //NSLog(@"generateInitSqlForPackage return:\n%@",allSql);
+//    return allSql;
+//}
+//
+//
+
+
+
+
+
+
+
+
+
+
 
 //SELECT pd1.name name,seq,locked,price, groupCount,passedGroupCount,quizCount,scoreSum
 //  FROM
@@ -445,6 +717,30 @@
 }
 
 /**
+ simply update totalScore of the user by delta amount
+ */
+-(BOOL) updateUserTotalScoreByDelta:(int) scoreDelta{
+    //    NSString *dbFilePath = [self dbFilePath];
+    //    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
+    //    if (![dbfm open]) {
+    //        //        //[dbfm release];
+    //        //        return;
+    //        NSLog(@"FMDatabase open failed, %@", dbFilePath);
+    //    }
+    NSString *updateSql = @"UPDATE user SET totalScore=totalScore+:delta WHERE 1=1";
+    NSDictionary *dictUpdate = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [NSNumber numberWithInt:scoreDelta], @"delta",nil];
+    NSError *outErr = Nil;
+    BOOL updateRet = [dbfm executeUpdate:updateSql error:&outErr withArgumentsInArray:nil orDictionary:dictUpdate orVAList:nil];
+    if (outErr != nil)
+        NSLog(@"in updateUserTotalScoreByDelta executeUpdate outErr=%@", outErr);
+    if (!updateRet)
+        NSLog(@"in updateUserTotalScoreByDelta executeUpdate Failed");
+    //    [dbfm close];
+    return updateRet;
+}
+
+/**
  get totalScore of the user. 
  return a dictionary.
  and the keys of the dictionary are the columns in the Sql sentence.
@@ -505,7 +801,7 @@
             NSLog(@"in updateGroupScoreAndRightQuizAmount executeUpdate insertSql Failed");
 //        [retDict setObject:[NSNumber numberWithInt:score] forKey:@"gotScoreSum"];
 //        [retDict setObject:[NSNumber numberWithInt:rightQuizAmount] forKey:@"answerRightMax"];
-        [self updateUserTotalCoinByDelta:score];
+        [self updateUserTotalScoreByDelta:score];
         NSLog(@"updateGroupScoreAndRightQuizAmount dictInsert=%@",dictInsert);
         return dictInsert;
     }
@@ -534,7 +830,7 @@
     
     int scoreDelta = gotScoreSum - [gotScoreSumNmOld intValue];
     if (scoreDelta > 0){
-        [self updateUserTotalCoinByDelta:scoreDelta];
+        [self updateUserTotalScoreByDelta:scoreDelta];
     }
 //    [dbfm close];
     return dictUpdate;
