@@ -8,11 +8,15 @@
 
 #import "LZAppDelegate.h"
 #import "LZDataAccess.h"
+#import "LZSHKConfigurator.h"
+#import "SHKConfiguration.h"
 @implementation LZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    DefaultSHKConfigurator *configurator = [[LZSHKConfigurator alloc] init];
+    [SHKConfiguration sharedInstanceWithConfigurator:configurator];
     [[LZDataAccess singleton]initDb];
     return YES;
 }
