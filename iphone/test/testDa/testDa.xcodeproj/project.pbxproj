@@ -12,11 +12,6 @@
 		083ED13016C0C1460010AF13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED12F16C0C1460010AF13 /* CoreGraphics.framework */; };
 		083ED13C16C0C1460010AF13 /* LZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED13B16C0C1460010AF13 /* LZAppDelegate.m */; };
 		083ED14516C0C1460010AF13 /* LZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED14416C0C1460010AF13 /* LZViewController.m */; };
-		083ED15016C0C1460010AF13 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED14F16C0C1460010AF13 /* SenTestingKit.framework */; };
-		083ED15116C0C1460010AF13 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED12B16C0C1460010AF13 /* UIKit.framework */; };
-		083ED15216C0C1460010AF13 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED12D16C0C1460010AF13 /* Foundation.framework */; };
-		083ED15A16C0C1470010AF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 083ED15816C0C1470010AF13 /* InfoPlist.strings */; };
-		083ED15D16C0C1470010AF13 /* testDaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED15C16C0C1470010AF13 /* testDaTests.m */; };
 		083ED17916C0C2F40010AF13 /* LZDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED16C16C0C2F30010AF13 /* LZDataAccess.m */; };
 		083ED17A16C0C2F40010AF13 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED16F16C0C2F30010AF13 /* FMDatabase.m */; };
 		083ED17B16C0C2F40010AF13 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED17116C0C2F30010AF13 /* FMDatabaseAdditions.m */; };
@@ -33,18 +28,9 @@
 		083ED1A416C13A910010AF13 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A116C13A910010AF13 /* Default@2x.png */; };
 		083ED1A616C13AC20010AF13 /* testDa-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A516C13AC20010AF13 /* testDa-Info.plist */; };
 		083ED1A916C13AE10010AF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A716C13AE10010AF13 /* InfoPlist.strings */; };
+		083F485A16D5D05400B612DB /* LZDATest1.m in Sources */ = {isa = PBXBuildFile; fileRef = 083F485916D5D05400B612DB /* LZDATest1.m */; };
 		0882BEE616D3585F00D15CFA /* quizicons in Resources */ = {isa = PBXBuildFile; fileRef = 0882BEE516D3585F00D15CFA /* quizicons */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		083ED15316C0C1470010AF13 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 083ED11E16C0C1460010AF13 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 083ED12616C0C1460010AF13;
-			remoteInfo = testDa;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		083ED12716C0C1460010AF13 /* testDa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testDa.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +41,6 @@
 		083ED13B16C0C1460010AF13 /* LZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZAppDelegate.m; sourceTree = "<group>"; };
 		083ED14316C0C1460010AF13 /* LZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZViewController.h; sourceTree = "<group>"; };
 		083ED14416C0C1460010AF13 /* LZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZViewController.m; sourceTree = "<group>"; };
-		083ED14E16C0C1460010AF13 /* testDaTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testDaTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		083ED14F16C0C1460010AF13 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		083ED15716C0C1470010AF13 /* testDaTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "testDaTests-Info.plist"; sourceTree = "<group>"; };
 		083ED15916C0C1470010AF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -84,6 +69,8 @@
 		083ED1A516C13AC20010AF13 /* testDa-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "testDa-Info.plist"; sourceTree = "<group>"; };
 		083ED1A816C13AE10010AF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		083ED1AA16C13AF10010AF13 /* testDa-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "testDa-Prefix.pch"; sourceTree = "<group>"; };
+		083F485816D5D05400B612DB /* LZDATest1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDATest1.h; sourceTree = "<group>"; };
+		083F485916D5D05400B612DB /* LZDATest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDATest1.m; sourceTree = "<group>"; };
 		0882BEE516D3585F00D15CFA /* quizicons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = quizicons; path = ../../trunk/quizicons; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,16 +83,6 @@
 				083ED12C16C0C1460010AF13 /* UIKit.framework in Frameworks */,
 				083ED12E16C0C1460010AF13 /* Foundation.framework in Frameworks */,
 				083ED13016C0C1460010AF13 /* CoreGraphics.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		083ED14A16C0C1460010AF13 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				083ED15016C0C1460010AF13 /* SenTestingKit.framework in Frameworks */,
-				083ED15116C0C1460010AF13 /* UIKit.framework in Frameworks */,
-				083ED15216C0C1460010AF13 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				083ED12716C0C1460010AF13 /* testDa.app */,
-				083ED14E16C0C1460010AF13 /* testDaTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -198,6 +174,8 @@
 			children = (
 				083ED16B16C0C2F30010AF13 /* LZDataAccess.h */,
 				083ED16C16C0C2F30010AF13 /* LZDataAccess.m */,
+				083F485816D5D05400B612DB /* LZDATest1.h */,
+				083F485916D5D05400B612DB /* LZDATest1.m */,
 			);
 			name = dataAccess;
 			path = ../../trunk/dataAccess;
@@ -242,25 +220,6 @@
 			productReference = 083ED12716C0C1460010AF13 /* testDa.app */;
 			productType = "com.apple.product-type.application";
 		};
-		083ED14D16C0C1460010AF13 /* testDaTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 083ED16316C0C1470010AF13 /* Build configuration list for PBXNativeTarget "testDaTests" */;
-			buildPhases = (
-				083ED14916C0C1460010AF13 /* Sources */,
-				083ED14A16C0C1460010AF13 /* Frameworks */,
-				083ED14B16C0C1460010AF13 /* Resources */,
-				083ED14C16C0C1460010AF13 /* ShellScript */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				083ED15416C0C1470010AF13 /* PBXTargetDependency */,
-			);
-			name = testDaTests;
-			productName = testDaTests;
-			productReference = 083ED14E16C0C1460010AF13 /* testDaTests.octest */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -284,7 +243,6 @@
 			projectRoot = "";
 			targets = (
 				083ED12616C0C1460010AF13 /* testDa */,
-				083ED14D16C0C1460010AF13 /* testDaTests */,
 			);
 		};
 /* End PBXProject section */
@@ -305,31 +263,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		083ED14B16C0C1460010AF13 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				083ED15A16C0C1470010AF13 /* InfoPlist.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		083ED14C16C0C1460010AF13 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		083ED12316C0C1460010AF13 /* Sources */ = {
@@ -346,26 +280,11 @@
 				083ED17E16C0C2F40010AF13 /* fmdb.m in Sources */,
 				083ED17F16C0C2F40010AF13 /* FMResultSet.m in Sources */,
 				083ED19E16C13A450010AF13 /* main.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		083ED14916C0C1460010AF13 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				083ED15D16C0C1470010AF13 /* testDaTests.m in Sources */,
+				083F485A16D5D05400B612DB /* LZDATest1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		083ED15416C0C1470010AF13 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 083ED12616C0C1460010AF13 /* testDa */;
-			targetProxy = 083ED15316C0C1470010AF13 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		083ED15816C0C1470010AF13 /* InfoPlist.strings */ = {
@@ -468,40 +387,6 @@
 			};
 			name = Release;
 		};
-		083ED16416C0C1470010AF13 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/testDa.app/testDa";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "testDa/testDa-Prefix.pch";
-				INFOPLIST_FILE = "testDaTests/testDaTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Debug;
-		};
-		083ED16516C0C1470010AF13 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/testDa.app/testDa";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "testDa/testDa-Prefix.pch";
-				INFOPLIST_FILE = "testDaTests/testDaTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -519,15 +404,6 @@
 			buildConfigurations = (
 				083ED16116C0C1470010AF13 /* Debug */,
 				083ED16216C0C1470010AF13 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		083ED16316C0C1470010AF13 /* Build configuration list for PBXNativeTarget "testDaTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				083ED16416C0C1470010AF13 /* Debug */,
-				083ED16516C0C1470010AF13 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

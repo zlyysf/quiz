@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>awardCoin</key>
-	<string>2</string>
+	<string>1</string>
 	<key>awardScore</key>
-	<string>200</string>
+	<string>100</string>
 	<key>packages</key>
 	<dict>
 		<key>Apparel 1</key>

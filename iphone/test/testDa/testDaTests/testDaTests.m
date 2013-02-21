@@ -13,20 +13,30 @@
 - (void)setUp
 {
     [super setUp];
-    
+    NSLog(@"setUp");
     // Set-up code here.
 }
 
 - (void)tearDown
 {
     // Tear-down code here.
-    
     [super tearDown];
+    NSLog(@"tearDown");
 }
 
 - (void)testExample
 {
     STFail(@"Unit tests are not implemented yet in testDaTests");
+}
+
+- (void)testF1
+{
+    NSLog(@"testF1");
+}
+
+- (void)testF2
+{
+    NSLog(@"testF2");
 }
 
 @end
