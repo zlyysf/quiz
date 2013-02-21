@@ -7,8 +7,7 @@
 //
 
 #import "LZGamingViewController.h"
-#import <Twitter/Twitter.h>
-#import <Accounts/Accounts.h>
+#import "SHK.h"
 #import <QuartzCore/QuartzCore.h>
 #define kTotalOptionCount 3
 #define kSelectedAnswerInterval 0.5
@@ -340,9 +339,18 @@
         }
         if(tag == kAskFriendsButtonTag)
         {
-            UIAlertView *askAlert = [[UIAlertView alloc]initWithTitle:@"Ask Friend For Help" message:nil delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"FACEBOOK",@"TWITTER", nil];
-            askAlert.tag = kAskAlertTag;
-            [askAlert show];
+            UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
+            SHKItem *item = [SHKItem image:questionImage title:@"Any one know the answer?"];
+            
+            // Get the ShareKit action sheet
+            SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+            
+            // ShareKit detects top view controller (the one intended to present ShareKit UI) automatically,
+            // but sometimes it may not find one. To be safe, set it explicitly
+            [SHK setRootViewController:self];
+            
+            // Display the action sheet
+            [actionSheet showInView:self.view];
            
             
         }
