@@ -12,5 +12,8 @@
 @interface LZDATest1 : NSObject
 
 + (void)testFunc1;
++ (void)testFunc2;
++ (void)testFunc22;
++ (void)testFunc3;
 
 @end

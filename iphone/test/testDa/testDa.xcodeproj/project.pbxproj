@@ -29,6 +29,7 @@
 		083ED1A616C13AC20010AF13 /* testDa-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A516C13AC20010AF13 /* testDa-Info.plist */; };
 		083ED1A916C13AE10010AF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A716C13AE10010AF13 /* InfoPlist.strings */; };
 		083F485A16D5D05400B612DB /* LZDATest1.m in Sources */ = {isa = PBXBuildFile; fileRef = 083F485916D5D05400B612DB /* LZDATest1.m */; };
+		083F486A16D5FC1700B612DB /* LZDataAccess+GenSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 083F486916D5FC1700B612DB /* LZDataAccess+GenSql.m */; };
 		0882BEE616D3585F00D15CFA /* quizicons in Resources */ = {isa = PBXBuildFile; fileRef = 0882BEE516D3585F00D15CFA /* quizicons */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,8 @@
 		083ED1AA16C13AF10010AF13 /* testDa-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "testDa-Prefix.pch"; sourceTree = "<group>"; };
 		083F485816D5D05400B612DB /* LZDATest1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDATest1.h; sourceTree = "<group>"; };
 		083F485916D5D05400B612DB /* LZDATest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDATest1.m; sourceTree = "<group>"; };
+		083F486816D5FC1600B612DB /* LZDataAccess+GenSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LZDataAccess+GenSql.h"; sourceTree = "<group>"; };
+		083F486916D5FC1700B612DB /* LZDataAccess+GenSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LZDataAccess+GenSql.m"; sourceTree = "<group>"; };
 		0882BEE516D3585F00D15CFA /* quizicons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = quizicons; path = ../../trunk/quizicons; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +176,8 @@
 			isa = PBXGroup;
 			children = (
 				083ED16B16C0C2F30010AF13 /* LZDataAccess.h */,
+				083F486816D5FC1600B612DB /* LZDataAccess+GenSql.h */,
+				083F486916D5FC1700B612DB /* LZDataAccess+GenSql.m */,
 				083ED16C16C0C2F30010AF13 /* LZDataAccess.m */,
 				083F485816D5D05400B612DB /* LZDATest1.h */,
 				083F485916D5D05400B612DB /* LZDATest1.m */,
@@ -281,6 +286,7 @@
 				083ED17F16C0C2F40010AF13 /* FMResultSet.m in Sources */,
 				083ED19E16C13A450010AF13 /* main.m in Sources */,
 				083F485A16D5D05400B612DB /* LZDATest1.m in Sources */,
+				083F486A16D5FC1700B612DB /* LZDataAccess+GenSql.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

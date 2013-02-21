@@ -18,13 +18,16 @@
 +(LZDataAccess *)singleton;
 - (id)initDBConnection;
 
+
+-(NSString *)replaceForSqlText:(NSString *)origin;
++(NSDictionary *)findRowByKey:(NSArray *)rows andKeyName:(NSString *)keyname andKeyValue:(NSString *)keyvalue;
++(NSArray *)FMResultSetToDictionaryArray:(FMResultSet *)rs;
+- (NSArray *)selectAllForTable:(NSString *)tableName;
+- (NSArray *)selectTableByEqualFilter:(NSString *)tableName andField:(NSString *)fieldName andValue:(NSObject*)fieldValue;
+
 - (NSString *)dbFilePath;
 
-- (void)initDb;
-- (void)initDbByGeneratedSql;
--(void)cleanDb;
--(NSMutableString*)generateInitSqlForPackages:(NSString *)topDirPath;
--(void)generateConfigTemplateForPackages:(NSString *)topDirPath;
+
 
 -(NSArray *) getPackages;
 

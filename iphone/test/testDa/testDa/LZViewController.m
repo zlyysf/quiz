@@ -8,6 +8,7 @@
 
 #import "LZViewController.h"
 #import "LZDATest1.h"
+#import "LZDataAccess+GenSql.h"
 
 @interface LZViewController ()
 
@@ -20,7 +21,13 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     da = [LZDataAccess singleton];
-    [LZDATest1 testFunc1];
+    //[LZDATest1 testFunc1];
+    
+    //[LZDATest1 testFunc2];
+    //[LZDATest1 testFunc22];
+
+    [LZDATest1 testFunc3];
+    
 }
 
 - (void)didReceiveMemoryWarning
