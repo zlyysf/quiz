@@ -7,7 +7,7 @@
 //
 
 #import "LZAppDelegate.h"
-#import "LZDataAccess.h"
+#import "LZDataAccess+GenSql.h"
 #import "LZSHKConfigurator.h"
 
 @implementation LZAppDelegate
@@ -17,8 +17,8 @@
     // Override point for customization after application launch.
     DefaultSHKConfigurator *configurator = [[LZSHKConfigurator alloc] init];
     [SHKConfiguration sharedInstanceWithConfigurator:configurator];
-    //[[LZDataAccess singleton]cleanDb];
-    //[[LZDataAccess singleton]initDbByGeneratedSql];
+    [[LZDataAccess singleton]cleanDb];
+    [[LZDataAccess singleton]initDbWithGeneratedSql];
     return YES;
 }
 

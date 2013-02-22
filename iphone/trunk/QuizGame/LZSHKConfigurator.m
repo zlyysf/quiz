@@ -42,5 +42,7 @@
 - (NSArray*)defaultFavoriteTextSharers {
     return [NSArray arrayWithObjects:@"SHKTwitter",@"SHKFacebook", nil];
 }
-
+- (NSNumber*)autoOrderFavoriteSharers {
+    return [NSNumber numberWithBool:false];
+}
 @end

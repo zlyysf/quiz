@@ -90,6 +90,7 @@
 		5FEBEE7E16D4F060003A5408 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBEE7D16D4F060003A5408 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5FEBEE8016D4F06D003A5408 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBEE7F16D4F06D003A5408 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5FEBEE8316D4F172003A5408 /* LZSHKConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBEE8216D4F172003A5408 /* LZSHKConfigurator.m */; };
+		5FF7FFA916D7468200A01AD7 /* LZDataAccess+GenSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7FFA816D7468200A01AD7 /* LZDataAccess+GenSql.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -477,6 +478,8 @@
 		5FEBEE7F16D4F06D003A5408 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5FEBEE8116D4F172003A5408 /* LZSHKConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSHKConfigurator.h; sourceTree = "<group>"; };
 		5FEBEE8216D4F172003A5408 /* LZSHKConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSHKConfigurator.m; sourceTree = "<group>"; };
+		5FF7FFA716D7468200A01AD7 /* LZDataAccess+GenSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LZDataAccess+GenSql.h"; sourceTree = "<group>"; };
+		5FF7FFA816D7468200A01AD7 /* LZDataAccess+GenSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LZDataAccess+GenSql.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -513,6 +516,8 @@
 		08E5B18016C0A9ED00D1C754 /* dataAccess */ = {
 			isa = PBXGroup;
 			children = (
+				5FF7FFA716D7468200A01AD7 /* LZDataAccess+GenSql.h */,
+				5FF7FFA816D7468200A01AD7 /* LZDataAccess+GenSql.m */,
 				08E5B18116C0A9ED00D1C754 /* LZDataAccess.h */,
 				08E5B18216C0A9ED00D1C754 /* LZDataAccess.m */,
 			);
@@ -1181,6 +1186,7 @@
 				08E5B19416C0A9EE00D1C754 /* fmdb.m in Sources */,
 				08E5B19516C0A9EE00D1C754 /* FMResultSet.m in Sources */,
 				5FEBEE8316D4F172003A5408 /* LZSHKConfigurator.m in Sources */,
+				5FF7FFA916D7468200A01AD7 /* LZDataAccess+GenSql.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

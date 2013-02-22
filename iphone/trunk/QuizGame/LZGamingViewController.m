@@ -7,7 +7,8 @@
 //
 
 #import "LZGamingViewController.h"
-#import "SHK.h"
+#import "SHKFacebook.h"
+#import "SHKTwitter.h"
 #import <QuartzCore/QuartzCore.h>
 #define kTotalOptionCount 3
 #define kSelectedAnswerInterval 0.5
@@ -339,18 +340,21 @@
         }
         if(tag == kAskFriendsButtonTag)
         {
-            UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
-            SHKItem *item = [SHKItem image:questionImage title:@"Any one know the answer?"];
-            
-            // Get the ShareKit action sheet
-            SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
-            
-            // ShareKit detects top view controller (the one intended to present ShareKit UI) automatically,
-            // but sometimes it may not find one. To be safe, set it explicitly
-            [SHK setRootViewController:self];
-            
-            // Display the action sheet
-            [actionSheet showInView:self.view];
+//            UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
+//            SHKItem *item = [SHKItem image:questionImage title:@"Any one know the answer?"];
+//            
+//            // Get the ShareKit action sheet
+//            SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
+//            
+//            // ShareKit detects top view controller (the one intended to present ShareKit UI) automatically,
+//            // but sometimes it may not find one. To be safe, set it explicitly
+//            [SHK setRootViewController:self];
+//            
+//            // Display the action sheet
+//            [actionSheet showInView:self.view];
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Ask Friends" message:@"" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Facebook",@"Twitter", nil];
+            alert.tag = kAskAlertTag;
+            [alert show];
            
             
         }
@@ -443,12 +447,17 @@
     {
         if (buttonIndex == 1)
         {
-            NSURL *facebookUrl = [ [ NSURL alloc ] initWithString: @"https://m.facebook.com/dialog/feed?app_id=451167864925310&link=https%3A%2F%2Fitunes.apple.com%2Fapp%2Fid568334356&picture=http%3A%2F%2Fimg.iconpop.co%2F01x.png&name=Guess+who...&caption=Answer+in+the+comments+or+join+the+fun+by+downloading+the+free+Icon+Pop+Quiz+game%21&description=http%3A%2F%2Fwww.iconpopquiz.com&redirect_uri=http%3A%2F%2Fwww.facebook.com" ];
-            [[UIApplication sharedApplication] openURL:facebookUrl];
+            UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
+            SHKItem *item = [SHKItem image:questionImage title:@"Any one know the answer?"];
+            [SHKFacebook shareItem:item];
+            //NSURL *facebookUrl = [ [ NSURL alloc ] initWithString: @"https://m.facebook.com/dialog/feed?app_id=451167864925310&link=https%3A%2F%2Fitunes.apple.com%2Fapp%2Fid568334356&picture=http%3A%2F%2Fimg.iconpop.co%2F01x.png&name=Guess+who...&caption=Answer+in+the+comments+or+join+the+fun+by+downloading+the+free+Icon+Pop+Quiz+game%21&description=http%3A%2F%2Fwww.iconpopquiz.com&redirect_uri=http%3A%2F%2Fwww.facebook.com" ];
+            //[[UIApplication sharedApplication] openURL:facebookUrl];
         }
         else if (buttonIndex == 2)
         {
-                        
+            UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
+            SHKItem *item = [SHKItem image:questionImage title:@"Any one know the answer?"];
+            [SHKTwitter shareItem:item];
         }
     }
     else if (buttonIndex == alertView.cancelButtonIndex)
