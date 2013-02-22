@@ -11,9 +11,8 @@
 @implementation PackageCell
 @synthesize selectButton;
 @synthesize packageNameLabel;
-@synthesize packageTotalSubjectCountLabel;
+
 @synthesize packageTotalScoreLabel;
-@synthesize questionIconImageView;
 @synthesize scoreIconImageView;
 @synthesize packageProgressLabel;
 @synthesize progressIconImageView;

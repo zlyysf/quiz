@@ -112,13 +112,6 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="200" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pyi-Bg-AnP">
-                                                    <rect key="frame" x="229" y="12" width="71" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hw3-oj-lY6">
                                                     <rect key="frame" x="229" y="29" width="71" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -133,10 +126,6 @@
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="question_icon.png" id="tvf-9C-ffL">
-                                                    <rect key="frame" x="193" y="12" width="20" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="score_package_icon.png" id="r70-Xi-T0w">
                                                     <rect key="frame" x="193" y="31" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -158,9 +147,7 @@
                                             <outlet property="packageNameLabel" destination="bCZ-uG-K0H" id="tZD-vG-BRo"/>
                                             <outlet property="packageProgressLabel" destination="crF-6c-A29" id="uvU-Sg-Yku"/>
                                             <outlet property="packageTotalScoreLabel" destination="hw3-oj-lY6" id="5RQ-Ei-LFJ"/>
-                                            <outlet property="packageTotalSubjectCountLabel" destination="pyi-Bg-AnP" id="UmS-fr-2vp"/>
                                             <outlet property="progressIconImageView" destination="eTM-xM-eqE" id="wti-eY-xrP"/>
-                                            <outlet property="questionIconImageView" destination="tvf-9C-ffL" id="Ql4-F6-Ein"/>
                                             <outlet property="scoreIconImageView" destination="r70-Xi-T0w" id="fR8-0j-3SI"/>
                                             <outlet property="selectButton" destination="6u1-FT-B9W" id="d7W-9s-XFT"/>
                                         </connections>
@@ -554,7 +541,6 @@
     <resources>
         <image name="background.png" width="16" height="16"/>
         <image name="passed_icon.png" width="16" height="16"/>
-        <image name="question_icon.png" width="16" height="16"/>
         <image name="score_group_icon.png" width="16" height="16"/>
         <image name="score_package_icon.png" width="16" height="16"/>
         <image name="unlock_icon.png" width="16" height="16"/>
@@ -618,9 +604,7 @@
                 <relationship kind="outlet" name="packageNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="packageProgressLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="packageTotalScoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="packageTotalSubjectCountLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="progressIconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="questionIconImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="scoreIconImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="selectButton" candidateClass="LZButton"/>
             </relationships>

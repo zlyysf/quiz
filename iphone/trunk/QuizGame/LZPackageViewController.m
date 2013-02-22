@@ -69,16 +69,15 @@
     PackageCell *cell = (PackageCell *)[tableView dequeueReusableCellWithIdentifier:@"PackageCell"];
     //name, seq, locked, userTotalScore, quizCount, groupCount, passedGroupCount
     NSDictionary *package = [self.packageArray objectAtIndex:indexPath.row];
-    
+    NSLog(@"package score : %@",package);
     cell.packageNameLabel.text = [package objectForKey:@"name"];
-    int quizCount = [[package objectForKey:@"quizCount"] integerValue];
-    cell.packageTotalSubjectCountLabel.text = [NSString stringWithFormat:@"%d",quizCount];
+    int scoreSum = [[package objectForKey:@"scoreSum"] integerValue];
+    cell.packageTotalScoreLabel.text = [NSString stringWithFormat:@"%d",scoreSum];
     int passedGroupCount = [[package objectForKey:@"passedGroupCount"] integerValue];
     int groupCount = [[package objectForKey:@"groupCount"] integerValue];
     cell.packageProgressLabel.text = [NSString stringWithFormat:@"%d / %d",passedGroupCount,groupCount];
     cell.delegate = self;
     cell.cellIndexPath = indexPath;
-    cell.packageTotalScoreLabel.text = @"package total score";
     return cell;
 }
 #pragma -mark  LZCell Delegate
