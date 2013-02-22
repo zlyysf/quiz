@@ -167,7 +167,7 @@
         if (index%2 == 0)//set play1
         {
             self.playView1.progressLabel.text = [NSString stringWithFormat:@"%d / %d",currentQuizIndex+1,totalQuizCount];
-            self.playView1.questionLabel.text = [quiz objectForKey:@"questionWord"];
+            self.playView1.questionLabel.text = [self getQuetionStringForString:[quiz objectForKey:@"questionWord"]];
             UIButton *helpButton = (UIButton*)[self.playView1 viewWithTag:kCutWrongButtonTag];
             [helpButton setEnabled:YES];
             for (int i=0;i<[self.currentOptionArray count];i++)
@@ -183,7 +183,7 @@
         else//set play2
         {
             self.playView2.progressLabel.text = [NSString stringWithFormat:@"%d / %d",currentQuizIndex+1,totalQuizCount];
-            self.playView2.questionLabel.text = [quiz objectForKey:@"questionWord"];
+            self.playView2.questionLabel.text = [self getQuetionStringForString:[quiz objectForKey:@"questionWord"]];
             UIButton *helpButton = (UIButton*)[self.playView2 viewWithTag:kCutWrongButtonTag];
             [helpButton setEnabled:YES];
             
@@ -456,6 +456,29 @@
         [self backButtonTapped];
     }
 
+}
+- (NSString *)getQuetionStringForString:(NSString *)originStr
+{
+    int length = [originStr length];
+    int sum = 0;
+    for (int i = 0;i< length;i++)
+    {
+        unichar c = [originStr characterAtIndex:i];
+        //        NSLog(@"%d",c);
+        sum += c;
+    }
+    //    NSLog(@"sum %d",sum);
+    int index = sum % length;
+    //    NSLog(@"index %d",index);
+    unichar c = [originStr characterAtIndex:index];
+    if(c == 32)
+    {
+        index--;
+    };
+    NSMutableString *questionString = [NSMutableString stringWithString:originStr];
+    NSRange range = NSMakeRange(index, 1);
+    [questionString replaceCharactersInRange:range withString:@"?"];
+    return questionString;
 }
 - (UIImage *)imageFromView: (UIView *) theView   atFrame:(CGRect)r
 {
