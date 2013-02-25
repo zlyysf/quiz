@@ -6,16 +6,22 @@
 	<string>1</string>
 	<key>awardScore</key>
 	<string>100</string>
+    <key>passRate</key>
+    <string>60</string>
 	<key>packages</key>
-	<dict>
+	<dict>        
 		<key>Apparel 1</key>
 		<dict>
+            <key>passRate</key>
+            <string>70</string>
 			<key>groups</key>
 			<dict>
 				<key>group 1</key>
 				<dict>
 					<key>locked</key>
 					<string>0</string>
+                    <key>passRate</key>
+					<string>80</string>
 				</dict>
 				<key>group 2</key>
 				<dict>

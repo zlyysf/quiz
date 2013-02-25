@@ -45,6 +45,15 @@
         NSLog(@"init data, quiz options count ERROR");
     }
     
+    if ([[pkgGroups[0] objectForKey:@"passRate"] integerValue] != 80){
+        NSLog(@"init data, group passRate set in group ERROR");
+    }
+    if ([[pkgGroups[1] objectForKey:@"passRate"] integerValue] != 70){
+        NSLog(@"init data, group passRate set in package ERROR");
+    }
+    
+    
+    
     //-------------
     NSDictionary *userInfo1 = [da getUserTotalScore];
     if([[userInfo1 objectForKey:@"totalCoin"] integerValue]!=0){

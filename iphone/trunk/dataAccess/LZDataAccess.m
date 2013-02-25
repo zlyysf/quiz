@@ -211,7 +211,7 @@
     
     NSMutableArray *grpAry = [NSMutableArray arrayWithCapacity:10];
     NSString *query = @""    
-    "SELECT gd.grpkey grpkey, name, pkgkey, seqInPkg, "
+    "SELECT gd.grpkey grpkey, name, pkgkey, seqInPkg, passRate,"
     "    ifnull(locked,0) locked, ifnull(passed,0) passed, ifnull(gotScoreSum,0) gotScoreSum, ifnull(answerRightMax,0) answerRightMax, quizCount"
     "  FROM groupDef gd "
     "    LEFT OUTER JOIN groupRun gr ON gd.grpkey=gr.grpkey "

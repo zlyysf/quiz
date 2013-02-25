@@ -23,10 +23,10 @@
     da = [LZDataAccess singleton];
     //[LZDATest1 testFunc1];
     
-    //[LZDATest1 testFunc2];
+    [LZDATest1 testFunc2];
     //[LZDATest1 testFunc22];
 
-    [LZDATest1 testFunc3];
+    //[LZDATest1 testFunc3];
     
 }
 
@@ -48,7 +48,7 @@
     
     NSString *topDirPath = iconsPath;
 
-    [da generateInitSqlForPackages:topDirPath];
+    //[da generateInitSqlForPackages:topDirPath];
     [da generateConfigTemplateForPackages:topDirPath];
 }
 - (IBAction)btnSelect_touchUpInside:(id)sender {
