@@ -69,13 +69,25 @@
     PackageCell *cell = (PackageCell *)[tableView dequeueReusableCellWithIdentifier:@"PackageCell"];
     //name, seq, locked, userTotalScore, quizCount, groupCount, passedGroupCount
     NSDictionary *package = [self.packageArray objectAtIndex:indexPath.row];
-    NSLog(@"package score : %@",package);
+    int lockstate = [[package objectForKey:@"locked"]integerValue];
+    if (lockstate == 1)
+    {
+        [cell setLocked:YES];
+    }
+    else
+    {
+        [cell setLocked:NO];
+    }
     cell.packageNameLabel.text = [package objectForKey:@"name"];
     int scoreSum = [[package objectForKey:@"scoreSum"] integerValue];
     cell.packageTotalScoreLabel.text = [NSString stringWithFormat:@"%d",scoreSum];
     int passedGroupCount = [[package objectForKey:@"passedGroupCount"] integerValue];
     int groupCount = [[package objectForKey:@"groupCount"] integerValue];
     cell.packageProgressLabel.text = [NSString stringWithFormat:@"%d / %d",passedGroupCount,groupCount];
+    UIImage *image = [UIImage imageNamed:@"auto_bg.png"];
+    UIImage *backImage = [image stretchableImageWithLeftCapWidth:25.0 topCapHeight:25.0];
+
+    [cell.selectButton setBackgroundImage:backImage forState:UIControlStateNormal];
     cell.delegate = self;
     cell.cellIndexPath = indexPath;
     return cell;

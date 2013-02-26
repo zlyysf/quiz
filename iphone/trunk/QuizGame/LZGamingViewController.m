@@ -44,6 +44,7 @@
 @synthesize rightIconImageView;
 @synthesize wrongIconImageView;
 @synthesize currentGroupKey;
+@synthesize currentPackageKey;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -430,9 +431,72 @@
         //display end view then get back to the group list view
         //lock or not lock the next level or next package
         [[LZDataAccess singleton] updateGroupScoreAndRightQuizAmount:self.currentGroupKey andScore:answeredRightCount*100 andRightQuizAmount:answeredRightCount];
-        NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
-        UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:@"Quiz Finished" message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [endAlert show];
+        NSArray *groupArray = [[LZDataAccess singleton]getPackageGroups:self.currentPackageKey];
+        int groupIndex;
+        int passRate;
+        NSString *unlockKey;
+        for (NSDictionary * group in groupArray)
+        {
+            if ([[group objectForKey:@"grpkey"]isEqualToString:self.currentGroupKey])
+            {
+                groupIndex = [groupArray indexOfObject:group];
+                passRate = [[group objectForKey:@"passRate"] integerValue];
+                break;
+            }
+        }
+        if (answeredRightCount >= passRate)
+        {
+            if (groupIndex == [groupArray count]-1)
+            {
+                //unlock next package
+                NSArray *packageArray = [[LZDataAccess singleton]getPackages];
+                int packageIndex;
+                for (NSDictionary * package in packageArray)
+                {
+                    if ([[package objectForKey:@"name"]isEqualToString:self.currentPackageKey])
+                    {
+                        packageIndex = [packageArray indexOfObject:package];
+                        break;
+                    }
+                }
+                if (packageIndex < [packageArray count]-1)
+                {
+                    NSDictionary *unlockPackage = [packageArray objectAtIndex:packageIndex+1];
+                    int lockstate = [[unlockPackage objectForKey:@"locked"]integerValue];
+                    if (lockstate == 1)
+                    {
+                        unlockKey = [unlockPackage objectForKey:@"name"];
+                        [[LZDataAccess singleton]updatePackageLockState:unlockKey andLocked:0];
+                        NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
+                        NSString *title = [NSString stringWithFormat:@"package %@ unlocked!",unlockKey];
+                        UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [endAlert show];
+
+                    }
+                }
+                else if (packageIndex == [packageArray count]-1)
+                {
+                    //finished all games!!!!
+                }
+
+            }
+            else if (groupIndex < [groupArray count]-1)
+            {
+                //unlock next group
+                NSDictionary *unlockGroup = [groupArray objectAtIndex:groupIndex+1];
+                int lockstate = [[unlockGroup objectForKey:@"locked"]integerValue];
+                if (lockstate == 1)
+                {
+                    unlockKey = [unlockGroup objectForKey:@"grpkey"];
+                    [[LZDataAccess singleton]updateGroupLockState:unlockKey andLocked:0];
+                    NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
+                    NSString *title = [NSString stringWithFormat:@"group %d unlocked!",groupIndex+2];
+                    UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [endAlert show];
+                }
+            }
+
+        }
     }
     else if(currentQuizIndex < totalQuizCount-1)
     {

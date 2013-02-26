@@ -12,4 +12,5 @@
 @property (nonatomic,strong)LZPlayView *playView1;
 @property (nonatomic,strong)LZPlayView *playView2;
 @property (nonatomic,strong)NSString *currentGroupKey;
+@property (nonatomic,strong)NSString *currentPackageKey;
 @end

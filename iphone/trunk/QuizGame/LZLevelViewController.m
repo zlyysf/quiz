@@ -73,6 +73,15 @@
     cell.delegate = self;
     cell.levelNameLabel.text = [group objectForKey:@"name"];
     cell.cellIndexPath = indexPath;
+    int lockstate = [[group objectForKey:@"locked"]integerValue];
+    if (lockstate == 1)
+    {
+        [cell setLocked:YES];
+    }
+    else
+    {
+        [cell setLocked:NO];
+    }
     int gotScoreSum = [[group objectForKey:@"gotScoreSum"] integerValue];
 
     int answerRightMax = [[group objectForKey:@"answerRightMax"] integerValue];
@@ -89,8 +98,10 @@
     NSDictionary *group = [self.levelArray objectAtIndex:LZCellIndexPath.row];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     NSString *groupKey = [group objectForKey:@"grpkey"];
+    NSString *packageKey = [group objectForKey:@"pkgkey"];
     LZGamingViewController * gamingViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZGamingViewController"];
     gamingViewController.currentGroupKey = groupKey;
+    gamingViewController.currentPackageKey = packageKey;
     [self.navigationController pushViewController:gamingViewController animated:NO];
 }
 @end

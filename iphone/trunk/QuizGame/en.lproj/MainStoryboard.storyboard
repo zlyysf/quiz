@@ -90,7 +90,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6u1-FT-B9W" customClass="LZButton">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6u1-FT-B9W">
                                                     <rect key="frame" x="20" y="10" width="280" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -134,7 +134,7 @@
                                                     <rect key="frame" x="193" y="51" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Ub1-g5-9IK">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="cell_lock.png" id="Ub1-g5-9IK">
                                                     <rect key="frame" x="20" y="10" width="280" height="63"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -234,7 +234,7 @@
                                                     <rect key="frame" x="193" y="47" width="20" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="Uiu-Ag-lCE">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="cell_lock.png" id="Uiu-Ag-lCE">
                                                     <rect key="frame" x="20" y="10" width="280" height="64"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -540,6 +540,7 @@
     </scenes>
     <resources>
         <image name="background.png" width="16" height="16"/>
+        <image name="cell_lock.png" width="16" height="16"/>
         <image name="passed_icon.png" width="16" height="16"/>
         <image name="score_group_icon.png" width="16" height="16"/>
         <image name="score_package_icon.png" width="16" height="16"/>
@@ -606,7 +607,7 @@
                 <relationship kind="outlet" name="packageTotalScoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="progressIconImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="scoreIconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="selectButton" candidateClass="LZButton"/>
+                <relationship kind="outlet" name="selectButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="RestorePurchaseCell" superclassName="LZCell">

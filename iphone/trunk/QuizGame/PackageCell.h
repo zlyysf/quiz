@@ -10,7 +10,7 @@
 
 @interface PackageCell : LZCell
 @property (strong, nonatomic) IBOutlet UILabel *packageNameLabel;
-@property (nonatomic,strong)IBOutlet LZButton *selectButton;
+@property (nonatomic,strong)IBOutlet UIButton *selectButton;
 @property (strong, nonatomic) IBOutlet UILabel *packageTotalScoreLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *scoreIconImageView;
 @property (strong, nonatomic) IBOutlet UILabel *packageProgressLabel;
