@@ -45,10 +45,10 @@
         NSLog(@"init data, quiz options count ERROR");
     }
     
-    if ([[pkgGroups[0] objectForKey:@"passRate"] integerValue] != 80){
+    if ([[pkgGroups[0] objectForKey:@"passRate"] integerValue] != 8){
         NSLog(@"init data, group passRate set in group ERROR");
     }
-    if ([[pkgGroups[1] objectForKey:@"passRate"] integerValue] != 70){
+    if ([[pkgGroups[1] objectForKey:@"passRate"] integerValue] != 7){
         NSLog(@"init data, group passRate set in package ERROR");
     }
     
@@ -75,9 +75,26 @@
     }
     
     //--------------
-    NSArray * pkgGroups2 = [da getPackageGroups:pkgkey];
+       
+    //--------------
+    
+    NSLog(@"checkInitData end");
+}
+
++(void)check_updateGroupScoreAndRightQuizAmount{
+    LZDataAccess *da = [LZDataAccess singleton];
+    
+    NSArray * pkgAry1 = [da getPackages];
+    
+    NSString *pkgkey = [pkgAry1[0] objectForKey:@"name"]; //@"Apparel 1";
+    NSArray * pkgGroups = [da getPackageGroups:pkgkey];
+    NSString *grpkey = [pkgGroups[0] objectForKey:@"grpkey"];
+
+    NSArray * pkgGroups2 = pkgGroups;//[da getPackageGroups:pkgkey];
     NSDictionary *grp2 = [LZDataAccess findRowByKey:pkgGroups2 andKeyName:@"grpkey" andKeyValue:grpkey];
-    if(grp2 != nil && [[grp2 objectForKey:@"gotScoreSum"] integerValue]==0 && [[grp2 objectForKey:@"answerRightMax"] integerValue]==0){
+    if(grp2 != nil && [[grp2 objectForKey:@"gotScoreSum"] integerValue]==0
+       && [[grp2 objectForKey:@"answerRightMax"] integerValue]==0
+       && [[grp2 objectForKey:@"passed"] integerValue]==0){
         //ok
     }else{
         NSLog(@"before updateGroupScoreAndRightQuizAmount, data ERROR");
@@ -88,35 +105,49 @@
     [da updateGroupScoreAndRightQuizAmount:grpkey andScore:score1 andRightQuizAmount:rightQuizAmount1];
     NSArray * pkgGroups3 = [da getPackageGroups:pkgkey];
     NSDictionary *grp3 = [LZDataAccess findRowByKey:pkgGroups3 andKeyName:@"grpkey" andKeyValue:grpkey];
-    if(grp3 != nil && [[grp3 objectForKey:@"gotScoreSum"] integerValue]==score1 && [[grp3 objectForKey:@"answerRightMax"] integerValue]==rightQuizAmount1){
+    if(grp3 != nil && [[grp3 objectForKey:@"gotScoreSum"] integerValue]==score1
+       && [[grp3 objectForKey:@"answerRightMax"] integerValue]==rightQuizAmount1
+       && [[grp3 objectForKey:@"passed"] integerValue]==0){
         //ok
     }else{
         NSLog(@"updateGroupScoreAndRightQuizAmount 1 ERROR");
     }
     
-    int score2=600;
-    int rightQuizAmount2 = 6;
+    int score2=900;
+    int rightQuizAmount2 = 9;
     [da updateGroupScoreAndRightQuizAmount:grpkey andScore:score2 andRightQuizAmount:rightQuizAmount2];
     NSArray * pkgGroups4 = [da getPackageGroups:pkgkey];
     NSDictionary *grp4 = [LZDataAccess findRowByKey:pkgGroups4 andKeyName:@"grpkey" andKeyValue:grpkey];
-    if(grp4 != nil && [[grp4 objectForKey:@"gotScoreSum"] integerValue]==score2 && [[grp4 objectForKey:@"answerRightMax"] integerValue]==rightQuizAmount2){
+    if(grp4 != nil && [[grp4 objectForKey:@"gotScoreSum"] integerValue]==score2
+       && [[grp4 objectForKey:@"answerRightMax"] integerValue]==rightQuizAmount2
+       && [[grp4 objectForKey:@"passed"] integerValue]==1){
         //ok
     }else{
         NSLog(@"updateGroupScoreAndRightQuizAmount 2 ERROR");
     }
     
+    NSArray * pkgAry2 = [da getPackages];
+    if ([[pkgAry1[0] objectForKey:@"passedGroupCount"] intValue]==0 && [[pkgAry2[0] objectForKey:@"passedGroupCount"] intValue]==1){
+        //ok
+        NSLog(@"passedGroupCount OK");
+    }else{
+        NSLog(@"updateGroupScoreAndRightQuizAmount 2, passedGroupCount ERROR");
+    }
+    
+
+    
+    
     [da updateGroupScoreAndRightQuizAmount:grpkey andScore:score1 andRightQuizAmount:rightQuizAmount1];
     NSArray * pkgGroups5 = [da getPackageGroups:pkgkey];
     NSDictionary *grp5 = [LZDataAccess findRowByKey:pkgGroups5 andKeyName:@"grpkey" andKeyValue:grpkey];
-    if(grp5 != nil && [[grp5 objectForKey:@"gotScoreSum"] integerValue]==score2 && [[grp5 objectForKey:@"answerRightMax"] integerValue]==rightQuizAmount2){
+    if(grp5 != nil && [[grp5 objectForKey:@"gotScoreSum"] integerValue]==score2
+       && [[grp5 objectForKey:@"answerRightMax"] integerValue]==rightQuizAmount2
+       && [[grp5 objectForKey:@"passed"] integerValue]==1){
         //ok
     }else{
         NSLog(@"updateGroupScoreAndRightQuizAmount 3 ERROR");
     }
-    
-    //--------------
-    
-    NSLog(@"checkInitData end");
+
 }
 
 + (void)testFunc1{
@@ -139,6 +170,7 @@
     [da initDbWithGeneratedSql];
 
     [self checkInitData];
+    [self check_updateGroupScoreAndRightQuizAmount];
     
     NSLog(@"testFunc2 end");
 }
@@ -152,6 +184,8 @@
     [da initDbWithGeneratedSql];
     
     [self checkInitData];
+    [self check_updateGroupScoreAndRightQuizAmount];
+
     
     NSLog(@"testFunc22 end");
 }
@@ -164,6 +198,8 @@
     [da initDbWithGeneratedSql];
     
     [self checkInitData];
+    [self check_updateGroupScoreAndRightQuizAmount];
+
     
     NSLog(@"testFunc3 end");
 }

@@ -372,7 +372,7 @@
 //        NSLog(@"FMDatabase open failed, %@", dbFilePath);
 //    }
     NSString *query = @""
-    "SELECT qd.quizkey, awardCoin, awardScore, haveAwardCoin, ifnull(haveAwardCoin,0) haveAwardCoinNoNull"
+    "SELECT qd.quizkey quizkey, awardCoin, awardScore, haveAwardCoin, ifnull(haveAwardCoin,0) haveAwardCoinNoNull"
     "  FROM quizDef qd JOIN groupDef gd ON qd.grpkey=gd.grpkey"
     "    LEFT OUTER JOIN quizRun qr ON qd.quizkey=qr.quizkey   "
     "  WHERE qd.quizkey=:quizkey"
@@ -507,53 +507,44 @@
 /**
  when user finish answering a whole group of quizzes, 
  we will update the score sum and the right quiz amount in the group if the values are bigger than old.
+ and if rightQuizAmount>=passRate , will modified passed flag.
  */
 -(NSDictionary *)updateGroupScoreAndRightQuizAmount:(NSString *)grpkey andScore:(int)score andRightQuizAmount:(int)rightQuizAmount{
-//    NSString *dbFilePath = [self dbFilePath];
-//    FMDatabase *dbfm = [FMDatabase databaseWithPath:[self dbFilePath]];
-//    if (![dbfm open]) {
-//        //        //[dbfm release];
-//        //        return;
-//        NSLog(@"FMDatabase open failed, %@", dbFilePath);
-//    }
     NSString *query = @""
-    "SELECT grpkey, gotScoreSum, answerRightMax FROM groupRun WHERE grpkey=:grpkey"
-    ;
+    //"SELECT grpkey, gotScoreSum, answerRightMax, passed FROM groupRun WHERE grpkey=:grpkey"
+    "SELECT gd.grpkey grpkey, gotScoreSum, answerRightMax, passed, passRate"
+    "  FROM groupDef gd JOIN groupRun gr ON gd.grpkey=gr.grpkey"
+    "  WHERE gd.grpkey=:grpkey"
+    ;//here suppose that the row of groupRun already exist
     NSDictionary *dictQueryParam = [NSDictionary dictionaryWithObjectsAndKeys:grpkey, @"grpkey", nil];
     FMResultSet *rs = [dbfm executeQuery:query withParameterDictionary:dictQueryParam];
     NSDictionary *dictGrpInfo;
+   
     if ([rs next]) {
         dictGrpInfo = rs.resultDictionary;
     }else{
-        NSString *insertSql = @"INSERT INTO groupRun(grpkey,gotScoreSum,answerRightMax) VALUES (:grpkey,:gotScoreSum,:answerRightMax)";
-        NSDictionary *dictInsert = [NSDictionary dictionaryWithObjectsAndKeys:
-                                     grpkey,@"grpkey",
-                                     [NSNumber numberWithInt:score], @"gotScoreSum",
-                                     [NSNumber numberWithInt:rightQuizAmount], @"answerRightMax",
-                                     nil];
-        NSError *outErr = Nil;
-        BOOL insertRet = [dbfm executeUpdate:insertSql error:&outErr withArgumentsInArray:nil orDictionary:dictInsert orVAList:nil];
-        if (outErr != nil)
-            NSLog(@"in updateGroupScoreAndRightQuizAmount executeUpdate insertSql outErr=%@", outErr);
-        if (!insertRet)
-            NSLog(@"in updateGroupScoreAndRightQuizAmount executeUpdate insertSql Failed");
-//        [retDict setObject:[NSNumber numberWithInt:score] forKey:@"gotScoreSum"];
-//        [retDict setObject:[NSNumber numberWithInt:rightQuizAmount] forKey:@"answerRightMax"];
-        [self updateUserTotalScoreByDelta:score];
-        NSLog(@"updateGroupScoreAndRightQuizAmount dictInsert=%@",dictInsert);
-        return dictInsert;
+        NSLog(@"ERROR in updateGroupScoreAndRightQuizAmount: not found row for %@",grpkey);
+        return nil;
     }
     NSNumber *gotScoreSumNmOld = [dictGrpInfo objectForKey:@"gotScoreSum"];
     NSNumber *answerRightMaxNmOld = [dictGrpInfo objectForKey:@"answerRightMax"];
+    NSNumber *passedNm = [dictGrpInfo objectForKey:@"passed"];
+    NSNumber *passRateNm = [dictGrpInfo objectForKey:@"passRate"];
     int gotScoreSum = [gotScoreSumNmOld intValue];
     int answerRightMax = [answerRightMaxNmOld intValue];
+    int passed = [passedNm intValue];;
+    int passRate = [passRateNm intValue];;
     if (gotScoreSum < score)
         gotScoreSum = score;
     if (answerRightMax < rightQuizAmount)
         answerRightMax = rightQuizAmount;
-    
+        
     NSString *updateSql = @"UPDATE groupRun SET gotScoreSum=:gotScoreSum , answerRightMax=:answerRightMax WHERE grpkey=:grpkey";
-    NSDictionary *dictUpdate = [NSDictionary dictionaryWithObjectsAndKeys:                                 
+    if (answerRightMax>=passRate && passed!=1){
+        updateSql = @"UPDATE groupRun SET gotScoreSum=:gotScoreSum , answerRightMax=:answerRightMax, passed=1 WHERE grpkey=:grpkey";
+    }
+
+    NSDictionary *dictUpdate = [NSDictionary dictionaryWithObjectsAndKeys:
                                  [NSNumber numberWithInt:gotScoreSum], @"gotScoreSum",
                                  [NSNumber numberWithInt:answerRightMax], @"answerRightMax",
                                  grpkey,@"grpkey",
@@ -570,7 +561,7 @@
     if (scoreDelta > 0){
         [self updateUserTotalScoreByDelta:scoreDelta];
     }
-//    [dbfm close];
+
     return dictUpdate;
 }
 
