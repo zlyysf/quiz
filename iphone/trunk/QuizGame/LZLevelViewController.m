@@ -47,6 +47,7 @@
 //** -(FMResultSet *) getPackageGroups:(NSString *)pkgname; getpackageArray list view update also set top bar gold amount
     NSArray *data = [[LZDataAccess singleton]getPackageGroups:self.currentPackageName];;
     self.levelArray = data;
+    NSLog(@"level %@",self.levelArray);
 }
 - (void)didReceiveMemoryWarning
 {
