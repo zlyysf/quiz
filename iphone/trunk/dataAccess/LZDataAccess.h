@@ -33,6 +33,7 @@
 
 -(NSArray *) getPackageGroups:(NSString *)pkgkey;
 -(NSArray *) getGroupQuizzes:(NSString *)grpkey;
+-(NSArray *) getGroupQuiz:(NSString *)grpkey;
 -(NSArray *) getGroupQuizOptions:(NSString *)grpkey;
 
 -(NSDictionary *)obtainQuizAward:(NSString *)quizkey;

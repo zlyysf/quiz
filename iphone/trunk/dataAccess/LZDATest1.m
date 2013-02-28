@@ -150,6 +150,42 @@
 
 }
 
+
+
++(void)checkRandomGroupQuizOptions{
+    LZDataAccess *da = [LZDataAccess singleton];
+    
+    //NSArray * pkgAry = [da getPackages];
+    
+    NSString *pkgkey = @"Apparel 1";
+    NSArray * pkgGroups = [da getPackageGroups:pkgkey];
+    
+    NSString *grpkey = [pkgGroups[0] objectForKey:@"grpkey"];
+    
+    NSArray *groupQuizAry1 = [da getGroupQuiz:grpkey];
+    NSArray *groupQuizAry2 = [da getGroupQuiz:grpkey];
+    NSString *quizkey11 = [groupQuizAry1[0] objectForKey:@"quizkey"];
+    NSString *quizkey21 = [groupQuizAry2[0] objectForKey:@"quizkey"];
+    if ([quizkey11 isEqualToString:quizkey21]){
+        NSLog(@"getGroupQuiz ERROR, not random");
+    }else{
+        NSLog(@"getGroupQuiz OK, random result: %@ vs %@",quizkey11,quizkey21);
+    }
+    
+    NSArray *quizOptionsA = [da getGroupQuizOptions:grpkey];
+    NSString *quizkeyA1 = [quizOptionsA[0] objectForKey:@"quizkey"];
+    NSArray *quizOptionsB = [da getGroupQuizOptions:grpkey];
+    NSString *quizkeyB1 = [quizOptionsB[0] objectForKey:@"quizkey"];
+    if ([quizkeyA1 isEqualToString:quizkeyB1]){
+        NSLog(@"getGroupQuizOptions ERROR, not random");
+    }else{
+        NSLog(@"getGroupQuizOptions OK, random result: %@ vs %@",quizkeyA1,quizkeyB1);
+    }
+    
+    NSLog(@"checkRandomGroupQuizOptions end");
+}
+
+
 + (void)testFunc1{
 //    LZDataAccess *da = [LZDataAccess singleton];
 //    [da cleanDb];
@@ -171,6 +207,7 @@
 
     [self checkInitData];
     [self check_updateGroupScoreAndRightQuizAmount];
+    [self checkRandomGroupQuizOptions];
     
     NSLog(@"testFunc2 end");
 }

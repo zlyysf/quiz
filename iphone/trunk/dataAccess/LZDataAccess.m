@@ -295,7 +295,9 @@
     NSString *query = @""
     "SELECT qd.quizkey quizkey, grpkey, pkgkey, questionWord, answerPic, "
     "    ifnull(haveAwardCoin,0) haveAwardCoin, ifnull(haveAwardScore,0) haveAwardScore"
-    "  FROM quizDef qd LEFT OUTER JOIN quizRun qr ON qd.quizkey=qr.quizkey WHERE qd.grpkey=:grpkey"
+    "  FROM quizDef qd LEFT OUTER JOIN quizRun qr ON qd.quizkey=qr.quizkey"
+    "  WHERE qd.grpkey=:grpkey"
+    "  ORDER BY RANDOM()"
     ;
     NSDictionary *dictQueryParam = [NSDictionary dictionaryWithObjectsAndKeys:grpkey, @"grpkey", nil];
     FMResultSet *rs = [dbfm executeQuery:query withParameterDictionary:dictQueryParam];
@@ -336,6 +338,7 @@
     "  FROM quizDef qd"
     "  WHERE qd.pkgkey IN (SELECT pkgkey FROM quizDef WHERE grpkey=:grpkey)"
     "    and qd.grpkey<>:grpkey"
+    "  ORDER BY RANDOM()"
     "  LIMIT :limitCount"
     ;
     int limitCount = 30;//TODO get from ...
