@@ -24,8 +24,17 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
-    GADMasterViewController *shared = [GADMasterViewController singleton];
-    [shared resetAdView:self];
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"])
+    {
+        GADMasterViewController *shared = [GADMasterViewController singleton];
+        [shared removeAds];
+    }
+    else
+    {
+        GADMasterViewController *shared = [GADMasterViewController singleton];
+        [shared resetAdView:self];
+    }
+
     
 }
 

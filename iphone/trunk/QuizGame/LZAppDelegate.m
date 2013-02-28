@@ -9,16 +9,19 @@
 #import "LZAppDelegate.h"
 #import "LZDataAccess+GenSql.h"
 #import "LZSHKConfigurator.h"
-
+#import "LZIAPManager.h"
 @implementation LZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"LZAdsOff"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
     DefaultSHKConfigurator *configurator = [[LZSHKConfigurator alloc] init];
     [SHKConfiguration sharedInstanceWithConfigurator:configurator];
     [[LZDataAccess singleton]cleanDb];
     [[LZDataAccess singleton]initDbWithGeneratedSql];
+    [LZIAPManager sharedInstance];
     return YES;
 }
 

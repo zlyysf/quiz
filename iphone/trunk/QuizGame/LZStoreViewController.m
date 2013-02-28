@@ -10,6 +10,8 @@
 #import "StorePurchaseCell.h"
 #import "RestorePurchaseCell.h"
 #import "StoreFreeCell.h"
+#import "LZIAPManager.h"
+#import <StoreKit/StoreKit.h>
 @interface LZStoreViewController ()<LZCellDelegate>
 
 @end
@@ -29,12 +31,17 @@
 {
     [super viewDidLoad];
     [self.view addSubview:listView];
+    [self resizeContentViewFrame:self.listView];
     self.topNavView.topNavType = TopNavTypeStore;
 	// Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -109,6 +116,34 @@
 -(void)selectedLZCell:(NSIndexPath *)LZCellIndexPath
 {
     NSLog(@"select store cell section %d  row %d",LZCellIndexPath.section,LZCellIndexPath.row);
+    /*1 user purchased remove ads
+     */
+    
+    /*2 user purchased unlock package
+     */
+    
+    /*3 user purchased some tokens
+     */
+
+  }
+- (void)productPurchased:(NSNotification *)notification
+{
+    NSString * productIdentifier = notification.object;
+    NSLog(@"purchased product %@",productIdentifier);
+    /*1 user purchased remove ads
+     */
+
+    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZAdsOff"];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+    [[GADMasterViewController singleton]removeAds];
+    [self resizeContentViewFrame:self.listView];
+
+    /*2 user purchased unlock package
+     */
+    
+    /*3 user purchased some tokens
+     */
+    
 }
 - (void)didReceiveMemoryWarning
 {

@@ -28,6 +28,7 @@
     [super viewDidLoad];
     self.topNavView.topNavType = TopNavTypeNormal;
     [self.view addSubview:self.listView];
+    [self resizeContentViewFrame:self.listView];
 	// Do any additional setup after loading the view.
 }
 -(void)viewWillAppear:(BOOL)animated

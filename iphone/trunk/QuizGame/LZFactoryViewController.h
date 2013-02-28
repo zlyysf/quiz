@@ -13,5 +13,5 @@
 @interface LZFactoryViewController : UIViewController<LZTopNavViewDelegate>
 @property (nonatomic,strong)LZTopNavView *topNavView;
 @property (nonatomic,strong)UIImageView *controllerBackImageView;
-
+- (void)resizeContentViewFrame:(UIView *)contentView;
 @end

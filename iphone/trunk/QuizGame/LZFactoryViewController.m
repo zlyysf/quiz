@@ -36,10 +36,33 @@
     [self.view addSubview:topNavView];
 	// Do any additional setup after loading the view.
 }
+- (void)resizeContentViewFrame:(UIView *)contentView
+{
+    CGSize screenSize = [[UIScreen mainScreen]bounds].size;
+    
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"])
+    {
+        
+        contentView.frame = CGRectMake(0,kTopNavViewFrame.size.height , screenSize.width, screenSize.height-[[UIApplication sharedApplication]statusBarFrame].size.height-kTopNavViewFrame.size.height);
+    }
+    else
+    {
+        contentView.frame = CGRectMake(0,kTopNavViewFrame.size.height , screenSize.width, screenSize.height-[[UIApplication sharedApplication]statusBarFrame].size.height-kTopNavViewFrame.size.height-GAD_SIZE_320x50.height);
+    }
+
+}
 - (void)viewWillAppear:(BOOL)animated
 {
-    GADMasterViewController *shared = [GADMasterViewController singleton];
-    [shared resetAdView:self];
+    if ([[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"])
+    {
+         GADMasterViewController *shared = [GADMasterViewController singleton];
+        [shared removeAds];
+    }
+    else
+    {
+        GADMasterViewController *shared = [GADMasterViewController singleton];
+        [shared resetAdView:self];
+    }
     NSDictionary *userInfo = [[LZDataAccess singleton]getUserTotalScore];
     NSLog(@"%@",userInfo);
     int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
