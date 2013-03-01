@@ -10,6 +10,7 @@
 #import "SHKFacebook.h"
 #import "SHKTwitter.h"
 #import <QuartzCore/QuartzCore.h>
+#define kLockPakStartIndex 3
 #define kTotalOptionCount 3
 #define kSelectedAnswerInterval 0.5
 #define kDirectAnswerInterval 1.0
@@ -472,24 +473,34 @@
                         break;
                     }
                 }
-                if (packageIndex < [packageArray count]-1)
+                if (packageIndex < kLockPakStartIndex)
                 {
-                    NSDictionary *unlockPackage = [packageArray objectAtIndex:packageIndex+1];
-                    int lockstate = [[unlockPackage objectForKey:@"locked"]integerValue];
-                    if (lockstate == 1)
+                    if ([self didAllPackUnlockedBeforeIndex:kLockPakStartIndex])
                     {
-                        unlockKey = [unlockPackage objectForKey:@"name"];
-                        [[LZDataAccess singleton]updatePackageLockState:unlockKey andLocked:0];
-                        NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
-                        NSString *title = [NSString stringWithFormat:@"package %@ unlocked!",unlockKey];
-                        UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                        [endAlert show];
-
+                        [self unlockPackage:kLockPakStartIndex];
                     }
                 }
-                else if (packageIndex == [packageArray count]-1)
+                else
                 {
-                    //finished all games!!!!
+                    if (packageIndex < [packageArray count]-1)
+                    {
+                        NSDictionary *unlockPackage = [packageArray objectAtIndex:packageIndex+1];
+                        int lockstate = [[unlockPackage objectForKey:@"locked"]integerValue];
+                        if (lockstate == 1)
+                        {
+                            unlockKey = [unlockPackage objectForKey:@"name"];
+                            [[LZDataAccess singleton]updatePackageLockState:unlockKey andLocked:0];
+                            NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
+                            NSString *title = [NSString stringWithFormat:@"package %@ unlocked!",unlockKey];
+                            UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                            [endAlert show];
+
+                        }
+                    }
+                    else if (packageIndex == [packageArray count]-1)
+                    {
+                        //finished all games!!!!
+                    }
                 }
 
             }
@@ -515,6 +526,38 @@
     {
         currentQuizIndex++;
         [self displayGameView:currentQuizIndex];
+    }
+
+}
+-(BOOL)didAllPackUnlockedBeforeIndex:(int)packageIndex
+{
+    NSArray *packageArray = [[LZDataAccess singleton]getPackages];
+    BOOL unlocked = YES;
+    for(int i= 0;i<packageIndex;i++)
+    {
+        NSDictionary *aPackage = [packageArray objectAtIndex:i];
+        int lockstate = [[aPackage objectForKey:@"locked"]integerValue];
+        if (lockstate == 1)
+        {
+            unlocked = NO;
+            break;
+        }
+    }
+    return unlocked;
+}
+-(void)unlockPackage:(int)packageIndex
+{
+    NSArray *packageArray = [[LZDataAccess singleton]getPackages];
+    NSDictionary *unlockPackage = [packageArray objectAtIndex:packageIndex];
+    int lockstate = [[unlockPackage objectForKey:@"locked"]integerValue];
+    if (lockstate == 1)
+    {
+       NSString* unlockKey = [unlockPackage objectForKey:@"name"];
+        [[LZDataAccess singleton]updatePackageLockState:unlockKey andLocked:0];
+        NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
+        NSString *title = [NSString stringWithFormat:@"package %@ unlocked!",unlockKey];
+        UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [endAlert show];  
     }
 
 }
