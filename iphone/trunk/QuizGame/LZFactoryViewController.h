@@ -14,4 +14,5 @@
 @property (nonatomic,strong)LZTopNavView *topNavView;
 @property (nonatomic,strong)UIImageView *controllerBackImageView;
 - (void)resizeContentViewFrame:(UIView *)contentView;
+- (void)refreshGold;
 @end

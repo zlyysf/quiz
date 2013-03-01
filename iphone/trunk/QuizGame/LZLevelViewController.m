@@ -49,7 +49,21 @@
     NSArray *data = [[LZDataAccess singleton]getPackageGroups:self.currentPackageName];;
     self.levelArray = data;
     NSLog(@"level %@",self.levelArray);
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
 }
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)productPurchased:(NSNotification *)notification
+{
+    NSString * productIdentifier = notification.object;
+    NSLog(@"purchased product %@",productIdentifier);
+    /*1 user purchased remove ads
+     */
+    [self resizeContentViewFrame:self.listView];
+    [self refreshGold];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

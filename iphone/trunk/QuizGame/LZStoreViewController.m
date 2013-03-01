@@ -12,12 +12,23 @@
 #import "StoreFreeCell.h"
 #import "LZIAPManager.h"
 #import <StoreKit/StoreKit.h>
+#import "SHKFacebook.h"
+#import "SHKTwitter.h"
 @interface LZStoreViewController ()<LZCellDelegate>
+{
+    NSNumberFormatter * _priceFormatter;
+}
+@property (nonatomic,readwrite)BOOL hasQueryData;
+@property (nonatomic,strong)NSArray *freebieItemArray;
+@property (nonatomic,strong)NSArray *storeItemArray;
 
 @end
 
 @implementation LZStoreViewController
 @synthesize listView;
+@synthesize hasQueryData;
+@synthesize freebieItemArray;
+@synthesize storeItemArray;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -33,11 +44,25 @@
     [self.view addSubview:listView];
     [self resizeContentViewFrame:self.listView];
     self.topNavView.topNavType = TopNavTypeStore;
+    freebieItemArray = [[NSArray alloc]initWithObjects:@"Twitter",@"Facebook",@"Review our app", nil];
+    hasQueryData = NO;
+    _priceFormatter = [[NSNumberFormatter alloc] init];
+    [_priceFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+    [_priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+
 	// Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[LZIAPManager sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+        if (success) {
+            self.storeItemArray = products;
+            hasQueryData = YES;
+            [self.listView reloadData];
+        }
+    }];
+
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
 }
 - (void)viewWillDisappear:(BOOL)animated {
@@ -66,11 +91,19 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
-    if (section == 0)
-        return 6;
-    else if (section == 2)
-        return 3;
-    return 1;
+    if (hasQueryData)
+    {
+        if (section == 0)
+            return [self.storeItemArray count];
+        else if (section == 2)
+            return [self.freebieItemArray count];
+        return 1;
+
+    }
+    else
+    {
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,10 +111,20 @@
     if (indexPath.section == 0)
     {
         StorePurchaseCell *cell = (StorePurchaseCell *)[tableView dequeueReusableCellWithIdentifier:@"StorePurchaseCell"];
-        cell.productNameLabel.text = @"No Ads";
-        cell.productPriceLabel.text = @"$ 0.99";
+        SKProduct * product = (SKProduct *)[storeItemArray objectAtIndex:indexPath.row];
+        cell.productNameLabel.text = product.localizedTitle;
+        [_priceFormatter setLocale:product.priceLocale];
+        cell.productPriceLabel.text = [_priceFormatter stringFromNumber:product.price];
         cell.cellIndexPath = indexPath;
         cell.delegate = self;
+        if ([self hasProductPurchased:product.productIdentifier])
+        {
+            [cell.selectButton setEnabled:NO];
+        }
+        else
+        {
+            [cell.selectButton setEnabled:YES];
+        }
         return cell;
     }
     else if (indexPath.section == 1)
@@ -95,8 +138,8 @@
         
         StoreFreeCell *cell = (StoreFreeCell *)[tableView dequeueReusableCellWithIdentifier:@"StoreFreeCell"];
         [cell.iconImageView setImage:[UIImage imageNamed:@"facebook.png"]];
-        cell.descriptionLabel.text = @"Tell your facebook friends.";
-        cell.profitLabel.text = @"Get 50 Tokens.";
+        cell.descriptionLabel.text = @"Tell your friends.";
+        cell.profitLabel.text = [freebieItemArray objectAtIndex:indexPath.row];
         cell.cellIndexPath = indexPath;
         cell.delegate = self;
         return cell;
@@ -112,38 +155,60 @@
     }
     
 }
+- (BOOL)hasProductPurchased:(NSString *)productIdentifier {
+    BOOL productPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:productIdentifier];
+    return productPurchased;
+}
+
 #pragma -mark  LZCell Delegate
 -(void)selectedLZCell:(NSIndexPath *)LZCellIndexPath
 {
     NSLog(@"select store cell section %d  row %d",LZCellIndexPath.section,LZCellIndexPath.row);
     /*1 user purchased remove ads
      */
-    
-    /*2 user purchased unlock package
-     */
-    
-    /*3 user purchased some tokens
-     */
+    if (LZCellIndexPath.section == 0)
+    {
+        SKProduct *product = [storeItemArray objectAtIndex:LZCellIndexPath.row];
+        [[LZIAPManager sharedInstance]buyProduct:product];
+    }
+    else if(LZCellIndexPath.section == 2)
+    {
+        /* social share @"Twitter",@"Facebook",@"Review our app" */
+        if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Twitter"])
+        {
+            NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://www.apple.com" ];
+            SHKItem *item = [SHKItem URL:ourAppUrl title:@"com to join Quiz Awsome and have fun" contentType:SHKURLContentTypeUndefined];
+            [SHKFacebook shareItem:item];
+            
+        }
+        else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Facebook"])
+        {
+            NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://www.apple.com" ];
+            SHKItem *item = [SHKItem URL:ourAppUrl title:@"com to join Quiz Awsome and have fun" contentType:SHKURLContentTypeUndefined];
+            [SHKTwitter shareItem:item];
+        }
+        else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Review our app"])
+        {
+            NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://www.apple.com" ];
+            [[UIApplication sharedApplication] openURL:ourAppUrl];
+
+        }
+
+    }
+    else if(LZCellIndexPath.section == 3)
+    {
+        [[LZIAPManager sharedInstance] restoreCompletedTransactions];
+    }
 
   }
 - (void)productPurchased:(NSNotification *)notification
 {
     NSString * productIdentifier = notification.object;
     NSLog(@"purchased product %@",productIdentifier);
-    /*1 user purchased remove ads
-     */
-
-    [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZAdsOff"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
-    [[GADMasterViewController singleton]removeAds];
+    
     [self resizeContentViewFrame:self.listView];
-
-    /*2 user purchased unlock package
-     */
-    
-    /*3 user purchased some tokens
-     */
-    
+    [self refreshGold];
+    [self.listView reloadData];
 }
 - (void)didReceiveMemoryWarning
 {

@@ -8,6 +8,8 @@
 
 #import "LZIAPManager.h"
 #import <StoreKit/StoreKit.h>
+#import "GADMasterViewController.h"
+#import "LZDataAccess.h"
 NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurchasedNotification";
 @interface LZIAPManager () <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 @end
@@ -17,19 +19,26 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     RequestProductsCompletionHandler _completionHandler;
     
     NSSet * _productIdentifiers;
-    NSMutableSet * _purchasedProductIdentifiers;
+    NSSet * _consumbleItemSet;
 }
 + (LZIAPManager *)sharedInstance {
     static dispatch_once_t IAPOnce;
     static LZIAPManager * sharedInstance;
     dispatch_once(&IAPOnce, ^{
         NSSet * productIdentifiers = [NSSet setWithObjects:
-                                      @"com.razeware.inapprage.drummerrage",
-                                      @"com.razeware.inapprage.itunesconnectrage",
-                                      @"com.razeware.inapprage.nightlyrage",
-                                      @"com.razeware.inapprage.studylikeaboss",
-                                      @"com.razeware.inapprage.updogsadness",
+                                      @"com.lingzhi.QuizAwsome.removead",
+                                      @"com.lingzhi.QuizAwsome.unlockallpak",
+                                      @"com.lingzhi.QuizAwsome.unlockfortune",
+                                      @"com.lingzhi.QuizAwsome.unlockhealth",
+                                      @"com.lingzhi.QuizAwsome.unlockelectronic",
+                                      @"com.lingzhi.QuizAwsome.unlocksportsclub",
+                                      @"com.lingzhi.QuizAwsome.unlockfooddrink",
+                                      @"com.lingzhi.QuizAwsome.buytoken40",
+                                      @"com.lingzhi.QuizAwsome.buytoken100",
+                                      @"com.lingzhi.QuizAwsome.buytoken200",
+                                      @"com.lingzhi.QuizAwsome.buytoken400",
                                       nil];
+
         sharedInstance = [[self alloc] initWithProductIdentifiers:productIdentifiers];
     });
     return sharedInstance;
@@ -43,17 +52,15 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         _productIdentifiers = productIdentifiers;
         
         // Check for previously purchased products
-        _purchasedProductIdentifiers = [NSMutableSet set];
-        for (NSString * productIdentifier in _productIdentifiers) {
-            BOOL productPurchased = [[NSUserDefaults standardUserDefaults] boolForKey:productIdentifier];
-            if (productPurchased) {
-                [_purchasedProductIdentifiers addObject:productIdentifier];
-                NSLog(@"Previously purchased: %@", productIdentifier);
-            } else {
-                NSLog(@"Not purchased: %@", productIdentifier);
-            }
-        }
-        
+        _consumbleItemSet = [NSSet setWithObjects:
+                             @"com.lingzhi.QuizAwsome.removead",
+                             @"com.lingzhi.QuizAwsome.unlockallpak",
+                             @"com.lingzhi.QuizAwsome.unlockfortune",
+                             @"com.lingzhi.QuizAwsome.unlockhealth",
+                             @"com.lingzhi.QuizAwsome.unlockelectronic",
+                             @"com.lingzhi.QuizAwsome.unlocksportsclub",
+                             @"com.lingzhi.QuizAwsome.unlockfooddrink",
+                            nil];
         // Add self as transaction observer
         [[SKPaymentQueue defaultQueue] addTransactionObserver:self];
         
@@ -73,10 +80,6 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     _productsRequest.delegate = self;
     [_productsRequest start];
     
-}
-
-- (BOOL)productPurchased:(NSString *)productIdentifier {
-    return [_purchasedProductIdentifiers containsObject:productIdentifier];
 }
 
 - (void)buyProduct:(SKProduct *)product {
@@ -165,10 +168,69 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 }
 
 - (void)provideContentForProductIdentifier:(NSString *)productIdentifier {
-    
-    [_purchasedProductIdentifiers addObject:productIdentifier];
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:productIdentifier];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    if([_consumbleItemSet containsObject:productIdentifier])
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:productIdentifier];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+/*    @"com.lingzhi.QuizAwsome.removead",
+    @"com.lingzhi.QuizAwsome.unlockallpak",
+    @"com.lingzhi.QuizAwsome.unlockfortune",
+    @"com.lingzhi.QuizAwsome.unlockhealth",
+    @"com.lingzhi.QuizAwsome.unlockelectronic",
+    @"com.lingzhi.QuizAwsome.unlocksportsclub",
+    @"com.lingzhi.QuizAwsome.unlockfooddrink",
+    @"com.lingzhi.QuizAwsome.buytoken40",
+    @"com.lingzhi.QuizAwsome.buytoken100",
+    @"com.lingzhi.QuizAwsome.buytoken200",
+    @"com.lingzhi.QuizAwsome.buytoken400",
+ */
+    if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.removead"])
+    {
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZAdsOff"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        [[GADMasterViewController singleton]removeAds];
+    }
+    else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlockallpak"])
+    {
+        
+    }
+    else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlockfortune"])
+    {
+        
+    }
+    else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlockhealth"])
+    {
+        
+    }
+    else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlockelectronic"])
+    {
+        
+    }
+    else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlocksportsclub"])
+    {
+        
+    }
+    else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlockfooddrink"])
+    {
+        
+    }
+    else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.buytoken40"])
+    {
+        [[LZDataAccess singleton]updateUserTotalCoinByDelta:40];
+    }
+    else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.buytoken100"])
+    {
+        [[LZDataAccess singleton]updateUserTotalCoinByDelta:100];
+    }
+    else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.buytoken200"])
+    {
+        [[LZDataAccess singleton]updateUserTotalCoinByDelta:200];
+    }
+    else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.buytoken400"])
+    {
+        [[LZDataAccess singleton]updateUserTotalCoinByDelta:400];
+    }
     [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier userInfo:nil];
     
 }

@@ -14,8 +14,8 @@
 #define kSelectedAnswerInterval 0.5
 #define kDirectAnswerInterval 1.0
 #define kSwitchNextQuestionInterval 0.5
-#define kDirectWinCost 4
-#define kDirectWinConstDelta -4
+#define kDirectWinCost 5
+#define kDirectWinConstDelta -5
 #define kCutWrongCost 2
 #define kCutWrongCostDelta -2
 #define kAskAlertTag 22
@@ -88,7 +88,20 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
 }
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)productPurchased:(NSNotification *)notification
+{
+    NSString * productIdentifier = notification.object;
+    NSLog(@"purchased product %@",productIdentifier);
+    /*1 user purchased remove ads
+     */
+    [self refreshGold];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -514,8 +527,6 @@
             UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
             SHKItem *item = [SHKItem image:questionImage title:@"Any one know the answer?"];
             [SHKFacebook shareItem:item];
-            //NSURL *facebookUrl = [ [ NSURL alloc ] initWithString: @"https://m.facebook.com/dialog/feed?app_id=451167864925310&link=https%3A%2F%2Fitunes.apple.com%2Fapp%2Fid568334356&picture=http%3A%2F%2Fimg.iconpop.co%2F01x.png&name=Guess+who...&caption=Answer+in+the+comments+or+join+the+fun+by+downloading+the+free+Icon+Pop+Quiz+game%21&description=http%3A%2F%2Fwww.iconpopquiz.com&redirect_uri=http%3A%2F%2Fwww.facebook.com" ];
-            //[[UIApplication sharedApplication] openURL:facebookUrl];
         }
         else if (buttonIndex == 2)
         {

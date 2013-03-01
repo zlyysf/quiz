@@ -34,7 +34,21 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
 }
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)productPurchased:(NSNotification *)notification
+{
+    NSString * productIdentifier = notification.object;
+    NSLog(@"purchased product %@",productIdentifier);
+    /*1 user purchased remove ads
+     */
+    [self resizeContentViewFrame:self.listView];
+    [self refreshGold];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
     return 3;

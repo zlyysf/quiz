@@ -47,7 +47,21 @@
 //** -(FMResultSet *) getPackages; getpackageArray list view update also set top bar gold amount
     NSArray *date = [[LZDataAccess singleton]getPackages]; ;
     self.packageArray = date;
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
 }
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+- (void)productPurchased:(NSNotification *)notification
+{
+    NSString * productIdentifier = notification.object;
+    NSLog(@"purchased product %@",productIdentifier);
+    [self resizeContentViewFrame:self.listView];
+    [self refreshGold];
+    NSArray *date = [[LZDataAccess singleton]getPackages]; ;
+    self.packageArray = date;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
