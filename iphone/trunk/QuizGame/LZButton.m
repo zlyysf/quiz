@@ -25,7 +25,7 @@
 - (void)drawRect:(CGRect)rect
 {
     // Drawing code
-    UIImage *image = [UIImage imageNamed:@"lzbutton"];
+    UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"lzbutton@2x" ofType:@"png"]];//[UIImage imageNamed:@"lzbutton"];
     UIImage *backImage = [image stretchableImageWithLeftCapWidth:25.0 topCapHeight:25.0];
     [self setBackgroundImage:backImage forState:UIControlStateNormal];
 }

@@ -34,16 +34,19 @@
         self.delegate = target;
         // Initialization code
         self.backgroundImageView = [[UIImageView alloc]initWithFrame:kBackgroundImageViewFrame];
-        [self.backgroundImageView setImage:[UIImage imageNamed:@"top_back_ground.png"]];
+        UIImage *topback = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"top_back_ground@2x" ofType:@"png"]];
+        [self.backgroundImageView setImage:topback];
         [self addSubview:self.backgroundImageView];
         
         self.backButton = [[UIButton alloc]initWithFrame:kBackButtonFrame];
-        [self.backButton setImage:[UIImage imageNamed:@"top_back_button.png"] forState:UIControlStateNormal];
+        UIImage *topbackbutton = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"top_back_button@2x" ofType:@"png"]];
+        [self.backButton setImage:topbackbutton forState:UIControlStateNormal];
         [self.backButton addTarget:self action:@selector(backButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.backButton];
         
         self.goldButton = [[UIButton alloc]initWithFrame:kGoldButtonFrame];
-        [self.goldButton setImage:[UIImage imageNamed:@"gold.png"] forState:UIControlStateNormal];
+        UIImage *goldImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"gold@2x" ofType:@"png"]];
+        [self.goldButton setImage:goldImg forState:UIControlStateNormal];
         [self.goldButton addTarget:self action:@selector(goldButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.goldButton];
         
@@ -55,7 +58,8 @@
         [self addSubview:self.goldCountLabel];
         
         self.correctIconImageView = [[UIImageView alloc]initWithFrame:kCorrectImageFrame];
-        [self.correctIconImageView setImage:[UIImage imageNamed:@"correct.png"]];
+        UIImage *correctImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"correct@2x" ofType:@"png"]];
+        [self.correctIconImageView setImage:correctImg];
         [self addSubview:self.correctIconImageView];
         
         self.correctCountLabel = [[UILabel alloc]initWithFrame:kCorrectCountLabelFrame];
@@ -66,7 +70,8 @@
         [self addSubview:self.correctCountLabel];
 
         self.wrongIconImageView = [[UIImageView alloc]initWithFrame:kWrongImageFrame];
-        [self.wrongIconImageView setImage:[UIImage imageNamed:@"wrong.png"]];
+        UIImage *wrongImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"wrong@2x" ofType:@"png"]];
+        [self.wrongIconImageView setImage:wrongImg];
         [self addSubview:self.wrongIconImageView];
         
         self.wrongCountLabel = [[UILabel alloc]initWithFrame:kWrongCountLabelFrame];

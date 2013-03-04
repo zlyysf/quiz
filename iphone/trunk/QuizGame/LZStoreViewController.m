@@ -49,6 +49,8 @@
     _priceFormatter = [[NSNumberFormatter alloc] init];
     [_priceFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
     [_priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"normal_bg@2x" ofType:@"jpg"];
+    [self.controllerBackImageView setImage:[UIImage imageWithContentsOfFile:path]];
 
 	// Do any additional setup after loading the view.
 }

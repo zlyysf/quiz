@@ -36,13 +36,15 @@
         
         winButton = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width-40,  10, kHelpButtonSideLength, kHelpButtonSideLength)];
         winButton.tag = kWinButtonTag;
-        [winButton setImage:[UIImage imageNamed:@"win_question.png"] forState:UIControlStateNormal];
+        UIImage *winImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"win_question@2x" ofType:@"png"]];
+        [winButton setImage:winImg forState:UIControlStateNormal];
         [winButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:winButton];
         
         cutWrongButton = [[UIButton alloc]initWithFrame:CGRectMake(winButton.frame.origin.x, winButton.frame.origin.y + winButton.frame.size.height +10, kHelpButtonSideLength, kHelpButtonSideLength)];
         cutWrongButton.tag = kCutWrongButtonTag;
-        [cutWrongButton setImage:[UIImage imageNamed:@"cut_wrong.png"] forState:UIControlStateNormal];
+        UIImage *wrongImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cut_wrong@2x" ofType:@"png"]];
+        [cutWrongButton setImage:wrongImg forState:UIControlStateNormal];
         [cutWrongButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:cutWrongButton];
         
@@ -53,7 +55,7 @@
         [self addSubview:askFriendsButton];
         
         answerDownLeftButton = [[UIButton alloc]initWithFrame:CGRectMake(10, frame.size.height-10-kAnswerButtonSideLength, kAnswerButtonSideLength, kAnswerButtonSideLength)];
-        [answerDownLeftButton setBackgroundImage:[UIImage imageNamed:@"icon_1.jpg" ] forState:UIControlStateNormal];
+        //[answerDownLeftButton setBackgroundImage:[UIImage imageNamed:@"icon_1.jpg" ] forState:UIControlStateNormal];
         [answerDownLeftButton.layer setMasksToBounds:YES];
         [answerDownLeftButton.layer setCornerRadius:10.0];
         [answerDownLeftButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -61,7 +63,7 @@
         [self addSubview:answerDownLeftButton];
         
         answerDownRightButton = [[UIButton alloc]initWithFrame:CGRectMake(answerDownLeftButton.frame.origin.x +10 + kAnswerButtonSideLength, answerDownLeftButton.frame.origin.y, kAnswerButtonSideLength, kAnswerButtonSideLength)];
-        [answerDownRightButton setBackgroundImage:[UIImage imageNamed:@"icon_2.jpg" ] forState:UIControlStateNormal];
+        //[answerDownRightButton setBackgroundImage:[UIImage imageNamed:@"icon_2.jpg" ] forState:UIControlStateNormal];
         [answerDownRightButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         answerDownRightButton.tag = kAnswerDownRightButtonTag;
         [answerDownRightButton.layer setMasksToBounds:YES];
@@ -69,7 +71,7 @@
         [self addSubview:answerDownRightButton];
         
         answerUpLeftButton = [[UIButton alloc]initWithFrame:CGRectMake(answerDownLeftButton.frame.origin.x, answerDownLeftButton.frame.origin.y-10-kAnswerButtonSideLength, kAnswerButtonSideLength, kAnswerButtonSideLength)];
-        [answerUpLeftButton setBackgroundImage:[UIImage imageNamed:@"icon_3.jpg" ] forState:UIControlStateNormal];
+        //[answerUpLeftButton setBackgroundImage:[UIImage imageNamed:@"icon_3.jpg" ] forState:UIControlStateNormal];
         [answerUpLeftButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         answerUpLeftButton.tag = kAnswerUpLeftButtonTag;
         [answerUpLeftButton.layer setMasksToBounds:YES];
@@ -77,7 +79,7 @@
         [self addSubview:answerUpLeftButton];
         
         answerUpRightButton = [[UIButton alloc]initWithFrame:CGRectMake(answerDownRightButton.frame.origin.x, answerUpLeftButton.frame.origin.y, kAnswerButtonSideLength, kAnswerButtonSideLength)];
-        [answerUpRightButton setBackgroundImage:[UIImage imageNamed:@"icon_4.jpg" ] forState:UIControlStateNormal];
+        //[answerUpRightButton setBackgroundImage:[UIImage imageNamed:@"icon_4.jpg" ] forState:UIControlStateNormal];
         [answerUpRightButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         answerUpRightButton.tag = kAnswerUpRightButtonTag;
         [answerUpRightButton.layer setMasksToBounds:YES];

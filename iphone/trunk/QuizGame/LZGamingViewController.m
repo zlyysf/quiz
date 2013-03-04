@@ -79,10 +79,10 @@
     [self initializeOrderArray:totalQuizCount];
     [self displayGameView:currentQuizIndex];
     self.rightIconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kAnswerButtonSideLength, kAnswerButtonSideLength)];
-    [self.rightIconImageView setImage:[UIImage imageNamed:@"selected_right.png"]];
+    [self.rightIconImageView setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"selected_right@2x" ofType:@"png"]]];
     self.rightIconImageView.contentMode = UIViewContentModeScaleToFill;
     self.wrongIconImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, kAnswerButtonSideLength, kAnswerButtonSideLength)];
-    [self.wrongIconImageView setImage:[UIImage imageNamed:@"selected_wrong.png"]];
+    [self.wrongIconImageView setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"selected_wrong@2x" ofType:@"png"]]];
     self.wrongIconImageView.contentMode = UIViewContentModeScaleToFill;
 }
 
