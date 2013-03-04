@@ -446,7 +446,7 @@
 - (void)displayNext
 {
 
-    if (currentQuizIndex == totalQuizCount-1)
+    if (currentQuizIndex == totalQuizCount-1)//unswered last quiz
     {
         //display end view then get back to the group list view
         //lock or not lock the next level or next package
@@ -464,9 +464,9 @@
                 break;
             }
         }
-        if (answeredRightCount >= passRate)
+        if (answeredRightCount >= passRate)//pass this group
         {
-            if (groupIndex == [groupArray count]-1)
+            if (groupIndex == [groupArray count]-1)//last group in this package
             {
                 //unlock next package
                 NSArray *packageArray = [[LZDataAccess singleton]getPackages];
@@ -479,43 +479,43 @@
                         break;
                     }
                 }
-                if (packageIndex < kLockPakStartIndex)
+                if (packageIndex < kLockPakStartIndex)//special package need all package before unlocked
                 {
-                    if ([self didAllPackUnlockedBeforeIndex:kLockPakStartIndex])
+                    if ([self didAllPackPassedBeforeIndex:kLockPakStartIndex])//all before package passed
                     {
                         [self unlockPackage:kLockPakStartIndex];
                     }
+                    else//some package before still not passed
+                    {
+                        NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
+                        UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [endAlert show];
+                    }
                 }
-                else
+                else//normal package case
                 {
                     if (packageIndex < [packageArray count]-1)
                     {
-                        NSDictionary *unlockPackage = [packageArray objectAtIndex:packageIndex+1];
-                        int lockstate = [[unlockPackage objectForKey:@"locked"]integerValue];
-                        if (lockstate == 1)
-                        {
-                            unlockKey = [unlockPackage objectForKey:@"name"];
-                            [[LZDataAccess singleton]updatePackageLockState:unlockKey andLocked:0];
-                            NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
-                            NSString *title = [NSString stringWithFormat:@"package %@ unlocked!",unlockKey];
-                            UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                            [endAlert show];
-
-                        }
+                        [self unlockPackage:packageIndex+1];
                     }
                     else if (packageIndex == [packageArray count]-1)
                     {
                         //finished all games!!!!
+                        NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
+                        NSString *title = @"You finished all the quiz!";
+                        UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                        [endAlert show];
+
                     }
                 }
 
             }
-            else if (groupIndex < [groupArray count]-1)
+            else if (groupIndex < [groupArray count]-1) //not last group in this package
             {
                 //unlock next group
                 NSDictionary *unlockGroup = [groupArray objectAtIndex:groupIndex+1];
                 int lockstate = [[unlockGroup objectForKey:@"locked"]integerValue];
-                if (lockstate == 1)
+                if (lockstate == 1) //next group not unlocked
                 {
                     unlockKey = [unlockGroup objectForKey:@"grpkey"];
                     [[LZDataAccess singleton]updateGroupLockState:unlockKey andLocked:0];
@@ -524,8 +524,23 @@
                     UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                     [endAlert show];
                 }
+                else // next group already unlocked
+                {
+                    NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
+                    //NSString *title = [NSString stringWithFormat:@"package %@ unlocked!",unlockKey];
+                    UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                    [endAlert show];
+                }
             }
 
+        }
+        else //not pass this group
+        {
+            NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
+            //NSString *title = [NSString stringWithFormat:@"package %@ unlocked!",unlockKey];
+            UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [endAlert show];
+ 
         }
     }
     else if(currentQuizIndex < totalQuizCount-1)
@@ -535,21 +550,21 @@
     }
 
 }
--(BOOL)didAllPackUnlockedBeforeIndex:(int)packageIndex
+-(BOOL)didAllPackPassedBeforeIndex:(int)packageIndex
 {
-    NSArray *packageArray = [[LZDataAccess singleton]getPackages];
-    BOOL unlocked = YES;
+    NSArray *packageArray = [[LZDataAccess singleton]getPackagesInfoForPass];
+    BOOL passed = YES;
     for(int i= 0;i<packageIndex;i++)
     {
         NSDictionary *aPackage = [packageArray objectAtIndex:i];
-        int lockstate = [[aPackage objectForKey:@"locked"]integerValue];
-        if (lockstate == 1)
+        int lockstate = [[aPackage objectForKey:@"passed"]integerValue];
+        if (lockstate == 0)
         {
-            unlocked = NO;
+            passed = NO;
             break;
         }
     }
-    return unlocked;
+    return passed;
 }
 -(void)unlockPackage:(int)packageIndex
 {
@@ -564,6 +579,12 @@
         NSString *title = [NSString stringWithFormat:@"package %@ unlocked!",unlockKey];
         UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [endAlert show];  
+    }
+    else
+    {
+        NSString *message = [NSString stringWithFormat:@"total quiz : %d  right : %d  wrong : %d",totalQuizCount,answeredRightCount,answeredWrongCount];
+        UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [endAlert show];
     }
 
 }
