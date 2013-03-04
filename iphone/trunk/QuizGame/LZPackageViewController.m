@@ -38,6 +38,8 @@
     self.topNavView.topNavType = TopNavTypeNormal;
     [self.view addSubview:self.listView];
     [self resizeContentViewFrame:self.listView];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"normal_bg@2x" ofType:@"jpg"];
+    [self.controllerBackImageView setImage:[UIImage imageWithContentsOfFile:path]];
 	// Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated

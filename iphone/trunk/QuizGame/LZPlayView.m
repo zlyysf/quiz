@@ -24,12 +24,14 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        progressLabel= [[UILabel alloc]initWithFrame:CGRectMake(10, 10,200 , 40)];
+        progressLabel= [[UILabel alloc]initWithFrame:CGRectMake(10, 10,200 , 20)];
+        [progressLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:20]];
+        [progressLabel setTextColor:[UIColor grayColor]];
         progressLabel.backgroundColor = [UIColor clearColor];
-        progressLabel.textColor = [UIColor whiteColor];
         [self addSubview:progressLabel];
         
         questionLabel = [[UILabel alloc]initWithFrame:CGRectMake(progressLabel.frame.origin.x, progressLabel.frame.origin.y+progressLabel.frame.size.height + 10, 200, 40)];
+        [questionLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:30]];
         questionLabel.backgroundColor = [UIColor clearColor];
         questionLabel.textColor = [UIColor whiteColor];
         [self addSubview:questionLabel];

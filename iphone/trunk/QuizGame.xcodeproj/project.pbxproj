@@ -76,7 +76,7 @@
 		5FE7373D16B8E08400194CF0 /* LZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7373C16B8E08400194CF0 /* LZViewController.m */; };
 		5FE7375D16B9007200194CF0 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5FE7375B16B9007200194CF0 /* README.txt */; };
 		5FE7376016B9012700194CF0 /* GADMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7375F16B9012700194CF0 /* GADMasterViewController.m */; };
-		5FE7376316B9038B00194CF0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7376116B9037800194CF0 /* AdSupport.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		5FE7376316B9038B00194CF0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7376116B9037800194CF0 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5FE7376616B903AE00194CF0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7376416B9039B00194CF0 /* StoreKit.framework */; };
 		5FE7376816B903C900194CF0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7376716B903C900194CF0 /* SystemConfiguration.framework */; };
 		5FE7376A16B903DC00194CF0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7376916B903DC00194CF0 /* MessageUI.framework */; };
