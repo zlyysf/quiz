@@ -11,7 +11,7 @@
 #import "RestorePurchaseCell.h"
 #import "StoreFreeCell.h"
 #import "LZIAPManager.h"
-#import <StoreKit/StoreKit.h>
+//#import <StoreKit/StoreKit.h>
 #import "SHKFacebook.h"
 #import "SHKTwitter.h"
 @interface LZStoreViewController ()<LZCellDelegate>
@@ -176,14 +176,14 @@
     else if(LZCellIndexPath.section == 2)
     {
         /* social share @"Twitter",@"Facebook",@"Review our app" */
-        if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Twitter"])
+        if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Facebook"])
         {
             NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://www.apple.com" ];
             SHKItem *item = [SHKItem URL:ourAppUrl title:@"com to join Quiz Awsome and have fun" contentType:SHKURLContentTypeUndefined];
             [SHKFacebook shareItem:item];
             
         }
-        else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Facebook"])
+        else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Twitter"])
         {
             NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://www.apple.com" ];
             SHKItem *item = [SHKItem URL:ourAppUrl title:@"com to join Quiz Awsome and have fun" contentType:SHKURLContentTypeUndefined];

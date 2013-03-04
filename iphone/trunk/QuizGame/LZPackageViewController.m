@@ -124,11 +124,24 @@
     //judge locked status
     //-(FMResultSet *) getPackageGroups:(NSString *)pkgname give level controller pkgname
     NSDictionary *package = [self.packageArray objectAtIndex:LZCellIndexPath.row];
-    NSString *packageName = [package objectForKey:@"name"];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    LZLevelViewController * levelViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZLevelViewController"];
-    levelViewController.currentPackageName = packageName;
-    [self.navigationController pushViewController:levelViewController animated:NO];
+    int lockstate = [[package objectForKey:@"locked"]integerValue];
+    if (lockstate == 1)
+    {
+        //[cell setLocked:YES];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Sorry" message:@"You should pass the pre-package to unlock this package" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+        //NSDictionary *package = [self.packageArray objectAtIndex:LZCellIndexPath.row];
+        NSString *packageName = [package objectForKey:@"name"];
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        LZLevelViewController * levelViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZLevelViewController"];
+        levelViewController.currentPackageName = packageName;
+        [self.navigationController pushViewController:levelViewController animated:NO];
+
+    }
+
 }
 @end

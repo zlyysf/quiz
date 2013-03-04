@@ -7,7 +7,7 @@
 //
 
 #import "LZIAPManager.h"
-#import <StoreKit/StoreKit.h>
+//#import <StoreKit/StoreKit.h>
 #import "GADMasterViewController.h"
 #import "LZDataAccess.h"
 NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurchasedNotification";
@@ -19,7 +19,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     RequestProductsCompletionHandler _completionHandler;
     
     NSSet * _productIdentifiers;
-    NSSet * _consumbleItemSet;
+    NSSet * _nonconsumbleItemSet;
 }
 + (LZIAPManager *)sharedInstance {
     static dispatch_once_t IAPOnce;
@@ -52,7 +52,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         _productIdentifiers = productIdentifiers;
         
         // Check for previously purchased products
-        _consumbleItemSet = [NSSet setWithObjects:
+        _nonconsumbleItemSet = [NSSet setWithObjects:
                              @"com.lingzhi.QuizAwsome.removeads",
                              @"com.lingzhi.QuizAwsome.unlockallpackages",
                              @"com.lingzhi.QuizAwsome.unlockfortune",
@@ -168,7 +168,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 }
 
 - (void)provideContentForProductIdentifier:(NSString *)productIdentifier {
-    if([_consumbleItemSet containsObject:productIdentifier])
+    if([_nonconsumbleItemSet containsObject:productIdentifier])
     {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:productIdentifier];
         [[NSUserDefaults standardUserDefaults] synchronize];

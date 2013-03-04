@@ -123,12 +123,24 @@
     //judge locked status
     //-(FMResultSet *) getGroupQuiz:(NSString *)grpkey; give gaming controller grpkey
     NSDictionary *group = [self.levelArray objectAtIndex:LZCellIndexPath.row];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-    NSString *groupKey = [group objectForKey:@"grpkey"];
-    NSString *packageKey = [group objectForKey:@"pkgkey"];
-    LZGamingViewController * gamingViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZGamingViewController"];
-    gamingViewController.currentGroupKey = groupKey;
-    gamingViewController.currentPackageKey = packageKey;
-    [self.navigationController pushViewController:gamingViewController animated:NO];
+    int lockstate = [[group objectForKey:@"locked"]integerValue];
+    if (lockstate == 1)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Sorry" message:@"You should pass the pre-group to unlock this group" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+        //NSDictionary *group = [self.levelArray objectAtIndex:LZCellIndexPath.row];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        NSString *groupKey = [group objectForKey:@"grpkey"];
+        NSString *packageKey = [group objectForKey:@"pkgkey"];
+        LZGamingViewController * gamingViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZGamingViewController"];
+        gamingViewController.currentGroupKey = groupKey;
+        gamingViewController.currentPackageKey = packageKey;
+        [self.navigationController pushViewController:gamingViewController animated:NO];
+
+    }
+
 }
 @end
