@@ -30,6 +30,7 @@
 
 
 -(NSArray *) getPackages;
+-(NSArray *) getPackagesInfoForPass ;
 
 -(NSArray *) getPackageGroups:(NSString *)pkgkey;
 -(NSArray *) getGroupQuizzes:(NSString *)grpkey;

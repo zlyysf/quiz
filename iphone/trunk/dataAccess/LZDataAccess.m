@@ -180,7 +180,32 @@
     return pkgAry;
 }
 
-
+//SELECT pd.name pkgkey, gd.grpkey grpkey, gr.passed passed
+//  FROM packageDef pd, groupDef gd, groupRun gr,
+//    ( SELECT pd.name pkgkey, max(seqInPkg) seqInPkgMax
+//        FROM packageDef pd JOIN groupDef gd ON pd.name=gd.pkgkey
+//        GROUP BY pd.name) pgm
+//  WHERE pd.name=gd.pkgkey AND gd.grpkey=gr.grpkey
+//    AND pd.name=pgm.pkgkey AND gd.seqInPkg=pgm.seqInPkgMax
+//  ORDER BY pd.seq
+/*
+ suppose that all rows exist, so not need outer join.
+ */
+-(NSArray *) getPackagesInfoForPass {
+    NSString *query = @""
+    "SELECT pd.name pkgkey, gd.grpkey grpkey, gr.passed passed"
+    "  FROM packageDef pd, groupDef gd, groupRun gr, "
+    "    ( SELECT pd.name pkgkey, max(seqInPkg) seqInPkgMax"
+    "        FROM packageDef pd JOIN groupDef gd ON pd.name=gd.pkgkey"
+    "        GROUP BY pd.name) pgm"
+    "  WHERE pd.name=gd.pkgkey AND gd.grpkey=gr.grpkey"
+    "    AND pd.name=pgm.pkgkey AND gd.seqInPkg=pgm.seqInPkgMax"
+    "  ORDER BY pd.seq";
+    FMResultSet *rs = [dbfm executeQuery:query];
+    NSArray * pkgAry = [self.class FMResultSetToDictionaryArray:rs];
+    NSLog(@"getPackagesInfoForPass ret:\n%@",pkgAry);
+    return pkgAry;
+}
 
 
 //SELECT gd.grpkey grpkey, name, pkgkey, seqInPkg,

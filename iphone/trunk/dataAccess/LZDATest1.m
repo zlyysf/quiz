@@ -45,12 +45,12 @@
         NSLog(@"init data, quiz options count ERROR");
     }
     
-    if ([[pkgGroups[0] objectForKey:@"passRate"] integerValue] != 8){
-        NSLog(@"init data, group passRate set in group ERROR");
-    }
-    if ([[pkgGroups[1] objectForKey:@"passRate"] integerValue] != 7){
-        NSLog(@"init data, group passRate set in package ERROR");
-    }
+//    if ([[pkgGroups[0] objectForKey:@"passRate"] integerValue] != 8){
+//        NSLog(@"init data, group passRate set in group ERROR");
+//    }
+//    if ([[pkgGroups[1] objectForKey:@"passRate"] integerValue] != 7){
+//        NSLog(@"init data, group passRate set in package ERROR");
+//    }
     
     
     
@@ -185,6 +185,34 @@
     NSLog(@"checkRandomGroupQuizOptions end");
 }
 
++(void)check_getPackagesInfoForPass{
+    LZDataAccess *da = [LZDataAccess singleton];
+    
+    NSArray * pkgsinfo1 = [da getPackagesInfoForPass];
+    for(int i=0; i<pkgsinfo1.count; i++){
+        int passed = [[pkgsinfo1[i] objectForKey:@"passed"] intValue];
+        if (passed){
+            NSLog(@"getPackagesInfoForPass 1 ERROR, init err");
+        }
+    }
+    
+    NSArray * p0Groups = [da getPackageGroups:[pkgsinfo1[0] objectForKey:@"pkgkey"]];
+    [da updateGroupScoreAndRightQuizAmount:[p0Groups[0] objectForKey:@"grpkey"] andScore:1000 andRightQuizAmount:10];
+    NSArray * pkgsinfo2 = [da getPackagesInfoForPass];
+    for(int i=0; i<pkgsinfo2.count; i++){
+        int passed = [[pkgsinfo2[i] objectForKey:@"passed"] intValue];
+        if (passed){
+            NSLog(@"getPackagesInfoForPass 2 ERROR");
+        }
+    }
+    
+    [da updateGroupScoreAndRightQuizAmount:[p0Groups[p0Groups.count-1] objectForKey:@"grpkey"] andScore:1000 andRightQuizAmount:10];
+    NSArray * pkgsinfo3 = [da getPackagesInfoForPass];
+    int passed = [[pkgsinfo3[0] objectForKey:@"passed"] intValue];
+    if (!passed){
+        NSLog(@"getPackagesInfoForPass 3 ERROR");
+    }
+}
 
 + (void)testFunc1{
 //    LZDataAccess *da = [LZDataAccess singleton];
@@ -206,8 +234,9 @@
     [da initDbWithGeneratedSql];
 
     [self checkInitData];
-    [self check_updateGroupScoreAndRightQuizAmount];
-    [self checkRandomGroupQuizOptions];
+    //[self check_updateGroupScoreAndRightQuizAmount];
+    //[self checkRandomGroupQuizOptions];
+    [self check_getPackagesInfoForPass];
     
     NSLog(@"testFunc2 end");
 }
