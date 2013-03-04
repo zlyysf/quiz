@@ -81,6 +81,10 @@
     [super viewDidUnload];
 }
 #pragma -mark TableView DataSource
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 95;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
     return [self.packageArray count];
@@ -105,7 +109,7 @@
     cell.packageTotalScoreLabel.text = [NSString stringWithFormat:@"%d",scoreSum];
     int passedGroupCount = [[package objectForKey:@"passedGroupCount"] integerValue];
     int groupCount = [[package objectForKey:@"groupCount"] integerValue];
-    cell.packageProgressLabel.text = [NSString stringWithFormat:@"%d / %d",passedGroupCount,groupCount];
+    cell.packageProgressLabel.text = [NSString stringWithFormat:@"%d/%d",passedGroupCount,groupCount];
     UIImage *image = [UIImage imageNamed:@"auto_bg.png"];
     UIImage *backImage = [image stretchableImageWithLeftCapWidth:25.0 topCapHeight:25.0];
 

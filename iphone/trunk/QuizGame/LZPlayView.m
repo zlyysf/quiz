@@ -24,35 +24,36 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        progressLabel= [[UILabel alloc]initWithFrame:CGRectMake(10, 10,200 , 20)];
-        [progressLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:20]];
+        progressLabel= [[UILabel alloc]initWithFrame:CGRectMake(10, 10,200, 26)];
+        [progressLabel setFont:[UIFont fontWithName:@"HelveticaNeue" size:25.f]];
         [progressLabel setTextColor:[UIColor grayColor]];
         progressLabel.backgroundColor = [UIColor clearColor];
         [self addSubview:progressLabel];
         
-        questionLabel = [[UILabel alloc]initWithFrame:CGRectMake(progressLabel.frame.origin.x, progressLabel.frame.origin.y+progressLabel.frame.size.height + 10, 200, 40)];
-        [questionLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:30]];
+        questionLabel = [[UILabel alloc]initWithFrame:CGRectMake(progressLabel.frame.origin.x, progressLabel.frame.origin.y+progressLabel.frame.size.height + 5, 250, 40)];
+        [questionLabel setFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:33]];
         questionLabel.backgroundColor = [UIColor clearColor];
         questionLabel.textColor = [UIColor whiteColor];
+        questionLabel.numberOfLines = 0;
         [self addSubview:questionLabel];
         
-        winButton = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width-40,  10, kHelpButtonSideLength, kHelpButtonSideLength)];
+        winButton = [[UIButton alloc]initWithFrame:CGRectMake(frame.size.width-40,  10, 20, 30)];
         winButton.tag = kWinButtonTag;
         UIImage *winImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"win_question@2x" ofType:@"png"]];
-        [winButton setImage:winImg forState:UIControlStateNormal];
+        [winButton setBackgroundImage:winImg forState:UIControlStateNormal];
         [winButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:winButton];
         
-        cutWrongButton = [[UIButton alloc]initWithFrame:CGRectMake(winButton.frame.origin.x, winButton.frame.origin.y + winButton.frame.size.height +10, kHelpButtonSideLength, kHelpButtonSideLength)];
+        cutWrongButton = [[UIButton alloc]initWithFrame:CGRectMake(winButton.frame.origin.x, winButton.frame.origin.y + winButton.frame.size.height +10, 22, 29)];
         cutWrongButton.tag = kCutWrongButtonTag;
         UIImage *wrongImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cut_wrong@2x" ofType:@"png"]];
-        [cutWrongButton setImage:wrongImg forState:UIControlStateNormal];
+        [cutWrongButton setBackgroundImage:wrongImg forState:UIControlStateNormal];
         [cutWrongButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:cutWrongButton];
         
-        askFriendsButton = [[UIButton alloc]initWithFrame:CGRectMake(cutWrongButton.frame.origin.x, cutWrongButton.frame.origin.y + cutWrongButton.frame.size.height +10, kHelpButtonSideLength, kHelpButtonSideLength)];
+        askFriendsButton = [[UIButton alloc]initWithFrame:CGRectMake(cutWrongButton.frame.origin.x, cutWrongButton.frame.origin.y + cutWrongButton.frame.size.height +10, 22, 29)];
         askFriendsButton.tag = kAskFriendsButtonTag;
-        [askFriendsButton setImage:[UIImage imageNamed:@"ask_friends.png"] forState:UIControlStateNormal];
+        [askFriendsButton setBackgroundImage:[UIImage imageNamed:@"ask_friends.png"] forState:UIControlStateNormal];
         [askFriendsButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:askFriendsButton];
         

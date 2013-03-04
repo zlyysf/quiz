@@ -84,6 +84,10 @@
 }
 
 #pragma -mark TableView DataSource
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 95;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 {
     return [self.levelArray count];
@@ -94,7 +98,7 @@
     //name, seqInPkg, locked, passed, gotScoreSum, quizCount
     NSDictionary *group = [self.levelArray objectAtIndex:indexPath.row];
     cell.delegate = self;
-    cell.levelNameLabel.text = [group objectForKey:@"name"];
+    cell.levelNameLabel.text = [NSString stringWithFormat:@"%d",indexPath.row+1];//[group objectForKey:@"name"];
     cell.cellIndexPath = indexPath;
     int lockstate = [[group objectForKey:@"locked"]integerValue];
     if (lockstate == 1)
@@ -108,9 +112,9 @@
     int gotScoreSum = [[group objectForKey:@"gotScoreSum"] integerValue];
 
     int answerRightMax = [[group objectForKey:@"answerRightMax"] integerValue];
-        int quizCount = [[group objectForKey:@"quizCount"] integerValue];
+    int quizCount = [[group objectForKey:@"quizCount"] integerValue];
     cell.levelScoreLabel.text = [NSString stringWithFormat:@"%d",gotScoreSum];
-    cell.levelProgressLabel.text = [NSString stringWithFormat:@"%d / %d",answerRightMax,quizCount];
+    cell.levelProgressLabel.text = [NSString stringWithFormat:@"%d/%d",answerRightMax,quizCount];
     return cell;
 }
 #pragma -mark  LZCell Delegate

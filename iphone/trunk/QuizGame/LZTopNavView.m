@@ -8,13 +8,13 @@
 
 #import "LZTopNavView.h"
 #define kBackgroundImageViewFrame CGRectMake(0, 0, 320, 44)
-#define kBackButtonFrame CGRectMake(5, 2, 40, 40)
-#define kGoldButtonFrame CGRectMake(55, 2, 40, 40)
-#define kGoldCountLabelFrame CGRectMake(100, 2, 50, 40)
-#define kCorrectImageFrame CGRectMake(160, 12, 20, 20)
-#define kCorrectCountLabelFrame CGRectMake(205, 2, 30, 40)
-#define kWrongImageFrame CGRectMake(245, 12, 20, 20)
-#define kWrongCountLabelFrame CGRectMake(290, 2, 30, 40)
+#define kBackButtonFrame CGRectMake(20, 12, 14, 22)
+#define kGoldButtonFrame CGRectMake(69, 12, 24, 22)
+#define kGoldCountLabelFrame CGRectMake(98, 9, 70, 26)
+#define kCorrectImageFrame CGRectMake(176, 12, 27, 20)
+#define kCorrectCountLabelFrame CGRectMake(208, 9, 40, 26)
+#define kWrongImageFrame CGRectMake(252, 12, 20, 20)
+#define kWrongCountLabelFrame CGRectMake(277, 9, 40, 26)
 @implementation LZTopNavView
 @synthesize delegate;
 @synthesize backgroundImageView;
@@ -40,13 +40,13 @@
         
         self.backButton = [[UIButton alloc]initWithFrame:kBackButtonFrame];
         UIImage *topbackbutton = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"top_back_button@2x" ofType:@"png"]];
-        [self.backButton setImage:topbackbutton forState:UIControlStateNormal];
+        [self.backButton setBackgroundImage:topbackbutton forState:UIControlStateNormal];
         [self.backButton addTarget:self action:@selector(backButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.backButton];
         
         self.goldButton = [[UIButton alloc]initWithFrame:kGoldButtonFrame];
         UIImage *goldImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"gold@2x" ofType:@"png"]];
-        [self.goldButton setImage:goldImg forState:UIControlStateNormal];
+        [self.goldButton setBackgroundImage:goldImg forState:UIControlStateNormal];
         [self.goldButton addTarget:self action:@selector(goldButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.goldButton];
         
@@ -54,7 +54,7 @@
         self.goldCountLabel.text = @"0";
         self.goldCountLabel.textColor = [UIColor whiteColor];
         self.goldCountLabel.backgroundColor = [UIColor clearColor];
-        self.goldCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.f];
+        self.goldCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:25.f];
         [self addSubview:self.goldCountLabel];
         
         self.correctIconImageView = [[UIImageView alloc]initWithFrame:kCorrectImageFrame];
@@ -66,7 +66,7 @@
         self.correctCountLabel.text = @"0";
         self.correctCountLabel.textColor = [UIColor whiteColor];
         self.correctCountLabel.backgroundColor = [UIColor clearColor];
-        self.correctCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.f];
+        self.correctCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:25.f];
         [self addSubview:self.correctCountLabel];
 
         self.wrongIconImageView = [[UIImageView alloc]initWithFrame:kWrongImageFrame];
@@ -78,7 +78,7 @@
         self.wrongCountLabel.text = @"0";
         self.wrongCountLabel.textColor = [UIColor whiteColor];
         self.wrongCountLabel.backgroundColor = [UIColor clearColor];
-        self.wrongCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:20.f];
+        self.wrongCountLabel.font = [UIFont fontWithName:@"HelveticaNeue" size:25.f];
         [self addSubview:self.wrongCountLabel];
 
     }

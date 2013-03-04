@@ -15,7 +15,6 @@
 #define kAnswerDownLeftButtonTag 202
 #define kAnswerDownRightButtonTag 203
 #define kAnswerButtonSideLength 120
-#define kHelpButtonSideLength 40
 @protocol LZPlayViewDelegate<NSObject>
 - (void)playViewButtonClicked:(UIButton*)button;
 @end

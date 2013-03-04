@@ -10,7 +10,7 @@
 #import "SHKFacebook.h"
 #import "SHKTwitter.h"
 #import <QuartzCore/QuartzCore.h>
-#define kLockPakStartIndex 3
+#define kLockPakStartIndex 2
 #define kTotalOptionCount 3
 #define kSelectedAnswerInterval 0.5
 #define kDirectAnswerInterval 1.0
@@ -183,8 +183,11 @@
         }
         if (index%2 == 0)//set play1
         {
-            self.playView1.progressLabel.text = [NSString stringWithFormat:@"%d / %d",currentQuizIndex+1,totalQuizCount];
+            self.playView1.progressLabel.text = [NSString stringWithFormat:@"%d/%d",currentQuizIndex+1,totalQuizCount];
             self.playView1.questionLabel.text = [self getQuetionStringForString:[quiz objectForKey:@"questionWord"]];
+            CGSize descriptionSize = [self.playView1.questionLabel.text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:33]constrainedToSize:CGSizeMake(250, 9999) lineBreakMode:UILineBreakModeWordWrap];
+            self.playView1.questionLabel.frame = CGRectMake(self.playView1.progressLabel.frame.origin.x,self.playView1.progressLabel.frame.origin.y+self.playView1.progressLabel.frame.size.height + 5, descriptionSize.width, descriptionSize.height);
+            self.playView1.questionLabel.lineBreakMode = UILineBreakModeWordWrap;
             UIButton *helpButton = (UIButton*)[self.playView1 viewWithTag:kCutWrongButtonTag];
             [helpButton setEnabled:YES];
             for (int i=0;i<[self.currentOptionArray count];i++)
@@ -199,11 +202,13 @@
         }
         else//set play2
         {
-            self.playView2.progressLabel.text = [NSString stringWithFormat:@"%d / %d",currentQuizIndex+1,totalQuizCount];
+            self.playView2.progressLabel.text = [NSString stringWithFormat:@"%d/%d",currentQuizIndex+1,totalQuizCount];
             self.playView2.questionLabel.text = [self getQuetionStringForString:[quiz objectForKey:@"questionWord"]];
+            CGSize descriptionSize = [self.playView2.questionLabel.text sizeWithFont:[UIFont fontWithName:@"HelveticaNeue-Bold" size:33]constrainedToSize:CGSizeMake(250, 9999) lineBreakMode:UILineBreakModeWordWrap];
+            self.playView2.questionLabel.frame = CGRectMake(self.playView2.progressLabel.frame.origin.x,self.playView2.progressLabel.frame.origin.y+self.playView2.progressLabel.frame.size.height + 5, descriptionSize.width, descriptionSize.height);
+            self.playView2.questionLabel.lineBreakMode = UILineBreakModeWordWrap;
             UIButton *helpButton = (UIButton*)[self.playView2 viewWithTag:kCutWrongButtonTag];
             [helpButton setEnabled:YES];
-            
             for (int i=0;i<[self.currentOptionArray count];i++)
             {
                 NSString *optionPic = [self.currentOptionArray objectAtIndex:i];

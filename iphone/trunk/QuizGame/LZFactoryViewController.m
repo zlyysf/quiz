@@ -43,11 +43,11 @@
     if ([[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"])
     {
         
-        contentView.frame = CGRectMake(0,kTopNavViewFrame.size.height , screenSize.width, screenSize.height-[[UIApplication sharedApplication]statusBarFrame].size.height-kTopNavViewFrame.size.height);
+        contentView.frame = CGRectMake(0,kTopNavViewFrame.size.height , screenSize.width, screenSize.height-kTopNavViewFrame.size.height);
     }
     else
     {
-        contentView.frame = CGRectMake(0,kTopNavViewFrame.size.height , screenSize.width, screenSize.height-[[UIApplication sharedApplication]statusBarFrame].size.height-kTopNavViewFrame.size.height-GAD_SIZE_320x50.height);
+        contentView.frame = CGRectMake(0,kTopNavViewFrame.size.height , screenSize.width, screenSize.height-kTopNavViewFrame.size.height-GAD_SIZE_320x50.height);
     }
 
 }
