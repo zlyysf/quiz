@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0817203C16E48BB3007B2870 /* TapjoyPublisherLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817203A16E48BB3007B2870 /* TapjoyPublisherLibrary.a */; };
+		0817203D16E48BB4007B2870 /* TapjoyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0817203B16E48BB3007B2870 /* TapjoyResources.bundle */; };
+		0817206216E48C9E007B2870 /* LZTapjoyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0817206116E48C9E007B2870 /* LZTapjoyHelper.m */; };
+		0817206416E48E10007B2870 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817206316E48E10007B2870 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0817206616E48E1F007B2870 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817206516E48E1F007B2870 /* MediaPlayer.framework */; };
 		08E5B17E16C0A9DA00D1C754 /* quizicons in Resources */ = {isa = PBXBuildFile; fileRef = 08E5B17D16C0A9DA00D1C754 /* quizicons */; };
 		08E5B18F16C0A9EE00D1C754 /* LZDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5B18216C0A9ED00D1C754 /* LZDataAccess.m */; };
 		08E5B19016C0A9EE00D1C754 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5B18516C0A9ED00D1C754 /* FMDatabase.m */; };
@@ -360,6 +365,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0817203816E48BB3007B2870 /* TapjoyConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapjoyConnect.h; sourceTree = "<group>"; };
+		0817203916E48BB3007B2870 /* TapjoyConnectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapjoyConnectConstants.h; sourceTree = "<group>"; };
+		0817203A16E48BB3007B2870 /* TapjoyPublisherLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = TapjoyPublisherLibrary.a; sourceTree = "<group>"; };
+		0817203B16E48BB3007B2870 /* TapjoyResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TapjoyResources.bundle; sourceTree = "<group>"; };
+		0817206016E48C9E007B2870 /* LZTapjoyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTapjoyHelper.h; sourceTree = "<group>"; };
+		0817206116E48C9E007B2870 /* LZTapjoyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZTapjoyHelper.m; sourceTree = "<group>"; };
+		0817206316E48E10007B2870 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		0817206516E48E1F007B2870 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		08E5B17D16C0A9DA00D1C754 /* quizicons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = quizicons; sourceTree = "<group>"; };
 		08E5B18116C0A9ED00D1C754 /* LZDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDataAccess.h; sourceTree = "<group>"; };
 		08E5B18216C0A9ED00D1C754 /* LZDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDataAccess.m; sourceTree = "<group>"; };
@@ -497,13 +510,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0817206616E48E1F007B2870 /* MediaPlayer.framework in Frameworks */,
+				0817206416E48E10007B2870 /* CoreTelephony.framework in Frameworks */,
+				5FE7372516B8E08400194CF0 /* CoreGraphics.framework in Frameworks */,
 				5FEBEE7316D4EF57003A5408 /* libShareKit.a in Frameworks */,
 				5F9CF2CC16C0BDEF0033DDA7 /* libsqlite3.dylib in Frameworks */,
 				5FE7376616B903AE00194CF0 /* StoreKit.framework in Frameworks */,
 				5FE7376316B9038B00194CF0 /* AdSupport.framework in Frameworks */,
 				5FE7372116B8E08400194CF0 /* UIKit.framework in Frameworks */,
 				5FE7372316B8E08400194CF0 /* Foundation.framework in Frameworks */,
-				5FE7372516B8E08400194CF0 /* CoreGraphics.framework in Frameworks */,
 				5FE7376816B903C900194CF0 /* SystemConfiguration.framework in Frameworks */,
 				5FE7376A16B903DC00194CF0 /* MessageUI.framework in Frameworks */,
 				5FE7376C16B903E800194CF0 /* AudioToolbox.framework in Frameworks */,
@@ -516,12 +531,33 @@
 				5FEBEE7C16D4F053003A5408 /* CoreFoundation.framework in Frameworks */,
 				5F61111B16E0AD7E00966573 /* libGoogleAdMobAds.a in Frameworks */,
 				5FEBEE8016D4F06D003A5408 /* Social.framework in Frameworks */,
+				0817203C16E48BB3007B2870 /* TapjoyPublisherLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0817203716E48BB3007B2870 /* TapjoyPublisherLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				0817203816E48BB3007B2870 /* TapjoyConnect.h */,
+				0817203916E48BB3007B2870 /* TapjoyConnectConstants.h */,
+				0817203A16E48BB3007B2870 /* TapjoyPublisherLibrary.a */,
+				0817203B16E48BB3007B2870 /* TapjoyResources.bundle */,
+			);
+			path = TapjoyPublisherLibrary;
+			sourceTree = SOURCE_ROOT;
+		};
+		0817205F16E48C9E007B2870 /* AdHelper */ = {
+			isa = PBXGroup;
+			children = (
+				0817206016E48C9E007B2870 /* LZTapjoyHelper.h */,
+				0817206116E48C9E007B2870 /* LZTapjoyHelper.m */,
+			);
+			path = AdHelper;
+			sourceTree = SOURCE_ROOT;
+		};
 		08E5B18016C0A9ED00D1C754 /* dataAccess */ = {
 			isa = PBXGroup;
 			children = (
@@ -696,6 +732,8 @@
 		5FE7371116B8E08400194CF0 = {
 			isa = PBXGroup;
 			children = (
+				0817206516E48E1F007B2870 /* MediaPlayer.framework */,
+				0817206316E48E10007B2870 /* CoreTelephony.framework */,
 				08E5B19616C0AA1500D1C754 /* initdb2.sql */,
 				08E5B18016C0A9ED00D1C754 /* dataAccess */,
 				08E5B18316C0A9ED00D1C754 /* FMDB */,
@@ -742,6 +780,8 @@
 		5FE7372616B8E08400194CF0 /* QuizGame */ = {
 			isa = PBXGroup;
 			children = (
+				0817205F16E48C9E007B2870 /* AdHelper */,
+				0817203716E48BB3007B2870 /* TapjoyPublisherLibrary */,
 				5FE7372F16B8E08400194CF0 /* LZAppDelegate.h */,
 				5FE7373016B8E08400194CF0 /* LZAppDelegate.m */,
 				5FE7373816B8E08400194CF0 /* MainStoryboard.storyboard */,
@@ -1181,6 +1221,7 @@
 				5F0AA2B216E478230092A698 /* right answer harp.wav in Resources */,
 				5F0AA2B316E478230092A698 /* Wallpaper.mp3 in Resources */,
 				5F0AA2B416E478230092A698 /* wrong.wav in Resources */,
+				0817203D16E48BB4007B2870 /* TapjoyResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1223,6 +1264,7 @@
 				5FEBEE8316D4F172003A5408 /* LZSHKConfigurator.m in Sources */,
 				5FF7FFA916D7468200A01AD7 /* LZDataAccess+GenSql.m in Sources */,
 				5F4D896416DF2F0E0029E4BC /* LZIAPManager.m in Sources */,
+				0817206216E48C9E007B2870 /* LZTapjoyHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1329,6 +1371,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/QuizGame\"",
+					"\"$(SRCROOT)/TapjoyPublisherLibrary\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -1352,6 +1395,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/QuizGame\"",
+					"\"$(SRCROOT)/TapjoyPublisherLibrary\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (

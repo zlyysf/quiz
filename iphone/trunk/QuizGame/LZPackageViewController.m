@@ -9,6 +9,8 @@
 #import "LZPackageViewController.h"
 #import "LZLevelViewController.h"
 #import "PackageCell.h"
+#import "LZTapjoyHelper.h"
+
 @interface LZPackageViewController ()<LZCellDelegate>
 @property (nonatomic,strong)NSArray *packageArray;
 @end
@@ -50,9 +52,13 @@
     NSArray *date = [[LZDataAccess singleton]getPackages]; ;
     self.packageArray = date;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
+    
+    [[LZTapjoyHelper singleton] showFullScreenAd];
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [[LZTapjoyHelper singleton] showFullScreenAd];
 }
 - (void)productPurchased:(NSNotification *)notification
 {

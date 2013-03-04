@@ -10,6 +10,8 @@
 #import "LZDataAccess+GenSql.h"
 #import "LZSHKConfigurator.h"
 #import "LZIAPManager.h"
+#import "LZTapjoyHelper.h"
+
 @implementation LZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -22,6 +24,12 @@
     [[LZDataAccess singleton]cleanDb];
     [[LZDataAccess singleton]initDbWithGeneratedSql];
     [LZIAPManager sharedInstance];
+    
+    [[LZTapjoyHelper singleton] connectTapjoy];
+    [[LZTapjoyHelper singleton] getFullScreenAd];
+
+    
+    
     return YES;
 }
 

@@ -9,6 +9,7 @@
 #import "LZLevelViewController.h"
 #import "LZGamingViewController.h"
 #import "LevelCell.h"
+#import "LZTapjoyHelper.h"
 
 @interface LZLevelViewController ()<LZCellDelegate>
 @property(nonatomic,strong)NSArray *levelArray;
@@ -52,9 +53,14 @@
     self.levelArray = data;
     NSLog(@"level %@",self.levelArray);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
+    
+    [[LZTapjoyHelper singleton] showFullScreenAd];
+
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    [[LZTapjoyHelper singleton] showFullScreenAd];
 }
 - (void)productPurchased:(NSNotification *)notification
 {
