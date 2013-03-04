@@ -26,6 +26,7 @@
 		5F16FDB016BCCE77005EE2F5 /* icon_2@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F16FDAC16BCCE77005EE2F5 /* icon_2@2x.jpg */; };
 		5F16FDB216BCE84A005EE2F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F16FDB116BCE84A005EE2F5 /* QuartzCore.framework */; };
 		5F4D896416DF2F0E0029E4BC /* LZIAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D896316DF2F0E0029E4BC /* LZIAPManager.m */; };
+		5F61111B16E0AD7E00966573 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7375A16B9007200194CF0 /* libGoogleAdMobAds.a */; };
 		5F91536516BA27180074FFF2 /* PackageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536416BA27180074FFF2 /* PackageCell.m */; };
 		5F91536E16BA38D50074FFF2 /* LZTopNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536D16BA38D50074FFF2 /* LZTopNavView.m */; };
 		5F91537116BA44C00074FFF2 /* LZFactoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91537016BA44C00074FFF2 /* LZFactoryViewController.m */; };
@@ -71,10 +72,9 @@
 		5FE7373716B8E08400194CF0 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FE7373616B8E08400194CF0 /* Default-568h@2x.png */; };
 		5FE7373A16B8E08400194CF0 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE7373816B8E08400194CF0 /* MainStoryboard.storyboard */; };
 		5FE7373D16B8E08400194CF0 /* LZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7373C16B8E08400194CF0 /* LZViewController.m */; };
-		5FE7375C16B9007200194CF0 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7375A16B9007200194CF0 /* libGoogleAdMobAds.a */; };
 		5FE7375D16B9007200194CF0 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5FE7375B16B9007200194CF0 /* README.txt */; };
 		5FE7376016B9012700194CF0 /* GADMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE7375F16B9012700194CF0 /* GADMasterViewController.m */; };
-		5FE7376316B9038B00194CF0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7376116B9037800194CF0 /* AdSupport.framework */; };
+		5FE7376316B9038B00194CF0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7376116B9037800194CF0 /* AdSupport.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		5FE7376616B903AE00194CF0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7376416B9039B00194CF0 /* StoreKit.framework */; };
 		5FE7376816B903C900194CF0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7376716B903C900194CF0 /* SystemConfiguration.framework */; };
 		5FE7376A16B903DC00194CF0 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE7376916B903DC00194CF0 /* MessageUI.framework */; };
@@ -90,7 +90,6 @@
 		5FEBEE7816D4F039003A5408 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBEE7716D4F039003A5408 /* CFNetwork.framework */; };
 		5FEBEE7A16D4F043003A5408 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBEE7916D4F043003A5408 /* CoreLocation.framework */; };
 		5FEBEE7C16D4F053003A5408 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBEE7B16D4F053003A5408 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		5FEBEE7E16D4F060003A5408 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBEE7D16D4F060003A5408 /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5FEBEE8016D4F06D003A5408 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBEE7F16D4F06D003A5408 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5FEBEE8316D4F172003A5408 /* LZSHKConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBEE8216D4F172003A5408 /* LZSHKConfigurator.m */; };
 		5FF7FFA916D7468200A01AD7 /* LZDataAccess+GenSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7FFA816D7468200A01AD7 /* LZDataAccess+GenSql.m */; };
@@ -434,7 +433,7 @@
 		5F9CF2D816C0D6E40033DDA7 /* selected_right@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selected_right@2x.png"; sourceTree = "<group>"; };
 		5FDFE29E16DC7527003426E5 /* cell_lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cell_lock@2x.png"; sourceTree = "<group>"; };
 		5FDFE2C116DC7858003426E5 /* auto_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "auto_bg@2x.png"; sourceTree = "<group>"; };
-		5FE7371C16B8E08400194CF0 /* QuizGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FE7371C16B8E08400194CF0 /* QuizAwsome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizAwsome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE7372016B8E08400194CF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5FE7372216B8E08400194CF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5FE7372416B8E08400194CF0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -501,7 +500,6 @@
 				5FE7372116B8E08400194CF0 /* UIKit.framework in Frameworks */,
 				5FE7372316B8E08400194CF0 /* Foundation.framework in Frameworks */,
 				5FE7372516B8E08400194CF0 /* CoreGraphics.framework in Frameworks */,
-				5FE7375C16B9007200194CF0 /* libGoogleAdMobAds.a in Frameworks */,
 				5FE7376816B903C900194CF0 /* SystemConfiguration.framework in Frameworks */,
 				5FE7376A16B903DC00194CF0 /* MessageUI.framework in Frameworks */,
 				5FE7376C16B903E800194CF0 /* AudioToolbox.framework in Frameworks */,
@@ -512,7 +510,7 @@
 				5FEBEE7816D4F039003A5408 /* CFNetwork.framework in Frameworks */,
 				5FEBEE7A16D4F043003A5408 /* CoreLocation.framework in Frameworks */,
 				5FEBEE7C16D4F053003A5408 /* CoreFoundation.framework in Frameworks */,
-				5FEBEE7E16D4F060003A5408 /* AdSupport.framework in Frameworks */,
+				5F61111B16E0AD7E00966573 /* libGoogleAdMobAds.a in Frameworks */,
 				5FEBEE8016D4F06D003A5408 /* Social.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -698,7 +696,7 @@
 		5FE7371D16B8E08400194CF0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5FE7371C16B8E08400194CF0 /* QuizGame.app */,
+				5FE7371C16B8E08400194CF0 /* QuizAwsome.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -843,7 +841,7 @@
 			);
 			name = QuizGame;
 			productName = QuizGame;
-			productReference = 5FE7371C16B8E08400194CF0 /* QuizGame.app */;
+			productReference = 5FE7371C16B8E08400194CF0 /* QuizAwsome.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1256,7 +1254,8 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dalei Li (43DU399UKG)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Dalei Li (43DU399UKG)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1270,6 +1269,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "B692D17F-99ED-4F5C-AA04-9354322E09FB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B692D17F-99ED-4F5C-AA04-9354322E09FB";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1283,14 +1285,18 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Lingzhi LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Lingzhi LLC";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "61C5D7E6-1F17-4A38-8B72-544DCF085D85";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "61C5D7E6-1F17-4A38-8B72-544DCF085D85";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1299,6 +1305,7 @@
 		5FE7374116B8E08400194CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Dalei Li (43DU399UKG)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "QuizGame/QuizGame-Prefix.pch";
 				INFOPLIST_FILE = "QuizGame/QuizGame-Info.plist";
@@ -1307,11 +1314,13 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/QuizGame\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuizAwsome;
+				PROVISIONING_PROFILE = "B692D17F-99ED-4F5C-AA04-9354322E09FB";
 				USER_HEADER_SEARCH_PATHS = "../../Submodules/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1328,11 +1337,12 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/QuizGame\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = QuizAwsome;
 				USER_HEADER_SEARCH_PATHS = "../../Submodules/**";
 				WRAPPER_EXTENSION = app;
 			};

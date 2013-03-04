@@ -26,8 +26,8 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     static LZIAPManager * sharedInstance;
     dispatch_once(&IAPOnce, ^{
         NSSet * productIdentifiers = [NSSet setWithObjects:
-                                      @"com.lingzhi.QuizAwsome.removead",
-                                      @"com.lingzhi.QuizAwsome.unlockallpak",
+                                      @"com.lingzhi.QuizAwsome.removeads",
+                                      @"com.lingzhi.QuizAwsome.unlockallpackages",
                                       @"com.lingzhi.QuizAwsome.unlockfortune",
                                       @"com.lingzhi.QuizAwsome.unlockhealth",
                                       @"com.lingzhi.QuizAwsome.unlockelectronic",
@@ -53,8 +53,8 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         
         // Check for previously purchased products
         _consumbleItemSet = [NSSet setWithObjects:
-                             @"com.lingzhi.QuizAwsome.removead",
-                             @"com.lingzhi.QuizAwsome.unlockallpak",
+                             @"com.lingzhi.QuizAwsome.removeads",
+                             @"com.lingzhi.QuizAwsome.unlockallpackages",
                              @"com.lingzhi.QuizAwsome.unlockfortune",
                              @"com.lingzhi.QuizAwsome.unlockhealth",
                              @"com.lingzhi.QuizAwsome.unlockelectronic",
@@ -173,8 +173,8 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:productIdentifier];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-/*    @"com.lingzhi.QuizAwsome.removead",
-    @"com.lingzhi.QuizAwsome.unlockallpak",
+/*    @"com.lingzhi.QuizAwsome.removeads",
+    @"com.lingzhi.QuizAwsome.unlockallpackages",
     @"com.lingzhi.QuizAwsome.unlockfortune",
     @"com.lingzhi.QuizAwsome.unlockhealth",
     @"com.lingzhi.QuizAwsome.unlockelectronic",
@@ -185,13 +185,13 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     @"com.lingzhi.QuizAwsome.buytoken200",
     @"com.lingzhi.QuizAwsome.buytoken400",
  */
-    if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.removead"])
+    if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.removeads"])
     {
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZAdsOff"];
         [[NSUserDefaults standardUserDefaults]synchronize];
         [[GADMasterViewController singleton]removeAds];
     }
-    else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlockallpak"])
+    else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlockallpackages"])
     {
         
     }
