@@ -21,11 +21,12 @@
 		08E5B19416C0A9EE00D1C754 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5B18C16C0A9EE00D1C754 /* fmdb.m */; };
 		08E5B19516C0A9EE00D1C754 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5B18E16C0A9EE00D1C754 /* FMResultSet.m */; };
 		08E5B19716C0AA1500D1C754 /* initdb2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 08E5B19616C0AA1500D1C754 /* initdb2.sql */; };
+		5F08BD7C16E598A600B8CB08 /* LZSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F08BD7B16E598A600B8CB08 /* LZSoundManager.m */; };
 		5F0AA2A916E474530092A698 /* homeview_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AA2A616E474530092A698 /* homeview_bg@2x.jpg */; };
 		5F0AA2AA16E474530092A698 /* package_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AA2A716E474530092A698 /* package_bg@2x.jpg */; };
 		5F0AA2AB16E474530092A698 /* normal_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AA2A816E474530092A698 /* normal_bg@2x.jpg */; };
 		5F0AA2B116E478230092A698 /* button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AA2AD16E478230092A698 /* button.wav */; };
-		5F0AA2B216E478230092A698 /* right answer harp.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AA2AE16E478230092A698 /* right answer harp.wav */; };
+		5F0AA2B216E478230092A698 /* correct.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AA2AE16E478230092A698 /* correct.wav */; };
 		5F0AA2B316E478230092A698 /* Wallpaper.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AA2AF16E478230092A698 /* Wallpaper.mp3 */; };
 		5F0AA2B416E478230092A698 /* wrong.wav in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AA2B016E478230092A698 /* wrong.wav */; };
 		5F16FDA216BCBEB1005EE2F5 /* LZPlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F16FDA116BCBEB1005EE2F5 /* LZPlayView.m */; };
@@ -388,11 +389,13 @@
 		08E5B18D16C0A9EE00D1C754 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		08E5B18E16C0A9EE00D1C754 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		08E5B19616C0AA1500D1C754 /* initdb2.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = initdb2.sql; sourceTree = "<group>"; };
+		5F08BD7A16E598A600B8CB08 /* LZSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSoundManager.h; sourceTree = "<group>"; };
+		5F08BD7B16E598A600B8CB08 /* LZSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSoundManager.m; sourceTree = "<group>"; };
 		5F0AA2A616E474530092A698 /* homeview_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "homeview_bg@2x.jpg"; sourceTree = "<group>"; };
 		5F0AA2A716E474530092A698 /* package_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "package_bg@2x.jpg"; sourceTree = "<group>"; };
 		5F0AA2A816E474530092A698 /* normal_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "normal_bg@2x.jpg"; sourceTree = "<group>"; };
 		5F0AA2AD16E478230092A698 /* button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = button.wav; sourceTree = "<group>"; };
-		5F0AA2AE16E478230092A698 /* right answer harp.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "right answer harp.wav"; sourceTree = "<group>"; };
+		5F0AA2AE16E478230092A698 /* correct.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correct.wav; sourceTree = "<group>"; };
 		5F0AA2AF16E478230092A698 /* Wallpaper.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Wallpaper.mp3; sourceTree = "<group>"; };
 		5F0AA2B016E478230092A698 /* wrong.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = wrong.wav; sourceTree = "<group>"; };
 		5F16FDA016BCBEB1005EE2F5 /* LZPlayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZPlayView.h; sourceTree = "<group>"; };
@@ -587,11 +590,20 @@
 			path = FMDB;
 			sourceTree = "<group>";
 		};
+		5F08BD5816E5988500B8CB08 /* Sound */ = {
+			isa = PBXGroup;
+			children = (
+				5F08BD7A16E598A600B8CB08 /* LZSoundManager.h */,
+				5F08BD7B16E598A600B8CB08 /* LZSoundManager.m */,
+			);
+			name = Sound;
+			sourceTree = "<group>";
+		};
 		5F0AA2AC16E478170092A698 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
 				5F0AA2AD16E478230092A698 /* button.wav */,
-				5F0AA2AE16E478230092A698 /* right answer harp.wav */,
+				5F0AA2AE16E478230092A698 /* correct.wav */,
 				5F0AA2AF16E478230092A698 /* Wallpaper.mp3 */,
 				5F0AA2B016E478230092A698 /* wrong.wav */,
 			);
@@ -780,6 +792,7 @@
 		5FE7372616B8E08400194CF0 /* QuizGame */ = {
 			isa = PBXGroup;
 			children = (
+				5F08BD5816E5988500B8CB08 /* Sound */,
 				0817205F16E48C9E007B2870 /* AdHelper */,
 				0817203716E48BB3007B2870 /* TapjoyPublisherLibrary */,
 				5FE7372F16B8E08400194CF0 /* LZAppDelegate.h */,
@@ -1218,7 +1231,7 @@
 				5F0AA2AA16E474530092A698 /* package_bg@2x.jpg in Resources */,
 				5F0AA2AB16E474530092A698 /* normal_bg@2x.jpg in Resources */,
 				5F0AA2B116E478230092A698 /* button.wav in Resources */,
-				5F0AA2B216E478230092A698 /* right answer harp.wav in Resources */,
+				5F0AA2B216E478230092A698 /* correct.wav in Resources */,
 				5F0AA2B316E478230092A698 /* Wallpaper.mp3 in Resources */,
 				5F0AA2B416E478230092A698 /* wrong.wav in Resources */,
 				0817203D16E48BB4007B2870 /* TapjoyResources.bundle in Resources */,
@@ -1265,6 +1278,7 @@
 				5FF7FFA916D7468200A01AD7 /* LZDataAccess+GenSql.m in Sources */,
 				5F4D896416DF2F0E0029E4BC /* LZIAPManager.m in Sources */,
 				0817206216E48C9E007B2870 /* LZTapjoyHelper.m in Sources */,
+				5F08BD7C16E598A600B8CB08 /* LZSoundManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

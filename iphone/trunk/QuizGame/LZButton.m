@@ -7,7 +7,7 @@
 //
 
 #import "LZButton.h"
-
+#import "LZSoundManager.h"
 @implementation LZButton
 
 - (id)initWithFrame:(CGRect)frame
@@ -29,6 +29,9 @@
     UIImage *backImage = [image stretchableImageWithLeftCapWidth:25.0 topCapHeight:25.0];
     [self setBackgroundImage:backImage forState:UIControlStateNormal];
 }
-
-
+- (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[LZSoundManager SharedInstance]playButtonSound];
+    [super touchesEnded:touches withEvent:event];
+}
 @end

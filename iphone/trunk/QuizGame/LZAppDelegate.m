@@ -11,7 +11,7 @@
 #import "LZSHKConfigurator.h"
 #import "LZIAPManager.h"
 #import "LZTapjoyHelper.h"
-
+#import "LZSoundManager.h"
 @implementation LZAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -27,7 +27,8 @@
     
     [[LZTapjoyHelper singleton] connectTapjoy];
     [[LZTapjoyHelper singleton] getFullScreenAd];
-
+    
+    [LZSoundManager SharedInstance];
     
     
     return YES;
