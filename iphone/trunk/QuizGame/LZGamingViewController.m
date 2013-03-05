@@ -11,6 +11,9 @@
 #import "SHKTwitter.h"
 #import <QuartzCore/QuartzCore.h>
 #import "LZSoundManager.h"
+#import "LZTapjoyHelper.h"
+
+
 #define kLockPakStartIndex 2
 #define kTotalOptionCount 3
 #define kSelectedAnswerInterval 0.5
@@ -90,11 +93,23 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"LZGamingViewController viewWillAppear enter");
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
+    
+    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
+        [[LZTapjoyHelper singleton] showFullScreenAd];
+        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
+    }
 }
 - (void)viewWillDisappear:(BOOL)animated {
+    NSLog(@"LZGamingViewController viewWillDisappear enter");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
+        [[LZTapjoyHelper singleton] showFullScreenAd];
+        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
+    }
 }
 - (void)productPurchased:(NSNotification *)notification
 {

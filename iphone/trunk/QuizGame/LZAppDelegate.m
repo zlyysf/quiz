@@ -36,11 +36,12 @@
 
     [LZIAPManager sharedInstance];
     
-    [[LZTapjoyHelper singleton] connectTapjoy];
-    [[LZTapjoyHelper singleton] getFullScreenAd];
+    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
+        [[LZTapjoyHelper singleton] connectTapjoy];
+        [[LZTapjoyHelper singleton] getFullScreenAd];
+    }
     
     [[LZSoundManager SharedInstance] playBackGroundMusic];
-    
     
     return YES;
 }

@@ -17,5 +17,6 @@
 -(void) connectTapjoy;
 - (void)getFullScreenAd;
 - (void)showFullScreenAd;
+- (void)showFullScreenAdWithViewController: vwController;
 
 @end

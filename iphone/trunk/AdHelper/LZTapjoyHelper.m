@@ -74,8 +74,8 @@
     NSLog(@"if you are in development environment, you need add the device ID in your tapjoy app for testing: %@" ,
           [[UIDevice currentDevice] uniqueIdentifier]);
     
-    //    NSString *appId = @"93e78102-cbd7-4ebf-85cc-315ba83ef2d5";
-    //    NSString *appSecretKey = @"JWxgS26URM0XotaghqGn";
+//    NSString *appId = @"93e78102-cbd7-4ebf-85cc-315ba83ef2d5";
+//    NSString *appSecretKey = @"JWxgS26URM0XotaghqGn";
     
     //    NSString *appId = @"fdfcaaab-f77a-4a23-9804-adf72e7429f8";//quiz awesome
     //    NSString *appSecretKey = @"KIeOCSLkud7g1D0vz5PS";
@@ -87,7 +87,7 @@
 }
 
 - (void)getFullScreenAd {
-    //    [TapjoyConnect getFullScreenAd];
+//    [TapjoyConnect getFullScreenAd];
     
     NSString* currencyID = @"26aced51-b029-42b2-b4ca-3e534025afcc";//quizNoReword , Non-Rewarded ID
     [TapjoyConnect getFullScreenAdWithCurrencyID:currencyID];
@@ -101,6 +101,16 @@
     if (existFullScreenAd){
         //[TapjoyConnect showFullScreenAdWithViewController:self.viewController];//ok
         [TapjoyConnect showFullScreenAd];
+    }else{
+        [self getFullScreenAd];
+    }
+    
+}
+
+- (void)showFullScreenAdWithViewController: vwController {
+    if (existFullScreenAd){
+        [TapjoyConnect showFullScreenAdWithViewController:vwController];
+        
     }else{
         [self getFullScreenAd];
     }

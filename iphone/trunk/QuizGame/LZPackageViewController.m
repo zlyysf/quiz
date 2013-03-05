@@ -46,6 +46,7 @@
 }
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"LZPackageViewController viewWillAppear enter");
     [super viewWillAppear:animated];
     
 //** -(FMResultSet *) getPackages; getpackageArray list view update also set top bar gold amount
@@ -53,12 +54,19 @@
     self.packageArray = date;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
     
-    [[LZTapjoyHelper singleton] showFullScreenAd];
+    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
+        [[LZTapjoyHelper singleton] showFullScreenAd];
+        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
+    }
 }
 - (void)viewWillDisappear:(BOOL)animated {
+    NSLog(@"LZPackageViewController viewWillDisappear enter");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    [[LZTapjoyHelper singleton] showFullScreenAd];
+    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
+        [[LZTapjoyHelper singleton] showFullScreenAd];
+        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
+    }
 }
 - (void)productPurchased:(NSNotification *)notification
 {
