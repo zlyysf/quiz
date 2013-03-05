@@ -71,6 +71,9 @@
 }
 
 -(void) connectTapjoy{
+    NSLog(@"if you are in development environment, you need add the device ID in your tapjoy app for testing: %@" ,
+          [[UIDevice currentDevice] uniqueIdentifier]);
+    
     //    NSString *appId = @"93e78102-cbd7-4ebf-85cc-315ba83ef2d5";
     //    NSString *appSecretKey = @"JWxgS26URM0XotaghqGn";
     
