@@ -139,7 +139,21 @@
     {
         
         StoreFreeCell *cell = (StoreFreeCell *)[tableView dequeueReusableCellWithIdentifier:@"StoreFreeCell"];
-        [cell.iconImageView setImage:[UIImage imageNamed:@"facebook.png"]];
+        if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Facebook"])
+        {
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"facebook@2x" ofType:@"png"];
+            [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
+        }
+        else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Twitter"])
+        {
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"twitter@2x" ofType:@"png"];
+            [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
+        }
+        else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Review our app"])
+        {
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"review@2x" ofType:@"png"];
+            [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
+        }
         cell.descriptionLabel.text = @"Tell your friends.";
         cell.profitLabel.text = [freebieItemArray objectAtIndex:indexPath.row];
         cell.cellIndexPath = indexPath;
