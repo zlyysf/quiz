@@ -8,6 +8,7 @@
 
 #import "LZSettingsViewController.h"
 #import "SettingCell.h"
+#import "LZSoundManager.h"
 @interface LZSettingsViewController ()<LZCellDelegate>
 
 @end
@@ -55,11 +56,32 @@
 {
     return 3;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 90;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     SettingCell *cell = (SettingCell *)[tableView dequeueReusableCellWithIdentifier:@"SettingCell"];
-    [cell.selectButton setTitle:[NSString stringWithFormat:@"setting %d",indexPath.row+1] forState:UIControlStateNormal];
+    if (indexPath.row == 0)
+    {
+        if ([[LZSoundManager SharedInstance]isSoundOn])
+        {
+            [cell.selectButton setTitle:@"Sound On" forState:UIControlStateNormal];
+        }
+        else
+        {
+            [cell.selectButton setTitle:@"Sound Off" forState:UIControlStateNormal];
+        }
+    }
+    else if (indexPath.row == 1)
+    {
+         [cell.selectButton setTitle:@"How to play" forState:UIControlStateNormal];
+    }
+    else
+    {
+        [cell.selectButton setTitle:@"Statistics" forState:UIControlStateNormal];
+    }
     cell.cellIndexPath = indexPath;
     cell.delegate = self;
     return cell;
@@ -68,6 +90,22 @@
 -(void)selectedLZCell:(NSIndexPath *)LZCellIndexPath
 {
     NSLog(@"select setting cell %d",LZCellIndexPath.row);
+    if (LZCellIndexPath.row == 0)
+    {
+        BOOL soundStatus = [[LZSoundManager SharedInstance]isSoundOn];
+        [[LZSoundManager SharedInstance]setSoundOn:!soundStatus];
+        NSArray *reloadCell = [NSArray arrayWithObject:LZCellIndexPath];
+        [self.listView reloadRowsAtIndexPaths:reloadCell withRowAnimation:UITableViewRowAnimationNone];
+    }
+    else if (LZCellIndexPath.row == 1)
+    {
+        //enter how to play view
+    
+    }
+    else
+    {
+        //enter statistics view
+    }
 }
 - (void)didReceiveMemoryWarning
 {

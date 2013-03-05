@@ -17,12 +17,23 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"LZAdsOff"];
-    [[NSUserDefaults standardUserDefaults]synchronize];
+//    [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"LZAdsOff"];
+//    [[NSUserDefaults standardUserDefaults]synchronize];
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *appName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
+    NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    NSString *appKey = [NSString stringWithFormat:@"%@%@",appName,appVersion];
+    if (![[NSUserDefaults standardUserDefaults]boolForKey:appKey]) {
+        [[LZDataAccess singleton]cleanDb];
+        [[LZDataAccess singleton]initDbWithGeneratedSql];
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:appKey];
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZSoundOn"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+    }
+    
     DefaultSHKConfigurator *configurator = [[LZSHKConfigurator alloc] init];
     [SHKConfiguration sharedInstanceWithConfigurator:configurator];
-    [[LZDataAccess singleton]cleanDb];
-    [[LZDataAccess singleton]initDbWithGeneratedSql];
+
     [LZIAPManager sharedInstance];
     
     [[LZTapjoyHelper singleton] connectTapjoy];

@@ -21,4 +21,6 @@
 -(void)playCorrectSound;
 -(void)playWrongSound;
 -(void)playBackGroundMusic;
+-(BOOL)isSoundOn;
+-(void)setSoundOn:(BOOL)isOn;
 @end

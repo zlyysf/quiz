@@ -7,7 +7,7 @@
 //
 
 #import "LZSoundManager.h"
-
+#define kLZSoundStatus @"LZSoundOn"
 @implementation LZSoundManager
 +(LZSoundManager*)SharedInstance
 {
@@ -44,27 +44,47 @@
 }
 -(void)playButtonSound
 {
+    if([[NSUserDefaults standardUserDefaults]boolForKey:kLZSoundStatus])
     AudioServicesPlaySystemSound(buttonSound);
 }
 -(void)playCorrectSound
 {
+    if([[NSUserDefaults standardUserDefaults]boolForKey:kLZSoundStatus])
     AudioServicesPlaySystemSound(correctSound);
 }
 -(void)playWrongSound
 {
+    if([[NSUserDefaults standardUserDefaults]boolForKey:kLZSoundStatus])
     AudioServicesPlaySystemSound(wrongSound);
 }
 -(void)playBackGroundMusic
 {
+    if([[NSUserDefaults standardUserDefaults]boolForKey:kLZSoundStatus])
     [audioPlayer play];
 }
-- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player   successfully:(BOOL)flag
+-(BOOL)isSoundOn
+{
+   return [[NSUserDefaults standardUserDefaults]boolForKey:kLZSoundStatus];
+}
+-(void)setSoundOn:(BOOL)isOn
+{
+    if (isOn) {
+        [audioPlayer play];
+    }
+    else
+    {
+        [audioPlayer pause];
+    }
+    [[NSUserDefaults standardUserDefaults]setBool:isOn forKey:kLZSoundStatus];
+    [[NSUserDefaults standardUserDefaults]synchronize];
+}
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
     //[audioButton setTitle:@"Play Audio File"   forState:UIControlStateNormal];
     
 }
 
-- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player{
+- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player withOptions:(NSUInteger)flags{
     [audioPlayer play];
 }
 @end
