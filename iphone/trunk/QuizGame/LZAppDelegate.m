@@ -28,7 +28,7 @@
     [[LZTapjoyHelper singleton] connectTapjoy];
     [[LZTapjoyHelper singleton] getFullScreenAd];
     
-    [LZSoundManager SharedInstance];
+    [[LZSoundManager SharedInstance] playBackGroundMusic];
     
     
     return YES;

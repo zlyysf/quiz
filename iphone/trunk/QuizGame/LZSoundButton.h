@@ -1,13 +1,13 @@
 //
-//  LZButton.h
+//  LZSoundButton.h
 //  QuizGame
 //
-//  Created by liu miao on 2/1/13.
+//  Created by liu miao on 3/5/13.
 //  Copyright (c) 2013 lingzhi mobile. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "LZSoundButton.h"
-@interface LZButton : LZSoundButton
+
+@interface LZSoundButton : UIButton
 
 @end

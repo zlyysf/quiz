@@ -28,6 +28,17 @@
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:correct],&correctSound);
         NSString *wrong = [[NSBundle mainBundle] pathForResource:@"wrong" ofType:@"wav"];
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:wrong],&wrongSound);
+        NSString *musicPath = [[NSBundle mainBundle]  pathForResource:@"Wallpaper"   ofType:@"mp3"];
+        
+        if (musicPath) {
+            
+            NSURL *musicURL = [NSURL fileURLWithPath:musicPath];
+            
+            audioPlayer = [[AVAudioPlayer alloc]  initWithContentsOfURL:musicURL  error:nil];
+            [audioPlayer prepareToPlay];
+            [audioPlayer setDelegate:self];
+            audioPlayer.numberOfLoops = -1;
+        }
     }
     return  self;
 }
@@ -42,5 +53,18 @@
 -(void)playWrongSound
 {
     AudioServicesPlaySystemSound(wrongSound);
+}
+-(void)playBackGroundMusic
+{
+    [audioPlayer play];
+}
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player   successfully:(BOOL)flag
+{
+    //[audioButton setTitle:@"Play Audio File"   forState:UIControlStateNormal];
+    
+}
+
+- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player{
+    [audioPlayer play];
 }
 @end

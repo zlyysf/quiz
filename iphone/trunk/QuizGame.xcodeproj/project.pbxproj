@@ -22,6 +22,8 @@
 		08E5B19516C0A9EE00D1C754 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5B18E16C0A9EE00D1C754 /* FMResultSet.m */; };
 		08E5B19716C0AA1500D1C754 /* initdb2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 08E5B19616C0AA1500D1C754 /* initdb2.sql */; };
 		5F08BD7C16E598A600B8CB08 /* LZSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F08BD7B16E598A600B8CB08 /* LZSoundManager.m */; };
+		5F08BD8116E5A78900B8CB08 /* LZSoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F08BD8016E5A78900B8CB08 /* LZSoundButton.m */; };
+		5F08BDA416E5B03D00B8CB08 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F08BDA316E5B03D00B8CB08 /* AVFoundation.framework */; };
 		5F0AA2A916E474530092A698 /* homeview_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AA2A616E474530092A698 /* homeview_bg@2x.jpg */; };
 		5F0AA2AA16E474530092A698 /* package_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AA2A716E474530092A698 /* package_bg@2x.jpg */; };
 		5F0AA2AB16E474530092A698 /* normal_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F0AA2A816E474530092A698 /* normal_bg@2x.jpg */; };
@@ -391,6 +393,9 @@
 		08E5B19616C0AA1500D1C754 /* initdb2.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = initdb2.sql; sourceTree = "<group>"; };
 		5F08BD7A16E598A600B8CB08 /* LZSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSoundManager.h; sourceTree = "<group>"; };
 		5F08BD7B16E598A600B8CB08 /* LZSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSoundManager.m; sourceTree = "<group>"; };
+		5F08BD7F16E5A78900B8CB08 /* LZSoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSoundButton.h; sourceTree = "<group>"; };
+		5F08BD8016E5A78900B8CB08 /* LZSoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSoundButton.m; sourceTree = "<group>"; };
+		5F08BDA316E5B03D00B8CB08 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5F0AA2A616E474530092A698 /* homeview_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "homeview_bg@2x.jpg"; sourceTree = "<group>"; };
 		5F0AA2A716E474530092A698 /* package_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "package_bg@2x.jpg"; sourceTree = "<group>"; };
 		5F0AA2A816E474530092A698 /* normal_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "normal_bg@2x.jpg"; sourceTree = "<group>"; };
@@ -535,6 +540,7 @@
 				5F61111B16E0AD7E00966573 /* libGoogleAdMobAds.a in Frameworks */,
 				5FEBEE8016D4F06D003A5408 /* Social.framework in Frameworks */,
 				0817203C16E48BB3007B2870 /* TapjoyPublisherLibrary.a in Frameworks */,
+				5F08BDA416E5B03D00B8CB08 /* AVFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,6 +675,8 @@
 				5F91539E16BBADEF0074FFF2 /* LZButton.m */,
 				5FEBEE8116D4F172003A5408 /* LZSHKConfigurator.h */,
 				5FEBEE8216D4F172003A5408 /* LZSHKConfigurator.m */,
+				5F08BD7F16E5A78900B8CB08 /* LZSoundButton.h */,
+				5F08BD8016E5A78900B8CB08 /* LZSoundButton.m */,
 			);
 			name = BaseObject;
 			sourceTree = "<group>";
@@ -768,6 +776,7 @@
 			isa = PBXGroup;
 			children = (
 				5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */,
+				5F08BDA316E5B03D00B8CB08 /* AVFoundation.framework */,
 				5FEBEE7F16D4F06D003A5408 /* Social.framework */,
 				5FEBEE7D16D4F060003A5408 /* AdSupport.framework */,
 				5FEBEE7B16D4F053003A5408 /* CoreFoundation.framework */,
@@ -1279,6 +1288,7 @@
 				5F4D896416DF2F0E0029E4BC /* LZIAPManager.m in Sources */,
 				0817206216E48C9E007B2870 /* LZTapjoyHelper.m in Sources */,
 				5F08BD7C16E598A600B8CB08 /* LZSoundManager.m in Sources */,
+				5F08BD8116E5A78900B8CB08 /* LZSoundButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

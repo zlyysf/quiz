@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LZSoundButton.h"
 #define kTopNavViewFrame CGRectMake(0, 0, 320, 44)
 @protocol LZTopNavViewDelegate<NSObject>
 - (void)backButtonTapped;
@@ -21,8 +22,8 @@ typedef enum
 @interface LZTopNavView : UIView
 @property (nonatomic,weak)id<LZTopNavViewDelegate>delegate;
 @property (nonatomic,strong)UIImageView *backgroundImageView;
-@property (nonatomic,strong)UIButton *backButton;
-@property (nonatomic,strong)UIButton *goldButton;
+@property (nonatomic,strong)LZSoundButton *backButton;
+@property (nonatomic,strong)LZSoundButton *goldButton;
 @property (nonatomic,strong)UILabel *goldCountLabel;
 @property (nonatomic,strong)UIImageView *correctIconImageView;
 @property (nonatomic,strong)UILabel *correctCountLabel;

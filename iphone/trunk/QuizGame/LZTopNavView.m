@@ -8,7 +8,7 @@
 
 #import "LZTopNavView.h"
 #define kBackgroundImageViewFrame CGRectMake(0, 0, 320, 44)
-#define kBackButtonFrame CGRectMake(20, 12, 14, 22)
+#define kBackButtonFrame CGRectMake(20, 7, 20, 30)
 #define kGoldButtonFrame CGRectMake(69, 12, 24, 22)
 #define kGoldCountLabelFrame CGRectMake(98, 9, 70, 26)
 #define kCorrectImageFrame CGRectMake(176, 12, 27, 20)
@@ -38,13 +38,13 @@
         [self.backgroundImageView setImage:topback];
         [self addSubview:self.backgroundImageView];
         
-        self.backButton = [[UIButton alloc]initWithFrame:kBackButtonFrame];
+        self.backButton = [[LZSoundButton alloc]initWithFrame:kBackButtonFrame];
         UIImage *topbackbutton = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"top_back_button@2x" ofType:@"png"]];
-        [self.backButton setBackgroundImage:topbackbutton forState:UIControlStateNormal];
+        [self.backButton setImage:topbackbutton forState:UIControlStateNormal];
         [self.backButton addTarget:self action:@selector(backButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.backButton];
         
-        self.goldButton = [[UIButton alloc]initWithFrame:kGoldButtonFrame];
+        self.goldButton = [[LZSoundButton alloc]initWithFrame:kGoldButtonFrame];
         UIImage *goldImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"gold@2x" ofType:@"png"]];
         [self.goldButton setBackgroundImage:goldImg forState:UIControlStateNormal];
         [self.goldButton addTarget:self action:@selector(goldButtonClicked) forControlEvents:UIControlEventTouchUpInside];

@@ -97,7 +97,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6u1-FT-B9W">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6u1-FT-B9W" customClass="LZSoundButton">
                                                     <rect key="frame" x="25" y="20" width="270" height="75"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -168,7 +168,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Mac-t1-qVR"/>
                     <connections>
                         <outlet property="listView" destination="Eqf-K1-HOb" id="Zh2-GK-vRq"/>
                     </connections>
@@ -554,7 +553,7 @@
         <image name="unlock_icon.png" width="16" height="16"/>
     </resources>
     <classes>
-        <class className="LZButton" superclassName="UIButton">
+        <class className="LZButton" superclassName="LZSoundButton">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LZButton.h"/>
         </class>
         <class className="LZCell" superclassName="UITableViewCell">
@@ -583,6 +582,9 @@
             <relationships>
                 <relationship kind="outlet" name="listView" candidateClass="UITableView"/>
             </relationships>
+        </class>
+        <class className="LZSoundButton" superclassName="UIButton">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LZSoundButton.h"/>
         </class>
         <class className="LZStoreViewController" superclassName="LZFactoryViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LZStoreViewController.h"/>
@@ -614,7 +616,7 @@
                 <relationship kind="outlet" name="packageTotalScoreLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="progressIconImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="scoreIconImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="selectButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="selectButton" candidateClass="LZSoundButton"/>
             </relationships>
         </class>
         <class className="RestorePurchaseCell" superclassName="LZCell">

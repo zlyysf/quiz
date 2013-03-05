@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LZSoundButton.h"
 #define kWinButtonTag 101
 #define kCutWrongButtonTag 102
 #define kAskFriendsButtonTag 103
@@ -22,9 +23,9 @@
 @property (nonatomic,weak)id<LZPlayViewDelegate>delegate;
 @property (nonatomic,strong)UILabel *progressLabel;
 @property (nonatomic,strong)UILabel *questionLabel;
-@property (nonatomic,strong)UIButton *winButton;
-@property (nonatomic,strong)UIButton *cutWrongButton;
-@property (nonatomic,strong)UIButton *askFriendsButton;
+@property (nonatomic,strong)LZSoundButton *winButton;
+@property (nonatomic,strong)LZSoundButton *cutWrongButton;
+@property (nonatomic,strong)LZSoundButton *askFriendsButton;
 @property (nonatomic,strong)UIButton *answerUpLeftButton;
 @property (nonatomic,strong)UIButton *answerUpRightButton;
 @property (nonatomic,strong)UIButton *answerDownLeftButton;

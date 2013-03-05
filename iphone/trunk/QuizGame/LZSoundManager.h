@@ -8,14 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <AudioToolbox/AudioToolbox.h>
-@interface LZSoundManager : NSObject
+#import <AVFoundation/AVFoundation.h> 
+@interface LZSoundManager : NSObject<AVAudioPlayerDelegate>
 {
     SystemSoundID buttonSound;
     SystemSoundID correctSound;
     SystemSoundID wrongSound;
+    AVAudioPlayer *audioPlayer;
 }
 +(LZSoundManager*)SharedInstance;
 -(void)playButtonSound;
 -(void)playCorrectSound;
 -(void)playWrongSound;
+-(void)playBackGroundMusic;
 @end

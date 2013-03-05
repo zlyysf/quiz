@@ -10,6 +10,7 @@
 #import "SHKFacebook.h"
 #import "SHKTwitter.h"
 #import <QuartzCore/QuartzCore.h>
+#import "LZSoundManager.h"
 #define kLockPakStartIndex 2
 #define kTotalOptionCount 3
 #define kSelectedAnswerInterval 0.5
@@ -294,6 +295,7 @@
                 }
             }
             answeredRightCount++;
+            [[LZSoundManager SharedInstance]playCorrectSound];
             NSString *quizkey = [quiz objectForKey:@"quizkey"];
 
             NSDictionary *updateResult = [[LZDataAccess singleton]obtainQuizAward:quizkey];
@@ -396,6 +398,7 @@
         NSString *answerPic = [quiz objectForKey:@"answerPic"];
         if([selectedPic isEqualToString:answerPic])
         {
+            [[LZSoundManager SharedInstance]playCorrectSound];
             if (currentQuizIndex%2 == 0)//set play1
             {
                 UIButton *button = (UIButton*)[self.playView1 viewWithTag:tag];
@@ -421,6 +424,7 @@
         }
         else
         {
+            [[LZSoundManager SharedInstance]playWrongSound];
             if (currentQuizIndex%2 == 0)//set play1
             {
                 UIButton *button = (UIButton*)[self.playView1 viewWithTag:tag];

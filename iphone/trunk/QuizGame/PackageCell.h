@@ -7,10 +7,10 @@
 //
 
 #import "LZCell.h"
-
+#import "LZSoundButton.h"
 @interface PackageCell : LZCell
 @property (strong, nonatomic) IBOutlet UILabel *packageNameLabel;
-@property (nonatomic,strong)IBOutlet UIButton *selectButton;
+@property (nonatomic,strong)IBOutlet LZSoundButton *selectButton;
 @property (strong, nonatomic) IBOutlet UILabel *packageTotalScoreLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *scoreIconImageView;
 @property (strong, nonatomic) IBOutlet UILabel *packageProgressLabel;
