@@ -9,6 +9,8 @@
 #import "LZSettingsViewController.h"
 #import "SettingCell.h"
 #import "LZSoundManager.h"
+#import "LZHowToPlayViewController.h"
+#import "LZStatisticsViewController.h"
 @interface LZSettingsViewController ()<LZCellDelegate>
 
 @end
@@ -100,11 +102,17 @@
     else if (LZCellIndexPath.row == 1)
     {
         //enter how to play view
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        LZHowToPlayViewController * howToPlayViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZHowToPlayViewController"];
+        [self.navigationController pushViewController:howToPlayViewController animated:NO];
     
     }
     else
     {
         //enter statistics view
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        LZStatisticsViewController * statisticsViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZStatisticsViewController"];
+        [self.navigationController pushViewController:statisticsViewController animated:NO];
     }
 }
 - (void)didReceiveMemoryWarning

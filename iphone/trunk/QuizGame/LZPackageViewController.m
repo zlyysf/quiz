@@ -110,7 +110,7 @@
     int passedGroupCount = [[package objectForKey:@"passedGroupCount"] integerValue];
     int groupCount = [[package objectForKey:@"groupCount"] integerValue];
     cell.packageProgressLabel.text = [NSString stringWithFormat:@"%d/%d",passedGroupCount,groupCount];
-    UIImage *image = [UIImage imageNamed:@"auto.png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"auto@2x" ofType:@"png"]];
     UIImage *backImage = [image stretchableImageWithLeftCapWidth:25.0 topCapHeight:25.0];
 
     [cell.selectButton setBackgroundImage:backImage forState:UIControlStateNormal];

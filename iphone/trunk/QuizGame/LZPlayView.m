@@ -53,12 +53,11 @@
         
         askFriendsButton = [[LZSoundButton alloc]initWithFrame:CGRectMake(cutWrongButton.frame.origin.x, cutWrongButton.frame.origin.y + cutWrongButton.frame.size.height +10, 22, 29)];
         askFriendsButton.tag = kAskFriendsButtonTag;
-        [askFriendsButton setBackgroundImage:[UIImage imageNamed:@"ask_friends.png"] forState:UIControlStateNormal];
+        [askFriendsButton setBackgroundImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ask_friends@2x" ofType:@"png"]] forState:UIControlStateNormal];
         [askFriendsButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:askFriendsButton];
         
         answerDownLeftButton = [[UIButton alloc]initWithFrame:CGRectMake(10, frame.size.height-10-kAnswerButtonSideLength, kAnswerButtonSideLength, kAnswerButtonSideLength)];
-        //[answerDownLeftButton setBackgroundImage:[UIImage imageNamed:@"icon_1.jpg" ] forState:UIControlStateNormal];
         [answerDownLeftButton.layer setMasksToBounds:YES];
         [answerDownLeftButton.layer setCornerRadius:10.0];
         [answerDownLeftButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -66,7 +65,6 @@
         [self addSubview:answerDownLeftButton];
         
         answerDownRightButton = [[UIButton alloc]initWithFrame:CGRectMake(answerDownLeftButton.frame.origin.x +10 + kAnswerButtonSideLength, answerDownLeftButton.frame.origin.y, kAnswerButtonSideLength, kAnswerButtonSideLength)];
-        //[answerDownRightButton setBackgroundImage:[UIImage imageNamed:@"icon_2.jpg" ] forState:UIControlStateNormal];
         [answerDownRightButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         answerDownRightButton.tag = kAnswerDownRightButtonTag;
         [answerDownRightButton.layer setMasksToBounds:YES];
@@ -74,7 +72,6 @@
         [self addSubview:answerDownRightButton];
         
         answerUpLeftButton = [[UIButton alloc]initWithFrame:CGRectMake(answerDownLeftButton.frame.origin.x, answerDownLeftButton.frame.origin.y-10-kAnswerButtonSideLength, kAnswerButtonSideLength, kAnswerButtonSideLength)];
-        //[answerUpLeftButton setBackgroundImage:[UIImage imageNamed:@"icon_3.jpg" ] forState:UIControlStateNormal];
         [answerUpLeftButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         answerUpLeftButton.tag = kAnswerUpLeftButtonTag;
         [answerUpLeftButton.layer setMasksToBounds:YES];
@@ -82,7 +79,6 @@
         [self addSubview:answerUpLeftButton];
         
         answerUpRightButton = [[UIButton alloc]initWithFrame:CGRectMake(answerDownRightButton.frame.origin.x, answerUpLeftButton.frame.origin.y, kAnswerButtonSideLength, kAnswerButtonSideLength)];
-        //[answerUpRightButton setBackgroundImage:[UIImage imageNamed:@"icon_4.jpg" ] forState:UIControlStateNormal];
         [answerUpRightButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         answerUpRightButton.tag = kAnswerUpRightButtonTag;
         [answerUpRightButton.layer setMasksToBounds:YES];

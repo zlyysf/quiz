@@ -17,8 +17,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-//    [[NSUserDefaults standardUserDefaults]setBool:NO forKey:@"LZAdsOff"];
-//    [[NSUserDefaults standardUserDefaults]synchronize];
+    //[[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZAdsOff"];
+    //[[NSUserDefaults standardUserDefaults]synchronize];
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
     NSString *appName = [infoDictionary objectForKey:@"CFBundleDisplayName"];
     NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];

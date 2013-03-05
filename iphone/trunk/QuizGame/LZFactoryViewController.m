@@ -30,7 +30,6 @@
     [super viewDidLoad];
     CGSize screenSize = [[UIScreen mainScreen]bounds].size;
     self.controllerBackImageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, screenSize.width, screenSize.height)];
-    //[self.controllerBackImageView setImage:[UIImage imageNamed:@"background.png"]];
     [self.view addSubview:controllerBackImageView];
     self.topNavView = [[LZTopNavView alloc]initWithFrame:kTopNavViewFrame delegate:self];
     [self.view addSubview:topNavView];

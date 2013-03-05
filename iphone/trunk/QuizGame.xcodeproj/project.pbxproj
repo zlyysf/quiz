@@ -70,6 +70,8 @@
 		5F9AFAE016E5F55600464826 /* sports@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9AFAD816E5F55600464826 /* sports@2x.png */; };
 		5F9AFAE116E5F55600464826 /* apparel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9AFAD916E5F55600464826 /* apparel@2x.png */; };
 		5F9AFAE216E5F55600464826 /* coutries@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9AFADA16E5F55600464826 /* coutries@2x.png */; };
+		5F9AFAE616E6108000464826 /* LZHowToPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9AFAE516E6108000464826 /* LZHowToPlayViewController.m */; };
+		5F9AFAE916E6115E00464826 /* LZStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9AFAE816E6115E00464826 /* LZStatisticsViewController.m */; };
 		5F9CF2CC16C0BDEF0033DDA7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */; };
 		5F9CF2D216C0C6650033DDA7 /* passed_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9CF2CD16C0C6650033DDA7 /* passed_icon@2x.png */; };
 		5F9CF2D316C0C6650033DDA7 /* score_group_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F9CF2CE16C0C6650033DDA7 /* score_group_icon@2x.png */; };
@@ -475,6 +477,10 @@
 		5F9AFAD816E5F55600464826 /* sports@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sports@2x.png"; sourceTree = "<group>"; };
 		5F9AFAD916E5F55600464826 /* apparel@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apparel@2x.png"; sourceTree = "<group>"; };
 		5F9AFADA16E5F55600464826 /* coutries@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "coutries@2x.png"; sourceTree = "<group>"; };
+		5F9AFAE416E6108000464826 /* LZHowToPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHowToPlayViewController.h; sourceTree = "<group>"; };
+		5F9AFAE516E6108000464826 /* LZHowToPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHowToPlayViewController.m; sourceTree = "<group>"; };
+		5F9AFAE716E6115E00464826 /* LZStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZStatisticsViewController.h; sourceTree = "<group>"; };
+		5F9AFAE816E6115E00464826 /* LZStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZStatisticsViewController.m; sourceTree = "<group>"; };
 		5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5F9CF2CD16C0C6650033DDA7 /* passed_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passed_icon@2x.png"; sourceTree = "<group>"; };
 		5F9CF2CE16C0C6650033DDA7 /* score_group_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "score_group_icon@2x.png"; sourceTree = "<group>"; };
@@ -771,6 +777,10 @@
 				5F91538C16BADF9D0074FFF2 /* SettingCell.m */,
 				5F91537216BA49BD0074FFF2 /* LZSettingsViewController.h */,
 				5F91537316BA49BD0074FFF2 /* LZSettingsViewController.m */,
+				5F9AFAE416E6108000464826 /* LZHowToPlayViewController.h */,
+				5F9AFAE516E6108000464826 /* LZHowToPlayViewController.m */,
+				5F9AFAE716E6115E00464826 /* LZStatisticsViewController.h */,
+				5F9AFAE816E6115E00464826 /* LZStatisticsViewController.m */,
 			);
 			name = SettingView;
 			sourceTree = "<group>";
@@ -1343,6 +1353,8 @@
 				0817206216E48C9E007B2870 /* LZTapjoyHelper.m in Sources */,
 				5F08BD7C16E598A600B8CB08 /* LZSoundManager.m in Sources */,
 				5F08BD8116E5A78900B8CB08 /* LZSoundButton.m in Sources */,
+				5F9AFAE616E6108000464826 /* LZHowToPlayViewController.m in Sources */,
+				5F9AFAE916E6115E00464826 /* LZStatisticsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
