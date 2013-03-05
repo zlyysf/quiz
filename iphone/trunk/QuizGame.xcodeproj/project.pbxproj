@@ -376,6 +376,7 @@
 		0817206116E48C9E007B2870 /* LZTapjoyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZTapjoyHelper.m; sourceTree = "<group>"; };
 		0817206316E48E10007B2870 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		0817206516E48E1F007B2870 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		0899E86F16E5DC78009250A7 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		08E5B17D16C0A9DA00D1C754 /* quizicons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = quizicons; sourceTree = "<group>"; };
 		08E5B18116C0A9ED00D1C754 /* LZDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDataAccess.h; sourceTree = "<group>"; };
 		08E5B18216C0A9ED00D1C754 /* LZDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDataAccess.m; sourceTree = "<group>"; };
@@ -566,6 +567,14 @@
 			);
 			path = AdHelper;
 			sourceTree = SOURCE_ROOT;
+		};
+		0899E84C16E5DC2C009250A7 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				0899E86F16E5DC78009250A7 /* Config.h */,
+			);
+			name = Base;
+			sourceTree = "<group>";
 		};
 		08E5B18016C0A9ED00D1C754 /* dataAccess */ = {
 			isa = PBXGroup;
@@ -801,6 +810,7 @@
 		5FE7372616B8E08400194CF0 /* QuizGame */ = {
 			isa = PBXGroup;
 			children = (
+				0899E84C16E5DC2C009250A7 /* Base */,
 				5F08BD5816E5988500B8CB08 /* Sound */,
 				0817205F16E48C9E007B2870 /* AdHelper */,
 				0817203716E48BB3007B2870 /* TapjoyPublisherLibrary */,
