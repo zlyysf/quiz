@@ -597,6 +597,9 @@
 		0899E84C16E5DC2C009250A7 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				5FE7372F16B8E08400194CF0 /* LZAppDelegate.h */,
+				5FE7373016B8E08400194CF0 /* LZAppDelegate.m */,
+				5FE7373816B8E08400194CF0 /* MainStoryboard.storyboard */,
 				0899E86F16E5DC78009250A7 /* Config.h */,
 			);
 			name = Base;
@@ -620,15 +623,17 @@
 			path = AdMob;
 			sourceTree = "<group>";
 		};
-		08E5B18016C0A9ED00D1C754 /* dataAccess */ = {
+		08E5B18016C0A9ED00D1C754 /* DataAccess */ = {
 			isa = PBXGroup;
 			children = (
+				08E5B18316C0A9ED00D1C754 /* FMDB */,
 				5FF7FFA716D7468200A01AD7 /* LZDataAccess+GenSql.h */,
 				5FF7FFA816D7468200A01AD7 /* LZDataAccess+GenSql.m */,
 				08E5B18116C0A9ED00D1C754 /* LZDataAccess.h */,
 				08E5B18216C0A9ED00D1C754 /* LZDataAccess.m */,
 			);
-			path = dataAccess;
+			name = DataAccess;
+			path = ../dataAccess;
 			sourceTree = "<group>";
 		};
 		08E5B18316C0A9ED00D1C754 /* FMDB */ = {
@@ -646,7 +651,8 @@
 				08E5B18D16C0A9EE00D1C754 /* FMResultSet.h */,
 				08E5B18E16C0A9EE00D1C754 /* FMResultSet.m */,
 			);
-			path = FMDB;
+			name = FMDB;
+			path = ../FMDB;
 			sourceTree = "<group>";
 		};
 		5F08BD5816E5988500B8CB08 /* Sound */ = {
@@ -709,7 +715,7 @@
 			name = images;
 			sourceTree = "<group>";
 		};
-		5F91539116BAE8600074FFF2 /* BaseObject */ = {
+		5F91539116BAE8600074FFF2 /* LZObject */ = {
 			isa = PBXGroup;
 			children = (
 				5FE7377016B90FB900194CF0 /* SeguePush.h */,
@@ -731,7 +737,7 @@
 				5F08BD7F16E5A78900B8CB08 /* LZSoundButton.h */,
 				5F08BD8016E5A78900B8CB08 /* LZSoundButton.m */,
 			);
-			name = BaseObject;
+			name = LZObject;
 			sourceTree = "<group>";
 		};
 		5F98A13016BBD1050084A2F5 /* Home */ = {
@@ -832,10 +838,7 @@
 		5FE7371116B8E08400194CF0 = {
 			isa = PBXGroup;
 			children = (
-				0817206516E48E1F007B2870 /* MediaPlayer.framework */,
-				0817206316E48E10007B2870 /* CoreTelephony.framework */,
 				08E5B19616C0AA1500D1C754 /* initdb2.sql */,
-				08E5B18016C0A9ED00D1C754 /* dataAccess */,
 				08E5B17D16C0A9DA00D1C754 /* quizicons */,
 				5FE7372616B8E08400194CF0 /* QuizGame */,
 				5FE7371F16B8E08400194CF0 /* Frameworks */,
@@ -854,7 +857,8 @@
 		5FE7371F16B8E08400194CF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				08E5B18316C0A9ED00D1C754 /* FMDB */,
+				0817206516E48E1F007B2870 /* MediaPlayer.framework */,
+				0817206316E48E10007B2870 /* CoreTelephony.framework */,
 				5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */,
 				5FF953D916E6F0E40025ACD5 /* GameKit.framework */,
 				5F08BDA316E5B03D00B8CB08 /* AVFoundation.framework */,
@@ -882,12 +886,10 @@
 		5FE7372616B8E08400194CF0 /* QuizGame */ = {
 			isa = PBXGroup;
 			children = (
-				5FE7372F16B8E08400194CF0 /* LZAppDelegate.h */,
-				5FE7373016B8E08400194CF0 /* LZAppDelegate.m */,
-				5FE7373816B8E08400194CF0 /* MainStoryboard.storyboard */,
+				0899E84C16E5DC2C009250A7 /* Base */,
+				08E5B18016C0A9ED00D1C754 /* DataAccess */,
 				5FF953FC16E6F4B10025ACD5 /* GameCenter */,
 				0899E87016E5E5F4009250A7 /* AdMob */,
-				0899E84C16E5DC2C009250A7 /* Base */,
 				5F08BD5816E5988500B8CB08 /* Sound */,
 				0817205F16E48C9E007B2870 /* AdHelper */,
 				0817203716E48BB3007B2870 /* TapjoyPublisherLibrary */,
@@ -898,7 +900,7 @@
 				5F98A13216BBD1710084A2F5 /* LevelView */,
 				5F98A13116BBD1470084A2F5 /* PackageView */,
 				5F98A13016BBD1050084A2F5 /* Home */,
-				5F91539116BAE8600074FFF2 /* BaseObject */,
+				5F91539116BAE8600074FFF2 /* LZObject */,
 				5FE7372716B8E08400194CF0 /* Supporting Files */,
 			);
 			path = QuizGame;
