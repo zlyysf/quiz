@@ -594,7 +594,7 @@
 			path = AdHelper;
 			sourceTree = SOURCE_ROOT;
 		};
-		0899E84C16E5DC2C009250A7 /* Base */ = {
+		0899E84C16E5DC2C009250A7 /* Global */ = {
 			isa = PBXGroup;
 			children = (
 				5FE7372F16B8E08400194CF0 /* LZAppDelegate.h */,
@@ -602,7 +602,7 @@
 				5FE7373816B8E08400194CF0 /* MainStoryboard.storyboard */,
 				0899E86F16E5DC78009250A7 /* Config.h */,
 			);
-			name = Base;
+			name = Global;
 			sourceTree = "<group>";
 		};
 		0899E87016E5E5F4009250A7 /* AdMob */ = {
@@ -886,7 +886,7 @@
 		5FE7372616B8E08400194CF0 /* QuizGame */ = {
 			isa = PBXGroup;
 			children = (
-				0899E84C16E5DC2C009250A7 /* Base */,
+				0899E84C16E5DC2C009250A7 /* Global */,
 				08E5B18016C0A9ED00D1C754 /* DataAccess */,
 				5FF953FC16E6F4B10025ACD5 /* GameCenter */,
 				0899E87016E5E5F4009250A7 /* AdMob */,
