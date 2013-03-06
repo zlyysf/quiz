@@ -8,7 +8,7 @@
 
 #import "LZStatisticsViewController.h"
 #import "GameKitHelper.h"
-@interface LZStatisticsViewController ()<GameKitHelperProtocol>
+@interface LZStatisticsViewController ()
 
 @end
 
@@ -57,10 +57,9 @@
 
 - (IBAction)gameCenterButtonClicked {
     NSDictionary *userInfo = [[LZDataAccess singleton]getUserTotalScore];
-    NSLog(@"%@",userInfo);
-    int userGold = [[userInfo objectForKey:@"totalScore"] integerValue];
+    int userTotlaScore = [[userInfo objectForKey:@"totalScore"] integerValue];
     [[GameKitHelper sharedGameKitHelper]
-     submitScore:(int64_t)userGold
+     submitScore:(int64_t)userTotlaScore
      category:kHighScoreLeaderboardCategory];
 }
 - (void)viewDidUnload {

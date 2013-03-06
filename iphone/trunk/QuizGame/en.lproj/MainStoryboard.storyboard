@@ -97,7 +97,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6u1-FT-B9W" customClass="LZSoundButton">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6u1-FT-B9W" userLabel="Button" customClass="LZSoundButton">
                                                     <rect key="frame" x="25" y="20" width="270" height="75"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -641,6 +641,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LZStatisticsViewController.h"/>
             <relationships>
                 <relationship kind="action" name="gameCenterButtonClicked"/>
+                <relationship kind="outlet" name="gameCenterButton" candidateClass="UIButton"/>
             </relationships>
         </class>
         <class className="LZStoreViewController" superclassName="LZFactoryViewController">

@@ -9,7 +9,7 @@
 #import "GameKitHelper.h"
 
 @interface GameKitHelper ()
-<GKGameCenterControllerDelegate> {
+<GKLeaderboardViewControllerDelegate> {
     BOOL _gameCenterFeaturesEnabled;
 }
 @end
@@ -17,8 +17,8 @@
 @implementation GameKitHelper
 +(id) sharedGameKitHelper {
     static GameKitHelper *sharedGameKitHelper;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
+    static dispatch_once_t onceGKToken;
+    dispatch_once(&onceGKToken, ^{
         sharedGameKitHelper =
         [[GameKitHelper alloc] init];
     });
@@ -32,24 +32,33 @@
     GKLocalPlayer* localPlayer =
     [GKLocalPlayer localPlayer];
     
-    localPlayer.authenticateHandler =
-    ^(UIViewController *viewController,
-      NSError *error) {
-        
-        [self setLastError:error];
-        
-//        if ([CCDirector sharedDirector].isPaused)
-//            [[CCDirector sharedDirector] resume];
-        
-        if (localPlayer.authenticated) {
+    [localPlayer authenticateWithCompletionHandler:^(NSError *error)
+     {
+     [self setLastError:error];
+         if ([GKLocalPlayer localPlayer].authenticated)
+         {
             _gameCenterFeaturesEnabled = YES;
-        } else if(viewController) {
-            //[[CCDirector sharedDirector] pause];
-            [self presentViewController:viewController];
-        } else {
-            _gameCenterFeaturesEnabled = NO;
-        }
-    };
+         }
+         else
+         {
+             _gameCenterFeaturesEnabled = NO;
+         }
+
+     }];
+         
+//     }] =
+//    ^(UIViewController *viewController,
+//      NSError *error) {
+//        
+//        [self setLastError:error];
+//        if ([GKLocalPlayer localPlayer].authenticated) {
+//            _gameCenterFeaturesEnabled = YES;
+//        } else if(viewController) {
+//            [self presentViewController:viewController];
+//        } else {
+//            _gameCenterFeaturesEnabled = NO;
+//        }
+//    };
 }
 #pragma mark Property setters
 
@@ -103,6 +112,18 @@
              
              [_delegate onScoresSubmitted:success];
          }
+         if (success) {
+             GKLeaderboardViewController *gkcontroller = [[GKLeaderboardViewController alloc]init];
+             gkcontroller.category = kHighScoreLeaderboardCategory;
+             gkcontroller.timeScope = GKLeaderboardTimeScopeToday;
+             gkcontroller.leaderboardDelegate = self;
+             [self presentViewController:gkcontroller];
+         }
+     
      }];
+}
+- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+    [viewController dismissModalViewControllerAnimated:YES];
 }
 @end

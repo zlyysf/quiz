@@ -7,7 +7,7 @@
 //
 
 #import <GameKit/GameKit.h>
-#define kHighScoreLeaderboardCategory @"com.lingzhi.QuizAwsome.HighScores"
+#define kHighScoreLeaderboardCategory @"HighScores"
 @protocol GameKitHelperProtocol<NSObject>
 -(void) onScoresSubmitted:(bool)success;
 @end
