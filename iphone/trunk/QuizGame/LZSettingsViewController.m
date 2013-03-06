@@ -11,6 +11,7 @@
 #import "LZSoundManager.h"
 #import "LZHowToPlayViewController.h"
 #import "LZStatisticsViewController.h"
+#import "GameKitHelper.h"
 @interface LZSettingsViewController ()<LZCellDelegate>
 
 @end
@@ -78,11 +79,11 @@
     }
     else if (indexPath.row == 1)
     {
-         [cell.selectButton setTitle:@"How to play" forState:UIControlStateNormal];
+         [cell.selectButton setTitle:@"How to Play" forState:UIControlStateNormal];
     }
     else
     {
-        [cell.selectButton setTitle:@"Statistics" forState:UIControlStateNormal];
+        [cell.selectButton setTitle:@"Leaderboard" forState:UIControlStateNormal];
     }
     cell.cellIndexPath = indexPath;
     cell.delegate = self;
@@ -110,9 +111,14 @@
     else
     {
         //enter statistics view
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
-        LZStatisticsViewController * statisticsViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZStatisticsViewController"];
-        [self.navigationController pushViewController:statisticsViewController animated:NO];
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+//        LZStatisticsViewController * statisticsViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZStatisticsViewController"];
+//        [self.navigationController pushViewController:statisticsViewController animated:NO];
+        NSDictionary *userInfo = [[LZDataAccess singleton]getUserTotalScore];
+        int userTotlaScore = [[userInfo objectForKey:@"totalScore"] integerValue];
+        [[GameKitHelper sharedGameKitHelper]
+         submitScore:(int64_t)userTotlaScore
+         category:kHighScoreLeaderboardCategory];
     }
 }
 - (void)didReceiveMemoryWarning
