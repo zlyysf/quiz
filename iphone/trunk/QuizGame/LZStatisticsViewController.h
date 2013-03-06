@@ -9,5 +9,7 @@
 #import "LZFactoryViewController.h"
 
 @interface LZStatisticsViewController : LZFactoryViewController
+- (IBAction)gameCenterButtonClicked;
 
+@property (strong, nonatomic) IBOutlet UIButton *gameCenterButton;
 @end
