@@ -30,8 +30,7 @@
 {
     [super viewDidLoad];
     self.topNavView.topNavType = TopNavTypeNormal;
-    [self.view addSubview:self.listView];
-    [self resizeContentViewFrame:self.listView];
+    [self.view bringSubviewToFront:self.listView];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"normal_bg@2x" ofType:@"jpg"];
     [self.controllerBackImageView setImage:[UIImage imageWithContentsOfFile:path]];
 	// Do any additional setup after loading the view.
@@ -39,6 +38,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self resizeContentViewFrame:self.listView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
 }
 - (void)viewWillDisappear:(BOOL)animated {

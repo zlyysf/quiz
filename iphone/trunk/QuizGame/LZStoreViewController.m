@@ -41,8 +41,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.view addSubview:listView];
-    [self resizeContentViewFrame:self.listView];
+    [self.view bringSubviewToFront:self.listView];
+    //[self resizeContentViewFrame:self.listView];
     self.topNavView.topNavType = TopNavTypeStore;
     freebieItemArray = [[NSArray alloc]initWithObjects:@"Twitter",@"Facebook",@"Review our app", nil];
     hasQueryData = NO;
@@ -57,6 +57,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self resizeContentViewFrame:self.listView];
     [[LZIAPManager sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
         if (success) {
             self.storeItemArray = products;
@@ -68,6 +69,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
 }
 - (void)viewWillDisappear:(BOOL)animated {
+    [[LZIAPManager sharedInstance]cancelQueryProducts];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -213,8 +215,21 @@
     }
     else if(LZCellIndexPath.section == 3)
     {
-        [[LZIAPManager sharedInstance] restoreCompletedTransactions];
+        //[[LZIAPManager sharedInstance] restoreCompletedTransactions];
+        [[LZIAPManager sharedInstance]testBuyProduct:@"com.lingzhi.QuizAwsome.removeads"];
     }
+    /*    @"com.lingzhi.QuizAwsome.removeads",
+     @"com.lingzhi.QuizAwsome.unlockallpackages",
+     @"com.lingzhi.QuizAwsome.unlockfortune",
+     @"com.lingzhi.QuizAwsome.unlockhealth",
+     @"com.lingzhi.QuizAwsome.unlockelectronic",
+     @"com.lingzhi.QuizAwsome.unlocksportsclub",
+     @"com.lingzhi.QuizAwsome.unlockfooddrink",
+     @"com.lingzhi.QuizAwsome.buytoken40",
+     @"com.lingzhi.QuizAwsome.buytoken100",
+     @"com.lingzhi.QuizAwsome.buytoken200",
+     @"com.lingzhi.QuizAwsome.buytoken400",
+     */
 
   }
 - (void)productPurchased:(NSNotification *)notification

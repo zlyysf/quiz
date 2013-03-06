@@ -39,8 +39,7 @@
 {
     [super viewDidLoad];
     self.topNavView.topNavType = TopNavTypeNormal;
-    [self.view addSubview:self.listView];
-    [self resizeContentViewFrame:self.listView];
+    [self.view bringSubviewToFront:self.listView];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"package_bg@2x" ofType:@"jpg"];
     [self.controllerBackImageView setImage:[UIImage imageWithContentsOfFile:path]];
 	// Do any additional setup after loading the view.
@@ -49,17 +48,12 @@
 {
     NSLog(@"LZLevelViewController viewWillAppear enter");
     [super viewWillAppear:animated];
+    [self resizeContentViewFrame:self.listView];
 //** -(FMResultSet *) getPackageGroups:(NSString *)pkgname; getpackageArray list view update also set top bar gold amount
     NSArray *data = [[LZDataAccess singleton]getPackageGroups:self.currentPackageName];;
     self.levelArray = data;
     NSLog(@"level %@",self.levelArray);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
-    
-//    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
-//        //[[LZTapjoyHelper singleton] showFullScreenAd];
-//        [[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
-//    }
-
 }
 - (void)viewWillDisappear:(BOOL)animated {
     NSLog(@"LZLevelViewController viewWillDisappear enter");

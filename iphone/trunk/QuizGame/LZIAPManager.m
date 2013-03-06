@@ -120,7 +120,13 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     _completionHandler = nil;
     
 }
-
+- (void)cancelQueryProducts
+{
+    [_productsRequest cancel];
+    _productsRequest.delegate = nil;
+    _productsRequest = nil;
+    _completionHandler = nil;
+}
 #pragma mark SKPaymentTransactionOBserver
 
 - (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
@@ -234,7 +240,17 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier userInfo:nil];
     
 }
+- (void)testBuyProduct:(NSString *)productIdentifier
+{
+    if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.removeads"])
+    {
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZAdsOff"];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+        [[GADMasterViewController singleton]removeAds];
+    }
 
+    [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier userInfo:nil];
+}
 - (void)restoreCompletedTransactions {
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }

@@ -38,8 +38,7 @@
 {
     [super viewDidLoad];
     self.topNavView.topNavType = TopNavTypeNormal;
-    [self.view addSubview:self.listView];
-    [self resizeContentViewFrame:self.listView];
+    [self.view bringSubviewToFront:self.listView];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"normal_bg@2x" ofType:@"jpg"];
     [self.controllerBackImageView setImage:[UIImage imageWithContentsOfFile:path]];
 	// Do any additional setup after loading the view.
@@ -48,7 +47,7 @@
 {
     NSLog(@"LZPackageViewController viewWillAppear enter");
     [super viewWillAppear:animated];
-    
+    [self resizeContentViewFrame:self.listView];
 //** -(FMResultSet *) getPackages; getpackageArray list view update also set top bar gold amount
     NSArray *date = [[LZDataAccess singleton]getPackages]; ;
     self.packageArray = date;
