@@ -305,6 +305,8 @@
     [rootItem setObject:@"1" forKey:@"awardCoin"];
     [rootItem setObject:@"100" forKey:@"awardScore"];
     
+    [rootItem setObject:@"3" forKey:@"passRate"];
+    
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
     NSString *configTemplateFileName = @"packagesConfigTemplate.plist";
@@ -376,8 +378,9 @@
                 NSString *lockedStr = [NSString stringWithFormat:@"%d",locked];
                 [grpItem setObject:lockedStr forKey:@"locked"];
                 
-                NSString *passRateStr = [NSString stringWithFormat:@"%d",99];
-                [grpItem setObject:passRateStr forKey:@"passRate"];
+                //because passRate be set only at root for now
+//                NSString *passRateStr = [NSString stringWithFormat:@"%d",99];
+//                [grpItem setObject:passRateStr forKey:@"passRate"];
 
                 [grps setObject:grpItem forKey:groupName];
                 
