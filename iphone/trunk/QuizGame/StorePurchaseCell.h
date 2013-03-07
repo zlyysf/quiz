@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet LZButton *selectButton;
 @property (strong, nonatomic) IBOutlet UILabel *productNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *productPriceLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *checkmarkImage;
 
 @end

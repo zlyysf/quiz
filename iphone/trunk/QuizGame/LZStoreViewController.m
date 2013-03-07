@@ -44,7 +44,7 @@
     [self.view bringSubviewToFront:self.listView];
     //[self resizeContentViewFrame:self.listView];
     self.topNavView.topNavType = TopNavTypeStore;
-    freebieItemArray = [[NSArray alloc]initWithObjects:@"Twitter",@"Facebook",@"Review our app", nil];
+    freebieItemArray = [[NSArray alloc]initWithObjects:@"Facebook",@"Twitter",@"Review our app", nil];
     hasQueryData = NO;
     _priceFormatter = [[NSNumberFormatter alloc] init];
     [_priceFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
@@ -60,9 +60,12 @@
     [self resizeContentViewFrame:self.listView];
     [[LZIAPManager sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
         if (success) {
-            self.storeItemArray = products;
-            hasQueryData = YES;
-            [self.listView reloadData];
+            if([products count]!=0)
+            {
+                self.storeItemArray = products;
+                hasQueryData = YES;
+                [self.listView reloadData];
+            }
         }
     }];
 
@@ -76,9 +79,9 @@
 {
     if (indexPath.section == 1)
     {
-        return 44;
+        return 54;
     }
-    return 84;
+    return 70;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
@@ -118,16 +121,21 @@
         SKProduct * product = (SKProduct *)[storeItemArray objectAtIndex:indexPath.row];
         cell.productNameLabel.text = product.localizedTitle;
         [_priceFormatter setLocale:product.priceLocale];
-        cell.productPriceLabel.text = [_priceFormatter stringFromNumber:product.price];
+        
         cell.cellIndexPath = indexPath;
         cell.delegate = self;
         if ([self hasProductPurchased:product.productIdentifier])
         {
             [cell.selectButton setEnabled:NO];
+            cell.productPriceLabel.hidden = YES;
+            cell.checkmarkImage.hidden = NO;
         }
         else
         {
             [cell.selectButton setEnabled:YES];
+            cell.checkmarkImage.hidden = YES;
+            cell.productNameLabel.hidden = NO;
+            cell.productPriceLabel.text = [_priceFormatter stringFromNumber:product.price];
         }
         return cell;
     }
@@ -143,21 +151,24 @@
         StoreFreeCell *cell = (StoreFreeCell *)[tableView dequeueReusableCellWithIdentifier:@"StoreFreeCell"];
         if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Facebook"])
         {
+            cell.descriptionLabel.text = @"Tell your facebook friends";
             NSString *path = [[NSBundle mainBundle] pathForResource:@"facebook@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
         }
         else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Twitter"])
         {
+            cell.descriptionLabel.text = @"Tell your twitter friends";
             NSString *path = [[NSBundle mainBundle] pathForResource:@"twitter@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
         }
         else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Review our app"])
         {
+            cell.descriptionLabel.text = @"Review our app";
             NSString *path = [[NSBundle mainBundle] pathForResource:@"review@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
         }
-        cell.descriptionLabel.text = @"Tell your friends.";
-        cell.profitLabel.text = [freebieItemArray objectAtIndex:indexPath.row];
+
+        cell.profitLabel.text = @"Get 20 Tokens!";
         cell.cellIndexPath = indexPath;
         cell.delegate = self;
         return cell;
@@ -215,8 +226,8 @@
     }
     else if(LZCellIndexPath.section == 3)
     {
-        //[[LZIAPManager sharedInstance] restoreCompletedTransactions];
-        [[LZIAPManager sharedInstance]testBuyProduct:@"com.lingzhi.QuizAwsome.removeads"];
+        [[LZIAPManager sharedInstance] restoreCompletedTransactions];
+        //[[LZIAPManager sharedInstance]testBuyProduct:@"com.lingzhi.QuizAwsome.removeads"];
     }
     /*    @"com.lingzhi.QuizAwsome.removeads",
      @"com.lingzhi.QuizAwsome.unlockallpackages",

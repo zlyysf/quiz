@@ -14,7 +14,7 @@
 #import "LZTapjoyHelper.h"
 
 
-#define kLockPakStartIndex 2
+#define kLockPakStartIndex 3
 #define kTotalOptionCount 3
 #define kSelectedAnswerInterval 0.5
 #define kDirectAnswerInterval 1.0

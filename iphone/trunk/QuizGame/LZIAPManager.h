@@ -8,7 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <StoreKit/StoreKit.h>
-@interface LZIAPManager : NSObject
+#import "MBProgressHUD.h"
+@interface LZIAPManager : NSObject<MBProgressHUDDelegate>
+
 UIKIT_EXTERN NSString *const IAPHelperProductPurchasedNotification;
 
 typedef void (^RequestProductsCompletionHandler)(BOOL success, NSArray * products);

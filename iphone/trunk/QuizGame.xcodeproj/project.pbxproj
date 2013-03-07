@@ -38,6 +38,12 @@
 		5F16FDA716BCC64E005EE2F5 /* ask_friends@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F16FDA416BCC64D005EE2F5 /* ask_friends@2x.png */; };
 		5F16FDA816BCC64E005EE2F5 /* win_question@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F16FDA516BCC64E005EE2F5 /* win_question@2x.png */; };
 		5F16FDB216BCE84A005EE2F5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F16FDB116BCE84A005EE2F5 /* QuartzCore.framework */; };
+		5F2FA33216E87EE500EA0EB8 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2FA33016E87EE500EA0EB8 /* MBProgressHUD.m */; };
+		5F2FA33316E87EE500EA0EB8 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 5F2FA33116E87EE500EA0EB8 /* README.mdown */; };
+		5F2FA33716E885E700EA0EB8 /* buy_success@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2FA33516E885E700EA0EB8 /* buy_success@2x.png */; };
+		5F2FA33916E8A17600EA0EB8 /* freebies@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2FA33816E8A17600EA0EB8 /* freebies@2x.png */; };
+		5F2FA33B16E8A65B00EA0EB8 /* buy_failed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2FA33A16E8A65A00EA0EB8 /* buy_failed@2x.png */; };
+		5F2FA33D16E8A88600EA0EB8 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2FA33C16E8A88600EA0EB8 /* checkmark@2x.png */; };
 		5F4D896416DF2F0E0029E4BC /* LZIAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D896316DF2F0E0029E4BC /* LZIAPManager.m */; };
 		5F91536516BA27180074FFF2 /* PackageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536416BA27180074FFF2 /* PackageCell.m */; };
 		5F91536E16BA38D50074FFF2 /* LZTopNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536D16BA38D50074FFF2 /* LZTopNavView.m */; };
@@ -432,6 +438,13 @@
 		5F16FDA416BCC64D005EE2F5 /* ask_friends@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ask_friends@2x.png"; sourceTree = "<group>"; };
 		5F16FDA516BCC64E005EE2F5 /* win_question@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "win_question@2x.png"; sourceTree = "<group>"; };
 		5F16FDB116BCE84A005EE2F5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5F2FA32F16E87EE500EA0EB8 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		5F2FA33016E87EE500EA0EB8 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		5F2FA33116E87EE500EA0EB8 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
+		5F2FA33516E885E700EA0EB8 /* buy_success@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buy_success@2x.png"; sourceTree = "<group>"; };
+		5F2FA33816E8A17600EA0EB8 /* freebies@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "freebies@2x.png"; sourceTree = "<group>"; };
+		5F2FA33A16E8A65A00EA0EB8 /* buy_failed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buy_failed@2x.png"; sourceTree = "<group>"; };
+		5F2FA33C16E8A88600EA0EB8 /* checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark@2x.png"; sourceTree = "<group>"; };
 		5F4D896216DF2F0E0029E4BC /* LZIAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZIAPManager.h; sourceTree = "<group>"; };
 		5F4D896316DF2F0E0029E4BC /* LZIAPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZIAPManager.m; sourceTree = "<group>"; };
 		5F91536316BA27180074FFF2 /* PackageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageCell.h; sourceTree = "<group>"; };
@@ -675,6 +688,16 @@
 			name = sounds;
 			sourceTree = "<group>";
 		};
+		5F2FA30D16E87ED600EA0EB8 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				5F2FA32F16E87EE500EA0EB8 /* MBProgressHUD.h */,
+				5F2FA33016E87EE500EA0EB8 /* MBProgressHUD.m */,
+				5F2FA33116E87EE500EA0EB8 /* README.mdown */,
+			);
+			name = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 		5F4D894016DF2EBD0029E4BC /* InAppPurchase */ = {
 			isa = PBXGroup;
 			children = (
@@ -690,6 +713,10 @@
 				5F9AFAE316E5F55D00464826 /* package_bg */,
 				5F9AFAB116E5F50500464826 /* packages_cell_bg */,
 				5F0AA2A616E474530092A698 /* homeview_bg@2x.jpg */,
+				5F2FA33A16E8A65A00EA0EB8 /* buy_failed@2x.png */,
+				5F2FA33816E8A17600EA0EB8 /* freebies@2x.png */,
+				5F2FA33516E885E700EA0EB8 /* buy_success@2x.png */,
+				5F2FA33C16E8A88600EA0EB8 /* checkmark@2x.png */,
 				5F0AA2A816E474530092A698 /* normal_bg@2x.jpg */,
 				5FDFE29E16DC7527003426E5 /* cell_lock@2x.png */,
 				5F9CF2D716C0D6E40033DDA7 /* selected_wrong@2x.png */,
@@ -886,6 +913,7 @@
 		5FE7372616B8E08400194CF0 /* QuizGame */ = {
 			isa = PBXGroup;
 			children = (
+				5F2FA30D16E87ED600EA0EB8 /* MBProgressHUD */,
 				0899E84C16E5DC2C009250A7 /* Global */,
 				08E5B18016C0A9ED00D1C754 /* DataAccess */,
 				5FF953FC16E6F4B10025ACD5 /* GameCenter */,
@@ -1327,6 +1355,11 @@
 				5F9AFAE016E5F55600464826 /* package_cell_6@2x.png in Resources */,
 				5F9AFAE116E5F55600464826 /* package_cell_0@2x.png in Resources */,
 				5F9AFAE216E5F55600464826 /* package_cell_2@2x.png in Resources */,
+				5F2FA33316E87EE500EA0EB8 /* README.mdown in Resources */,
+				5F2FA33716E885E700EA0EB8 /* buy_success@2x.png in Resources */,
+				5F2FA33916E8A17600EA0EB8 /* freebies@2x.png in Resources */,
+				5F2FA33B16E8A65B00EA0EB8 /* buy_failed@2x.png in Resources */,
+				5F2FA33D16E8A88600EA0EB8 /* checkmark@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1375,6 +1408,7 @@
 				5F9AFAE616E6108000464826 /* LZHowToPlayViewController.m in Sources */,
 				5F9AFAE916E6115E00464826 /* LZStatisticsViewController.m in Sources */,
 				5FF953FF16E6F4E60025ACD5 /* GameKitHelper.m in Sources */,
+				5F2FA33216E87EE500EA0EB8 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
