@@ -77,23 +77,30 @@
 //    NSString *appId = @"93e78102-cbd7-4ebf-85cc-315ba83ef2d5";
 //    NSString *appSecretKey = @"JWxgS26URM0XotaghqGn";
     
-    //    NSString *appId = @"fdfcaaab-f77a-4a23-9804-adf72e7429f8";//quiz awesome
+    //    NSString *appId = @"fdfcaaab-f77a-4a23-9804-adf72e7429f8";//zly quiz awesome
     //    NSString *appSecretKey = @"KIeOCSLkud7g1D0vz5PS";
-    NSString *appId = @"7648eaad-7415-49bd-b938-bf2280b91c74";//quizNoReward
-    NSString *appSecretKey = @"FkaVuDAalZh3toEgIuvo";
-    //    NSString *appId = @"2e4b2dc3-4656-4855-836f-d8d4724f0a0a";//quizRewardBoth
+//    NSString *appId = @"7648eaad-7415-49bd-b938-bf2280b91c74";//zly quizNoReward
+//    NSString *appSecretKey = @"FkaVuDAalZh3toEgIuvo";
+    //    NSString *appId = @"2e4b2dc3-4656-4855-836f-d8d4724f0a0a";//zly quizRewardBoth
     //    NSString *appSecretKey = @"tqWyXoK62u8vLZiYtgSg";
+    
+    NSString *appId = @"c60a307d-96ad-4d26-ab3f-ec28f1c571cb";//lingzhi.mobile QuizAwesome , no reward
+    NSString *appSecretKey = @"0pqX6rS40LyptUWgWKrs";
+
     [TapjoyConnect requestTapjoyConnect:appId secretKey:appSecretKey];
 }
 
 - (void)getFullScreenAd {
 //    [TapjoyConnect getFullScreenAd];
     
-    NSString* currencyID = @"26aced51-b029-42b2-b4ca-3e534025afcc";//quizNoReword , Non-Rewarded ID
-    [TapjoyConnect getFullScreenAdWithCurrencyID:currencyID];
+//    NSString* currencyID = @"26aced51-b029-42b2-b4ca-3e534025afcc";//zly quizNoReword , Non-Rewarded ID
+//    [TapjoyConnect getFullScreenAdWithCurrencyID:currencyID];
     
     //    NSString* currencyID = @"ead2e7b6-1b8f-415d-ab93-f425a2d5e3db";//quizRewordBoth , Non-Rewarded ID
     //    [TapjoyConnect getFullScreenAdWithCurrencyID:currencyID];
+    
+    NSString* currencyID = @"1dd07e6d-13cc-456f-93e2-e5ebce88fcc3";//lingzhi.mobile QuizAwesome , Non-Rewarded ID
+    [TapjoyConnect getFullScreenAdWithCurrencyID:currencyID];
 }
 
 
