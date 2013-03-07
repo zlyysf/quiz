@@ -33,9 +33,9 @@
         CGSize screenSize = [[UIScreen mainScreen]bounds].size;
         adBanner_ = [[GADBannerView alloc]
                      initWithFrame:CGRectMake(0.0,
-                                              screenSize.height - GAD_SIZE_320x50.height,
-                                              GAD_SIZE_320x50.width,
-                                              GAD_SIZE_320x50.height)];
+                                              screenSize.height - CGSizeFromGADAdSize(kGADAdSizeBanner).height,
+                                              CGSizeFromGADAdSize(kGADAdSizeBanner).width,
+                                              CGSizeFromGADAdSize(kGADAdSizeBanner).height)];
         NSLog(@"admob view width %f ,height %f",adBanner_.frame.size.width,adBanner_.frame.size.height);
         // Has an ad request already been made
         isLoaded_ = NO;
