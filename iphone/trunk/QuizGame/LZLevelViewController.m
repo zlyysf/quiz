@@ -54,16 +54,21 @@
     self.levelArray = data;
     NSLog(@"level %@",self.levelArray);
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
+    
+    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
+        [[LZTapjoyHelper singleton] showFullScreenAd];
+        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
+    }
 }
 - (void)viewWillDisappear:(BOOL)animated {
     NSLog(@"LZLevelViewController viewWillDisappear enter");
 
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-//    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
-//        //[[LZTapjoyHelper singleton] showFullScreenAd];
-//        [[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
-//    }
+    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
+        [[LZTapjoyHelper singleton] showFullScreenAd];
+        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
+    }
 }
 - (void)productPurchased:(NSNotification *)notification
 {

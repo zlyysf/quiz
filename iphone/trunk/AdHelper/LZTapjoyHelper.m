@@ -108,6 +108,7 @@
     if (existFullScreenAd){
         //[TapjoyConnect showFullScreenAdWithViewController:self.viewController];//ok
         [TapjoyConnect showFullScreenAd];
+        [self getFullScreenAd];
     }else{
         [self getFullScreenAd];
     }
@@ -117,6 +118,7 @@
 - (void)showFullScreenAdWithViewController: vwController {
     if (existFullScreenAd){
         [TapjoyConnect showFullScreenAdWithViewController:vwController];
+        [self getFullScreenAd];
         
     }else{
         [self getFullScreenAd];

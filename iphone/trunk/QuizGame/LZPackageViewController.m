@@ -54,8 +54,8 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
     
     if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
-        [[LZTapjoyHelper singleton] showFullScreenAd];
-        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
+//        [[LZTapjoyHelper singleton] showFullScreenAd];
+//        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
     }
 }
 - (void)viewWillDisappear:(BOOL)animated {
@@ -63,8 +63,8 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
     if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
-        [[LZTapjoyHelper singleton] showFullScreenAd];
-        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
+//        [[LZTapjoyHelper singleton] showFullScreenAd];
+//        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
     }
 }
 - (void)productPurchased:(NSNotification *)notification

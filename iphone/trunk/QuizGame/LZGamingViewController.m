@@ -97,19 +97,19 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
     
-    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
-        [[LZTapjoyHelper singleton] showFullScreenAd];
-        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
-    }
+//    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
+//        [[LZTapjoyHelper singleton] showFullScreenAd];
+//        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
+//    }
 }
 - (void)viewWillDisappear:(BOOL)animated {
     NSLog(@"LZGamingViewController viewWillDisappear enter");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     
-    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
-        [[LZTapjoyHelper singleton] showFullScreenAd];
-        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
-    }
+//    if (! [[NSUserDefaults standardUserDefaults]boolForKey:@"LZAdsOff"]){
+//        [[LZTapjoyHelper singleton] showFullScreenAd];
+//        //[[LZTapjoyHelper singleton]showFullScreenAdWithViewController : self];
+//    }
 }
 - (void)productPurchased:(NSNotification *)notification
 {
