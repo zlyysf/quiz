@@ -40,3 +40,21 @@ key: productIdentifier (for the non-cunsumble product in store)
  
 value: YES means user has already purchased this product; NO means user has not purchased this product or has not restore this product.
 */
+
+/*
+key: @"LZFacebookBonus"
+value: YES means user got bonus already ; NO means user did not get bonus yet.
+
+*/
+
+/*
+ key: @"LZTwitterBonus"
+ value: YES means user got bonus already ; NO means user did not get bonus yet.
+ 
+ */
+
+/*
+ key: @"LZReviewAppBonus"
+ value: YES means user got bonus already ; NO means user did not get bonus yet.
+ 
+ */

@@ -14,6 +14,10 @@
 //#import <StoreKit/StoreKit.h>
 #import "SHKFacebook.h"
 #import "SHKTwitter.h"
+#define kFacebookBonusKey @"LZFacebookBonus"
+#define kTwitterBonusKey @"LZTwitterBonus"
+#define kReviewAppBonusKey @"LZReviewAppBonus"
+#define kFreebieBonusDelta 20
 @interface LZStoreViewController ()<LZCellDelegate>
 {
     NSNumberFormatter * _priceFormatter;
@@ -134,7 +138,7 @@
         {
             [cell.selectButton setEnabled:YES];
             cell.checkmarkImage.hidden = YES;
-            cell.productNameLabel.hidden = NO;
+            cell.productPriceLabel.hidden = NO;
             cell.productPriceLabel.text = [_priceFormatter stringFromNumber:product.price];
         }
         return cell;
@@ -154,18 +158,43 @@
             cell.descriptionLabel.text = @"Tell your facebook friends";
             NSString *path = [[NSBundle mainBundle] pathForResource:@"facebook@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
+            if ([[NSUserDefaults standardUserDefaults]boolForKey:kFacebookBonusKey])
+            {
+                [cell.selectButton setEnabled:NO];
+            }
+            else
+            {
+                [cell.selectButton setEnabled:YES];
+            }
         }
         else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Twitter"])
         {
             cell.descriptionLabel.text = @"Tell your twitter friends";
             NSString *path = [[NSBundle mainBundle] pathForResource:@"twitter@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
+            if ([[NSUserDefaults standardUserDefaults]boolForKey:kTwitterBonusKey])
+            {
+                [cell.selectButton setEnabled:NO];
+            }
+            else
+            {
+                [cell.selectButton setEnabled:YES];
+            }
+
         }
         else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Review our app"])
         {
             cell.descriptionLabel.text = @"Review our app";
             NSString *path = [[NSBundle mainBundle] pathForResource:@"review@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
+            if ([[NSUserDefaults standardUserDefaults]boolForKey:kReviewAppBonusKey])
+            {
+                [cell.selectButton setEnabled:NO];
+            }
+            else
+            {
+                [cell.selectButton setEnabled:YES];
+            }
         }
 
         cell.profitLabel.text = @"Get 20 Tokens!";
@@ -208,19 +237,35 @@
             NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://www.apple.com" ];
             SHKItem *item = [SHKItem URL:ourAppUrl title:@"com to join Quiz Awsome and have fun" contentType:SHKURLContentTypeUndefined];
             [SHKFacebook shareItem:item];
-            
+            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kFacebookBonusKey];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            [[LZDataAccess singleton]updateUserTotalCoinByDelta:kFreebieBonusDelta];
+            NSArray *reloadCellIndex = [NSArray arrayWithObject:LZCellIndexPath];
+            [self.listView reloadRowsAtIndexPaths:reloadCellIndex withRowAnimation:UITableViewRowAnimationNone];
+            [self refreshGold];
         }
         else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Twitter"])
         {
             NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://www.apple.com" ];
             SHKItem *item = [SHKItem URL:ourAppUrl title:@"com to join Quiz Awsome and have fun" contentType:SHKURLContentTypeUndefined];
             [SHKTwitter shareItem:item];
+            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kTwitterBonusKey];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            [[LZDataAccess singleton]updateUserTotalCoinByDelta:kFreebieBonusDelta];
+            NSArray *reloadCellIndex = [NSArray arrayWithObject:LZCellIndexPath];
+            [self.listView reloadRowsAtIndexPaths:reloadCellIndex withRowAnimation:UITableViewRowAnimationNone];
+            [self refreshGold];
         }
         else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Review our app"])
         {
             NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://www.apple.com" ];
             [[UIApplication sharedApplication] openURL:ourAppUrl];
-
+            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kReviewAppBonusKey];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+            [[LZDataAccess singleton]updateUserTotalCoinByDelta:kFreebieBonusDelta];
+            NSArray *reloadCellIndex = [NSArray arrayWithObject:LZCellIndexPath];
+            [self.listView reloadRowsAtIndexPaths:reloadCellIndex withRowAnimation:UITableViewRowAnimationNone];
+            [self refreshGold];
         }
 
     }

@@ -16,7 +16,10 @@
 #define kPackgeElectronicIndex 5
 #define kPackgeSportsclubIndex 6
 #define kPackgeFooddrinkIndex 7
-
+#define kInApp40TokensDelta 40
+#define kInApp100TokensDelta 100
+#define kInApp200TokensDelta 200
+#define kInApp400TokensDelta 400
 NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurchasedNotification";
 @interface LZIAPManager () <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 @end
@@ -92,7 +95,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 	
 	HUD.delegate = self;
 	HUD.labelText = @"Retrieving store information";
-	
+	HUD.dimBackground = YES;
 	[HUD show:YES];
     
 }
@@ -281,13 +284,13 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     }
     else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlocksportsclub"])
     {
-        NSArray * packages = [[LZDataAccess singleton]getPackages];
-        NSDictionary * package = [packages objectAtIndex:kPackgeSportsclubIndex];
-        int lockStatus = [[package objectForKey:@"locked"]integerValue];
-        if (lockStatus == 1) {
-            NSString *packKey = [package objectForKey:@"name"];
-            [[LZDataAccess singleton]updatePackageLockState:packKey andLocked:0];
-        }
+//        NSArray * packages = [[LZDataAccess singleton]getPackages];
+//        NSDictionary * package = [packages objectAtIndex:kPackgeSportsclubIndex];
+//        int lockStatus = [[package objectForKey:@"locked"]integerValue];
+//        if (lockStatus == 1) {
+//            NSString *packKey = [package objectForKey:@"name"];
+//            [[LZDataAccess singleton]updatePackageLockState:packKey andLocked:0];
+//        }
     }
     else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlockfooddrink"])
     {
@@ -301,19 +304,19 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     }
     else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.buytoken40"])
     {
-        [[LZDataAccess singleton]updateUserTotalCoinByDelta:40];
+        [[LZDataAccess singleton]updateUserTotalCoinByDelta:kInApp40TokensDelta];
     }
     else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.buytoken100"])
     {
-        [[LZDataAccess singleton]updateUserTotalCoinByDelta:100];
+        [[LZDataAccess singleton]updateUserTotalCoinByDelta:kInApp100TokensDelta];
     }
     else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.buytoken200"])
     {
-        [[LZDataAccess singleton]updateUserTotalCoinByDelta:200];
+        [[LZDataAccess singleton]updateUserTotalCoinByDelta:kInApp200TokensDelta];
     }
     else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.buytoken400"])
     {
-        [[LZDataAccess singleton]updateUserTotalCoinByDelta:400];
+        [[LZDataAccess singleton]updateUserTotalCoinByDelta:kInApp400TokensDelta];
     }
     [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier userInfo:nil];
     
