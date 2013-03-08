@@ -43,8 +43,8 @@
 		5F2FA33916E8A17600EA0EB8 /* freebies@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2FA33816E8A17600EA0EB8 /* freebies@2x.png */; };
 		5F2FA33B16E8A65B00EA0EB8 /* buy_failed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2FA33A16E8A65A00EA0EB8 /* buy_failed@2x.png */; };
 		5F2FA33D16E8A88600EA0EB8 /* checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F2FA33C16E8A88600EA0EB8 /* checkmark@2x.png */; };
-		5F382E4816E9ADCE00949204 /* apparel_package_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F382E4616E9ADCE00949204 /* apparel_package_bg@2x.jpg */; };
-		5F382E4916E9ADCE00949204 /* auto_bg@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F382E4716E9ADCE00949204 /* auto_bg@2x.jpg */; };
+		5F382E4816E9ADCE00949204 /* Apparel and shoes@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F382E4616E9ADCE00949204 /* Apparel and shoes@2x.jpg */; };
+		5F382E4916E9ADCE00949204 /* Automotive@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5F382E4716E9ADCE00949204 /* Automotive@2x.jpg */; };
 		5F4D896416DF2F0E0029E4BC /* LZIAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D896316DF2F0E0029E4BC /* LZIAPManager.m */; };
 		5F91536516BA27180074FFF2 /* PackageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536416BA27180074FFF2 /* PackageCell.m */; };
 		5F91536E16BA38D50074FFF2 /* LZTopNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536D16BA38D50074FFF2 /* LZTopNavView.m */; };
@@ -445,8 +445,8 @@
 		5F2FA33816E8A17600EA0EB8 /* freebies@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "freebies@2x.png"; sourceTree = "<group>"; };
 		5F2FA33A16E8A65A00EA0EB8 /* buy_failed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "buy_failed@2x.png"; sourceTree = "<group>"; };
 		5F2FA33C16E8A88600EA0EB8 /* checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark@2x.png"; sourceTree = "<group>"; };
-		5F382E4616E9ADCE00949204 /* apparel_package_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "apparel_package_bg@2x.jpg"; sourceTree = "<group>"; };
-		5F382E4716E9ADCE00949204 /* auto_bg@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "auto_bg@2x.jpg"; sourceTree = "<group>"; };
+		5F382E4616E9ADCE00949204 /* Apparel and shoes@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Apparel and shoes@2x.jpg"; sourceTree = "<group>"; };
+		5F382E4716E9ADCE00949204 /* Automotive@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Automotive@2x.jpg"; sourceTree = "<group>"; };
 		5F4D896216DF2F0E0029E4BC /* LZIAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZIAPManager.h; sourceTree = "<group>"; };
 		5F4D896316DF2F0E0029E4BC /* LZIAPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZIAPManager.m; sourceTree = "<group>"; };
 		5F91536316BA27180074FFF2 /* PackageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageCell.h; sourceTree = "<group>"; };
@@ -859,8 +859,8 @@
 		5F9AFAE316E5F55D00464826 /* package_bg */ = {
 			isa = PBXGroup;
 			children = (
-				5F382E4616E9ADCE00949204 /* apparel_package_bg@2x.jpg */,
-				5F382E4716E9ADCE00949204 /* auto_bg@2x.jpg */,
+				5F382E4616E9ADCE00949204 /* Apparel and shoes@2x.jpg */,
+				5F382E4716E9ADCE00949204 /* Automotive@2x.jpg */,
 			);
 			name = package_bg;
 			sourceTree = "<group>";
@@ -1362,8 +1362,8 @@
 				5F2FA33916E8A17600EA0EB8 /* freebies@2x.png in Resources */,
 				5F2FA33B16E8A65B00EA0EB8 /* buy_failed@2x.png in Resources */,
 				5F2FA33D16E8A88600EA0EB8 /* checkmark@2x.png in Resources */,
-				5F382E4816E9ADCE00949204 /* apparel_package_bg@2x.jpg in Resources */,
-				5F382E4916E9ADCE00949204 /* auto_bg@2x.jpg in Resources */,
+				5F382E4816E9ADCE00949204 /* Apparel and shoes@2x.jpg in Resources */,
+				5F382E4916E9ADCE00949204 /* Automotive@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -68,7 +68,8 @@
     currentQuizIndex = 0;
     answeredWrongCount = 0;
     answeredRightCount = 0;
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"package_bg@2x" ofType:@"jpg"];
+    NSString *pack_bg = [NSString stringWithFormat:@"%@@2x",self.currentPackageKey];
+    NSString *path = [[NSBundle mainBundle] pathForResource:pack_bg ofType:@"jpg"];
     [self.controllerBackImageView setImage:[UIImage imageWithContentsOfFile:path]];
     playView1 = [[LZPlayView alloc]initWithFrame:playFrame];
     playView1.delegate = self;

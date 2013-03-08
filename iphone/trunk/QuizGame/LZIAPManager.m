@@ -11,11 +11,11 @@
 #import "GADMasterViewController.h"
 #import "LZDataAccess.h"
 
-#define kPackgeFortuneIndex 3
-#define kPackgeHealthIndex 4
-#define kPackgeElectronicIndex 5
-#define kPackgeSportsclubIndex 6
-#define kPackgeFooddrinkIndex 7
+#define kPackgeFortuneKey @"Fortune 500"
+#define kPackgeHealthKey @"Health and beauty"
+#define kPackgeElectronicKey @"Electronic"
+#define kPackgeSportsclubKey @"Sports club"
+#define kPackgeFooddrinkKey @"Food and drink"
 #define kInApp40TokensDelta 40
 #define kInApp100TokensDelta 100
 #define kInApp200TokensDelta 200
@@ -126,14 +126,36 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     _productsRequest = nil;
     
     NSArray * skProducts = response.products;
-    for (SKProduct * skProduct in skProducts) {
-        NSLog(@"Found product: %@ %@ %0.2f",
-              skProduct.productIdentifier,
-              skProduct.localizedTitle,
-              skProduct.price.floatValue);
+    NSLog(@"skProducts %@",skProducts);
+    NSArray *orderArray = [NSArray arrayWithObjects:
+                      @"com.lingzhi.QuizAwsome.removeads",
+                      @"com.lingzhi.QuizAwsome.unlockallpackages",
+                      @"com.lingzhi.QuizAwsome.unlockfortune",
+                      @"com.lingzhi.QuizAwsome.unlockhealth",
+                      @"com.lingzhi.QuizAwsome.unlockelectronic",
+                      @"com.lingzhi.QuizAwsome.unlocksportsclub",
+                      @"com.lingzhi.QuizAwsome.unlockfooddrink",
+                      @"com.lingzhi.QuizAwsome.buytoken40",
+                      @"com.lingzhi.QuizAwsome.buytoken100",
+                      @"com.lingzhi.QuizAwsome.buytoken200",
+                      @"com.lingzhi.QuizAwsome.buytoken400", nil];
+    NSMutableArray *reorderArray = [NSMutableArray array];
+    for (NSString *identifier in orderArray)
+    {
+        for (SKProduct * skProduct in skProducts)
+        {
+            if ([skProduct.productIdentifier isEqualToString:identifier])
+            {
+                [reorderArray addObject:skProduct];
+                break;
+            }
+//            NSLog(@"Found product: %@ %@ %0.2f",
+//                  skProduct.productIdentifier,
+//                  skProduct.localizedTitle,
+//                  skProduct.price.floatValue);
+        }
     }
-    
-    _completionHandler(YES, skProducts);
+    _completionHandler(YES, reorderArray);
     _completionHandler = nil;
     [HUD hide:YES];
     
@@ -254,53 +276,23 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     }
     else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlockfortune"])
     {
-        NSArray * packages = [[LZDataAccess singleton]getPackages];
-        NSDictionary * package = [packages objectAtIndex:kPackgeFortuneIndex];
-        int lockStatus = [[package objectForKey:@"locked"]integerValue];
-        if (lockStatus == 1) {
-            NSString *packKey = [package objectForKey:@"name"];
-            [[LZDataAccess singleton]updatePackageLockState:packKey andLocked:0];
-        }
+        [self unlockPackge:kPackgeFortuneKey];
     }
     else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlockhealth"])
     {
-        NSArray * packages = [[LZDataAccess singleton]getPackages];
-        NSDictionary * package = [packages objectAtIndex:kPackgeHealthIndex];
-        int lockStatus = [[package objectForKey:@"locked"]integerValue];
-        if (lockStatus == 1) {
-            NSString *packKey = [package objectForKey:@"name"];
-            [[LZDataAccess singleton]updatePackageLockState:packKey andLocked:0];
-        }
+        [self unlockPackge:kPackgeHealthKey];
     }
     else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlockelectronic"])
     {
-        NSArray * packages = [[LZDataAccess singleton]getPackages];
-        NSDictionary * package = [packages objectAtIndex:kPackgeElectronicIndex];
-        int lockStatus = [[package objectForKey:@"locked"]integerValue];
-        if (lockStatus == 1) {
-            NSString *packKey = [package objectForKey:@"name"];
-            [[LZDataAccess singleton]updatePackageLockState:packKey andLocked:0];
-        }
+        [self unlockPackge:kPackgeElectronicKey];
     }
     else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlocksportsclub"])
     {
-//        NSArray * packages = [[LZDataAccess singleton]getPackages];
-//        NSDictionary * package = [packages objectAtIndex:kPackgeSportsclubIndex];
-//        int lockStatus = [[package objectForKey:@"locked"]integerValue];
-//        if (lockStatus == 1) {
-//            NSString *packKey = [package objectForKey:@"name"];
-//            [[LZDataAccess singleton]updatePackageLockState:packKey andLocked:0];
-//        }
+        [self unlockPackge:kPackgeSportsclubKey];
     }
     else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.unlockfooddrink"])
     {
-        NSArray * packages = [[LZDataAccess singleton]getPackages];
-        NSDictionary * package = [packages objectAtIndex:kPackgeFooddrinkIndex];
-        int lockStatus = [[package objectForKey:@"locked"]integerValue];
-        if (lockStatus == 1) {
-            NSString *packKey = [package objectForKey:@"name"];
-            [[LZDataAccess singleton]updatePackageLockState:packKey andLocked:0];
-        }
+        [self unlockPackge:kPackgeFooddrinkKey];
     }
     else if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.buytoken40"])
     {
@@ -321,17 +313,6 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier userInfo:nil];
     
 }
-- (void)testBuyProduct:(NSString *)productIdentifier
-{
-    if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.removeads"])
-    {
-        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZAdsOff"];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-        [[GADMasterViewController singleton]removeAds];
-    }
-
-    [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier userInfo:nil];
-}
 - (void)restoreCompletedTransactions {
         [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
     HUD = [[MBProgressHUD alloc] initWithView:[[UIApplication sharedApplication] delegate].window];
@@ -340,6 +321,24 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     HUD.delegate = self;
     HUD.labelText = @"Connecting to iTunes...";
     [HUD show:YES];
+
+}
+- (void)unlockPackge:(NSString *)packageKey
+{
+    NSArray * packages = [[LZDataAccess singleton]getPackages];
+    for (NSDictionary * package in packages)
+    {
+        NSString *packKey = [package objectForKey:@"name"];
+        if ([packKey isEqualToString:packageKey])
+        {
+            int lockStatus = [[package objectForKey:@"locked"]integerValue];
+            if (lockStatus == 1)
+            {
+                [[LZDataAccess singleton]updatePackageLockState:packKey andLocked:0];
+            }
+            break;
+        }
+     }
 
 }
 #pragma mark MBProgressHUDDelegate methods

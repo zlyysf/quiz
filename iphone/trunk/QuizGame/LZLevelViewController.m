@@ -40,7 +40,8 @@
     [super viewDidLoad];
     self.topNavView.topNavType = TopNavTypeNormal;
     [self.view bringSubviewToFront:self.listView];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"package_bg@2x" ofType:@"jpg"];
+    NSString *pack_bg = [NSString stringWithFormat:@"%@@2x",self.currentPackageName];
+    NSString *path = [[NSBundle mainBundle] pathForResource:pack_bg ofType:@"jpg"];
     [self.controllerBackImageView setImage:[UIImage imageWithContentsOfFile:path]];
 	// Do any additional setup after loading the view.
 }
