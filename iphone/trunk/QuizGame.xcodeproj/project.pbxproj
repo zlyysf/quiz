@@ -118,6 +118,8 @@
 		5FEBEE7C16D4F053003A5408 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBEE7B16D4F053003A5408 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5FEBEE8016D4F06D003A5408 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBEE7F16D4F06D003A5408 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5FEBEE8316D4F172003A5408 /* LZSHKConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBEE8216D4F172003A5408 /* LZSHKConfigurator.m */; };
+		5FF0CA1D16EDE0CB00827D9C /* Countries@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FF0CA1B16EDE0CB00827D9C /* Countries@2x.jpg */; };
+		5FF0CA1E16EDE0CB00827D9C /* Sports club@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FF0CA1C16EDE0CB00827D9C /* Sports club@2x.jpg */; };
 		5FF7FFA916D7468200A01AD7 /* LZDataAccess+GenSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7FFA816D7468200A01AD7 /* LZDataAccess+GenSql.m */; };
 		5FF953DA16E6F0E40025ACD5 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF953D916E6F0E40025ACD5 /* GameKit.framework */; };
 		5FF953FF16E6F4E60025ACD5 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF953FE16E6F4E60025ACD5 /* GameKitHelper.m */; };
@@ -547,6 +549,8 @@
 		5FEBEE7F16D4F06D003A5408 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5FEBEE8116D4F172003A5408 /* LZSHKConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSHKConfigurator.h; sourceTree = "<group>"; };
 		5FEBEE8216D4F172003A5408 /* LZSHKConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSHKConfigurator.m; sourceTree = "<group>"; };
+		5FF0CA1B16EDE0CB00827D9C /* Countries@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Countries@2x.jpg"; sourceTree = "<group>"; };
+		5FF0CA1C16EDE0CB00827D9C /* Sports club@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Sports club@2x.jpg"; sourceTree = "<group>"; };
 		5FF7FFA716D7468200A01AD7 /* LZDataAccess+GenSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LZDataAccess+GenSql.h"; sourceTree = "<group>"; };
 		5FF7FFA816D7468200A01AD7 /* LZDataAccess+GenSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LZDataAccess+GenSql.m"; sourceTree = "<group>"; };
 		5FF953D916E6F0E40025ACD5 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
@@ -859,6 +863,8 @@
 		5F9AFAE316E5F55D00464826 /* package_bg */ = {
 			isa = PBXGroup;
 			children = (
+				5FF0CA1B16EDE0CB00827D9C /* Countries@2x.jpg */,
+				5FF0CA1C16EDE0CB00827D9C /* Sports club@2x.jpg */,
 				5F382E4616E9ADCE00949204 /* Apparel and shoes@2x.jpg */,
 				5F382E4716E9ADCE00949204 /* Automotive@2x.jpg */,
 			);
@@ -1364,6 +1370,8 @@
 				5F2FA33D16E8A88600EA0EB8 /* checkmark@2x.png in Resources */,
 				5F382E4816E9ADCE00949204 /* Apparel and shoes@2x.jpg in Resources */,
 				5F382E4916E9ADCE00949204 /* Automotive@2x.jpg in Resources */,
+				5FF0CA1D16EDE0CB00827D9C /* Countries@2x.jpg in Resources */,
+				5FF0CA1E16EDE0CB00827D9C /* Sports club@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
