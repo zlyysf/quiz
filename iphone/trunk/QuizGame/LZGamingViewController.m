@@ -70,6 +70,10 @@
     answeredRightCount = 0;
     NSString *pack_bg = [NSString stringWithFormat:@"%@@2x",self.currentPackageKey];
     NSString *path = [[NSBundle mainBundle] pathForResource:pack_bg ofType:@"jpg"];
+    if (path  == nil || [path isEqualToString:@""])
+    {
+        path = [[NSBundle mainBundle] pathForResource:@"normal_bg@2x" ofType:@"jpg"];
+    }
     [self.controllerBackImageView setImage:[UIImage imageWithContentsOfFile:path]];
     playView1 = [[LZPlayView alloc]initWithFrame:playFrame];
     playView1.delegate = self;

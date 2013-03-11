@@ -42,6 +42,10 @@
     [self.view bringSubviewToFront:self.listView];
     NSString *pack_bg = [NSString stringWithFormat:@"%@@2x",self.currentPackageName];
     NSString *path = [[NSBundle mainBundle] pathForResource:pack_bg ofType:@"jpg"];
+    if (path  == nil || [path isEqualToString:@""])
+    {
+        path = [[NSBundle mainBundle] pathForResource:@"normal_bg@2x" ofType:@"jpg"];
+    }
     [self.controllerBackImageView setImage:[UIImage imageWithContentsOfFile:path]];
 	// Do any additional setup after loading the view.
 }
