@@ -11,11 +11,8 @@
 #import "RestorePurchaseCell.h"
 #import "StoreFreeCell.h"
 #import "LZIAPManager.h"
-//#import <StoreKit/StoreKit.h>
-#import "SHKFacebook.h"
-#import "SHKTwitter.h"
-#define kFacebookBonusKey @"LZFacebookBonus"
-#define kTwitterBonusKey @"LZTwitterBonus"
+#import "LZFacebookShare.h"
+#import "LZTwitterShare.h"
 #define kReviewAppBonusKey @"LZReviewAppBonus"
 #define kFreebieBonusDelta 20
 @interface LZStoreViewController ()<LZCellDelegate>
@@ -25,6 +22,7 @@
 @property (nonatomic,readwrite)BOOL hasQueryData;
 @property (nonatomic,strong)NSArray *freebieItemArray;
 @property (nonatomic,strong)NSArray *storeItemArray;
+@property (nonatomic,strong)NSMutableDictionary *currentShareInfo;
 
 @end
 
@@ -33,6 +31,7 @@
 @synthesize hasQueryData;
 @synthesize freebieItemArray;
 @synthesize storeItemArray;
+@synthesize currentShareInfo;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -74,10 +73,16 @@
     }];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(twitterShareDidSend:) name:LZShareTwitterDidSendNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookShareDidSend:) name:LZShareFacebookDidSendNotification object:nil];
+    
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [[LZIAPManager sharedInstance]cancelQueryProducts];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:IAPHelperProductPurchasedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:LZShareTwitterDidSendNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:LZShareFacebookDidSendNotification object:nil];
+    
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -234,27 +239,11 @@
         /* social share @"Twitter",@"Facebook",@"Review our app" */
         if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Facebook"])
         {
-            NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://www.apple.com" ];
-            SHKItem *item = [SHKItem URL:ourAppUrl title:@"com to join Quiz Awsome and have fun" contentType:SHKURLContentTypeUndefined];
-            [SHKFacebook shareItem:item];
-            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kFacebookBonusKey];
-            [[NSUserDefaults standardUserDefaults]synchronize];
-            [[LZDataAccess singleton]updateUserTotalCoinByDelta:kFreebieBonusDelta];
-            NSArray *reloadCellIndex = [NSArray arrayWithObject:LZCellIndexPath];
-            [self.listView reloadRowsAtIndexPaths:reloadCellIndex withRowAnimation:UITableViewRowAnimationNone];
-            [self refreshGold];
+            [[LZFacebookShare sharedInstance]share];
         }
         else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Twitter"])
         {
-            NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://www.apple.com" ];
-            SHKItem *item = [SHKItem URL:ourAppUrl title:@"com to join Quiz Awsome and have fun" contentType:SHKURLContentTypeUndefined];
-            [SHKTwitter shareItem:item];
-            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kTwitterBonusKey];
-            [[NSUserDefaults standardUserDefaults]synchronize];
-            [[LZDataAccess singleton]updateUserTotalCoinByDelta:kFreebieBonusDelta];
-            NSArray *reloadCellIndex = [NSArray arrayWithObject:LZCellIndexPath];
-            [self.listView reloadRowsAtIndexPaths:reloadCellIndex withRowAnimation:UITableViewRowAnimationNone];
-            [self refreshGold];
+           [[LZTwitterShare sharedInstance]share];
         }
         else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Review our app"])
         {
@@ -288,6 +277,35 @@
      */
 
   }
+- (void)twitterShareDidSend:(NSNotification *)notification
+{
+    for (NSString *freebie in freebieItemArray)
+    {
+        if ([freebie isEqualToString:@"Twitter"])
+        {
+            int index = [freebieItemArray indexOfObject:freebie];
+            NSIndexPath *reloadCellIndex = [NSIndexPath indexPathForRow:index inSection:2];
+            NSArray *reloadCell = [NSArray arrayWithObject:reloadCellIndex];
+            [self.listView reloadRowsAtIndexPaths:reloadCell withRowAnimation:UITableViewRowAnimationNone];
+            [self refreshGold];
+        }
+    }
+}
+- (void)facebookShareDidSend:(NSNotification *)notification
+{
+    for (NSString *freebie in freebieItemArray)
+    {
+        if ([freebie isEqualToString:@"Facebook"])
+        {
+            int index = [freebieItemArray indexOfObject:freebie];
+            NSIndexPath *reloadCellIndex = [NSIndexPath indexPathForRow:index inSection:2];
+            NSArray *reloadCell = [NSArray arrayWithObject:reloadCellIndex];
+            [self.listView reloadRowsAtIndexPaths:reloadCell withRowAnimation:UITableViewRowAnimationNone];
+            [self refreshGold];
+        }
+    }
+
+}
 - (void)productPurchased:(NSNotification *)notification
 {
     NSString * productIdentifier = notification.object;
