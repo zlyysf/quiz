@@ -10,7 +10,7 @@
 //#import <StoreKit/StoreKit.h>
 #import "GADMasterViewController.h"
 #import "LZDataAccess.h"
-
+#import "LZStoreViewController.h"
 #define kPackgeFortuneKey @"Fortune 500"
 #define kPackgeHealthKey @"Health and beauty"
 #define kPackgeElectronicKey @"Electronic"
@@ -90,13 +90,27 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     _productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:_productIdentifiers];
     _productsRequest.delegate = self;
     [_productsRequest start];
-    HUD = [[MBProgressHUD alloc] initWithView:[[UIApplication sharedApplication] delegate].window];
-	[[[UIApplication sharedApplication] delegate].window addSubview:HUD];
-	
-	HUD.delegate = self;
-	HUD.labelText = @"Retrieving store information";
-	HUD.dimBackground = YES;
-	[HUD show:YES];
+    UINavigationController *initialController = (UINavigationController*)[UIApplication
+                                                                          sharedApplication].keyWindow.rootViewController;
+    NSString * className = NSStringFromClass([initialController.visibleViewController class]);
+    if ([className isEqualToString:@"LZStoreViewController"])
+    {
+        LZStoreViewController *lzStoreViewController = (LZStoreViewController *)initialController.visibleViewController;
+        HUD = [[MBProgressHUD alloc] initWithView:lzStoreViewController.listView];
+        [lzStoreViewController.listView addSubview:HUD];
+        HUD.delegate = self;
+        HUD.labelText = @"Retrieving store information";
+        HUD.dimBackground = YES;
+        [HUD show:YES];
+    }
+
+//    HUD = [[MBProgressHUD alloc] initWithView:[[UIApplication sharedApplication] delegate].window];
+//	[[[UIApplication sharedApplication] delegate].window addSubview:HUD];
+//	
+//	HUD.delegate = self;
+//	HUD.labelText = @"Retrieving store information";
+//	HUD.dimBackground = YES;
+//	[HUD show:YES];
     
 }
 
@@ -107,13 +121,19 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     {
         SKPayment * payment = [SKPayment paymentWithProduct:product];
         [[SKPaymentQueue defaultQueue] addPayment:payment];
-        HUD = [[MBProgressHUD alloc] initWithView:[[UIApplication sharedApplication] delegate].window];
-        [[[UIApplication sharedApplication] delegate].window addSubview:HUD];
-        
-        HUD.delegate = self;
-        HUD.labelText = @"Connecting to iTunes...";
-        HUD.dimBackground = YES;
-        [HUD show:YES];
+        UINavigationController *initialController = (UINavigationController*)[UIApplication
+                                                                              sharedApplication].keyWindow.rootViewController;
+        NSString * className = NSStringFromClass([initialController.visibleViewController class]);
+        if ([className isEqualToString:@"LZStoreViewController"])
+        {
+            LZStoreViewController *lzStoreViewController = (LZStoreViewController *)initialController.visibleViewController;
+            HUD = [[MBProgressHUD alloc] initWithView:lzStoreViewController.listView];
+            [lzStoreViewController.listView addSubview:HUD];
+            HUD.delegate = self;
+            HUD.labelText = @"Connecting to iTunes...";
+            HUD.dimBackground = YES;
+            [HUD show:YES];
+        }
     }
     
 }
@@ -315,13 +335,20 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 }
 - (void)restoreCompletedTransactions {
         [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
-    HUD = [[MBProgressHUD alloc] initWithView:[[UIApplication sharedApplication] delegate].window];
-    [[[UIApplication sharedApplication] delegate].window addSubview:HUD];
+    UINavigationController *initialController = (UINavigationController*)[UIApplication
+                                                                          sharedApplication].keyWindow.rootViewController;
+    NSString * className = NSStringFromClass([initialController.visibleViewController class]);
+    if ([className isEqualToString:@"LZStoreViewController"])
+    {
+        LZStoreViewController *lzStoreViewController = (LZStoreViewController *)initialController.visibleViewController;
+
+    HUD = [[MBProgressHUD alloc] initWithView:lzStoreViewController.listView];
+    [lzStoreViewController.listView addSubview:HUD];
     HUD.dimBackground = YES;
     HUD.delegate = self;
     HUD.labelText = @"Connecting to iTunes...";
     [HUD show:YES];
-
+    }
 }
 - (void)unlockPackge:(NSString *)packageKey
 {

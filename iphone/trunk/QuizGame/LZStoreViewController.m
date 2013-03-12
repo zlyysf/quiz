@@ -15,6 +15,7 @@
 #import "LZTwitterShare.h"
 #define kReviewAppBonusKey @"LZReviewAppBonus"
 #define kFreebieBonusDelta 20
+#include "MBProgressHUD.h"
 @interface LZStoreViewController ()<LZCellDelegate>
 {
     NSNumberFormatter * _priceFormatter;
@@ -78,6 +79,7 @@
     
 }
 - (void)viewWillDisappear:(BOOL)animated {
+    [MBProgressHUD hideAllHUDsForView:self.listView animated:YES];
     [[LZIAPManager sharedInstance]cancelQueryProducts];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:IAPHelperProductPurchasedNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:LZShareTwitterDidSendNotification object:nil];

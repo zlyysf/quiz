@@ -678,7 +678,7 @@
         NSLog(@"in updatePackageLockState executeUpdate updateSql outErr=%@", outErr);
     if (!updateRet)
         NSLog(@"in updatePackageLockState executeUpdate updateSql Failed");
-    NSLog(@"updateGroupLockState dictUpdate=%@",dictUpdate);
+    NSLog(@"updatePackageLockState dictUpdate=%@",dictUpdate);
     return updateRet;
 
 }
