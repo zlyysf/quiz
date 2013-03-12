@@ -12,7 +12,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "LZSoundManager.h"
 #import "LZTapjoyHelper.h"
-
+#import "GameKitHelper.h"
 
 #define kLockPakStartIndex 3
 #define kTotalOptionCount 3
@@ -477,6 +477,11 @@
         //display end view then get back to the group list view
         //lock or not lock the next level or next package
         [[LZDataAccess singleton] updateGroupScoreAndRightQuizAmount:self.currentGroupKey andScore:answeredRightCount*100 andRightQuizAmount:answeredRightCount];
+        NSDictionary *userGameInfo = [[LZDataAccess singleton]getUserTotalScore];
+        int userGameScore = [[userGameInfo objectForKey:@"totalScore"] integerValue];
+        [[GameKitHelper sharedGameKitHelper]
+         submitScore:(int64_t)userGameScore
+         category:kHighScoreLeaderboardCategory];
         NSArray *groupArray = [[LZDataAccess singleton]getPackageGroups:self.currentPackageKey];
         int groupIndex;
         int passRate;

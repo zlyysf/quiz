@@ -10,7 +10,6 @@
 
 @interface GameKitHelper ()
 <GKLeaderboardViewControllerDelegate> {
-    BOOL _gameCenterFeaturesEnabled;
 }
 @end
 
@@ -24,7 +23,22 @@
     });
     return sharedGameKitHelper;
 }
+- (BOOL)isGameCenterEnabled
+{
+    GKLocalPlayer* localPlayer =
+    [GKLocalPlayer localPlayer];
 
+    if(localPlayer.authenticated)
+    {
+        return  YES;
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Sorry" message:@"User did not sign in Game Center" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+        return NO;
+    }
+}
 #pragma mark Player Authentication
 
 -(void) authenticateLocalPlayer {
@@ -35,30 +49,8 @@
     [localPlayer authenticateWithCompletionHandler:^(NSError *error)
      {
      [self setLastError:error];
-         if ([GKLocalPlayer localPlayer].authenticated)
-         {
-            _gameCenterFeaturesEnabled = YES;
-         }
-         else
-         {
-             _gameCenterFeaturesEnabled = NO;
-         }
 
      }];
-         
-//     }] =
-//    ^(UIViewController *viewController,
-//      NSError *error) {
-//        
-//        [self setLastError:error];
-//        if ([GKLocalPlayer localPlayer].authenticated) {
-//            _gameCenterFeaturesEnabled = YES;
-//        } else if(viewController) {
-//            [self presentViewController:viewController];
-//        } else {
-//            _gameCenterFeaturesEnabled = NO;
-//        }
-//    };
 }
 #pragma mark Property setters
 
@@ -86,7 +78,7 @@
            category:(NSString*)category {
     //1: Check if Game Center
     //   features are enabled
-    if (!_gameCenterFeaturesEnabled) {
+    if (![self isGameCenterEnabled]) {
         return;
     }
     
@@ -112,15 +104,19 @@
              
              [_delegate onScoresSubmitted:success];
          }
-         if (success) {
-             GKLeaderboardViewController *gkcontroller = [[GKLeaderboardViewController alloc]init];
-             gkcontroller.category = kHighScoreLeaderboardCategory;
-             gkcontroller.timeScope = GKLeaderboardTimeScopeToday;
-             gkcontroller.leaderboardDelegate = self;
-             [self presentViewController:gkcontroller];
-         }
-     
      }];
+}
+-(void)showLeaderboard
+{
+    if (![self isGameCenterEnabled]) {
+        return;
+    }
+    GKLeaderboardViewController *gkcontroller = [[GKLeaderboardViewController alloc]init];
+    gkcontroller.category = kHighScoreLeaderboardCategory;
+    gkcontroller.timeScope = GKLeaderboardTimeScopeToday;
+    gkcontroller.leaderboardDelegate = self;
+    [self presentViewController:gkcontroller];
+
 }
 - (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
 {
