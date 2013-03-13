@@ -69,16 +69,16 @@
     {
         if ([[LZSoundManager SharedInstance]isSoundOn])
         {
-            [cell.selectButton setTitle:@"Sound On" forState:UIControlStateNormal];
+            [cell.selectButton setTitle:@"Sound on" forState:UIControlStateNormal];
         }
         else
         {
-            [cell.selectButton setTitle:@"Sound Off" forState:UIControlStateNormal];
+            [cell.selectButton setTitle:@"Sound off" forState:UIControlStateNormal];
         }
     }
     else if (indexPath.row == 1)
     {
-         [cell.selectButton setTitle:@"How to Play" forState:UIControlStateNormal];
+         [cell.selectButton setTitle:@"How to play" forState:UIControlStateNormal];
     }
     else
     {

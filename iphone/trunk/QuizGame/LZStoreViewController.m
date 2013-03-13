@@ -162,7 +162,7 @@
         StoreFreeCell *cell = (StoreFreeCell *)[tableView dequeueReusableCellWithIdentifier:@"StoreFreeCell"];
         if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Facebook"])
         {
-            cell.descriptionLabel.text = @"Tell your facebook friends";
+            cell.profitLabel.text = @"Tell your facebook friends";
             NSString *path = [[NSBundle mainBundle] pathForResource:@"facebook@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
             if ([[NSUserDefaults standardUserDefaults]boolForKey:kFacebookBonusKey])
@@ -176,7 +176,7 @@
         }
         else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Twitter"])
         {
-            cell.descriptionLabel.text = @"Tell your twitter friends";
+            cell.profitLabel.text = @"Tell your twitter followers";
             NSString *path = [[NSBundle mainBundle] pathForResource:@"twitter@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
             if ([[NSUserDefaults standardUserDefaults]boolForKey:kTwitterBonusKey])
@@ -191,7 +191,7 @@
         }
         else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Review our app"])
         {
-            cell.descriptionLabel.text = @"Review our app";
+            cell.profitLabel.text = @"Review our app";
             NSString *path = [[NSBundle mainBundle] pathForResource:@"review@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
             if ([[NSUserDefaults standardUserDefaults]boolForKey:kReviewAppBonusKey])
@@ -204,7 +204,7 @@
             }
         }
 
-        cell.profitLabel.text = @"Get 20 Tokens!";
+        cell.descriptionLabel.text = @"20";
         cell.cellIndexPath = indexPath;
         cell.delegate = self;
         return cell;

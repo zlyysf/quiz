@@ -74,6 +74,7 @@
 		5F22C01816F042E30058B851 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F22C01616F042E30058B851 /* MBProgressHUD.m */; };
 		5F22C01916F042E30058B851 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 5F22C01716F042E30058B851 /* README.mdown */; };
 		5F4D896416DF2F0E0029E4BC /* LZIAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D896316DF2F0E0029E4BC /* LZIAPManager.m */; };
+		5F7C3B8916F09ADC00C940AA /* tokens@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C3B8816F09ADC00C940AA /* tokens@2x.png */; };
 		5F91536516BA27180074FFF2 /* PackageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536416BA27180074FFF2 /* PackageCell.m */; };
 		5F91536E16BA38D50074FFF2 /* LZTopNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536D16BA38D50074FFF2 /* LZTopNavView.m */; };
 		5F91537116BA44C00074FFF2 /* LZFactoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91537016BA44C00074FFF2 /* LZFactoryViewController.m */; };
@@ -486,6 +487,7 @@
 		5F22C01716F042E30058B851 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.mdown; path = MBProgressHUD/README.mdown; sourceTree = "<group>"; };
 		5F4D896216DF2F0E0029E4BC /* LZIAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZIAPManager.h; sourceTree = "<group>"; };
 		5F4D896316DF2F0E0029E4BC /* LZIAPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZIAPManager.m; sourceTree = "<group>"; };
+		5F7C3B8816F09ADC00C940AA /* tokens@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tokens@2x.png"; sourceTree = "<group>"; };
 		5F91536316BA27180074FFF2 /* PackageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageCell.h; sourceTree = "<group>"; };
 		5F91536416BA27180074FFF2 /* PackageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageCell.m; sourceTree = "<group>"; };
 		5F91536C16BA38D50074FFF2 /* LZTopNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTopNavView.h; sourceTree = "<group>"; };
@@ -747,6 +749,7 @@
 		5F91537C16BA62490074FFF2 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				5F7C3B8816F09ADC00C940AA /* tokens@2x.png */,
 				5FE16BDC16EF472600842234 /* Icon@2x.png */,
 				5FE16BDA16EF472100842234 /* Icon.png */,
 				5FE16BDE16EF478500842234 /* Icon-Small.png */,
@@ -1392,6 +1395,7 @@
 				0880BFDC16F06B2B00C32742 /* quizicons in Resources */,
 				0880C01F16F06D8C00C32742 /* README.txt in Resources */,
 				0880C02716F06D8D00C32742 /* TapjoyResources.bundle in Resources */,
+				5F7C3B8916F09ADC00C940AA /* tokens@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
