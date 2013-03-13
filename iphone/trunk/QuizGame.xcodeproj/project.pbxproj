@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0817203C16E48BB3007B2870 /* TapjoyPublisherLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817203A16E48BB3007B2870 /* TapjoyPublisherLibrary.a */; };
-		0817203D16E48BB4007B2870 /* TapjoyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0817203B16E48BB3007B2870 /* TapjoyResources.bundle */; };
-		0817206216E48C9E007B2870 /* LZTapjoyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0817206116E48C9E007B2870 /* LZTapjoyHelper.m */; };
 		0817206416E48E10007B2870 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817206316E48E10007B2870 /* CoreTelephony.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		0817206616E48E1F007B2870 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0817206516E48E1F007B2870 /* MediaPlayer.framework */; };
-		0899E87C16E5E5F4009250A7 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0899E87A16E5E5F4009250A7 /* libGoogleAdMobAds.a */; };
-		0899E87D16E5E5F4009250A7 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0899E87B16E5E5F4009250A7 /* README.txt */; };
-		08E5B17E16C0A9DA00D1C754 /* quizicons in Resources */ = {isa = PBXBuildFile; fileRef = 08E5B17D16C0A9DA00D1C754 /* quizicons */; };
-		08E5B18F16C0A9EE00D1C754 /* LZDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5B18216C0A9ED00D1C754 /* LZDataAccess.m */; };
-		08E5B19016C0A9EE00D1C754 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5B18516C0A9ED00D1C754 /* FMDatabase.m */; };
-		08E5B19116C0A9EE00D1C754 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5B18716C0A9ED00D1C754 /* FMDatabaseAdditions.m */; };
-		08E5B19216C0A9EE00D1C754 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5B18916C0A9ED00D1C754 /* FMDatabasePool.m */; };
-		08E5B19316C0A9EE00D1C754 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5B18B16C0A9ED00D1C754 /* FMDatabaseQueue.m */; };
-		08E5B19416C0A9EE00D1C754 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5B18C16C0A9EE00D1C754 /* fmdb.m */; };
-		08E5B19516C0A9EE00D1C754 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 08E5B18E16C0A9EE00D1C754 /* FMResultSet.m */; };
+		0880BFDC16F06B2B00C32742 /* quizicons in Resources */ = {isa = PBXBuildFile; fileRef = 0880BFDB16F06B2B00C32742 /* quizicons */; };
+		0880C01E16F06D8C00C32742 /* libGoogleAdMobAds.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0880C00B16F06D8C00C32742 /* libGoogleAdMobAds.a */; };
+		0880C01F16F06D8C00C32742 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0880C00C16F06D8C00C32742 /* README.txt */; };
+		0880C02016F06D8C00C32742 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C00F16F06D8C00C32742 /* FMDatabase.m */; };
+		0880C02116F06D8C00C32742 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C01116F06D8C00C32742 /* FMDatabaseAdditions.m */; };
+		0880C02216F06D8C00C32742 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C01316F06D8C00C32742 /* FMDatabasePool.m */; };
+		0880C02316F06D8C00C32742 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C01516F06D8C00C32742 /* FMDatabaseQueue.m */; };
+		0880C02416F06D8C00C32742 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C01616F06D8C00C32742 /* fmdb.m */; };
+		0880C02516F06D8C00C32742 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C01816F06D8C00C32742 /* FMResultSet.m */; };
+		0880C02616F06D8C00C32742 /* TapjoyPublisherLibrary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0880C01C16F06D8C00C32742 /* TapjoyPublisherLibrary.a */; };
+		0880C02716F06D8D00C32742 /* TapjoyResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0880C01D16F06D8C00C32742 /* TapjoyResources.bundle */; };
+		0880C02B16F06DA700C32742 /* LZTapjoyHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C02A16F06DA700C32742 /* LZTapjoyHelper.m */; };
+		0880C03316F06DB400C32742 /* LZDataAccess+GenSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C02E16F06DB400C32742 /* LZDataAccess+GenSql.m */; };
+		0880C03416F06DB400C32742 /* LZDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C03016F06DB400C32742 /* LZDataAccess.m */; };
+		0880C03516F06DB400C32742 /* LZDATest1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C03216F06DB400C32742 /* LZDATest1.m */; };
 		5F08BD7C16E598A600B8CB08 /* LZSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F08BD7B16E598A600B8CB08 /* LZSoundManager.m */; };
 		5F08BD8116E5A78900B8CB08 /* LZSoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F08BD8016E5A78900B8CB08 /* LZSoundButton.m */; };
 		5F08BDA416E5B03D00B8CB08 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F08BDA316E5B03D00B8CB08 /* AVFoundation.framework */; };
@@ -125,7 +127,6 @@
 		5FEBEE7C16D4F053003A5408 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBEE7B16D4F053003A5408 /* CoreFoundation.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5FEBEE8016D4F06D003A5408 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FEBEE7F16D4F06D003A5408 /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		5FEBEE8316D4F172003A5408 /* LZSHKConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEBEE8216D4F172003A5408 /* LZSHKConfigurator.m */; };
-		5FF7FFA916D7468200A01AD7 /* LZDataAccess+GenSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7FFA816D7468200A01AD7 /* LZDataAccess+GenSql.m */; };
 		5FF953DA16E6F0E40025ACD5 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FF953D916E6F0E40025ACD5 /* GameKit.framework */; };
 		5FF953FF16E6F4E60025ACD5 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF953FE16E6F4E60025ACD5 /* GameKitHelper.m */; };
 /* End PBXBuildFile section */
@@ -393,40 +394,44 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0817203816E48BB3007B2870 /* TapjoyConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapjoyConnect.h; sourceTree = "<group>"; };
-		0817203916E48BB3007B2870 /* TapjoyConnectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapjoyConnectConstants.h; sourceTree = "<group>"; };
-		0817203A16E48BB3007B2870 /* TapjoyPublisherLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = TapjoyPublisherLibrary.a; sourceTree = "<group>"; };
-		0817203B16E48BB3007B2870 /* TapjoyResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TapjoyResources.bundle; sourceTree = "<group>"; };
-		0817206016E48C9E007B2870 /* LZTapjoyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTapjoyHelper.h; sourceTree = "<group>"; };
-		0817206116E48C9E007B2870 /* LZTapjoyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZTapjoyHelper.m; sourceTree = "<group>"; };
 		0817206316E48E10007B2870 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		0817206516E48E1F007B2870 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		0880BFDB16F06B2B00C32742 /* quizicons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = quizicons; path = Resouces/quizicons; sourceTree = "<group>"; };
+		0880C00216F06D8C00C32742 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
+		0880C00316F06D8C00C32742 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
+		0880C00416F06D8C00C32742 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
+		0880C00516F06D8C00C32742 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
+		0880C00616F06D8C00C32742 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
+		0880C00716F06D8C00C32742 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
+		0880C00816F06D8C00C32742 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
+		0880C00916F06D8C00C32742 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
+		0880C00A16F06D8C00C32742 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
+		0880C00B16F06D8C00C32742 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
+		0880C00C16F06D8C00C32742 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		0880C00E16F06D8C00C32742 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		0880C00F16F06D8C00C32742 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		0880C01016F06D8C00C32742 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		0880C01116F06D8C00C32742 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		0880C01216F06D8C00C32742 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		0880C01316F06D8C00C32742 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		0880C01416F06D8C00C32742 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		0880C01516F06D8C00C32742 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		0880C01616F06D8C00C32742 /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
+		0880C01716F06D8C00C32742 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		0880C01816F06D8C00C32742 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		0880C01A16F06D8C00C32742 /* TapjoyConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapjoyConnect.h; sourceTree = "<group>"; };
+		0880C01B16F06D8C00C32742 /* TapjoyConnectConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TapjoyConnectConstants.h; sourceTree = "<group>"; };
+		0880C01C16F06D8C00C32742 /* TapjoyPublisherLibrary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = TapjoyPublisherLibrary.a; sourceTree = "<group>"; };
+		0880C01D16F06D8C00C32742 /* TapjoyResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TapjoyResources.bundle; sourceTree = "<group>"; };
+		0880C02916F06DA700C32742 /* LZTapjoyHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTapjoyHelper.h; sourceTree = "<group>"; };
+		0880C02A16F06DA700C32742 /* LZTapjoyHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZTapjoyHelper.m; sourceTree = "<group>"; };
+		0880C02D16F06DB400C32742 /* LZDataAccess+GenSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LZDataAccess+GenSql.h"; sourceTree = "<group>"; };
+		0880C02E16F06DB400C32742 /* LZDataAccess+GenSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LZDataAccess+GenSql.m"; sourceTree = "<group>"; };
+		0880C02F16F06DB400C32742 /* LZDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDataAccess.h; sourceTree = "<group>"; };
+		0880C03016F06DB400C32742 /* LZDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDataAccess.m; sourceTree = "<group>"; };
+		0880C03116F06DB400C32742 /* LZDATest1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDATest1.h; sourceTree = "<group>"; };
+		0880C03216F06DB400C32742 /* LZDATest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDATest1.m; sourceTree = "<group>"; };
 		0899E86F16E5DC78009250A7 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
-		0899E87116E5E5F4009250A7 /* GADAdMobExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdMobExtras.h; sourceTree = "<group>"; };
-		0899E87216E5E5F4009250A7 /* GADAdNetworkExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdNetworkExtras.h; sourceTree = "<group>"; };
-		0899E87316E5E5F4009250A7 /* GADAdSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADAdSize.h; sourceTree = "<group>"; };
-		0899E87416E5E5F4009250A7 /* GADBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerView.h; sourceTree = "<group>"; };
-		0899E87516E5E5F4009250A7 /* GADBannerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADBannerViewDelegate.h; sourceTree = "<group>"; };
-		0899E87616E5E5F4009250A7 /* GADInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitial.h; sourceTree = "<group>"; };
-		0899E87716E5E5F4009250A7 /* GADInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADInterstitialDelegate.h; sourceTree = "<group>"; };
-		0899E87816E5E5F4009250A7 /* GADRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequest.h; sourceTree = "<group>"; };
-		0899E87916E5E5F4009250A7 /* GADRequestError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GADRequestError.h; sourceTree = "<group>"; };
-		0899E87A16E5E5F4009250A7 /* libGoogleAdMobAds.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAdMobAds.a; sourceTree = "<group>"; };
-		0899E87B16E5E5F4009250A7 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
-		08E5B17D16C0A9DA00D1C754 /* quizicons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = quizicons; sourceTree = "<group>"; };
-		08E5B18116C0A9ED00D1C754 /* LZDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDataAccess.h; sourceTree = "<group>"; };
-		08E5B18216C0A9ED00D1C754 /* LZDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDataAccess.m; sourceTree = "<group>"; };
-		08E5B18416C0A9ED00D1C754 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		08E5B18516C0A9ED00D1C754 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		08E5B18616C0A9ED00D1C754 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		08E5B18716C0A9ED00D1C754 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		08E5B18816C0A9ED00D1C754 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		08E5B18916C0A9ED00D1C754 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		08E5B18A16C0A9ED00D1C754 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		08E5B18B16C0A9ED00D1C754 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		08E5B18C16C0A9EE00D1C754 /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
-		08E5B18D16C0A9EE00D1C754 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		08E5B18E16C0A9EE00D1C754 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		5F08BD7A16E598A600B8CB08 /* LZSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSoundManager.h; sourceTree = "<group>"; };
 		5F08BD7B16E598A600B8CB08 /* LZSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSoundManager.m; sourceTree = "<group>"; };
 		5F08BD7F16E5A78900B8CB08 /* LZSoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSoundButton.h; sourceTree = "<group>"; };
@@ -563,8 +568,6 @@
 		5FEBEE7F16D4F06D003A5408 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		5FEBEE8116D4F172003A5408 /* LZSHKConfigurator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSHKConfigurator.h; sourceTree = "<group>"; };
 		5FEBEE8216D4F172003A5408 /* LZSHKConfigurator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSHKConfigurator.m; sourceTree = "<group>"; };
-		5FF7FFA716D7468200A01AD7 /* LZDataAccess+GenSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LZDataAccess+GenSql.h"; sourceTree = "<group>"; };
-		5FF7FFA816D7468200A01AD7 /* LZDataAccess+GenSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LZDataAccess+GenSql.m"; sourceTree = "<group>"; };
 		5FF953D916E6F0E40025ACD5 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		5FF953FD16E6F4E60025ACD5 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
 		5FF953FE16E6F4E60025ACD5 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
@@ -595,35 +598,94 @@
 				5FEBEE7A16D4F043003A5408 /* CoreLocation.framework in Frameworks */,
 				5FEBEE7C16D4F053003A5408 /* CoreFoundation.framework in Frameworks */,
 				5FEBEE8016D4F06D003A5408 /* Social.framework in Frameworks */,
-				0817203C16E48BB3007B2870 /* TapjoyPublisherLibrary.a in Frameworks */,
 				5F08BDA416E5B03D00B8CB08 /* AVFoundation.framework in Frameworks */,
-				0899E87C16E5E5F4009250A7 /* libGoogleAdMobAds.a in Frameworks */,
 				5FF953DA16E6F0E40025ACD5 /* GameKit.framework in Frameworks */,
+				0880C01E16F06D8C00C32742 /* libGoogleAdMobAds.a in Frameworks */,
+				0880C02616F06D8C00C32742 /* TapjoyPublisherLibrary.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0817203716E48BB3007B2870 /* TapjoyPublisherLibrary */ = {
+		0880C00016F06D8C00C32742 /* lib3rd */ = {
 			isa = PBXGroup;
 			children = (
-				0817203816E48BB3007B2870 /* TapjoyConnect.h */,
-				0817203916E48BB3007B2870 /* TapjoyConnectConstants.h */,
-				0817203A16E48BB3007B2870 /* TapjoyPublisherLibrary.a */,
-				0817203B16E48BB3007B2870 /* TapjoyResources.bundle */,
+				0880C00116F06D8C00C32742 /* AdMob */,
+				0880C00D16F06D8C00C32742 /* FMDB */,
+				0880C01916F06D8C00C32742 /* TapjoyPublisherLibrary */,
+			);
+			path = lib3rd;
+			sourceTree = "<group>";
+		};
+		0880C00116F06D8C00C32742 /* AdMob */ = {
+			isa = PBXGroup;
+			children = (
+				0880C00216F06D8C00C32742 /* GADAdMobExtras.h */,
+				0880C00316F06D8C00C32742 /* GADAdNetworkExtras.h */,
+				0880C00416F06D8C00C32742 /* GADAdSize.h */,
+				0880C00516F06D8C00C32742 /* GADBannerView.h */,
+				0880C00616F06D8C00C32742 /* GADBannerViewDelegate.h */,
+				0880C00716F06D8C00C32742 /* GADInterstitial.h */,
+				0880C00816F06D8C00C32742 /* GADInterstitialDelegate.h */,
+				0880C00916F06D8C00C32742 /* GADRequest.h */,
+				0880C00A16F06D8C00C32742 /* GADRequestError.h */,
+				0880C00B16F06D8C00C32742 /* libGoogleAdMobAds.a */,
+				0880C00C16F06D8C00C32742 /* README.txt */,
+			);
+			path = AdMob;
+			sourceTree = "<group>";
+		};
+		0880C00D16F06D8C00C32742 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				0880C00E16F06D8C00C32742 /* FMDatabase.h */,
+				0880C00F16F06D8C00C32742 /* FMDatabase.m */,
+				0880C01016F06D8C00C32742 /* FMDatabaseAdditions.h */,
+				0880C01116F06D8C00C32742 /* FMDatabaseAdditions.m */,
+				0880C01216F06D8C00C32742 /* FMDatabasePool.h */,
+				0880C01316F06D8C00C32742 /* FMDatabasePool.m */,
+				0880C01416F06D8C00C32742 /* FMDatabaseQueue.h */,
+				0880C01516F06D8C00C32742 /* FMDatabaseQueue.m */,
+				0880C01616F06D8C00C32742 /* fmdb.m */,
+				0880C01716F06D8C00C32742 /* FMResultSet.h */,
+				0880C01816F06D8C00C32742 /* FMResultSet.m */,
+			);
+			path = FMDB;
+			sourceTree = "<group>";
+		};
+		0880C01916F06D8C00C32742 /* TapjoyPublisherLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				0880C01A16F06D8C00C32742 /* TapjoyConnect.h */,
+				0880C01B16F06D8C00C32742 /* TapjoyConnectConstants.h */,
+				0880C01C16F06D8C00C32742 /* TapjoyPublisherLibrary.a */,
+				0880C01D16F06D8C00C32742 /* TapjoyResources.bundle */,
 			);
 			path = TapjoyPublisherLibrary;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
 		};
-		0817205F16E48C9E007B2870 /* AdHelper */ = {
+		0880C02816F06DA700C32742 /* AdHelper */ = {
 			isa = PBXGroup;
 			children = (
-				0817206016E48C9E007B2870 /* LZTapjoyHelper.h */,
-				0817206116E48C9E007B2870 /* LZTapjoyHelper.m */,
+				0880C02916F06DA700C32742 /* LZTapjoyHelper.h */,
+				0880C02A16F06DA700C32742 /* LZTapjoyHelper.m */,
 			);
 			path = AdHelper;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
+		};
+		0880C02C16F06DB400C32742 /* dataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				0880C02D16F06DB400C32742 /* LZDataAccess+GenSql.h */,
+				0880C02E16F06DB400C32742 /* LZDataAccess+GenSql.m */,
+				0880C02F16F06DB400C32742 /* LZDataAccess.h */,
+				0880C03016F06DB400C32742 /* LZDataAccess.m */,
+				0880C03116F06DB400C32742 /* LZDATest1.h */,
+				0880C03216F06DB400C32742 /* LZDATest1.m */,
+			);
+			path = dataAccess;
+			sourceTree = "<group>";
 		};
 		0899E84C16E5DC2C009250A7 /* Global */ = {
 			isa = PBXGroup;
@@ -634,56 +696,6 @@
 				0899E86F16E5DC78009250A7 /* Config.h */,
 			);
 			name = Global;
-			sourceTree = "<group>";
-		};
-		0899E87016E5E5F4009250A7 /* AdMob */ = {
-			isa = PBXGroup;
-			children = (
-				0899E87116E5E5F4009250A7 /* GADAdMobExtras.h */,
-				0899E87216E5E5F4009250A7 /* GADAdNetworkExtras.h */,
-				0899E87316E5E5F4009250A7 /* GADAdSize.h */,
-				0899E87416E5E5F4009250A7 /* GADBannerView.h */,
-				0899E87516E5E5F4009250A7 /* GADBannerViewDelegate.h */,
-				0899E87616E5E5F4009250A7 /* GADInterstitial.h */,
-				0899E87716E5E5F4009250A7 /* GADInterstitialDelegate.h */,
-				0899E87816E5E5F4009250A7 /* GADRequest.h */,
-				0899E87916E5E5F4009250A7 /* GADRequestError.h */,
-				0899E87A16E5E5F4009250A7 /* libGoogleAdMobAds.a */,
-				0899E87B16E5E5F4009250A7 /* README.txt */,
-			);
-			path = AdMob;
-			sourceTree = "<group>";
-		};
-		08E5B18016C0A9ED00D1C754 /* DataAccess */ = {
-			isa = PBXGroup;
-			children = (
-				08E5B18316C0A9ED00D1C754 /* FMDB */,
-				5FF7FFA716D7468200A01AD7 /* LZDataAccess+GenSql.h */,
-				5FF7FFA816D7468200A01AD7 /* LZDataAccess+GenSql.m */,
-				08E5B18116C0A9ED00D1C754 /* LZDataAccess.h */,
-				08E5B18216C0A9ED00D1C754 /* LZDataAccess.m */,
-			);
-			name = DataAccess;
-			path = ../dataAccess;
-			sourceTree = "<group>";
-		};
-		08E5B18316C0A9ED00D1C754 /* FMDB */ = {
-			isa = PBXGroup;
-			children = (
-				08E5B18416C0A9ED00D1C754 /* FMDatabase.h */,
-				08E5B18516C0A9ED00D1C754 /* FMDatabase.m */,
-				08E5B18616C0A9ED00D1C754 /* FMDatabaseAdditions.h */,
-				08E5B18716C0A9ED00D1C754 /* FMDatabaseAdditions.m */,
-				08E5B18816C0A9ED00D1C754 /* FMDatabasePool.h */,
-				08E5B18916C0A9ED00D1C754 /* FMDatabasePool.m */,
-				08E5B18A16C0A9ED00D1C754 /* FMDatabaseQueue.h */,
-				08E5B18B16C0A9ED00D1C754 /* FMDatabaseQueue.m */,
-				08E5B18C16C0A9EE00D1C754 /* fmdb.m */,
-				08E5B18D16C0A9EE00D1C754 /* FMResultSet.h */,
-				08E5B18E16C0A9EE00D1C754 /* FMResultSet.m */,
-			);
-			name = FMDB;
-			path = ../FMDB;
 			sourceTree = "<group>";
 		};
 		5F08BD5816E5988500B8CB08 /* Sound */ = {
@@ -709,6 +721,7 @@
 		5F22C01416F042990058B851 /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
+				0880BFDB16F06B2B00C32742 /* quizicons */,
 				5F0AA2AC16E478170092A698 /* sounds */,
 				5F91537C16BA62490074FFF2 /* images */,
 			);
@@ -890,7 +903,6 @@
 		5FE7371116B8E08400194CF0 = {
 			isa = PBXGroup;
 			children = (
-				08E5B17D16C0A9DA00D1C754 /* quizicons */,
 				5FE7372616B8E08400194CF0 /* QuizGame */,
 				5FE7371F16B8E08400194CF0 /* Frameworks */,
 				5FE7371D16B8E08400194CF0 /* Products */,
@@ -937,15 +949,14 @@
 		5FE7372616B8E08400194CF0 /* QuizGame */ = {
 			isa = PBXGroup;
 			children = (
+				0880C02C16F06DB400C32742 /* dataAccess */,
+				0880C02816F06DA700C32742 /* AdHelper */,
+				0880C00016F06D8C00C32742 /* lib3rd */,
 				5F22C01416F042990058B851 /* Resouces */,
 				5F2FA30D16E87ED600EA0EB8 /* MBProgressHUD */,
 				0899E84C16E5DC2C009250A7 /* Global */,
-				08E5B18016C0A9ED00D1C754 /* DataAccess */,
 				5FF953FC16E6F4B10025ACD5 /* GameCenter */,
-				0899E87016E5E5F4009250A7 /* AdMob */,
 				5F08BD5816E5988500B8CB08 /* Sound */,
-				0817205F16E48C9E007B2870 /* AdHelper */,
-				0817203716E48BB3007B2870 /* TapjoyPublisherLibrary */,
 				5F4D894016DF2EBD0029E4BC /* InAppPurchase */,
 				5F98A13516BBD1D40084A2F5 /* StoreView */,
 				5F98A13416BBD1BA0084A2F5 /* SettingView */,
@@ -1334,10 +1345,7 @@
 				5FE7373316B8E08400194CF0 /* Default.png in Resources */,
 				5FE7373716B8E08400194CF0 /* Default-568h@2x.png in Resources */,
 				5FE7373A16B8E08400194CF0 /* MainStoryboard.storyboard in Resources */,
-				08E5B17E16C0A9DA00D1C754 /* quizicons in Resources */,
 				5FEBEE7416D4EF67003A5408 /* ShareKit.bundle in Resources */,
-				0817203D16E48BB4007B2870 /* TapjoyResources.bundle in Resources */,
-				0899E87D16E5E5F4009250A7 /* README.txt in Resources */,
 				5FE16BDB16EF472100842234 /* Icon.png in Resources */,
 				5FE16BDD16EF472600842234 /* Icon@2x.png in Resources */,
 				5FE16BE016EF478500842234 /* Icon-Small.png in Resources */,
@@ -1386,6 +1394,9 @@
 				5F22C01216F0428D0058B851 /* Automotive@2x.jpg in Resources */,
 				5F22C01316F0428D0058B851 /* Countries@2x.jpg in Resources */,
 				5F22C01916F042E30058B851 /* README.mdown in Resources */,
+				0880BFDC16F06B2B00C32742 /* quizicons in Resources */,
+				0880C01F16F06D8C00C32742 /* README.txt in Resources */,
+				0880C02716F06D8D00C32742 /* TapjoyResources.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1418,17 +1429,8 @@
 				5F98A12C16BBB6810084A2F5 /* StoreFreeCell.m in Sources */,
 				5F98A12F16BBB6C80084A2F5 /* RestorePurchaseCell.m in Sources */,
 				5F16FDA216BCBEB1005EE2F5 /* LZPlayView.m in Sources */,
-				08E5B18F16C0A9EE00D1C754 /* LZDataAccess.m in Sources */,
-				08E5B19016C0A9EE00D1C754 /* FMDatabase.m in Sources */,
-				08E5B19116C0A9EE00D1C754 /* FMDatabaseAdditions.m in Sources */,
-				08E5B19216C0A9EE00D1C754 /* FMDatabasePool.m in Sources */,
-				08E5B19316C0A9EE00D1C754 /* FMDatabaseQueue.m in Sources */,
-				08E5B19416C0A9EE00D1C754 /* fmdb.m in Sources */,
-				08E5B19516C0A9EE00D1C754 /* FMResultSet.m in Sources */,
 				5FEBEE8316D4F172003A5408 /* LZSHKConfigurator.m in Sources */,
-				5FF7FFA916D7468200A01AD7 /* LZDataAccess+GenSql.m in Sources */,
 				5F4D896416DF2F0E0029E4BC /* LZIAPManager.m in Sources */,
-				0817206216E48C9E007B2870 /* LZTapjoyHelper.m in Sources */,
 				5F08BD7C16E598A600B8CB08 /* LZSoundManager.m in Sources */,
 				5F08BD8116E5A78900B8CB08 /* LZSoundButton.m in Sources */,
 				5F9AFAE616E6108000464826 /* LZHowToPlayViewController.m in Sources */,
@@ -1437,6 +1439,16 @@
 				5FE16B7C16EF19F400842234 /* LZFacebookShare.m in Sources */,
 				5FE16B7F16EF1A2400842234 /* LZTwitterShare.m in Sources */,
 				5F22C01816F042E30058B851 /* MBProgressHUD.m in Sources */,
+				0880C02016F06D8C00C32742 /* FMDatabase.m in Sources */,
+				0880C02116F06D8C00C32742 /* FMDatabaseAdditions.m in Sources */,
+				0880C02216F06D8C00C32742 /* FMDatabasePool.m in Sources */,
+				0880C02316F06D8C00C32742 /* FMDatabaseQueue.m in Sources */,
+				0880C02416F06D8C00C32742 /* fmdb.m in Sources */,
+				0880C02516F06D8C00C32742 /* FMResultSet.m in Sources */,
+				0880C02B16F06DA700C32742 /* LZTapjoyHelper.m in Sources */,
+				0880C03316F06DB400C32742 /* LZDataAccess+GenSql.m in Sources */,
+				0880C03416F06DB400C32742 /* LZDataAccess.m in Sources */,
+				0880C03516F06DB400C32742 /* LZDATest1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1545,6 +1557,8 @@
 					"\"$(SRCROOT)/QuizGame\"",
 					"\"$(SRCROOT)/TapjoyPublisherLibrary\"",
 					"\"$(SRCROOT)/QuizGame/AdMob\"",
+					"\"$(SRCROOT)/QuizGame/lib3rd/AdMob\"",
+					"\"$(SRCROOT)/QuizGame/lib3rd/TapjoyPublisherLibrary\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -1570,6 +1584,8 @@
 					"\"$(SRCROOT)/QuizGame\"",
 					"\"$(SRCROOT)/TapjoyPublisherLibrary\"",
 					"\"$(SRCROOT)/QuizGame/AdMob\"",
+					"\"$(SRCROOT)/QuizGame/lib3rd/AdMob\"",
+					"\"$(SRCROOT)/QuizGame/lib3rd/TapjoyPublisherLibrary\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
