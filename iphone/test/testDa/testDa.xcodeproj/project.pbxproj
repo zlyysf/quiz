@@ -12,15 +12,7 @@
 		083ED13016C0C1460010AF13 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED12F16C0C1460010AF13 /* CoreGraphics.framework */; };
 		083ED13C16C0C1460010AF13 /* LZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED13B16C0C1460010AF13 /* LZAppDelegate.m */; };
 		083ED14516C0C1460010AF13 /* LZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED14416C0C1460010AF13 /* LZViewController.m */; };
-		083ED17916C0C2F40010AF13 /* LZDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED16C16C0C2F30010AF13 /* LZDataAccess.m */; };
-		083ED17A16C0C2F40010AF13 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED16F16C0C2F30010AF13 /* FMDatabase.m */; };
-		083ED17B16C0C2F40010AF13 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED17116C0C2F30010AF13 /* FMDatabaseAdditions.m */; };
-		083ED17C16C0C2F40010AF13 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED17316C0C2F30010AF13 /* FMDatabasePool.m */; };
-		083ED17D16C0C2F40010AF13 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED17516C0C2F30010AF13 /* FMDatabaseQueue.m */; };
-		083ED17E16C0C2F40010AF13 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED17616C0C2F30010AF13 /* fmdb.m */; };
-		083ED17F16C0C2F40010AF13 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED17816C0C2F30010AF13 /* FMResultSet.m */; };
 		083ED18616C0C6280010AF13 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 083ED18516C0C6280010AF13 /* libsqlite3.dylib */; };
-		083ED18816C0C8210010AF13 /* initdb2.sql in Resources */ = {isa = PBXBuildFile; fileRef = 083ED18716C0C8210010AF13 /* initdb2.sql */; };
 		083ED19C16C139FF0010AF13 /* LZViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083ED19A16C139FF0010AF13 /* LZViewController.xib */; };
 		083ED19E16C13A450010AF13 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 083ED19D16C13A450010AF13 /* main.m */; };
 		083ED1A216C13A910010AF13 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 083ED19F16C13A910010AF13 /* Default-568h@2x.png */; };
@@ -28,9 +20,16 @@
 		083ED1A416C13A910010AF13 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A116C13A910010AF13 /* Default@2x.png */; };
 		083ED1A616C13AC20010AF13 /* testDa-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A516C13AC20010AF13 /* testDa-Info.plist */; };
 		083ED1A916C13AE10010AF13 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 083ED1A716C13AE10010AF13 /* InfoPlist.strings */; };
-		083F485A16D5D05400B612DB /* LZDATest1.m in Sources */ = {isa = PBXBuildFile; fileRef = 083F485916D5D05400B612DB /* LZDATest1.m */; };
-		083F486A16D5FC1700B612DB /* LZDataAccess+GenSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 083F486916D5FC1700B612DB /* LZDataAccess+GenSql.m */; };
-		0882BEE616D3585F00D15CFA /* quizicons in Resources */ = {isa = PBXBuildFile; fileRef = 0882BEE516D3585F00D15CFA /* quizicons */; };
+		0880C03716F073BB00C32742 /* quizicons in Resources */ = {isa = PBXBuildFile; fileRef = 0880C03616F073BB00C32742 /* quizicons */; };
+		0880C03F16F073F400C32742 /* LZDataAccess+GenSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C03A16F073F400C32742 /* LZDataAccess+GenSql.m */; };
+		0880C04016F073F400C32742 /* LZDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C03C16F073F400C32742 /* LZDataAccess.m */; };
+		0880C04116F073F400C32742 /* LZDATest1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C03E16F073F400C32742 /* LZDATest1.m */; };
+		0880C04E16F0740F00C32742 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C04416F0740F00C32742 /* FMDatabase.m */; };
+		0880C04F16F0740F00C32742 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C04616F0740F00C32742 /* FMDatabaseAdditions.m */; };
+		0880C05016F0740F00C32742 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C04816F0740F00C32742 /* FMDatabasePool.m */; };
+		0880C05116F0740F00C32742 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C04A16F0740F00C32742 /* FMDatabaseQueue.m */; };
+		0880C05216F0740F00C32742 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C04B16F0740F00C32742 /* fmdb.m */; };
+		0880C05316F0740F00C32742 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C04D16F0740F00C32742 /* FMResultSet.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,21 +46,7 @@
 		083ED15916C0C1470010AF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		083ED15B16C0C1470010AF13 /* testDaTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = testDaTests.h; sourceTree = "<group>"; };
 		083ED15C16C0C1470010AF13 /* testDaTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = testDaTests.m; sourceTree = "<group>"; };
-		083ED16B16C0C2F30010AF13 /* LZDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDataAccess.h; sourceTree = "<group>"; };
-		083ED16C16C0C2F30010AF13 /* LZDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDataAccess.m; sourceTree = "<group>"; };
-		083ED16E16C0C2F30010AF13 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
-		083ED16F16C0C2F30010AF13 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
-		083ED17016C0C2F30010AF13 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
-		083ED17116C0C2F30010AF13 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
-		083ED17216C0C2F30010AF13 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
-		083ED17316C0C2F30010AF13 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
-		083ED17416C0C2F30010AF13 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
-		083ED17516C0C2F30010AF13 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
-		083ED17616C0C2F30010AF13 /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
-		083ED17716C0C2F30010AF13 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
-		083ED17816C0C2F30010AF13 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		083ED18516C0C6280010AF13 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		083ED18716C0C8210010AF13 /* initdb2.sql */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = initdb2.sql; path = ../../trunk/initdb2.sql; sourceTree = "<group>"; };
 		083ED19B16C139FF0010AF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LZViewController.xib; sourceTree = "<group>"; };
 		083ED19D16C13A450010AF13 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		083ED19F16C13A910010AF13 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -70,11 +55,24 @@
 		083ED1A516C13AC20010AF13 /* testDa-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "testDa-Info.plist"; sourceTree = "<group>"; };
 		083ED1A816C13AE10010AF13 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		083ED1AA16C13AF10010AF13 /* testDa-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "testDa-Prefix.pch"; sourceTree = "<group>"; };
-		083F485816D5D05400B612DB /* LZDATest1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDATest1.h; sourceTree = "<group>"; };
-		083F485916D5D05400B612DB /* LZDATest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDATest1.m; sourceTree = "<group>"; };
-		083F486816D5FC1600B612DB /* LZDataAccess+GenSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LZDataAccess+GenSql.h"; sourceTree = "<group>"; };
-		083F486916D5FC1700B612DB /* LZDataAccess+GenSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LZDataAccess+GenSql.m"; sourceTree = "<group>"; };
-		0882BEE516D3585F00D15CFA /* quizicons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = quizicons; path = ../../trunk/quizicons; sourceTree = "<group>"; };
+		0880C03616F073BB00C32742 /* quizicons */ = {isa = PBXFileReference; lastKnownFileType = folder; name = quizicons; path = ../../trunk/QuizGame/Resouces/quizicons; sourceTree = "<group>"; };
+		0880C03916F073F400C32742 /* LZDataAccess+GenSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LZDataAccess+GenSql.h"; sourceTree = "<group>"; };
+		0880C03A16F073F400C32742 /* LZDataAccess+GenSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LZDataAccess+GenSql.m"; sourceTree = "<group>"; };
+		0880C03B16F073F400C32742 /* LZDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDataAccess.h; sourceTree = "<group>"; };
+		0880C03C16F073F400C32742 /* LZDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDataAccess.m; sourceTree = "<group>"; };
+		0880C03D16F073F400C32742 /* LZDATest1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDATest1.h; sourceTree = "<group>"; };
+		0880C03E16F073F400C32742 /* LZDATest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDATest1.m; sourceTree = "<group>"; };
+		0880C04316F0740F00C32742 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		0880C04416F0740F00C32742 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		0880C04516F0740F00C32742 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		0880C04616F0740F00C32742 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		0880C04716F0740F00C32742 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		0880C04816F0740F00C32742 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		0880C04916F0740F00C32742 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		0880C04A16F0740F00C32742 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		0880C04B16F0740F00C32742 /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
+		0880C04C16F0740F00C32742 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		0880C04D16F0740F00C32742 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +93,9 @@
 		083ED11C16C0C1460010AF13 = {
 			isa = PBXGroup;
 			children = (
-				0882BEE516D3585F00D15CFA /* quizicons */,
-				083ED18716C0C8210010AF13 /* initdb2.sql */,
-				083ED16A16C0C2F30010AF13 /* dataAccess */,
-				083ED16D16C0C2F30010AF13 /* FMDB */,
+				0880C04216F0740F00C32742 /* FMDB */,
+				0880C03816F073F400C32742 /* dataAccess */,
+				0880C03616F073BB00C32742 /* quizicons */,
 				083ED13116C0C1460010AF13 /* testDa */,
 				083ED15516C0C1470010AF13 /* testDaTests */,
 				083ED12A16C0C1460010AF13 /* Frameworks */,
@@ -172,37 +169,37 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		083ED16A16C0C2F30010AF13 /* dataAccess */ = {
+		0880C03816F073F400C32742 /* dataAccess */ = {
 			isa = PBXGroup;
 			children = (
-				083ED16B16C0C2F30010AF13 /* LZDataAccess.h */,
-				083F486816D5FC1600B612DB /* LZDataAccess+GenSql.h */,
-				083F486916D5FC1700B612DB /* LZDataAccess+GenSql.m */,
-				083ED16C16C0C2F30010AF13 /* LZDataAccess.m */,
-				083F485816D5D05400B612DB /* LZDATest1.h */,
-				083F485916D5D05400B612DB /* LZDATest1.m */,
+				0880C03916F073F400C32742 /* LZDataAccess+GenSql.h */,
+				0880C03A16F073F400C32742 /* LZDataAccess+GenSql.m */,
+				0880C03B16F073F400C32742 /* LZDataAccess.h */,
+				0880C03C16F073F400C32742 /* LZDataAccess.m */,
+				0880C03D16F073F400C32742 /* LZDATest1.h */,
+				0880C03E16F073F400C32742 /* LZDATest1.m */,
 			);
 			name = dataAccess;
-			path = ../../trunk/dataAccess;
+			path = ../../trunk/QuizGame/dataAccess;
 			sourceTree = "<group>";
 		};
-		083ED16D16C0C2F30010AF13 /* FMDB */ = {
+		0880C04216F0740F00C32742 /* FMDB */ = {
 			isa = PBXGroup;
 			children = (
-				083ED16E16C0C2F30010AF13 /* FMDatabase.h */,
-				083ED16F16C0C2F30010AF13 /* FMDatabase.m */,
-				083ED17016C0C2F30010AF13 /* FMDatabaseAdditions.h */,
-				083ED17116C0C2F30010AF13 /* FMDatabaseAdditions.m */,
-				083ED17216C0C2F30010AF13 /* FMDatabasePool.h */,
-				083ED17316C0C2F30010AF13 /* FMDatabasePool.m */,
-				083ED17416C0C2F30010AF13 /* FMDatabaseQueue.h */,
-				083ED17516C0C2F30010AF13 /* FMDatabaseQueue.m */,
-				083ED17616C0C2F30010AF13 /* fmdb.m */,
-				083ED17716C0C2F30010AF13 /* FMResultSet.h */,
-				083ED17816C0C2F30010AF13 /* FMResultSet.m */,
+				0880C04316F0740F00C32742 /* FMDatabase.h */,
+				0880C04416F0740F00C32742 /* FMDatabase.m */,
+				0880C04516F0740F00C32742 /* FMDatabaseAdditions.h */,
+				0880C04616F0740F00C32742 /* FMDatabaseAdditions.m */,
+				0880C04716F0740F00C32742 /* FMDatabasePool.h */,
+				0880C04816F0740F00C32742 /* FMDatabasePool.m */,
+				0880C04916F0740F00C32742 /* FMDatabaseQueue.h */,
+				0880C04A16F0740F00C32742 /* FMDatabaseQueue.m */,
+				0880C04B16F0740F00C32742 /* fmdb.m */,
+				0880C04C16F0740F00C32742 /* FMResultSet.h */,
+				0880C04D16F0740F00C32742 /* FMResultSet.m */,
 			);
 			name = FMDB;
-			path = ../../trunk/FMDB;
+			path = ../../trunk/QuizGame/lib3rd/FMDB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,14 +254,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				083ED18816C0C8210010AF13 /* initdb2.sql in Resources */,
 				083ED19C16C139FF0010AF13 /* LZViewController.xib in Resources */,
 				083ED1A216C13A910010AF13 /* Default-568h@2x.png in Resources */,
 				083ED1A316C13A910010AF13 /* Default.png in Resources */,
 				083ED1A416C13A910010AF13 /* Default@2x.png in Resources */,
 				083ED1A616C13AC20010AF13 /* testDa-Info.plist in Resources */,
 				083ED1A916C13AE10010AF13 /* InfoPlist.strings in Resources */,
-				0882BEE616D3585F00D15CFA /* quizicons in Resources */,
+				0880C03716F073BB00C32742 /* quizicons in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,16 +273,16 @@
 			files = (
 				083ED13C16C0C1460010AF13 /* LZAppDelegate.m in Sources */,
 				083ED14516C0C1460010AF13 /* LZViewController.m in Sources */,
-				083ED17916C0C2F40010AF13 /* LZDataAccess.m in Sources */,
-				083ED17A16C0C2F40010AF13 /* FMDatabase.m in Sources */,
-				083ED17B16C0C2F40010AF13 /* FMDatabaseAdditions.m in Sources */,
-				083ED17C16C0C2F40010AF13 /* FMDatabasePool.m in Sources */,
-				083ED17D16C0C2F40010AF13 /* FMDatabaseQueue.m in Sources */,
-				083ED17E16C0C2F40010AF13 /* fmdb.m in Sources */,
-				083ED17F16C0C2F40010AF13 /* FMResultSet.m in Sources */,
 				083ED19E16C13A450010AF13 /* main.m in Sources */,
-				083F485A16D5D05400B612DB /* LZDATest1.m in Sources */,
-				083F486A16D5FC1700B612DB /* LZDataAccess+GenSql.m in Sources */,
+				0880C03F16F073F400C32742 /* LZDataAccess+GenSql.m in Sources */,
+				0880C04016F073F400C32742 /* LZDataAccess.m in Sources */,
+				0880C04116F073F400C32742 /* LZDATest1.m in Sources */,
+				0880C04E16F0740F00C32742 /* FMDatabase.m in Sources */,
+				0880C04F16F0740F00C32742 /* FMDatabaseAdditions.m in Sources */,
+				0880C05016F0740F00C32742 /* FMDatabasePool.m in Sources */,
+				0880C05116F0740F00C32742 /* FMDatabaseQueue.m in Sources */,
+				0880C05216F0740F00C32742 /* fmdb.m in Sources */,
+				0880C05316F0740F00C32742 /* FMResultSet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
