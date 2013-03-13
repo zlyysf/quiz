@@ -8,8 +8,8 @@
 
 #import "LZTopNavView.h"
 #define kBackgroundImageViewFrame CGRectMake(0, 0, 320, 44)
-#define kBackButtonFrame CGRectMake(20, 7, 20, 30)
-#define kGoldButtonFrame CGRectMake(69, 12, 24, 22)
+#define kBackButtonFrame CGRectMake(15, 2, 28, 40)
+#define kGoldButtonFrame CGRectMake(62, 7, 36, 30)
 #define kGoldCountLabelFrame CGRectMake(98, 9, 70, 26)
 #define kCorrectImageFrame CGRectMake(176, 12, 27, 20)
 #define kCorrectCountLabelFrame CGRectMake(208, 9, 40, 26)
@@ -46,7 +46,7 @@
         
         self.goldButton = [[LZSoundButton alloc]initWithFrame:kGoldButtonFrame];
         UIImage *goldImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"gold@2x" ofType:@"png"]];
-        [self.goldButton setBackgroundImage:goldImg forState:UIControlStateNormal];
+        [self.goldButton setImage:goldImg forState:UIControlStateNormal];
         [self.goldButton addTarget:self action:@selector(goldButtonClicked) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.goldButton];
         

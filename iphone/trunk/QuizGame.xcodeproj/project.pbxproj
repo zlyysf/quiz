@@ -89,7 +89,6 @@
 		5F98A12C16BBB6810084A2F5 /* StoreFreeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F98A12B16BBB6810084A2F5 /* StoreFreeCell.m */; };
 		5F98A12F16BBB6C80084A2F5 /* RestorePurchaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F98A12E16BBB6C80084A2F5 /* RestorePurchaseCell.m */; };
 		5F9AFAE616E6108000464826 /* LZHowToPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9AFAE516E6108000464826 /* LZHowToPlayViewController.m */; };
-		5F9AFAE916E6115E00464826 /* LZStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9AFAE816E6115E00464826 /* LZStatisticsViewController.m */; };
 		5F9CF2CC16C0BDEF0033DDA7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */; };
 		5FE16B7C16EF19F400842234 /* LZFacebookShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE16B7B16EF19F400842234 /* LZFacebookShare.m */; };
 		5FE16B7F16EF1A2400842234 /* LZTwitterShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE16B7E16EF1A2400842234 /* LZTwitterShare.m */; };
@@ -517,8 +516,6 @@
 		5F98A12E16BBB6C80084A2F5 /* RestorePurchaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestorePurchaseCell.m; sourceTree = "<group>"; };
 		5F9AFAE416E6108000464826 /* LZHowToPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHowToPlayViewController.h; sourceTree = "<group>"; };
 		5F9AFAE516E6108000464826 /* LZHowToPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHowToPlayViewController.m; sourceTree = "<group>"; };
-		5F9AFAE716E6115E00464826 /* LZStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZStatisticsViewController.h; sourceTree = "<group>"; };
-		5F9AFAE816E6115E00464826 /* LZStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZStatisticsViewController.m; sourceTree = "<group>"; };
 		5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5FE16B7A16EF19F400842234 /* LZFacebookShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZFacebookShare.h; sourceTree = "<group>"; };
 		5FE16B7B16EF19F400842234 /* LZFacebookShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZFacebookShare.m; sourceTree = "<group>"; };
@@ -529,7 +526,7 @@
 		5FE16BDE16EF478500842234 /* Icon-Small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small.png"; path = "Resouces/images/Icon-Small.png"; sourceTree = "<group>"; };
 		5FE16BDF16EF478500842234 /* Icon-Small@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Icon-Small@2x.png"; path = "Resouces/images/Icon-Small@2x.png"; sourceTree = "<group>"; };
 		5FE16BE216EF47E200842234 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resouces/images/Default@2x.png"; sourceTree = "<group>"; };
-		5FE7371C16B8E08400194CF0 /* QuizAwsome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizAwsome.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FE7371C16B8E08400194CF0 /* QuizAwesome.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuizAwesome.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE7372016B8E08400194CF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5FE7372216B8E08400194CF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5FE7372416B8E08400194CF0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -875,8 +872,6 @@
 				5F91537316BA49BD0074FFF2 /* LZSettingsViewController.m */,
 				5F9AFAE416E6108000464826 /* LZHowToPlayViewController.h */,
 				5F9AFAE516E6108000464826 /* LZHowToPlayViewController.m */,
-				5F9AFAE716E6115E00464826 /* LZStatisticsViewController.h */,
-				5F9AFAE816E6115E00464826 /* LZStatisticsViewController.m */,
 			);
 			name = SettingView;
 			sourceTree = "<group>";
@@ -912,7 +907,7 @@
 		5FE7371D16B8E08400194CF0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5FE7371C16B8E08400194CF0 /* QuizAwsome.app */,
+				5FE7371C16B8E08400194CF0 /* QuizAwesome.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1052,7 +1047,7 @@
 			);
 			name = QuizGame;
 			productName = QuizGame;
-			productReference = 5FE7371C16B8E08400194CF0 /* QuizAwsome.app */;
+			productReference = 5FE7371C16B8E08400194CF0 /* QuizAwesome.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1434,7 +1429,6 @@
 				5F08BD7C16E598A600B8CB08 /* LZSoundManager.m in Sources */,
 				5F08BD8116E5A78900B8CB08 /* LZSoundButton.m in Sources */,
 				5F9AFAE616E6108000464826 /* LZHowToPlayViewController.m in Sources */,
-				5F9AFAE916E6115E00464826 /* LZStatisticsViewController.m in Sources */,
 				5FF953FF16E6F4E60025ACD5 /* GameKitHelper.m in Sources */,
 				5FE16B7C16EF19F400842234 /* LZFacebookShare.m in Sources */,
 				5FE16B7F16EF1A2400842234 /* LZTwitterShare.m in Sources */,
@@ -1565,7 +1559,7 @@
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = QuizAwsome;
+				PRODUCT_NAME = QuizAwesome;
 				PROVISIONING_PROFILE = "B692D17F-99ED-4F5C-AA04-9354322E09FB";
 				USER_HEADER_SEARCH_PATHS = "../../Submodules/**";
 				WRAPPER_EXTENSION = app;
@@ -1592,7 +1586,7 @@
 					"-all_load",
 					"-ObjC",
 				);
-				PRODUCT_NAME = QuizAwsome;
+				PRODUCT_NAME = QuizAwesome;
 				USER_HEADER_SEARCH_PATHS = "../../Submodules/**";
 				WRAPPER_EXTENSION = app;
 			};

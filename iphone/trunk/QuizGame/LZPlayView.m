@@ -37,23 +37,23 @@
         questionLabel.numberOfLines = 0;
         [self addSubview:questionLabel];
         
-        winButton = [[LZSoundButton alloc]initWithFrame:CGRectMake(frame.size.width-40,  10, 20, 30)];
+        winButton = [[LZSoundButton alloc]initWithFrame:CGRectMake(frame.size.width-40,  10, 30, 45)];
         winButton.tag = kWinButtonTag;
         UIImage *winImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"win_question@2x" ofType:@"png"]];
-        [winButton setBackgroundImage:winImg forState:UIControlStateNormal];
+        [winButton setImage:winImg forState:UIControlStateNormal];
         [winButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:winButton];
         
-        cutWrongButton = [[LZSoundButton alloc]initWithFrame:CGRectMake(winButton.frame.origin.x, winButton.frame.origin.y + winButton.frame.size.height +10, 22, 29)];
+        cutWrongButton = [[LZSoundButton alloc]initWithFrame:CGRectMake(winButton.frame.origin.x, winButton.frame.origin.y + winButton.frame.size.height +5, 33, 45)];
         cutWrongButton.tag = kCutWrongButtonTag;
         UIImage *wrongImg = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cut_wrong@2x" ofType:@"png"]];
-        [cutWrongButton setBackgroundImage:wrongImg forState:UIControlStateNormal];
+        [cutWrongButton setImage:wrongImg forState:UIControlStateNormal];
         [cutWrongButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:cutWrongButton];
         
-        askFriendsButton = [[LZSoundButton alloc]initWithFrame:CGRectMake(cutWrongButton.frame.origin.x, cutWrongButton.frame.origin.y + cutWrongButton.frame.size.height +10, 22, 29)];
+        askFriendsButton = [[LZSoundButton alloc]initWithFrame:CGRectMake(cutWrongButton.frame.origin.x, cutWrongButton.frame.origin.y + cutWrongButton.frame.size.height +5, 33, 45)];
         askFriendsButton.tag = kAskFriendsButtonTag;
-        [askFriendsButton setBackgroundImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ask_friends@2x" ofType:@"png"]] forState:UIControlStateNormal];
+        [askFriendsButton setImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"ask_friends@2x" ofType:@"png"]] forState:UIControlStateNormal];
         [askFriendsButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:askFriendsButton];
         

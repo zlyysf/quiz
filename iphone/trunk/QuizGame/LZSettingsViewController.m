@@ -10,7 +10,6 @@
 #import "SettingCell.h"
 #import "LZSoundManager.h"
 #import "LZHowToPlayViewController.h"
-#import "LZStatisticsViewController.h"
 #import "GameKitHelper.h"
 @interface LZSettingsViewController ()<LZCellDelegate>
 
