@@ -136,7 +136,7 @@
     if (lockstate == 1)
     {
         //[cell setLocked:YES];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Sorry" message:@"You should pass the pre-package to unlock this package" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Sorry", @"") message:NSLocalizedString(@"You should pass the pre-package to unlock this package", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
         [alert show];
     }
     else

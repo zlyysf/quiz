@@ -69,20 +69,20 @@
     {
         if ([[LZSoundManager SharedInstance]isSoundOn])
         {
-            [cell.selectButton setTitle:@"Sound on" forState:UIControlStateNormal];
+            [cell.selectButton setTitle:NSLocalizedString(@"Sound on", @"") forState:UIControlStateNormal];
         }
         else
         {
-            [cell.selectButton setTitle:@"Sound off" forState:UIControlStateNormal];
+            [cell.selectButton setTitle:NSLocalizedString(@"Sound off", @"") forState:UIControlStateNormal];
         }
     }
     else if (indexPath.row == 1)
     {
-         [cell.selectButton setTitle:@"How to play" forState:UIControlStateNormal];
+         [cell.selectButton setTitle:NSLocalizedString(@"How to play", @"") forState:UIControlStateNormal];
     }
     else
     {
-        [cell.selectButton setTitle:@"Leaderboard" forState:UIControlStateNormal];
+        [cell.selectButton setTitle:NSLocalizedString(@"Leaderboard", @"") forState:UIControlStateNormal];
     }
     cell.cellIndexPath = indexPath;
     cell.delegate = self;

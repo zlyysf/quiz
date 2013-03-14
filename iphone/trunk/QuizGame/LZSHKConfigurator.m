@@ -16,11 +16,11 @@
  These values are used by any service that shows 'shared from XYZ'
  */
 - (NSString*)appName {
-	return @"Awsome";
+	return @"QuizAwesome";
 }
 
 - (NSString*)appURL {
-	return @"http://www.facebook.com";
+	return @"http://itunes.com/apps/QuizAwesome";
 }
 - (NSString*)facebookAppId {
 	return @"145015595660349";

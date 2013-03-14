@@ -24,8 +24,8 @@
 {
     if(!isSending)
     {
-        NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://www.apple.com" ];
-        SHKItem *item = [SHKItem URL:ourAppUrl title:@"com to join Quiz Awsome and have fun" contentType:SHKURLContentTypeUndefined];
+        NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://itunes.com/apps/QuizAwesome" ];
+        SHKItem *item = [SHKItem URL:ourAppUrl title:NSLocalizedString(@"Come to join Quiz Awesome and have fun", @"") contentType:SHKURLContentTypeUndefined];
         SHKTwitter *twitterShare = [[SHKTwitter alloc]init];
         twitterShare.item = item;
         twitterShare.shareDelegate = self;

@@ -48,7 +48,7 @@
     [self.view bringSubviewToFront:self.listView];
     //[self resizeContentViewFrame:self.listView];
     self.topNavView.topNavType = TopNavTypeStore;
-    freebieItemArray = [[NSArray alloc]initWithObjects:@"Facebook",@"Twitter",@"Review our app", nil];
+    freebieItemArray = [[NSArray alloc]initWithObjects:NSLocalizedString(@"Facebook", @""),NSLocalizedString(@"Twitter", @""),NSLocalizedString(@"Review our app", @""), nil];
     hasQueryData = NO;
     _priceFormatter = [[NSNumberFormatter alloc] init];
     [_priceFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
@@ -160,9 +160,9 @@
     {
         
         StoreFreeCell *cell = (StoreFreeCell *)[tableView dequeueReusableCellWithIdentifier:@"StoreFreeCell"];
-        if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Facebook"])
+        if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:NSLocalizedString(@"Facebook", @"")])
         {
-            cell.profitLabel.text = @"Tell your facebook friends";
+            cell.profitLabel.text = NSLocalizedString(@"Tell your facebook friends", @"");
             NSString *path = [[NSBundle mainBundle] pathForResource:@"facebook@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
             if ([[NSUserDefaults standardUserDefaults]boolForKey:kFacebookBonusKey])
@@ -174,9 +174,9 @@
                 [cell.selectButton setEnabled:YES];
             }
         }
-        else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Twitter"])
+        else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:NSLocalizedString(@"Twitter", @"")])
         {
-            cell.profitLabel.text = @"Tell your twitter followers";
+            cell.profitLabel.text = NSLocalizedString(@"Tell your twitter followers", @"");
             NSString *path = [[NSBundle mainBundle] pathForResource:@"twitter@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
             if ([[NSUserDefaults standardUserDefaults]boolForKey:kTwitterBonusKey])
@@ -189,9 +189,9 @@
             }
 
         }
-        else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:@"Review our app"])
+        else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:NSLocalizedString(@"Review our app", @"")])
         {
-            cell.profitLabel.text = @"Review our app";
+            cell.profitLabel.text = NSLocalizedString(@"Review our app", @"");
             NSString *path = [[NSBundle mainBundle] pathForResource:@"review@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
             if ([[NSUserDefaults standardUserDefaults]boolForKey:kReviewAppBonusKey])
@@ -213,7 +213,7 @@
     else
     {
         RestorePurchaseCell *cell = (RestorePurchaseCell *)[tableView dequeueReusableCellWithIdentifier:@"RestorePurchaseCell"];
-        [cell.selectButton setTitle:@"Restore purchase" forState:UIControlStateNormal];
+        [cell.selectButton setTitle:NSLocalizedString(@"Restore purchase", @"") forState:UIControlStateNormal];
         cell.cellIndexPath = indexPath;
         cell.delegate = self;
         return cell;
@@ -239,17 +239,17 @@
     else if(LZCellIndexPath.section == 2)
     {
         /* social share @"Twitter",@"Facebook",@"Review our app" */
-        if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Facebook"])
+        if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:NSLocalizedString(@"Facebook", @"")])
         {
             [[LZFacebookShare sharedInstance]share];
         }
-        else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Twitter"])
+        else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:NSLocalizedString(@"Twitter", @"")])
         {
            [[LZTwitterShare sharedInstance]share];
         }
-        else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:@"Review our app"])
+        else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:NSLocalizedString(@"Review our app", @"")])
         {
-            NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"http://www.apple.com" ];
+            NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"itms-apps://itunes.com/apps/QuizAwesome" ];
             [[UIApplication sharedApplication] openURL:ourAppUrl];
             [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kReviewAppBonusKey];
             [[NSUserDefaults standardUserDefaults]synchronize];
@@ -283,7 +283,7 @@
 {
     for (NSString *freebie in freebieItemArray)
     {
-        if ([freebie isEqualToString:@"Twitter"])
+        if ([freebie isEqualToString:NSLocalizedString(@"Twitter", @"")])
         {
             int index = [freebieItemArray indexOfObject:freebie];
             NSIndexPath *reloadCellIndex = [NSIndexPath indexPathForRow:index inSection:2];
@@ -297,7 +297,7 @@
 {
     for (NSString *freebie in freebieItemArray)
     {
-        if ([freebie isEqualToString:@"Facebook"])
+        if ([freebie isEqualToString:NSLocalizedString(@"Facebook", @"")])
         {
             int index = [freebieItemArray indexOfObject:freebie];
             NSIndexPath *reloadCellIndex = [NSIndexPath indexPathForRow:index inSection:2];

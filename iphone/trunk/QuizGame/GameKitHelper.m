@@ -34,7 +34,7 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Sorry" message:@"User did not sign in Game Center" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Sorry", @"") message:NSLocalizedString(@"User did not sign in Game Center", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
         [alert show];
         return NO;
     }

@@ -91,6 +91,7 @@
 		5F9AFAE616E6108000464826 /* LZHowToPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9AFAE516E6108000464826 /* LZHowToPlayViewController.m */; };
 		5F9CF2CC16C0BDEF0033DDA7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */; };
 		5FD576C316F17E780000A9FC /* tokens@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD576C216F17E780000A9FC /* tokens@2x.png */; };
+		5FD576C716F1BD140000A9FC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FD576C516F1BD140000A9FC /* Localizable.strings */; };
 		5FE16B7C16EF19F400842234 /* LZFacebookShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE16B7B16EF19F400842234 /* LZFacebookShare.m */; };
 		5FE16B7F16EF1A2400842234 /* LZTwitterShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE16B7E16EF1A2400842234 /* LZTwitterShare.m */; };
 		5FE16BDB16EF472100842234 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FE16BDA16EF472100842234 /* Icon.png */; };
@@ -519,6 +520,7 @@
 		5F9AFAE516E6108000464826 /* LZHowToPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHowToPlayViewController.m; sourceTree = "<group>"; };
 		5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		5FD576C216F17E780000A9FC /* tokens@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tokens@2x.png"; path = "Resouces/images/tokens@2x.png"; sourceTree = "<group>"; };
+		5FD576C616F1BD140000A9FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5FE16B7A16EF19F400842234 /* LZFacebookShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZFacebookShare.h; sourceTree = "<group>"; };
 		5FE16B7B16EF19F400842234 /* LZFacebookShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZFacebookShare.m; sourceTree = "<group>"; };
 		5FE16B7D16EF1A2400842234 /* LZTwitterShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTwitterShare.h; sourceTree = "<group>"; };
@@ -720,6 +722,7 @@
 		5F22C01416F042990058B851 /* Resouces */ = {
 			isa = PBXGroup;
 			children = (
+				5FD576C516F1BD140000A9FC /* Localizable.strings */,
 				0880BFDB16F06B2B00C32742 /* quizicons */,
 				5F0AA2AC16E478170092A698 /* sounds */,
 				5F91537C16BA62490074FFF2 /* images */,
@@ -1396,6 +1399,7 @@
 				0880C01F16F06D8C00C32742 /* README.txt in Resources */,
 				0880C02716F06D8D00C32742 /* TapjoyResources.bundle in Resources */,
 				5FD576C316F17E780000A9FC /* tokens@2x.png in Resources */,
+				5FD576C716F1BD140000A9FC /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1466,6 +1470,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5FD576C516F1BD140000A9FC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FD576C616F1BD140000A9FC /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		5FE7372916B8E08400194CF0 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

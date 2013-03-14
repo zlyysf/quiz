@@ -99,7 +99,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         HUD = [[MBProgressHUD alloc] initWithView:lzStoreViewController.listView];
         [lzStoreViewController.listView addSubview:HUD];
         HUD.delegate = self;
-        HUD.labelText = @"Retrieving store information";
+        HUD.labelText = NSLocalizedString(@"Retrieving store information", @"");
         HUD.dimBackground = YES;
         [HUD show:YES];
     }
@@ -130,7 +130,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
             HUD = [[MBProgressHUD alloc] initWithView:lzStoreViewController.listView];
             [lzStoreViewController.listView addSubview:HUD];
             HUD.delegate = self;
-            HUD.labelText = @"Connecting to iTunes...";
+            HUD.labelText = NSLocalizedString(@"Connecting to iTunes...", @"");
             HUD.dimBackground = YES;
             [HUD show:YES];
         }
@@ -225,7 +225,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
     HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"buy_success.png"]];
     HUD.mode = MBProgressHUDModeCustomView;
-	HUD.labelText = @"Purchase Completed";
+	HUD.labelText = NSLocalizedString(@"Purchase Completed", @"");
     [HUD hide: YES afterDelay:2.0f];
 }
 
@@ -236,17 +236,17 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
     HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"buy_success.png"]];
     HUD.mode = MBProgressHUDModeCustomView;
-	HUD.labelText = @"Restore Completed";
+	HUD.labelText = NSLocalizedString(@"Restore Completed", @"");
     [HUD hide: YES afterDelay:2.0f];
 }
 
 - (void)failedTransaction:(SKPaymentTransaction *)transaction {
     
     NSLog(@"failedTransaction...");
-    NSString *text = @"Purchase Canceled";
+    NSString *text = NSLocalizedString(@"Purchase Canceled", @"");
     if (transaction.error.code != SKErrorPaymentCancelled)
     {
-        text = @"Purchase Failed";
+        text = NSLocalizedString(@"Purchase Failed", @"");
         NSLog(@"Transaction error: %@", transaction.error.localizedDescription);
     }
     
@@ -346,7 +346,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     [lzStoreViewController.listView addSubview:HUD];
     HUD.dimBackground = YES;
     HUD.delegate = self;
-    HUD.labelText = @"Connecting to iTunes...";
+    HUD.labelText = NSLocalizedString(@"Connecting to iTunes...", @"");
     [HUD show:YES];
     }
 }
