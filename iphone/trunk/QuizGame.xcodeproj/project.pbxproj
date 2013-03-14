@@ -74,7 +74,6 @@
 		5F22C01816F042E30058B851 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F22C01616F042E30058B851 /* MBProgressHUD.m */; };
 		5F22C01916F042E30058B851 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 5F22C01716F042E30058B851 /* README.mdown */; };
 		5F4D896416DF2F0E0029E4BC /* LZIAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D896316DF2F0E0029E4BC /* LZIAPManager.m */; };
-		5F7C3B8916F09ADC00C940AA /* tokens@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5F7C3B8816F09ADC00C940AA /* tokens@2x.png */; };
 		5F91536516BA27180074FFF2 /* PackageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536416BA27180074FFF2 /* PackageCell.m */; };
 		5F91536E16BA38D50074FFF2 /* LZTopNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536D16BA38D50074FFF2 /* LZTopNavView.m */; };
 		5F91537116BA44C00074FFF2 /* LZFactoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91537016BA44C00074FFF2 /* LZFactoryViewController.m */; };
@@ -91,6 +90,7 @@
 		5F98A12F16BBB6C80084A2F5 /* RestorePurchaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F98A12E16BBB6C80084A2F5 /* RestorePurchaseCell.m */; };
 		5F9AFAE616E6108000464826 /* LZHowToPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9AFAE516E6108000464826 /* LZHowToPlayViewController.m */; };
 		5F9CF2CC16C0BDEF0033DDA7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */; };
+		5FD576C316F17E780000A9FC /* tokens@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD576C216F17E780000A9FC /* tokens@2x.png */; };
 		5FE16B7C16EF19F400842234 /* LZFacebookShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE16B7B16EF19F400842234 /* LZFacebookShare.m */; };
 		5FE16B7F16EF1A2400842234 /* LZTwitterShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE16B7E16EF1A2400842234 /* LZTwitterShare.m */; };
 		5FE16BDB16EF472100842234 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FE16BDA16EF472100842234 /* Icon.png */; };
@@ -487,7 +487,6 @@
 		5F22C01716F042E30058B851 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.mdown; path = MBProgressHUD/README.mdown; sourceTree = "<group>"; };
 		5F4D896216DF2F0E0029E4BC /* LZIAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZIAPManager.h; sourceTree = "<group>"; };
 		5F4D896316DF2F0E0029E4BC /* LZIAPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZIAPManager.m; sourceTree = "<group>"; };
-		5F7C3B8816F09ADC00C940AA /* tokens@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tokens@2x.png"; sourceTree = "<group>"; };
 		5F91536316BA27180074FFF2 /* PackageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageCell.h; sourceTree = "<group>"; };
 		5F91536416BA27180074FFF2 /* PackageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageCell.m; sourceTree = "<group>"; };
 		5F91536C16BA38D50074FFF2 /* LZTopNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTopNavView.h; sourceTree = "<group>"; };
@@ -519,6 +518,7 @@
 		5F9AFAE416E6108000464826 /* LZHowToPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHowToPlayViewController.h; sourceTree = "<group>"; };
 		5F9AFAE516E6108000464826 /* LZHowToPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHowToPlayViewController.m; sourceTree = "<group>"; };
 		5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		5FD576C216F17E780000A9FC /* tokens@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tokens@2x.png"; path = "Resouces/images/tokens@2x.png"; sourceTree = "<group>"; };
 		5FE16B7A16EF19F400842234 /* LZFacebookShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZFacebookShare.h; sourceTree = "<group>"; };
 		5FE16B7B16EF19F400842234 /* LZFacebookShare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZFacebookShare.m; sourceTree = "<group>"; };
 		5FE16B7D16EF1A2400842234 /* LZTwitterShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTwitterShare.h; sourceTree = "<group>"; };
@@ -749,7 +749,7 @@
 		5F91537C16BA62490074FFF2 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				5F7C3B8816F09ADC00C940AA /* tokens@2x.png */,
+				5FD576C216F17E780000A9FC /* tokens@2x.png */,
 				5FE16BDC16EF472600842234 /* Icon@2x.png */,
 				5FE16BDA16EF472100842234 /* Icon.png */,
 				5FE16BDE16EF478500842234 /* Icon-Small.png */,
@@ -1395,7 +1395,7 @@
 				0880BFDC16F06B2B00C32742 /* quizicons in Resources */,
 				0880C01F16F06D8C00C32742 /* README.txt in Resources */,
 				0880C02716F06D8D00C32742 /* TapjoyResources.bundle in Resources */,
-				5F7C3B8916F09ADC00C940AA /* tokens@2x.png in Resources */,
+				5FD576C316F17E780000A9FC /* tokens@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
