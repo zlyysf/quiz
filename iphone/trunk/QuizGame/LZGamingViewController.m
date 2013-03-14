@@ -24,6 +24,9 @@
 #define kCutWrongCost 2
 #define kCutWrongCostDelta -2
 #define kAskAlertTag 22
+#define kWinButtonAlertTag 33
+#define kCutWrongButtonAlertTag 44
+#define kRunningOutTokenAlertTag 55
 @interface LZGamingViewController ()<LZPlayViewDelegate,UIAlertViewDelegate>
 @property(nonatomic,strong)NSArray *quizArray;
 @property(nonatomic,assign)int currentQuizIndex;
@@ -268,6 +271,111 @@
     [self.playView2 setUserInteractionEnabled:YES];
 }
 #pragma -mark LZPlay View Delegate
+-(void)winButtonClicked
+{
+    NSDictionary *userInfo = [[LZDataAccess singleton]getUserTotalScore];
+    int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
+    if (userGold < kDirectWinCost)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Running out of tokens?", @"") message:NSLocalizedString(@"Visit our store to get more tokens.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Ok", @""),nil];
+        alert.tag = kRunningOutTokenAlertTag;
+        [alert show];
+        return;
+    }
+    [[LZDataAccess singleton]updateUserTotalCoinByDelta:kDirectWinConstDelta];
+    NSNumber *current= [self.orderArray objectAtIndex:currentQuizIndex];
+    NSDictionary *quiz = [self.quizArray objectAtIndex:[current integerValue]];
+    NSString *answerPic = [quiz objectForKey:@"answerPic"];
+    for(int i = 0 ;i<[self.currentOptionArray count];i++)
+    {
+        NSString *aOption = [self.currentOptionArray objectAtIndex:i];
+        if ([aOption isEqualToString:answerPic])
+        {
+            if (currentQuizIndex%2 == 0)//set play1
+            {
+                UIButton *button = (UIButton*)[self.playView1 viewWithTag:200+i];
+                [self.playView1 addSubview:self.rightIconImageView];
+                rightIconImageView.center = button.center;
+            }
+            else
+            {
+                UIButton *button = (UIButton *)[self.playView2 viewWithTag:200+i];
+                [self.playView2 addSubview:self.rightIconImageView];
+                rightIconImageView.center = button.center;
+                
+            }
+            break;
+            
+        }
+    }
+    answeredRightCount++;
+    [[LZSoundManager SharedInstance]playCorrectSound];
+    NSString *quizkey = [quiz objectForKey:@"quizkey"];
+    
+    NSDictionary *updateResult = [[LZDataAccess singleton]obtainQuizAward:quizkey];
+    NSLog(@"%@",updateResult);
+    NSDictionary *newUserInfo = [[LZDataAccess singleton]getUserTotalScore];
+    int newUserGold = [[newUserInfo objectForKey:@"totalCoin"] integerValue];
+    self.topNavView.goldCountLabel.text = [NSString stringWithFormat:@"%d",newUserGold];
+    NSLog(@"%@",updateResult);
+    self.topNavView.correctCountLabel.text = [NSString stringWithFormat:@"%d",answeredRightCount];
+    self.topNavView.wrongCountLabel.text = [NSString stringWithFormat:@"%d",answeredWrongCount];
+    [self.playView1 setUserInteractionEnabled:NO];
+    [self.playView2 setUserInteractionEnabled:NO];
+    [self performSelector:@selector(displayNext) withObject:nil afterDelay:kDirectAnswerInterval];
+
+}
+-(void)cutWrongButtonClicked
+{
+    NSDictionary *userInfo = [[LZDataAccess singleton]getUserTotalScore];
+    int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
+    if (userGold < kCutWrongCost)
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Running out of tokens?", @"") message:NSLocalizedString(@"Visit our store to get more tokens.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Ok", @""),nil];
+        alert.tag = kRunningOutTokenAlertTag;
+        [alert show];
+        return;
+    }
+    [[LZDataAccess singleton]updateUserTotalCoinByDelta:kCutWrongCostDelta];
+    NSDictionary *newUserInfo = [[LZDataAccess singleton]getUserTotalScore];
+    int newUserGold = [[newUserInfo objectForKey:@"totalCoin"] integerValue];
+    self.topNavView.goldCountLabel.text = [NSString stringWithFormat:@"%d",newUserGold];
+    int remainOption = rand()%kTotalOptionCount;
+    NSNumber *current= [self.orderArray objectAtIndex:currentQuizIndex];
+    NSDictionary *quiz = [self.quizArray objectAtIndex:[current integerValue]];
+    if (currentQuizIndex%2 == 0)
+    {
+        UIButton *helpButton = (UIButton*)[self.playView1 viewWithTag:kCutWrongButtonTag];
+        [helpButton setEnabled:NO];
+    }
+    else{
+        UIButton *helpButton = (UIButton*)[self.playView2 viewWithTag:kCutWrongButtonTag];
+        [helpButton setEnabled:NO];
+        
+    }
+    NSString *right = [quiz objectForKey:@"answerPic"];
+    NSArray *option = [quiz objectForKey:@"options"];
+    NSString *remainOptionKey = [[option objectAtIndex:remainOption] objectForKey:@"answerPic"];
+    for(int i = 0 ;i<[self.currentOptionArray count];i++)
+    {
+        NSString *aOption = [self.currentOptionArray objectAtIndex:i];
+        if (![aOption isEqualToString:right]&&![aOption isEqualToString:remainOptionKey])
+        {
+            if (currentQuizIndex%2 == 0)//set play1
+            {
+                UIButton *button = (UIButton*)[self.playView1 viewWithTag:200+i];
+                button.hidden = YES;
+            }
+            else
+            {
+                UIButton *button = (UIButton *)[self.playView2 viewWithTag:200+i];
+                button.hidden = YES;
+            }
+            
+        }
+    }
+
+}
 - (void)playViewButtonClicked:(UIButton*)button
 {
     /*case1 help button
@@ -282,126 +390,44 @@
     {
         if(tag == kWinButtonTag)
         {
-            NSDictionary *userInfo = [[LZDataAccess singleton]getUserTotalScore];
-            int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
-            if (userGold < kDirectWinCost)
+            if ([[NSUserDefaults standardUserDefaults]boolForKey:@"LZWinButtonFirstTapped"])
             {
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Not Enough Coin", @"") message:@"" delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
+                [self winButtonClicked];
+            }
+            else
+            {
+                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Direct pass the quiz for %d tokens.", @""),kDirectWinCost];
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Direct Pass", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
+                alert.tag = kWinButtonAlertTag;
                 [alert show];
-                return;
+                [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZWinButtonFirstTapped"];
+                [[NSUserDefaults standardUserDefaults]synchronize];
             }
-            [[LZDataAccess singleton]updateUserTotalCoinByDelta:kDirectWinConstDelta];
-            NSNumber *current= [self.orderArray objectAtIndex:currentQuizIndex];
-            NSDictionary *quiz = [self.quizArray objectAtIndex:[current integerValue]];
-            NSString *answerPic = [quiz objectForKey:@"answerPic"];
-            for(int i = 0 ;i<[self.currentOptionArray count];i++)
-            {
-                NSString *aOption = [self.currentOptionArray objectAtIndex:i];
-                if ([aOption isEqualToString:answerPic])
-                {
-                    if (currentQuizIndex%2 == 0)//set play1
-                    {
-                        UIButton *button = (UIButton*)[self.playView1 viewWithTag:200+i];
-                        [self.playView1 addSubview:self.rightIconImageView];
-                        rightIconImageView.center = button.center;
-                    }
-                    else
-                    {
-                        UIButton *button = (UIButton *)[self.playView2 viewWithTag:200+i];
-                        [self.playView2 addSubview:self.rightIconImageView];
-                        rightIconImageView.center = button.center;
-                        
-                    }
-                break;
-
-                }
-            }
-            answeredRightCount++;
-            [[LZSoundManager SharedInstance]playCorrectSound];
-            NSString *quizkey = [quiz objectForKey:@"quizkey"];
-
-            NSDictionary *updateResult = [[LZDataAccess singleton]obtainQuizAward:quizkey];
-            NSLog(@"%@",updateResult);
-            NSDictionary *newUserInfo = [[LZDataAccess singleton]getUserTotalScore];
-            int newUserGold = [[newUserInfo objectForKey:@"totalCoin"] integerValue];
-            self.topNavView.goldCountLabel.text = [NSString stringWithFormat:@"%d",newUserGold];
-            NSLog(@"%@",updateResult);
-            self.topNavView.correctCountLabel.text = [NSString stringWithFormat:@"%d",answeredRightCount];
-            self.topNavView.wrongCountLabel.text = [NSString stringWithFormat:@"%d",answeredWrongCount];
-            [self.playView1 setUserInteractionEnabled:NO];
-            [self.playView2 setUserInteractionEnabled:NO];
-            [self performSelector:@selector(displayNext) withObject:nil afterDelay:kDirectAnswerInterval];
-
+        
         }
         if(tag == kCutWrongButtonTag)
         {
-            NSDictionary *userInfo = [[LZDataAccess singleton]getUserTotalScore];
-            int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
-            if (userGold < kCutWrongCost)
+            if ([[NSUserDefaults standardUserDefaults]boolForKey:@"LZCutButtonFirstTapped"])
             {
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Not Enough Coin", @"") message:@"" delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
+                [self cutWrongButtonClicked];
+            }
+            else
+            {
+                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Cut down two wrong options for %d tokens.", @""),kCutWrongCost];
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Cut Wrong", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
+                alert.tag = kCutWrongButtonAlertTag;
                 [alert show];
-                return;
-            }
-            [[LZDataAccess singleton]updateUserTotalCoinByDelta:kCutWrongCostDelta];
-            NSDictionary *newUserInfo = [[LZDataAccess singleton]getUserTotalScore];
-            int newUserGold = [[newUserInfo objectForKey:@"totalCoin"] integerValue];
-            self.topNavView.goldCountLabel.text = [NSString stringWithFormat:@"%d",newUserGold];
-            int remainOption = rand()%kTotalOptionCount;
-            NSNumber *current= [self.orderArray objectAtIndex:currentQuizIndex];
-            NSDictionary *quiz = [self.quizArray objectAtIndex:[current integerValue]];
-            if (currentQuizIndex%2 == 0)
-            {
-                UIButton *helpButton = (UIButton*)[self.playView1 viewWithTag:kCutWrongButtonTag];
-                [helpButton setEnabled:NO];
-            }
-            else{
-                UIButton *helpButton = (UIButton*)[self.playView2 viewWithTag:kCutWrongButtonTag];
-                [helpButton setEnabled:NO];
-
-            }
-            NSString *right = [quiz objectForKey:@"answerPic"];
-            NSArray *option = [quiz objectForKey:@"options"];
-            NSString *remainOptionKey = [[option objectAtIndex:remainOption] objectForKey:@"answerPic"];
-            for(int i = 0 ;i<[self.currentOptionArray count];i++)
-            {
-                NSString *aOption = [self.currentOptionArray objectAtIndex:i];
-                if (![aOption isEqualToString:right]&&![aOption isEqualToString:remainOptionKey])
-                {
-                    if (currentQuizIndex%2 == 0)//set play1
-                    {
-                        UIButton *button = (UIButton*)[self.playView1 viewWithTag:200+i];
-                        button.hidden = YES;
-                    }
-                    else
-                    {
-                        UIButton *button = (UIButton *)[self.playView2 viewWithTag:200+i];
-                        button.hidden = YES;
-                    }
-                    
-                }
+                [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZCutButtonFirstTapped"];
+                [[NSUserDefaults standardUserDefaults]synchronize];
             }
 
+            
         }
         if(tag == kAskFriendsButtonTag)
         {
-//            UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
-//            SHKItem *item = [SHKItem image:questionImage title:@"Any one know the answer?"];
-//            
-//            // Get the ShareKit action sheet
-//            SHKActionSheet *actionSheet = [SHKActionSheet actionSheetForItem:item];
-//            
-//            // ShareKit detects top view controller (the one intended to present ShareKit UI) automatically,
-//            // but sometimes it may not find one. To be safe, set it explicitly
-//            [SHK setRootViewController:self];
-//            
-//            // Display the action sheet
-//            [actionSheet showInView:self.view];
             UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Ask Friends", @"") message:NSLocalizedString(@"Ask your friends for help", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Facebook", @""),NSLocalizedString(@"Twitter", @""), nil];
             alert.tag = kAskAlertTag;
             [alert show];
-           
-            
         }
     }
     else
@@ -635,6 +661,28 @@
             SHKItem *item = [SHKItem image:questionImage title:NSLocalizedString(@"Any one know the answer?", @"")];
             [SHKTwitter shareItem:item];
         }
+    }
+    else if (alertView.tag == kWinButtonAlertTag)
+    {
+        if (buttonIndex == 1)
+        {
+            [self winButtonClicked];
+        }
+    }
+    else if (alertView.tag == kCutWrongButtonAlertTag)
+    {
+        if (buttonIndex == 1)
+        {
+            [self cutWrongButtonClicked];
+        }
+    }
+    else if (alertView.tag == kRunningOutTokenAlertTag)
+    {
+        if (buttonIndex == 1)
+        {
+            [self goldButtonTapped];
+        }
+
     }
     else if (buttonIndex == alertView.cancelButtonIndex)
     {

@@ -58,3 +58,13 @@ value: YES means user got bonus already ; NO means user did not get bonus yet.
  value: YES means user got bonus already ; NO means user did not get bonus yet.
  
  */
+
+/*
+ key: @"LZWinButtonFirstTapped"
+ value: YES means already tapped; NO means not tapped yet.
+ */
+
+/*
+ key: @"LZCutButtonFirstTapped"
+ value: YES means already tapped; NO means not tapped yet.
+ */
