@@ -513,7 +513,9 @@
             NSMutableDictionary *pkgInfo = [NSMutableDictionary dictionaryWithDictionary:nil];
             [pkgInfo setObject:fileNameForPkg forKey:@"packageName"];
             [pkgInfo setObject:fileNameForPkg forKey:@"pkgkey"];
-            [pkgInfo setObject:cfgPackageDict forKey:@"configPackage"];
+            if (cfgPackageDict != nil){
+                [pkgInfo setObject:cfgPackageDict forKey:@"configPackage"];
+            }
             [pkgInfo setObject:cfgRootDict forKey:@"configRoot"];
             
             [self initForPackage:db andPackagePath:pathForPkg withPackageInfo:pkgInfo];
@@ -544,6 +546,8 @@
     if (packageRows.count > 0){
         NSLog(@"INFO initForPackage, package already exists : %@",packageName);
         return ;
+    }else{
+        NSLog(@"INFO initForPackage, package not exists and will be inited : %@",packageName);
     }
     
     NSString *packageSeq = @"1";

@@ -22,7 +22,7 @@
         NSLog(@"init data, packages count ERROR");
     }
     
-    NSString *pkgkey = @"Apparel 1";
+    NSString *pkgkey = @"zt1pkg";
     NSArray * pkgGroups = [da getPackageGroups:pkgkey];
     if (pkgGroups.count != 4){
         NSLog(@"init data, package groups count ERROR");
@@ -31,6 +31,8 @@
     NSArray* rows = [da selectTableByEqualFilter:@"packageDef" andField:@"name" andValue:pkgkey];
     if (rows.count != 1){
         NSLog(@"selectTableByEqualFilter ERROR");
+    }else{
+        NSLog(@"selectTableByEqualFilter OK");
     }
     
     

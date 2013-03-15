@@ -25,7 +25,7 @@
     NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
     NSString *appKey = [NSString stringWithFormat:@"%@%@",appName,appVersion];
     if (![[NSUserDefaults standardUserDefaults]boolForKey:appKey]) {
-        [[LZDataAccess singleton]cleanDb];
+        //[[LZDataAccess singleton]cleanDb];//should NOT cleadDb , for upgrade support
         [[LZDataAccess singleton]initDbWithGeneratedSql];
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:appKey];
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZSoundOn"];

@@ -24,6 +24,16 @@
     self = [super init];
     if (self) {
         NSString *dbFilePath = [self dbFilePath];
+        
+        NSFileManager * defFileManager = [NSFileManager defaultManager];
+        BOOL fileExists,isDir;
+        fileExists = [defFileManager fileExistsAtPath:dbFilePath isDirectory:&isDir];
+        if (!fileExists){            
+            NSLog(@"INFO in initDBConnection, db file not exist: %@",dbFilePath);
+        }else{
+            NSLog(@"INFO in initDBConnection, db file exist: %@",dbFilePath);
+        }
+        
         dbfm = [FMDatabase databaseWithPath:dbFilePath];
         if (![dbfm open]) {
             //[dbfm release];
