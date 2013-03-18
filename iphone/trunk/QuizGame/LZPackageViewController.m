@@ -11,7 +11,7 @@
 #import "PackageCell.h"
 #import "LZTapjoyHelper.h"
 
-@interface LZPackageViewController ()<LZCellDelegate>
+@interface LZPackageViewController ()<LZCellDelegate,UIAlertViewDelegate>
 @property (nonatomic,strong)NSArray *packageArray;
 @end
 
@@ -136,7 +136,8 @@
     if (lockstate == 1)
     {
         //[cell setLocked:YES];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Sorry", @"") message:NSLocalizedString(@"You should pass the preceding packages to unlock this package or visit our store.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];//TODO ADD CANCAL BUTTON
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Sorry", @"") message:NSLocalizedString(@"You should pass the preceding packages to unlock this package or visit our store.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:@"Ok",nil];//TODO ADD CANCAL BUTTON
+        alert.tag = 50;
         [alert show];//TODO let user can purchase
     }
     else
@@ -149,6 +150,18 @@
         levelViewController.currentPackageName = packageName;
         [self.navigationController pushViewController:levelViewController animated:NO];
 
+    }
+
+}
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (alertView.tag == 50)
+    {
+        if (buttonIndex == 1)
+        {
+            [self goldButtonTapped];
+        }
+        
     }
 
 }

@@ -100,18 +100,8 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         [lzStoreViewController.listView addSubview:HUD];
         HUD.delegate = self;
         HUD.labelText = NSLocalizedString(@"Retrieving store information", @"");
-        HUD.dimBackground = YES;
         [HUD show:YES];
     }
-
-//    HUD = [[MBProgressHUD alloc] initWithView:[[UIApplication sharedApplication] delegate].window];
-//	[[[UIApplication sharedApplication] delegate].window addSubview:HUD];
-//	
-//	HUD.delegate = self;
-//	HUD.labelText = @"Retrieving store information";
-//	HUD.dimBackground = YES;
-//	[HUD show:YES];
-    
 }
 
 - (void)buyProduct:(SKProduct *)product {
@@ -131,7 +121,6 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
             [lzStoreViewController.listView addSubview:HUD];
             HUD.delegate = self;
             HUD.labelText = NSLocalizedString(@"Connecting to iTunes...", @"");
-            HUD.dimBackground = YES;
             [HUD show:YES];
         }
     }
@@ -169,10 +158,6 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
                 [reorderArray addObject:skProduct];
                 break;
             }
-//            NSLog(@"Found product: %@ %@ %0.2f",
-//                  skProduct.productIdentifier,
-//                  skProduct.localizedTitle,
-//                  skProduct.price.floatValue);
         }
     }
     _completionHandler(YES, reorderArray);
@@ -275,7 +260,6 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     @"com.lingzhi.QuizAwsome.buytoken200",
     @"com.lingzhi.QuizAwsome.buytoken400",
  */
-    //-(BOOL)updatePackageLockState:(NSString *)pkgkey andLocked:(int)locked;
     if ([productIdentifier isEqualToString:@"com.lingzhi.QuizAwsome.removeads"])
     {
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZAdsOff"];
@@ -344,7 +328,6 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
     HUD = [[MBProgressHUD alloc] initWithView:lzStoreViewController.listView];
     [lzStoreViewController.listView addSubview:HUD];
-    HUD.dimBackground = YES;
     HUD.delegate = self;
     HUD.labelText = NSLocalizedString(@"Connecting to iTunes...", @"");
     [HUD show:YES];
