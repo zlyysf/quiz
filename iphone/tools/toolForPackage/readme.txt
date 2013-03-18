@@ -1,0 +1,1 @@
+this tool supports to generate tooLongFiles.plist in every package in original icon packages.
