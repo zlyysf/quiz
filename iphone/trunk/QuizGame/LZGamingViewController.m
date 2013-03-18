@@ -396,8 +396,8 @@
             }
             else
             {
-                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Direct pass the quiz for %d tokens.", @""),kDirectWinCost];
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Direct Pass", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
+                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Automagically answer the question for you.\nCost %d tokens.", @""),kDirectWinCost];
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Resolve", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
                 alert.tag = kWinButtonAlertTag;
                 [alert show];
                 [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZWinButtonFirstTapped"];
@@ -413,8 +413,8 @@
             }
             else
             {
-                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Cut down two wrong options for %d tokens.", @""),kCutWrongCost];
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Cut Wrong", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
+                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Leave two options.\nCost %d tokens.", @""),kCutWrongCost];
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Either-or Choice", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
                 alert.tag = kCutWrongButtonAlertTag;
                 [alert show];
                 [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZCutButtonFirstTapped"];
@@ -544,8 +544,9 @@
                     }
                     else//some package before still not passed
                     {
-                        NSString *message = [NSString stringWithFormat:NSLocalizedString(@"total quiz : %d  right : %d  wrong : %d", @""),totalQuizCount,answeredRightCount,answeredWrongCount];
-                        UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
+                        NSString *message = NSLocalizedString(@"You pass the package.", @"");
+                        NSString *title = NSLocalizedString(@"Congratulations!", @"");
+                        UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
                         [endAlert show];
                     }
                 }
@@ -558,8 +559,8 @@
                     else if (packageIndex == [packageArray count]-1)
                     {
                         //finished all games!!!!
-                        NSString *message = [NSString stringWithFormat:NSLocalizedString(@"total quiz : %d  right : %d  wrong : %d", @""),totalQuizCount,answeredRightCount,answeredWrongCount];
-                        NSString *title = NSLocalizedString(@"You finished all the quiz!", @"");
+                        NSString *message = NSLocalizedString(@"You pass the package.", @"");
+                        NSString *title = NSLocalizedString(@"Congratulations!", @"");
                         UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
                         [endAlert show];
 
@@ -576,16 +577,16 @@
                 {
                     unlockKey = [unlockGroup objectForKey:@"grpkey"];
                     [[LZDataAccess singleton]updateGroupLockState:unlockKey andLocked:0];
-                    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"total quiz : %d  right : %d  wrong : %d", @""),totalQuizCount,answeredRightCount,answeredWrongCount];
-                    NSString *title = [NSString stringWithFormat:NSLocalizedString(@"group %d unlocked!", @""),groupIndex+2];
+                    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Group %d unlocked.", @""),groupIndex+2];
+                    NSString *title = NSLocalizedString(@"Congratulations!", @"");
                     UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
                     [endAlert show];
                 }
                 else // next group already unlocked
                 {
-                    NSString *message = [NSString stringWithFormat:NSLocalizedString(@"total quiz : %d  right : %d  wrong : %d", @""),totalQuizCount,answeredRightCount,answeredWrongCount];
-                    //NSString *title = [NSString stringWithFormat:@"package %@ unlocked!",unlockKey];
-                    UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
+                    NSString *message = NSLocalizedString(@"You pass the group.", @"");
+                    NSString *title = NSLocalizedString(@"Congratulations!", @"");
+                    UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
                     [endAlert show];
                 }
             }
@@ -593,9 +594,10 @@
         }
         else //not pass this group
         {
-            NSString *message = [NSString stringWithFormat:NSLocalizedString(@"total quiz : %d  right : %d  wrong : %d", @""),totalQuizCount,answeredRightCount,answeredWrongCount];
-            //NSString *title = [NSString stringWithFormat:@"package %@ unlocked!",unlockKey];
-            UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
+            
+            NSString *title = NSLocalizedString(@"You could play better", @"");
+            NSString *message = NSLocalizedString(@"Assistant items can help you.", @"");
+            UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
             [endAlert show];
  
         }
@@ -632,15 +634,16 @@
     {
        NSString* unlockKey = [unlockPackage objectForKey:@"name"];
         [[LZDataAccess singleton]updatePackageLockState:unlockKey andLocked:0];
-        NSString *message = [NSString stringWithFormat:NSLocalizedString(@"total quiz : %d  right : %d  wrong : %d", @""),totalQuizCount,answeredRightCount,answeredWrongCount];
-        NSString *title = [NSString stringWithFormat:NSLocalizedString(@"package %@ unlocked!", @""),unlockKey];
+        NSString *title = NSLocalizedString(@"Congratulations!", @"");
+        NSString *message = [NSString stringWithFormat:NSLocalizedString(@"Package %@ unlocked.", @""),unlockKey];
         UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
         [endAlert show];  
     }
     else
     {
-        NSString *message = [NSString stringWithFormat:NSLocalizedString(@"total quiz : %d  right : %d  wrong : %d", @""),totalQuizCount,answeredRightCount,answeredWrongCount];
-        UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:nil message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
+        NSString *message = NSLocalizedString(@"You pass the package.", @"");
+        NSString *title = NSLocalizedString(@"Congratulations!", @"");
+        UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
         [endAlert show];
     }
 
