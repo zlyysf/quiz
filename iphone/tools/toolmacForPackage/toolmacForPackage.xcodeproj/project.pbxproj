@@ -1,0 +1,389 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		08B365B316F813F500F62F58 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B365B216F813F500F62F58 /* Cocoa.framework */; };
+		08B365BD16F813F500F62F58 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 08B365BB16F813F500F62F58 /* InfoPlist.strings */; };
+		08B365BF16F813F500F62F58 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B365BE16F813F500F62F58 /* main.m */; };
+		08B365C316F813F500F62F58 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 08B365C116F813F500F62F58 /* Credits.rtf */; };
+		08B365C616F813F500F62F58 /* LZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B365C516F813F500F62F58 /* LZAppDelegate.m */; };
+		08B365C916F813F500F62F58 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 08B365C716F813F500F62F58 /* MainMenu.xib */; };
+		08B365D616F8146900F62F58 /* LZDataAccess+GenSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B365D116F8146900F62F58 /* LZDataAccess+GenSql.m */; };
+		08B365D716F8146900F62F58 /* LZDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B365D316F8146900F62F58 /* LZDataAccess.m */; };
+		08B365D816F8146900F62F58 /* LZDATest1.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B365D516F8146900F62F58 /* LZDATest1.m */; };
+		08B365E516F8205400F62F58 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B365DB16F8205400F62F58 /* FMDatabase.m */; };
+		08B365E616F8205400F62F58 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B365DD16F8205400F62F58 /* FMDatabaseAdditions.m */; };
+		08B365E716F8205400F62F58 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B365DF16F8205400F62F58 /* FMDatabasePool.m */; };
+		08B365E816F8205400F62F58 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B365E116F8205400F62F58 /* FMDatabaseQueue.m */; };
+		08B365E916F8205400F62F58 /* fmdb.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B365E216F8205400F62F58 /* fmdb.m */; };
+		08B365EA16F8205400F62F58 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 08B365E416F8205400F62F58 /* FMResultSet.m */; };
+		08B365EC16F8216400F62F58 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 08B365EB16F8216400F62F58 /* libsqlite3.dylib */; };
+		08B365EE16F8227300F62F58 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 08B365ED16F8227300F62F58 /* readme.txt */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08B365AF16F813F500F62F58 /* toolmacForPackage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = toolmacForPackage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		08B365B216F813F500F62F58 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		08B365B516F813F500F62F58 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		08B365B616F813F500F62F58 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		08B365B716F813F500F62F58 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		08B365BA16F813F500F62F58 /* toolmacForPackage-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "toolmacForPackage-Info.plist"; sourceTree = "<group>"; };
+		08B365BC16F813F500F62F58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		08B365BE16F813F500F62F58 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		08B365C016F813F500F62F58 /* toolmacForPackage-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "toolmacForPackage-Prefix.pch"; sourceTree = "<group>"; };
+		08B365C216F813F500F62F58 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		08B365C416F813F500F62F58 /* LZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LZAppDelegate.h; sourceTree = "<group>"; };
+		08B365C516F813F500F62F58 /* LZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZAppDelegate.m; sourceTree = "<group>"; };
+		08B365C816F813F500F62F58 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		08B365D016F8146900F62F58 /* LZDataAccess+GenSql.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LZDataAccess+GenSql.h"; sourceTree = "<group>"; };
+		08B365D116F8146900F62F58 /* LZDataAccess+GenSql.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "LZDataAccess+GenSql.m"; sourceTree = "<group>"; };
+		08B365D216F8146900F62F58 /* LZDataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDataAccess.h; sourceTree = "<group>"; };
+		08B365D316F8146900F62F58 /* LZDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDataAccess.m; sourceTree = "<group>"; };
+		08B365D416F8146900F62F58 /* LZDATest1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDATest1.h; sourceTree = "<group>"; };
+		08B365D516F8146900F62F58 /* LZDATest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDATest1.m; sourceTree = "<group>"; };
+		08B365DA16F8205400F62F58 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
+		08B365DB16F8205400F62F58 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
+		08B365DC16F8205400F62F58 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
+		08B365DD16F8205400F62F58 /* FMDatabaseAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseAdditions.m; sourceTree = "<group>"; };
+		08B365DE16F8205400F62F58 /* FMDatabasePool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabasePool.h; sourceTree = "<group>"; };
+		08B365DF16F8205400F62F58 /* FMDatabasePool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabasePool.m; sourceTree = "<group>"; };
+		08B365E016F8205400F62F58 /* FMDatabaseQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseQueue.h; sourceTree = "<group>"; };
+		08B365E116F8205400F62F58 /* FMDatabaseQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabaseQueue.m; sourceTree = "<group>"; };
+		08B365E216F8205400F62F58 /* fmdb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = fmdb.m; sourceTree = "<group>"; };
+		08B365E316F8205400F62F58 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
+		08B365E416F8205400F62F58 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
+		08B365EB16F8216400F62F58 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		08B365ED16F8227300F62F58 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		08B365AC16F813F500F62F58 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08B365EC16F8216400F62F58 /* libsqlite3.dylib in Frameworks */,
+				08B365B316F813F500F62F58 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08B365A616F813F500F62F58 = {
+			isa = PBXGroup;
+			children = (
+				08B365ED16F8227300F62F58 /* readme.txt */,
+				08B365D916F8205400F62F58 /* FMDB */,
+				08B365CF16F8146900F62F58 /* dataAccess */,
+				08B365B816F813F500F62F58 /* toolmacForPackage */,
+				08B365B116F813F500F62F58 /* Frameworks */,
+				08B365B016F813F500F62F58 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		08B365B016F813F500F62F58 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				08B365AF16F813F500F62F58 /* toolmacForPackage.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		08B365B116F813F500F62F58 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08B365EB16F8216400F62F58 /* libsqlite3.dylib */,
+				08B365B216F813F500F62F58 /* Cocoa.framework */,
+				08B365B416F813F500F62F58 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08B365B416F813F500F62F58 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08B365B516F813F500F62F58 /* AppKit.framework */,
+				08B365B616F813F500F62F58 /* CoreData.framework */,
+				08B365B716F813F500F62F58 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		08B365B816F813F500F62F58 /* toolmacForPackage */ = {
+			isa = PBXGroup;
+			children = (
+				08B365C416F813F500F62F58 /* LZAppDelegate.h */,
+				08B365C516F813F500F62F58 /* LZAppDelegate.m */,
+				08B365C716F813F500F62F58 /* MainMenu.xib */,
+				08B365B916F813F500F62F58 /* Supporting Files */,
+			);
+			path = toolmacForPackage;
+			sourceTree = "<group>";
+		};
+		08B365B916F813F500F62F58 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				08B365BA16F813F500F62F58 /* toolmacForPackage-Info.plist */,
+				08B365BB16F813F500F62F58 /* InfoPlist.strings */,
+				08B365BE16F813F500F62F58 /* main.m */,
+				08B365C016F813F500F62F58 /* toolmacForPackage-Prefix.pch */,
+				08B365C116F813F500F62F58 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		08B365CF16F8146900F62F58 /* dataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				08B365D016F8146900F62F58 /* LZDataAccess+GenSql.h */,
+				08B365D116F8146900F62F58 /* LZDataAccess+GenSql.m */,
+				08B365D216F8146900F62F58 /* LZDataAccess.h */,
+				08B365D316F8146900F62F58 /* LZDataAccess.m */,
+				08B365D416F8146900F62F58 /* LZDATest1.h */,
+				08B365D516F8146900F62F58 /* LZDATest1.m */,
+			);
+			name = dataAccess;
+			path = ../../trunk/QuizGame/dataAccess;
+			sourceTree = "<group>";
+		};
+		08B365D916F8205400F62F58 /* FMDB */ = {
+			isa = PBXGroup;
+			children = (
+				08B365DA16F8205400F62F58 /* FMDatabase.h */,
+				08B365DB16F8205400F62F58 /* FMDatabase.m */,
+				08B365DC16F8205400F62F58 /* FMDatabaseAdditions.h */,
+				08B365DD16F8205400F62F58 /* FMDatabaseAdditions.m */,
+				08B365DE16F8205400F62F58 /* FMDatabasePool.h */,
+				08B365DF16F8205400F62F58 /* FMDatabasePool.m */,
+				08B365E016F8205400F62F58 /* FMDatabaseQueue.h */,
+				08B365E116F8205400F62F58 /* FMDatabaseQueue.m */,
+				08B365E216F8205400F62F58 /* fmdb.m */,
+				08B365E316F8205400F62F58 /* FMResultSet.h */,
+				08B365E416F8205400F62F58 /* FMResultSet.m */,
+			);
+			name = FMDB;
+			path = ../../trunk/QuizGame/lib3rd/FMDB;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		08B365AE16F813F500F62F58 /* toolmacForPackage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 08B365CC16F813F500F62F58 /* Build configuration list for PBXNativeTarget "toolmacForPackage" */;
+			buildPhases = (
+				08B365AB16F813F500F62F58 /* Sources */,
+				08B365AC16F813F500F62F58 /* Frameworks */,
+				08B365AD16F813F500F62F58 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = toolmacForPackage;
+			productName = toolmacForPackage;
+			productReference = 08B365AF16F813F500F62F58 /* toolmacForPackage.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08B365A716F813F500F62F58 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = LZ;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = Yasofon;
+			};
+			buildConfigurationList = 08B365AA16F813F500F62F58 /* Build configuration list for PBXProject "toolmacForPackage" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 08B365A616F813F500F62F58;
+			productRefGroup = 08B365B016F813F500F62F58 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				08B365AE16F813F500F62F58 /* toolmacForPackage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		08B365AD16F813F500F62F58 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08B365BD16F813F500F62F58 /* InfoPlist.strings in Resources */,
+				08B365C316F813F500F62F58 /* Credits.rtf in Resources */,
+				08B365C916F813F500F62F58 /* MainMenu.xib in Resources */,
+				08B365EE16F8227300F62F58 /* readme.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		08B365AB16F813F500F62F58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08B365BF16F813F500F62F58 /* main.m in Sources */,
+				08B365C616F813F500F62F58 /* LZAppDelegate.m in Sources */,
+				08B365D616F8146900F62F58 /* LZDataAccess+GenSql.m in Sources */,
+				08B365D716F8146900F62F58 /* LZDataAccess.m in Sources */,
+				08B365D816F8146900F62F58 /* LZDATest1.m in Sources */,
+				08B365E516F8205400F62F58 /* FMDatabase.m in Sources */,
+				08B365E616F8205400F62F58 /* FMDatabaseAdditions.m in Sources */,
+				08B365E716F8205400F62F58 /* FMDatabasePool.m in Sources */,
+				08B365E816F8205400F62F58 /* FMDatabaseQueue.m in Sources */,
+				08B365E916F8205400F62F58 /* fmdb.m in Sources */,
+				08B365EA16F8205400F62F58 /* FMResultSet.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		08B365BB16F813F500F62F58 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				08B365BC16F813F500F62F58 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		08B365C116F813F500F62F58 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				08B365C216F813F500F62F58 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		08B365C716F813F500F62F58 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				08B365C816F813F500F62F58 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		08B365CA16F813F500F62F58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		08B365CB16F813F500F62F58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		08B365CD16F813F500F62F58 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "toolmacForPackage/toolmacForPackage-Prefix.pch";
+				INFOPLIST_FILE = "toolmacForPackage/toolmacForPackage-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		08B365CE16F813F500F62F58 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "toolmacForPackage/toolmacForPackage-Prefix.pch";
+				INFOPLIST_FILE = "toolmacForPackage/toolmacForPackage-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		08B365AA16F813F500F62F58 /* Build configuration list for PBXProject "toolmacForPackage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08B365CA16F813F500F62F58 /* Debug */,
+				08B365CB16F813F500F62F58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		08B365CC16F813F500F62F58 /* Build configuration list for PBXNativeTarget "toolmacForPackage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				08B365CD16F813F500F62F58 /* Debug */,
+				08B365CE16F813F500F62F58 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08B365A716F813F500F62F58 /* Project object */;
+}

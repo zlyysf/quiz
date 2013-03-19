@@ -1,0 +1,1 @@
+this tool support to generate packages-groups config template, the generated file path can be seen in log.

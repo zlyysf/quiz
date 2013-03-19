@@ -296,7 +296,7 @@
 
 
 
--(void)generateConfigTemplateForPackages:(NSString *)topDirPath
++(void)generateConfigTemplateForPackages:(NSString *)topDirPath
 {
     NSLog(@"generateConfigTemplateForPackages enter");
     NSMutableDictionary *rootItem = [[NSMutableDictionary alloc]init];
@@ -347,7 +347,7 @@
     
 }
 
--(NSDictionary*)generateConfigTemplateForPackage:(NSString *)packagePath withPackageInfo:(NSDictionary *)pkgItem
++(NSDictionary*)generateConfigTemplateForPackage:(NSString *)packagePath withPackageInfo:(NSDictionary *)pkgItem
 {
     NSFileManager * defFileManager = [NSFileManager defaultManager];
     NSError *err = Nil;
