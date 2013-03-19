@@ -34,8 +34,6 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Game Center Unavailable", @"") message:NSLocalizedString(@"Please sign in the Game Center.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
-        [alert show];
         return NO;
     }
 }
@@ -106,16 +104,34 @@
          }
      }];
 }
--(void)showLeaderboard
+-(void)showLeaderboardAndSubmitScore:(int64_t)score
+                            category:(NSString*)category
 {
     if (![self isGameCenterEnabled]) {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Game Center Unavailable", @"") message:NSLocalizedString(@"Please sign in the Game Center.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
+        [alert show];
         return;
     }
-    GKLeaderboardViewController *gkcontroller = [[GKLeaderboardViewController alloc]init];
-    gkcontroller.category = kHighScoreLeaderboardCategory;
-    gkcontroller.timeScope = GKLeaderboardTimeScopeToday;
-    gkcontroller.leaderboardDelegate = self;
-    [self presentViewController:gkcontroller];
+    GKScore* gkScore =
+    [[GKScore alloc]
+     initWithCategory:category];
+    
+    //3: Set the score value
+    gkScore.value = score;
+    
+    //4: Send the score to Game Center
+    [gkScore reportScoreWithCompletionHandler:
+     ^(NSError* error) {
+         
+         [self setLastError:error];
+         GKLeaderboardViewController *gkcontroller = [[GKLeaderboardViewController alloc]init];
+         gkcontroller.category = kHighScoreLeaderboardCategory;
+         gkcontroller.timeScope = GKLeaderboardTimeScopeToday;
+         gkcontroller.leaderboardDelegate = self;
+         [self presentViewController:gkcontroller];
+
+    }];
+
 
 }
 - (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController

@@ -113,7 +113,9 @@
 //        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
 //        LZStatisticsViewController * statisticsViewController = [storyboard instantiateViewControllerWithIdentifier:@"LZStatisticsViewController"];
 //        [self.navigationController pushViewController:statisticsViewController animated:NO];
-        [[GameKitHelper sharedGameKitHelper]showLeaderboard];
+        NSDictionary *userGameInfo = [[LZDataAccess singleton]getUserTotalScore];
+        int userGameScore = [[userGameInfo objectForKey:@"totalScore"] integerValue];
+         [[GameKitHelper sharedGameKitHelper]showLeaderboardAndSubmitScore:userGameScore category:kHighScoreLeaderboardCategory];
     }
 }
 - (void)didReceiveMemoryWarning

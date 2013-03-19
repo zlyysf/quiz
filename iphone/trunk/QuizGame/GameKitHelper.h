@@ -28,5 +28,6 @@ id<GameKitHelperProtocol> delegate;
 -(void) authenticateLocalPlayer;
 -(void) submitScore:(int64_t)score
            category:(NSString*)category;
--(void)showLeaderboard;
+-(void)showLeaderboardAndSubmitScore:(int64_t)score
+                            category:(NSString*)category;
 @end

@@ -37,7 +37,7 @@
 {
     if(lock)
     {
-        self.levelNameLabel.hidden = YES;
+        self.levelNameLabel.hidden = NO;
         self.levelScoreLabel.hidden = YES;
         self.levelProgressLabel.hidden = YES;
         self.levelScoreImageView.hidden = YES;
