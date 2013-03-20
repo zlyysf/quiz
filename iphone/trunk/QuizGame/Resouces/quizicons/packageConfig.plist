@@ -438,6 +438,101 @@
 			<key>seq</key>
 			<string>4</string>
 		</dict>
+		<key>Health and beauty</key>
+		<dict>
+			<key>groups</key>
+			<dict>
+				<key>group 1</key>
+				<dict>
+					<key>locked</key>
+					<string>0</string>
+				</dict>
+				<key>group 10</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 11</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 12</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 13</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 14</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 15</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 16</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 17</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 2</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 3</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 4</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 5</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 6</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 7</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 8</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 9</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+			</dict>
+			<key>locked</key>
+			<string>1</string>
+			<key>seq</key>
+			<string>5</string>
+		</dict>
 		<key>Sports club</key>
 		<dict>
 			<key>groups</key>
@@ -516,7 +611,7 @@
 			<key>locked</key>
 			<string>1</string>
 			<key>seq</key>
-			<string>5</string>
+			<string>6</string>
 		</dict>
 	</dict>
 	<key>passRate</key>
