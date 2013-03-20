@@ -1565,8 +1565,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/QuizGame\"",
-					"\"$(SRCROOT)/TapjoyPublisherLibrary\"",
-					"\"$(SRCROOT)/QuizGame/AdMob\"",
 					"\"$(SRCROOT)/QuizGame/lib3rd/AdMob\"",
 					"\"$(SRCROOT)/QuizGame/lib3rd/TapjoyPublisherLibrary\"",
 				);
@@ -1591,8 +1589,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/QuizGame\"",
-					"\"$(SRCROOT)/TapjoyPublisherLibrary\"",
 					"\"$(SRCROOT)/QuizGame/AdMob\"",
 					"\"$(SRCROOT)/QuizGame/lib3rd/AdMob\"",
 					"\"$(SRCROOT)/QuizGame/lib3rd/TapjoyPublisherLibrary\"",
