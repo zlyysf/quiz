@@ -1522,8 +1522,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "D4D2F851-0980-4F57-A718-26C2E631FD5C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D4D2F851-0980-4F57-A718-26C2E631FD5C";
+				PROVISIONING_PROFILE = "7F8FC3E7-BC3F-4EE2-98AE-F63331F1C9EB";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7F8FC3E7-BC3F-4EE2-98AE-F63331F1C9EB";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1569,12 +1569,9 @@
 					"\"$(SRCROOT)/QuizGame/lib3rd/TapjoyPublisherLibrary\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = QuizAwesome;
-				PROVISIONING_PROFILE = "D4D2F851-0980-4F57-A718-26C2E631FD5C";
+				PROVISIONING_PROFILE = "7F8FC3E7-BC3F-4EE2-98AE-F63331F1C9EB";
 				USER_HEADER_SEARCH_PATHS = "../../Submodules/**";
 				WRAPPER_EXTENSION = app;
 			};
@@ -1594,10 +1591,7 @@
 					"\"$(SRCROOT)/QuizGame/lib3rd/TapjoyPublisherLibrary\"",
 				);
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"-all_load",
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = QuizAwesome;
 				USER_HEADER_SEARCH_PATHS = "../../Submodules/**";
 				WRAPPER_EXTENSION = app;
