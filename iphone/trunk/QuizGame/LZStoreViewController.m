@@ -16,6 +16,7 @@
 #define kReviewAppBonusKey @"LZReviewAppBonus"
 #define kFreebieBonusDelta 20
 #include "MBProgressHUD.h"
+#import "LZUtility.h"
 @interface LZStoreViewController ()<LZCellDelegate>
 {
     NSNumberFormatter * _priceFormatter;
@@ -241,11 +242,29 @@
         /* social share @"Twitter",@"Facebook",@"Review our app" */
         if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:NSLocalizedString(@"Facebook", @"")])
         {
-            [[LZFacebookShare sharedInstance]share];
+             if ([LZUtility isFacebookAvailable])
+             {
+                 [[LZFacebookShare sharedInstance]share];
+             }
+             else
+             {
+                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Can Not Send", @"") message:NSLocalizedString(@"You can add or create a Facebook account in Settings and try again.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
+                 [alert show];
+             }
+
         }
         else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:NSLocalizedString(@"Twitter", @"")])
         {
-           [[LZTwitterShare sharedInstance]share];
+            if ([LZUtility isTwitterAvailable])
+            {
+                [[LZTwitterShare sharedInstance]share];
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Can Not Send", @"") message:NSLocalizedString(@"You can add or create a Twitter account in Settings and try again.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
+                [alert show];
+            }
+
         }
         else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:NSLocalizedString(@"Review our app", @"")])
         {

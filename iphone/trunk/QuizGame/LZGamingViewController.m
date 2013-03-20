@@ -13,7 +13,7 @@
 #import "LZSoundManager.h"
 #import "LZTapjoyHelper.h"
 #import "GameKitHelper.h"
-
+#import "LZUtility.h"
 #define kLockPakStartIndex 3
 #define kTotalOptionCount 3
 #define kSelectedAnswerInterval 0.5
@@ -654,15 +654,33 @@
     {
         if (buttonIndex == 1)
         {
-            UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
-            SHKItem *item = [SHKItem image:questionImage title:NSLocalizedString(@"Any one know the answer?", @"")];
-            [SHKFacebook shareItem:item];
+            if ([LZUtility isFacebookAvailable])
+            {
+                UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
+                SHKItem *item = [SHKItem image:questionImage title:NSLocalizedString(@"Any one know the answer?", @"")];
+                [SHKFacebook shareItem:item];
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Can Not Send", @"") message:NSLocalizedString(@"You can add or create a Facebook account in Settings and try again.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
+                [alert show];
+            }
+            
         }
         else if (buttonIndex == 2)
         {
-            UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
-            SHKItem *item = [SHKItem image:questionImage title:NSLocalizedString(@"Any one know the answer?", @"")];
-            [SHKTwitter shareItem:item];
+            if ([LZUtility isTwitterAvailable])
+            {
+                UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
+                SHKItem *item = [SHKItem image:questionImage title:NSLocalizedString(@"Any one know the answer?", @"")];
+                [SHKTwitter shareItem:item];
+
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Can Not Send", @"") message:NSLocalizedString(@"You can add or create a Twitter account in Settings and try again.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
+                [alert show];
+            }
         }
     }
     else if (alertView.tag == kWinButtonAlertTag)

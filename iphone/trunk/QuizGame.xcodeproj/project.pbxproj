@@ -74,6 +74,7 @@
 		5F22C01816F042E30058B851 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F22C01616F042E30058B851 /* MBProgressHUD.m */; };
 		5F22C01916F042E30058B851 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = 5F22C01716F042E30058B851 /* README.mdown */; };
 		5F4D896416DF2F0E0029E4BC /* LZIAPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F4D896316DF2F0E0029E4BC /* LZIAPManager.m */; };
+		5F8B23AA16F9BC2E00C00AE6 /* LZUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F8B23A916F9BC2E00C00AE6 /* LZUtility.m */; };
 		5F91536516BA27180074FFF2 /* PackageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536416BA27180074FFF2 /* PackageCell.m */; };
 		5F91536E16BA38D50074FFF2 /* LZTopNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91536D16BA38D50074FFF2 /* LZTopNavView.m */; };
 		5F91537116BA44C00074FFF2 /* LZFactoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F91537016BA44C00074FFF2 /* LZFactoryViewController.m */; };
@@ -488,6 +489,8 @@
 		5F22C01716F042E30058B851 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.mdown; path = MBProgressHUD/README.mdown; sourceTree = "<group>"; };
 		5F4D896216DF2F0E0029E4BC /* LZIAPManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZIAPManager.h; sourceTree = "<group>"; };
 		5F4D896316DF2F0E0029E4BC /* LZIAPManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZIAPManager.m; sourceTree = "<group>"; };
+		5F8B23A816F9BC2E00C00AE6 /* LZUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZUtility.h; sourceTree = "<group>"; };
+		5F8B23A916F9BC2E00C00AE6 /* LZUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZUtility.m; sourceTree = "<group>"; };
 		5F91536316BA27180074FFF2 /* PackageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PackageCell.h; sourceTree = "<group>"; };
 		5F91536416BA27180074FFF2 /* PackageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PackageCell.m; sourceTree = "<group>"; };
 		5F91536C16BA38D50074FFF2 /* LZTopNavView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZTopNavView.h; sourceTree = "<group>"; };
@@ -823,6 +826,8 @@
 				5FEBEE8216D4F172003A5408 /* LZSHKConfigurator.m */,
 				5F08BD7F16E5A78900B8CB08 /* LZSoundButton.h */,
 				5F08BD8016E5A78900B8CB08 /* LZSoundButton.m */,
+				5F8B23A816F9BC2E00C00AE6 /* LZUtility.h */,
+				5F8B23A916F9BC2E00C00AE6 /* LZUtility.m */,
 			);
 			name = LZObject;
 			sourceTree = "<group>";
@@ -1451,6 +1456,7 @@
 				0880C03316F06DB400C32742 /* LZDataAccess+GenSql.m in Sources */,
 				0880C03416F06DB400C32742 /* LZDataAccess.m in Sources */,
 				0880C03516F06DB400C32742 /* LZDATest1.m in Sources */,
+				5F8B23AA16F9BC2E00C00AE6 /* LZUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
