@@ -9,5 +9,6 @@
 #import "LZFactoryViewController.h"
 
 @interface LZHowToPlayViewController : LZFactoryViewController
+@property (strong, nonatomic) IBOutlet UIScrollView *contentScrollView;
 
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "LZHowToPlayViewController.h"
-
+#define kHowToPlayContentSize CGSizeMake(320, 366*2)
 @interface LZHowToPlayViewController ()
 
 @end
@@ -27,6 +27,9 @@
 {
     [super viewDidLoad];
     self.topNavView.topNavType = TopNavTypeNormal;
+    [self.view bringSubviewToFront:self.contentScrollView];
+#warning you need to set the whole contentsize below
+    [self.contentScrollView setContentSize:kHowToPlayContentSize];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"normal_bg@2x" ofType:@"jpg"];
     [self.controllerBackImageView setImage:[UIImage imageWithContentsOfFile:path]];
 	// Do any additional setup after loading the view.
@@ -35,6 +38,7 @@
 {
     NSLog(@"LZHowToPlayViewController");
     [super viewWillAppear:animated];
+    [self resizeContentViewFrame:self.contentScrollView];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:@"IAPHelperProductPurchasedNotification" object:nil];
 }
 - (void)viewWillDisappear:(BOOL)animated {
@@ -44,6 +48,7 @@
 {
     NSString * productIdentifier = notification.object;
     NSLog(@"purchased product %@",productIdentifier);
+    [self resizeContentViewFrame:self.contentScrollView];
     [self refreshGold];
 }
 
@@ -53,4 +58,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setContentScrollView:nil];
+    [super viewDidUnload];
+}
 @end
