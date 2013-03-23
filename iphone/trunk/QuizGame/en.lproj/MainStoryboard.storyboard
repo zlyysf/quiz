@@ -9,11 +9,11 @@
             <objects>
                 <viewController id="2" customClass="LZViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="homeview_bg.jpg" id="IFs-44-jMB">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7UD-Rl-FDL" customClass="LZButton">
@@ -82,11 +82,11 @@
             <objects>
                 <viewController id="ETy-7U-oMH" customClass="LZPackageViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Jwz-GN-bt7">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" id="Eqf-K1-HOb">
-                                <rect key="frame" x="0.0" y="44" width="320" height="366"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="454"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -181,11 +181,11 @@
             <objects>
                 <viewController storyboardIdentifier="LZLevelViewController" id="7Ov-VL-bXq" customClass="LZLevelViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="klW-AP-GfS">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="95" sectionHeaderHeight="22" sectionFooterHeight="22" id="jnC-n6-um8">
-                                <rect key="frame" x="0.0" y="44" width="320" height="366"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="454"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -280,7 +280,7 @@
             <objects>
                 <viewController storyboardIdentifier="LZGamingViewController" id="vSd-wA-bMV" customClass="LZGamingViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EGr-Px-34X">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -294,20 +294,56 @@
             <objects>
                 <viewController storyboardIdentifier="LZHowToPlayViewController" id="oHG-Wg-SUm" customClass="LZHowToPlayViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uub-4G-rJu">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" id="B2u-8F-RiU">
-                                <rect key="frame" x="0.0" y="44" width="320" height="366"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="548"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="package_cell_0@2x.png" id="m6U-hG-5nE">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="366"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="V8t-I2-KaH">
+                                        <rect key="frame" x="20" y="0.0" width="280" height="114"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <string key="text">Quiz Awesome is a very easy game. The question has a letter masked with "?". Player simply needs to choose the right picture for answer. </string>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="For each correct answer, player will receive 1 diamond. Diamonds can later be used to activate two helpful tools." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="FLb-Bm-XOU">
+                                        <rect key="frame" x="20" y="125" width="280" height="89"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Enjoy! Wish this game will help you kill time and gain knowledge." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R5g-MH-00N">
+                                        <rect key="frame" x="20" y="389" width="280" height="73"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Light Bulb. 4 diamonds to show you the right answer." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fE1-oL-eEv">
+                                        <rect key="frame" x="75" y="228" width="225" height="49"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Scissor. 2 diamonds to discard two irrelevant choices." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Jml-YT-SVV">
+                                        <rect key="frame" x="75" y="290" width="225" height="70"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="win_question@2x.png" id="wPs-NJ-yFE">
+                                        <rect key="frame" x="20" y="233" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="package_cell_1@2x.png" id="JEh-QN-kBr">
-                                        <rect key="frame" x="0.0" y="366" width="320" height="366"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" image="cut_wrong@2x.png" id="upe-ny-wpg">
+                                        <rect key="frame" x="20" y="299" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                             </scrollView>
@@ -320,18 +356,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2J-75-gg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1425" y="328"/>
+            <point key="canvasLocation" x="1410" y="282"/>
         </scene>
         <!--Store View Controller-->
         <scene sceneID="lxm-u8-6pk">
             <objects>
                 <viewController storyboardIdentifier="LZStoreViewController" id="lA9-ML-aVk" customClass="LZStoreViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N6U-Rg-Yjk">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ig5-pZ-lfv">
-                                <rect key="frame" x="0.0" y="44" width="320" height="366"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="454"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -505,11 +541,11 @@
             <objects>
                 <viewController id="NOi-5Q-ZBU" customClass="LZSettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tJa-r9-gmY">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="84" sectionHeaderHeight="22" sectionFooterHeight="22" id="mFY-5b-zPH">
-                                <rect key="frame" x="0.0" y="44" width="320" height="366"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="454"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -582,15 +618,15 @@
     <resources>
         <image name="cell_lock.png" width="16" height="16"/>
         <image name="checkmark.png" width="16" height="16"/>
+        <image name="cut_wrong@2x.png" width="44" height="57"/>
         <image name="freebies.png" width="16" height="16"/>
         <image name="homeview_bg.jpg" width="16" height="16"/>
-        <image name="package_cell_0@2x.png" width="126" height="127"/>
-        <image name="package_cell_1@2x.png" width="126" height="127"/>
         <image name="passed_icon.png" width="16" height="16"/>
         <image name="score_group_icon.png" width="16" height="16"/>
         <image name="score_package_icon.png" width="16" height="16"/>
         <image name="tokens.png" width="16" height="16"/>
         <image name="unlock_icon.png" width="16" height="16"/>
+        <image name="win_question@2x.png" width="39" height="59"/>
     </resources>
     <classes>
         <class className="LZButton" superclassName="LZSoundButton">
@@ -699,6 +735,6 @@
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
 </document>
