@@ -7,7 +7,7 @@
 //
 
 #import "LZHowToPlayViewController.h"
-#define kHowToPlayContentSize CGSizeMake(320, 366*2)
+#define kHowToPlayContentSize CGSizeMake(320, 470)
 @interface LZHowToPlayViewController ()
 
 @end
@@ -28,7 +28,6 @@
     [super viewDidLoad];
     self.topNavView.topNavType = TopNavTypeNormal;
     [self.view bringSubviewToFront:self.contentScrollView];
-#warning you need to set the whole contentsize below
     [self.contentScrollView setContentSize:kHowToPlayContentSize];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"normal_bg@2x" ofType:@"jpg"];
     [self.controllerBackImageView setImage:[UIImage imageWithContentsOfFile:path]];
