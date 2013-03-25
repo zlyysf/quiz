@@ -20,17 +20,17 @@
 }
 
 - (NSString*)appURL {
-	return @"http://itunes.com/apps/QuizAwesome";
+	return @"https://itunes.apple.com/app/id611092526";
 }
 - (NSString*)facebookAppId {
-	return @"145015595660349";
+	return @"127942747390943";
 }
 - (NSString*)twitterConsumerKey {
-	return @"J8tJZekG3zWgvqxeR9Q";
+	return @"cDVQUOWBuer2z07HK7mwPQ";
 }
 
 - (NSString*)twitterSecret {
-	return @"sPW5hCTSujGTraV085PB8aB1rLQotRry59nDS77dJIs";
+	return @"lBPRz0Vgj3rDmqV6lZnOwpakxBXEPWvaGrRlE3dINBI";
 }
 // SHKActionSheet settings
 - (NSNumber*)showActionSheetMoreButton {
