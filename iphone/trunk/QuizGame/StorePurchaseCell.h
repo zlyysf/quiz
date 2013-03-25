@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *productNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *productPriceLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *checkmarkImage;
+@property (strong, nonatomic) IBOutlet UIImageView *diamondIcon;
 
 @end

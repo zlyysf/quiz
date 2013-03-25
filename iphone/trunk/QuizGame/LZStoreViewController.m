@@ -25,7 +25,7 @@
 @property (nonatomic,strong)NSArray *freebieItemArray;
 @property (nonatomic,strong)NSArray *storeItemArray;
 @property (nonatomic,strong)NSMutableDictionary *currentShareInfo;
-
+@property (nonatomic,strong)NSSet *consumbleItemSet;
 @end
 
 @implementation LZStoreViewController
@@ -34,6 +34,7 @@
 @synthesize freebieItemArray;
 @synthesize storeItemArray;
 @synthesize currentShareInfo;
+@synthesize consumbleItemSet;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -56,7 +57,12 @@
     [_priceFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
     NSString *path = [[NSBundle mainBundle] pathForResource:@"normal_bg@2x" ofType:@"jpg"];
     [self.controllerBackImageView setImage:[UIImage imageWithContentsOfFile:path]];
-
+    consumbleItemSet = [NSSet setWithObjects:
+                        @"com.lingzhi.QuizAwsome.buytoken40",
+                        @"com.lingzhi.QuizAwsome.buytoken100",
+                        @"com.lingzhi.QuizAwsome.buytoken200",
+                        @"com.lingzhi.QuizAwsome.buytoken400",
+                        nil];
 	// Do any additional setup after loading the view.
 }
 - (void)viewWillAppear:(BOOL)animated
@@ -131,11 +137,19 @@
     {
         StorePurchaseCell *cell = (StorePurchaseCell *)[tableView dequeueReusableCellWithIdentifier:@"StorePurchaseCell"];
         SKProduct * product = (SKProduct *)[storeItemArray objectAtIndex:indexPath.row];
-        cell.productNameLabel.text = product.localizedTitle;
-        [_priceFormatter setLocale:product.priceLocale];
         
+        [_priceFormatter setLocale:product.priceLocale];
+        BOOL showDiamondIcon = [consumbleItemSet containsObject:product.productIdentifier];
+        if (showDiamondIcon) {
+            cell.productNameLabel.text = [product.localizedTitle substringToIndex:3];
+        }
+        else
+        {
+            cell.productNameLabel.text = product.localizedTitle;
+        }
         cell.cellIndexPath = indexPath;
         cell.delegate = self;
+        cell.diamondIcon.hidden = !showDiamondIcon;
         if ([self hasProductPurchased:product.productIdentifier])
         {
             [cell.selectButton setEnabled:NO];

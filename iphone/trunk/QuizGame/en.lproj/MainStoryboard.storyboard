@@ -484,6 +484,10 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tokens.png" id="rQd-WI-lgg">
+                                                    <rect key="frame" x="66" y="29" width="16" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nP0-GF-DUh">
                                                     <rect key="frame" x="220" y="10" width="65" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -500,6 +504,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="checkmarkImage" destination="hhm-za-BSd" id="2h6-pH-xNo"/>
+                                            <outlet property="diamondIcon" destination="rQd-WI-lgg" id="ITP-C9-bt1"/>
                                             <outlet property="productNameLabel" destination="yoi-Mz-glk" id="3wZ-gF-9jF"/>
                                             <outlet property="productPriceLabel" destination="nP0-GF-DUh" id="EbI-vO-qde"/>
                                             <outlet property="selectButton" destination="bCG-3E-lmn" id="qMT-oh-1ra"/>
@@ -727,6 +732,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/StorePurchaseCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="checkmarkImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="diamondIcon" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="productNameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="productPriceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="selectButton" candidateClass="LZButton"/>

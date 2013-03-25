@@ -277,7 +277,7 @@
     int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
     if (userGold < kDirectWinCost)
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Running out of tokens?", @"") message:NSLocalizedString(@"Visit our store to get more tokens.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Ok", @""),nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Running out of diamonds?", @"") message:NSLocalizedString(@"Visit our store to get more diamonds.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Ok", @""),nil];
         alert.tag = kRunningOutTokenAlertTag;
         [alert show];
         return;
@@ -331,7 +331,7 @@
     int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
     if (userGold < kCutWrongCost)
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Running out of tokens?", @"") message:NSLocalizedString(@"Visit our store to get more tokens.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Ok", @""),nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Running out of diamonds?", @"") message:NSLocalizedString(@"Visit our store to get more diamonds.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Ok", @""),nil];
         alert.tag = kRunningOutTokenAlertTag;
         [alert show];
         return;
@@ -396,7 +396,7 @@
             }
             else
             {
-                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Automagically answer the question for you.\nCost %d tokens.", @""),kDirectWinCost];
+                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Automagically answer the question for you.\nCost %d diamonds.", @""),kDirectWinCost];
                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Resolve", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
                 alert.tag = kWinButtonAlertTag;
                 [alert show];
@@ -413,7 +413,7 @@
             }
             else
             {
-                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Leave two options.\nCost %d tokens.", @""),kCutWrongCost];
+                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Leave two options.\nCost %d diamonds.", @""),kCutWrongCost];
                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Either-or Choice", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
                 alert.tag = kCutWrongButtonAlertTag;
                 [alert show];
