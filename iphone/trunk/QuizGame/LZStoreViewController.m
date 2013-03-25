@@ -282,7 +282,7 @@
         }
         else if ([[freebieItemArray objectAtIndex:LZCellIndexPath.row] isEqualToString:NSLocalizedString(@"Review our app", @"")])
         {
-            NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"itms-apps://itunes.com/apps/QuizAwesome" ];
+            NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"https://itunes.apple.com/app/id611092526" ];
             [[UIApplication sharedApplication] openURL:ourAppUrl];
             [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kReviewAppBonusKey];
             [[NSUserDefaults standardUserDefaults]synchronize];
