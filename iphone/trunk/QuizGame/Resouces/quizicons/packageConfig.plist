@@ -533,6 +533,71 @@
 			<key>seq</key>
 			<string>5</string>
 		</dict>
+		<key>Electronics</key>
+		<dict>
+			<key>groups</key>
+			<dict>
+				<key>group 1</key>
+				<dict>
+					<key>locked</key>
+					<string>0</string>
+				</dict>
+				<key>group 10</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 11</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 2</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 3</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 4</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 5</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 6</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 7</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 8</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 9</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+			</dict>
+			<key>locked</key>
+			<string>1</string>
+			<key>seq</key>
+			<string>6</string>
+		</dict>
 		<key>Sports club</key>
 		<dict>
 			<key>groups</key>
@@ -611,7 +676,72 @@
 			<key>locked</key>
 			<string>1</string>
 			<key>seq</key>
-			<string>6</string>
+			<string>7</string>
+		</dict>
+		<key>Food and drink</key>
+		<dict>
+			<key>groups</key>
+			<dict>
+				<key>group 1</key>
+				<dict>
+					<key>locked</key>
+					<string>0</string>
+				</dict>
+				<key>group 10</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 11</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 2</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 3</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 4</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 5</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 6</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 7</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 8</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+				<key>group 9</key>
+				<dict>
+					<key>locked</key>
+					<string>1</string>
+				</dict>
+			</dict>
+			<key>locked</key>
+			<string>1</string>
+			<key>seq</key>
+			<string>8</string>
 		</dict>
 	</dict>
 	<key>passRate</key>

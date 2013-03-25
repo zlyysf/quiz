@@ -4,7 +4,7 @@ these tools can support to add a new package from raw package to code project wi
 
 When ui designer added a package to ui/icons/ dir, we need to:
     1, find if the package contains too long icon file names and generate tooLongFiles.plist in the package with toolForRawPackage.
-        and commit the file to git.
+        copy the tooLongFiles.plist to ui/icons/thePackage and commit the file to git.
     2, copy ui/icons/thePackage to a temp dir, 
         use toolmacForRawPackage to split the icons into groups with every group containing 10 icons.
         remove those file which are not in any group.
