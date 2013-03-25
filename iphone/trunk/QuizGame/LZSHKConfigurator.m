@@ -16,7 +16,7 @@
  These values are used by any service that shows 'shared from XYZ'
  */
 - (NSString*)appName {
-	return @"QuizAwesome";
+	return @"Quiz Awesome";
 }
 
 - (NSString*)appURL {

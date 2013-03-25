@@ -27,7 +27,7 @@
 #define kWinButtonAlertTag 33
 #define kCutWrongButtonAlertTag 44
 #define kRunningOutTokenAlertTag 55
-@interface LZGamingViewController ()<LZPlayViewDelegate,UIAlertViewDelegate>
+@interface LZGamingViewController ()<LZPlayViewDelegate,UIAlertViewDelegate,SHKSharerDelegate>
 @property(nonatomic,strong)NSArray *quizArray;
 @property(nonatomic,assign)int currentQuizIndex;
 @property(nonatomic,assign)int totalQuizCount;
@@ -658,7 +658,10 @@
             {
                 UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
                 SHKItem *item = [SHKItem image:questionImage title:NSLocalizedString(@"Any one know the answer?", @"")];
-                [SHKFacebook shareItem:item];
+                SHKFacebook *facebookShare = [[SHKFacebook alloc]init];
+                facebookShare.item = item;
+                facebookShare.shareDelegate = self;
+                [facebookShare share];
             }
             else
             {
@@ -673,7 +676,10 @@
             {
                 UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
                 SHKItem *item = [SHKItem image:questionImage title:NSLocalizedString(@"Any one know the answer?", @"")];
-                [SHKTwitter shareItem:item];
+                SHKTwitter *twitterShare = [[SHKTwitter alloc]init];
+                twitterShare.item = item;
+                twitterShare.shareDelegate = self;
+                [twitterShare share];
 
             }
             else
@@ -746,4 +752,33 @@
     
     return  theImage;//[self getImageAreaFromImage:theImage atFrame:r];
 }
+#pragma mark- SHKSharerDelegate
+
+- (void)sharerStartedSending:(SHKSharer *)sharer
+{
+    
+}
+- (void)sharerFinishedSending:(SHKSharer *)sharer
+{
+    if (!sharer.quiet)
+		[[SHKActivityIndicator currentIndicator] displayCompleted:NSLocalizedString(@"Sent!", @"")];
+    
+}
+- (void)sharer:(SHKSharer *)sharer failedWithError:(NSError *)error shouldRelogin:(BOOL)shouldRelogin
+{
+    
+}
+- (void)sharerCancelledSending:(SHKSharer *)sharer
+{
+   
+}
+- (void)sharerShowBadCredentialsAlert:(SHKSharer *)sharer
+{
+    
+}
+- (void)sharerShowOtherAuthorizationErrorAlert:(SHKSharer *)sharer
+{
+    
+}
+
 @end

@@ -8,8 +8,8 @@
 
 #import "LZTopNavView.h"
 #define kBackgroundImageViewFrame CGRectMake(0, 0, 320, 44)
-#define kBackButtonFrame CGRectMake(15, 2, 28, 40)
-#define kGoldButtonFrame CGRectMake(62, 7, 36, 30)
+#define kBackButtonFrame CGRectMake(7, 0, 44, 44)
+#define kGoldButtonFrame CGRectMake(62,5, 36, 34)
 #define kGoldCountLabelFrame CGRectMake(98, 9, 70, 26)
 #define kCorrectImageFrame CGRectMake(176, 12, 27, 20)
 #define kCorrectCountLabelFrame CGRectMake(208, 9, 40, 26)
