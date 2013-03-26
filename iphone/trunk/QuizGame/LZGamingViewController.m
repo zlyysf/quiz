@@ -277,7 +277,7 @@
     int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
     if (userGold < kDirectWinCost)
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Running out of diamonds?", @"") message:NSLocalizedString(@"Visit our store to get more diamonds.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Ok", @""),nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Running out of diamond?", @"") message:NSLocalizedString(@"Visit our store to get more diamond.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Ok", @""),nil];
         alert.tag = kRunningOutTokenAlertTag;
         [alert show];
         return;
@@ -331,7 +331,7 @@
     int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
     if (userGold < kCutWrongCost)
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Running out of diamonds?", @"") message:NSLocalizedString(@"Visit our store to get more diamonds.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Ok", @""),nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Running out of diamonds?", @"") message:NSLocalizedString(@"Visit our store to get more diamond.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Ok", @""),nil];
         alert.tag = kRunningOutTokenAlertTag;
         [alert show];
         return;
@@ -396,7 +396,7 @@
             }
             else
             {
-                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Automagically answer the question for you.\nCost %d diamonds.", @""),kDirectWinCost];
+                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Like to know the answer directly?\nCost %d diamond.", @""),kDirectWinCost];
                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Resolve", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
                 alert.tag = kWinButtonAlertTag;
                 [alert show];
@@ -413,7 +413,7 @@
             }
             else
             {
-                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Leave two options.\nCost %d diamonds.", @""),kCutWrongCost];
+                NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Remove two incorrect options.\nCost %d diamond.", @""),kCutWrongCost];
                 UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Either-or Choice", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
                 alert.tag = kCutWrongButtonAlertTag;
                 [alert show];
@@ -544,7 +544,7 @@
                     }
                     else//some package before still not passed
                     {
-                        NSString *message = NSLocalizedString(@"You pass the package.", @"");
+                        NSString *message = NSLocalizedString(@"You have just passed this package.", @"");
                         NSString *title = NSLocalizedString(@"Congratulations!", @"");
                         UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
                         [endAlert show];
@@ -559,7 +559,7 @@
                     else if (packageIndex == [packageArray count]-1)
                     {
                         //finished all games!!!!
-                        NSString *message = NSLocalizedString(@"You pass the package.", @"");
+                        NSString *message = NSLocalizedString(@"You have just passed this package.", @"");
                         NSString *title = NSLocalizedString(@"Congratulations!", @"");
                         UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
                         [endAlert show];
@@ -584,7 +584,7 @@
                 }
                 else // next group already unlocked
                 {
-                    NSString *message = NSLocalizedString(@"You pass the group.", @"");
+                    NSString *message = NSLocalizedString(@"You have just passed this group.", @"");
                     NSString *title = NSLocalizedString(@"Congratulations!", @"");
                     UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
                     [endAlert show];
@@ -595,8 +595,8 @@
         else //not pass this group
         {
             
-            NSString *title = NSLocalizedString(@"You could play better", @"");
-            NSString *message = NSLocalizedString(@"Assistant items can help you.", @"");
+            NSString *title = NSLocalizedString(@"You can do better", @"");
+            NSString *message = NSLocalizedString(@"Try again! Remember to use light bulb or scissor.", @"");
             UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
             [endAlert show];
  
@@ -641,7 +641,7 @@
     }
     else
     {
-        NSString *message = NSLocalizedString(@"You pass the package.", @"");
+        NSString *message = NSLocalizedString(@"You have just passed this package.", @"");
         NSString *title = NSLocalizedString(@"Congratulations!", @"");
         UIAlertView *endAlert = [[UIAlertView alloc]initWithTitle:title message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
         [endAlert show];
@@ -657,7 +657,7 @@
             if ([LZUtility isFacebookAvailable])
             {
                 UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
-                SHKItem *item = [SHKItem image:questionImage title:NSLocalizedString(@"Any one know the answer?", @"")];
+                SHKItem *item = [SHKItem image:questionImage title:NSLocalizedString(@"Does anyone know the answer?", @"")];
                 SHKFacebook *facebookShare = [[SHKFacebook alloc]init];
                 facebookShare.item = item;
                 facebookShare.shareDelegate = self;
@@ -675,7 +675,7 @@
             if ([LZUtility isTwitterAvailable])
             {
                 UIImage *questionImage = [self imageFromView:self.view atFrame:[[UIScreen mainScreen] bounds]];
-                SHKItem *item = [SHKItem image:questionImage title:NSLocalizedString(@"Any one know the answer?", @"")];
+                SHKItem *item = [SHKItem image:questionImage title:NSLocalizedString(@"Does anyone know the answer?", @"")];
                 SHKTwitter *twitterShare = [[SHKTwitter alloc]init];
                 twitterShare.item = item;
                 twitterShare.shareDelegate = self;

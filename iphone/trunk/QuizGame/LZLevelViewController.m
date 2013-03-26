@@ -139,7 +139,7 @@
     int lockstate = [[group objectForKey:@"locked"]integerValue];
     if (lockstate == 1)
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Sorry", @"") message:NSLocalizedString(@"You should pass the preceding group to unlock this group.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Sorry", @"") message:NSLocalizedString(@"Please pass the preceding group to unlock this group.", @"") delegate:nil cancelButtonTitle:NSLocalizedString(@"Ok", @"") otherButtonTitles:nil];
         [alert show];
     }
     else

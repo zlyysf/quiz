@@ -136,7 +136,7 @@
     if (lockstate == 1)
     {
         //[cell setLocked:YES];
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Sorry", @"") message:NSLocalizedString(@"You should pass the preceding packages to unlock this package or visit our store.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Buy", @""),nil];//TODO ADD CANCAL BUTTON
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Sorry", @"") message:NSLocalizedString(@"Buy this package or please pass the preceding packages to unlock it.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Buy", @""),nil];//TODO ADD CANCAL BUTTON
         alert.tag = 50;
         [alert show];//TODO let user can purchase
     }
