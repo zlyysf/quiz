@@ -91,6 +91,10 @@
 		5F98A12F16BBB6C80084A2F5 /* RestorePurchaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F98A12E16BBB6C80084A2F5 /* RestorePurchaseCell.m */; };
 		5F9AFAE616E6108000464826 /* LZHowToPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9AFAE516E6108000464826 /* LZHowToPlayViewController.m */; };
 		5F9CF2CC16C0BDEF0033DDA7 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */; };
+		5FC4046A1701AF6000E272D6 /* Electronics@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FC404661701AF6000E272D6 /* Electronics@2x.jpg */; };
+		5FC4046B1701AF6000E272D6 /* Food and drink@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FC404671701AF6000E272D6 /* Food and drink@2x.jpg */; };
+		5FC4046C1701AF6000E272D6 /* Fortune 500@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FC404681701AF6000E272D6 /* Fortune 500@2x.jpg */; };
+		5FC4046D1701AF6000E272D6 /* Health and beauty@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5FC404691701AF6000E272D6 /* Health and beauty@2x.jpg */; };
 		5FD576C316F17E780000A9FC /* tokens@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5FD576C216F17E780000A9FC /* tokens@2x.png */; };
 		5FD576C716F1BD140000A9FC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FD576C516F1BD140000A9FC /* Localizable.strings */; };
 		5FE16B7C16EF19F400842234 /* LZFacebookShare.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE16B7B16EF19F400842234 /* LZFacebookShare.m */; };
@@ -522,6 +526,10 @@
 		5F9AFAE416E6108000464826 /* LZHowToPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZHowToPlayViewController.h; sourceTree = "<group>"; };
 		5F9AFAE516E6108000464826 /* LZHowToPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZHowToPlayViewController.m; sourceTree = "<group>"; };
 		5F9CF2CB16C0BDEF0033DDA7 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		5FC404661701AF6000E272D6 /* Electronics@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Electronics@2x.jpg"; path = "Resouces/images/Electronics@2x.jpg"; sourceTree = "<group>"; };
+		5FC404671701AF6000E272D6 /* Food and drink@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Food and drink@2x.jpg"; path = "Resouces/images/Food and drink@2x.jpg"; sourceTree = "<group>"; };
+		5FC404681701AF6000E272D6 /* Fortune 500@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Fortune 500@2x.jpg"; path = "Resouces/images/Fortune 500@2x.jpg"; sourceTree = "<group>"; };
+		5FC404691701AF6000E272D6 /* Health and beauty@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "Health and beauty@2x.jpg"; path = "Resouces/images/Health and beauty@2x.jpg"; sourceTree = "<group>"; };
 		5FD576C216F17E780000A9FC /* tokens@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "tokens@2x.png"; path = "Resouces/images/tokens@2x.png"; sourceTree = "<group>"; };
 		5FD576C616F1BD140000A9FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5FE16B7A16EF19F400842234 /* LZFacebookShare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZFacebookShare.h; sourceTree = "<group>"; };
@@ -797,6 +805,10 @@
 				5F22BFE716F0428D0058B851 /* win_question@2x.png */,
 				5F22BFE816F0428D0058B851 /* wrong@2x.png */,
 				5F22BFE916F0428D0058B851 /* ask_friends@2x.png */,
+				5FC404661701AF6000E272D6 /* Electronics@2x.jpg */,
+				5FC404671701AF6000E272D6 /* Food and drink@2x.jpg */,
+				5FC404681701AF6000E272D6 /* Fortune 500@2x.jpg */,
+				5FC404691701AF6000E272D6 /* Health and beauty@2x.jpg */,
 				5F22BFEA16F0428D0058B851 /* Sports club@2x.jpg */,
 				5F22BFEB16F0428D0058B851 /* Apparel and shoes@2x.jpg */,
 				5F22BFEC16F0428D0058B851 /* Automotive@2x.jpg */,
@@ -1405,6 +1417,10 @@
 				0880C02716F06D8D00C32742 /* TapjoyResources.bundle in Resources */,
 				5FD576C316F17E780000A9FC /* tokens@2x.png in Resources */,
 				5FD576C716F1BD140000A9FC /* Localizable.strings in Resources */,
+				5FC4046A1701AF6000E272D6 /* Electronics@2x.jpg in Resources */,
+				5FC4046B1701AF6000E272D6 /* Food and drink@2x.jpg in Resources */,
+				5FC4046C1701AF6000E272D6 /* Fortune 500@2x.jpg in Resources */,
+				5FC4046D1701AF6000E272D6 /* Health and beauty@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
