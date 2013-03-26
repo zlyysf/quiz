@@ -8,6 +8,7 @@
 
 #import "LZPlayView.h"
 #import <QuartzCore/QuartzCore.h>
+#define kQuestionLabelMaxHeight 84
 @implementation LZPlayView
 @synthesize progressLabel;
 @synthesize questionLabel;
@@ -19,6 +20,7 @@
 @synthesize answerDownLeftButton;
 @synthesize answerDownRightButton;
 @synthesize delegate;
+
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -57,33 +59,34 @@
         [askFriendsButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:askFriendsButton];
         
-        answerDownLeftButton = [[UIButton alloc]initWithFrame:CGRectMake(10, frame.size.height-10-kAnswerButtonSideLength, kAnswerButtonSideLength, kAnswerButtonSideLength)];
-        [answerDownLeftButton.layer setMasksToBounds:YES];
-        [answerDownLeftButton.layer setCornerRadius:10.0];
-        [answerDownLeftButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        answerDownLeftButton.tag = kAnswerDownLeftButtonTag;
-        [self addSubview:answerDownLeftButton];
-        
-        answerDownRightButton = [[UIButton alloc]initWithFrame:CGRectMake(answerDownLeftButton.frame.origin.x +10 + kAnswerButtonSideLength, answerDownLeftButton.frame.origin.y, kAnswerButtonSideLength, kAnswerButtonSideLength)];
-        [answerDownRightButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        answerDownRightButton.tag = kAnswerDownRightButtonTag;
-        [answerDownRightButton.layer setMasksToBounds:YES];
-        [answerDownRightButton.layer setCornerRadius:10.0];
-        [self addSubview:answerDownRightButton];
-        
-        answerUpLeftButton = [[UIButton alloc]initWithFrame:CGRectMake(answerDownLeftButton.frame.origin.x, answerDownLeftButton.frame.origin.y-10-kAnswerButtonSideLength, kAnswerButtonSideLength, kAnswerButtonSideLength)];
+        answerUpLeftButton = [[UIButton alloc]initWithFrame:CGRectMake(10, progressLabel.frame.origin.y+progressLabel.frame.size.height+5+kQuestionLabelMaxHeight+5, kAnswerButtonSideLength, kAnswerButtonSideLength)];
         [answerUpLeftButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         answerUpLeftButton.tag = kAnswerUpLeftButtonTag;
         [answerUpLeftButton.layer setMasksToBounds:YES];
         [answerUpLeftButton.layer setCornerRadius:10.0];
         [self addSubview:answerUpLeftButton];
         
-        answerUpRightButton = [[UIButton alloc]initWithFrame:CGRectMake(answerDownRightButton.frame.origin.x, answerUpLeftButton.frame.origin.y, kAnswerButtonSideLength, kAnswerButtonSideLength)];
+        answerUpRightButton = [[UIButton alloc]initWithFrame:CGRectMake(answerUpLeftButton.frame.origin.x+10+kAnswerButtonSideLength, answerUpLeftButton.frame.origin.y, kAnswerButtonSideLength, kAnswerButtonSideLength)];
         [answerUpRightButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         answerUpRightButton.tag = kAnswerUpRightButtonTag;
         [answerUpRightButton.layer setMasksToBounds:YES];
         [answerUpRightButton.layer setCornerRadius:10.0];
         [self addSubview:answerUpRightButton];
+
+        
+        answerDownLeftButton = [[UIButton alloc]initWithFrame:CGRectMake(answerUpLeftButton.frame.origin.x, answerUpLeftButton.frame.origin.y+10+kAnswerButtonSideLength, kAnswerButtonSideLength, kAnswerButtonSideLength)];
+        [answerDownLeftButton.layer setMasksToBounds:YES];
+        [answerDownLeftButton.layer setCornerRadius:10.0];
+        [answerDownLeftButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        answerDownLeftButton.tag = kAnswerDownLeftButtonTag;
+        [self addSubview:answerDownLeftButton];
+        
+        answerDownRightButton = [[UIButton alloc]initWithFrame:CGRectMake(answerUpRightButton.frame.origin.x, answerDownLeftButton.frame.origin.y, kAnswerButtonSideLength, kAnswerButtonSideLength)];
+        [answerDownRightButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
+        answerDownRightButton.tag = kAnswerDownRightButtonTag;
+        [answerDownRightButton.layer setMasksToBounds:YES];
+        [answerDownRightButton.layer setCornerRadius:10.0];
+        [self addSubview:answerDownRightButton];
         
     }
     return self;
