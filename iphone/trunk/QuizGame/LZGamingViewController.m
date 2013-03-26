@@ -331,7 +331,7 @@
     int userGold = [[userInfo objectForKey:@"totalCoin"] integerValue];
     if (userGold < kCutWrongCost)
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Running out of diamonds?", @"") message:NSLocalizedString(@"Visit our store to get more diamond.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Ok", @""),nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Running out of diamond?", @"") message:NSLocalizedString(@"Visit our store to get more diamond.", @"") delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Ok", @""),nil];
         alert.tag = kRunningOutTokenAlertTag;
         [alert show];
         return;
@@ -397,7 +397,7 @@
             else
             {
                 NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Like to know the answer directly?\nCost %d diamond.", @""),kDirectWinCost];
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Resolve", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Light Bulb", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
                 alert.tag = kWinButtonAlertTag;
                 [alert show];
                 [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZWinButtonFirstTapped"];
@@ -414,7 +414,7 @@
             else
             {
                 NSString *message  = [NSString stringWithFormat:NSLocalizedString(@"Remove two incorrect options.\nCost %d diamond.", @""),kCutWrongCost];
-                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Either-or Choice", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
+                UIAlertView *alert = [[UIAlertView alloc]initWithTitle:NSLocalizedString(@"Scissor", @"") message:message delegate:self cancelButtonTitle:NSLocalizedString(@"Cancel", @"") otherButtonTitles:NSLocalizedString(@"Use", @""),nil];
                 alert.tag = kCutWrongButtonAlertTag;
                 [alert show];
                 [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZCutButtonFirstTapped"];
