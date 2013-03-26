@@ -13,7 +13,7 @@
 #import "LZStoreViewController.h"
 #define kPackgeFortuneKey @"Fortune 500"
 #define kPackgeHealthKey @"Health and beauty"
-#define kPackgeElectronicKey @"Electronic"
+#define kPackgeElectronicKey @"Electronics"
 #define kPackgeSportsclubKey @"Sports club"
 #define kPackgeFooddrinkKey @"Food and drink"
 #define kInApp40TokensDelta 40
