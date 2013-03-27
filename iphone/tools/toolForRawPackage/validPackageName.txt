@@ -4,3 +4,5 @@ Countries
 Fortune 500
 Sports club
 Health and beauty
+Electronics
+Food and drink
