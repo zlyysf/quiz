@@ -111,13 +111,14 @@
     {
         [cell setLocked:NO];
     }
-    cell.packageNameLabel.text = [package objectForKey:@"name"];
+    NSString *name = [package objectForKey:@"name"];
+    cell.packageNameLabel.text = name;
     int scoreSum = [[package objectForKey:@"scoreSum"] integerValue];
     cell.packageTotalScoreLabel.text = [NSString stringWithFormat:@"%d",scoreSum];
     int passedGroupCount = [[package objectForKey:@"passedGroupCount"] integerValue];
     int groupCount = [[package objectForKey:@"groupCount"] integerValue];
     cell.packageProgressLabel.text = [NSString stringWithFormat:@"%d/%d",passedGroupCount,groupCount];
-    NSString *packBgResouce = [NSString stringWithFormat:@"package_cell_%d@2x",indexPath.row];
+    NSString *packBgResouce = [NSString stringWithFormat:@"cell_%@@2x",name];
     UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:packBgResouce ofType:@"png"]];
     UIImage *backImage = [image stretchableImageWithLeftCapWidth:25.0 topCapHeight:25.0];
 

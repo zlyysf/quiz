@@ -8,7 +8,7 @@
 
 #import "LZCell.h"
 @interface LevelCell : LZCell
-@property (strong, nonatomic) IBOutlet LZButton *selectButton;
+@property (strong, nonatomic) IBOutlet LZSoundButton *selectButton;
 @property (strong, nonatomic) IBOutlet UILabel *levelNameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *levelScoreLabel;
 @property (strong, nonatomic) IBOutlet UILabel *levelProgressLabel;

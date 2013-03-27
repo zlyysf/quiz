@@ -7,7 +7,6 @@
 //
 
 #import "LZCell.h"
-#import "LZSoundButton.h"
 @interface PackageCell : LZCell
 @property (strong, nonatomic) IBOutlet UILabel *packageNameLabel;
 @property (nonatomic,strong)IBOutlet LZSoundButton *selectButton;

@@ -128,6 +128,12 @@
     int quizCount = [[group objectForKey:@"quizCount"] integerValue];
     cell.levelScoreLabel.text = [NSString stringWithFormat:@"%d",gotScoreSum];
     cell.levelProgressLabel.text = [NSString stringWithFormat:@"%d/%d",answerRightMax,quizCount];
+    NSString *packBgResouce = [NSString stringWithFormat:@"cell_%@@2x",currentPackageName];
+    UIImage *image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:packBgResouce ofType:@"png"]];
+    UIImage *backImage = [image stretchableImageWithLeftCapWidth:25.0 topCapHeight:25.0];
+    
+    [cell.selectButton setBackgroundImage:backImage forState:UIControlStateNormal];
+
     return cell;
 }
 #pragma -mark  LZCell Delegate

@@ -196,7 +196,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3c3-xr-ECL" customClass="LZButton">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3c3-xr-ECL" customClass="LZSoundButton">
                                                     <rect key="frame" x="25" y="10" width="270" height="75"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
@@ -692,7 +692,7 @@
                 <relationship kind="outlet" name="levelProgressLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="levelScoreImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="levelScoreLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="selectButton" candidateClass="LZButton"/>
+                <relationship kind="outlet" name="selectButton" candidateClass="LZSoundButton"/>
             </relationships>
         </class>
         <class className="PackageCell" superclassName="LZCell">
