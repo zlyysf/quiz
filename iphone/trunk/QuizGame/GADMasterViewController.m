@@ -68,23 +68,31 @@
         adBanner_.rootViewController = rootViewController;
         adBanner_.adUnitID = MY_BANNER_UNIT_ID;
         
-        GADRequest *request = [GADRequest request];
-        if (! IsEnvironmentProd){
-            // Add your device/simulator test identifiers here.
-            NSString * deviceId = [self getAdIdentifier ];
-            request.testDevices = [NSArray arrayWithObjects:
-//                                   @"423C53E8-D67E-5E20-B37B-1BE8961F00BD", @"423c53e8d67e5e20b37b1be8961f00bd00000000", //zly simulator
-//                                   @"D93B219A-2444-5340-93DC-80ED64662227", @"d93b219a2444534093dc80ed6466222700000000", //lm simulator
-//                                   @"44132976c611d8bab02bc80e63076b56224826f4" //zly itouch
-                                   deviceId,
-                                   nil];
-        }
-                
-        [adBanner_ loadRequest:request];
+        [self adBannerLoadRequest];
+
         [rootViewController.view addSubview:adBanner_];
         isLoaded_ = YES;
     }
 }
+-(void)adBannerLoadRequest
+{
+    GADRequest *request = [GADRequest request];
+    if (! IsEnvironmentProd){
+        // Add your device/simulator test identifiers here.
+        NSString * deviceId = [self getAdIdentifier ];
+        request.testDevices = [NSArray arrayWithObjects:
+//                                   @"423C53E8-D67E-5E20-B37B-1BE8961F00BD", @"423c53e8d67e5e20b37b1be8961f00bd00000000", //zly simulator
+//                                   @"D93B219A-2444-5340-93DC-80ED64662227", @"d93b219a2444534093dc80ed6466222700000000", //lm simulator
+//                                   @"44132976c611d8bab02bc80e63076b56224826f4" //zly itouch
+                               deviceId,
+                               nil];
+    }
+    
+    [adBanner_ loadRequest:request];
+}
+
+
+
 -(void)removeAds
 {
     adBanner_.delegate = nil;
@@ -115,6 +123,8 @@ didFailToReceiveAdWithError:(GADRequestError *)error
     {
         NSLog(@"hasAutoRefreshed NO");
     }
+    NSTimeInterval delaySec = 60.0;
+    [self performSelector:@selector(adBannerLoadRequest) withObject:self afterDelay:delaySec];
 }
 - (void)didReceiveMemoryWarning
 {
