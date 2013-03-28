@@ -351,6 +351,21 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
      }
 
 }
+- (void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error
+{
+    NSLog(@"failedTransaction...");
+    NSString *text = NSLocalizedString(@"Purchase Canceled", @"");
+    if (error.code != SKErrorPaymentCancelled)
+    {
+        text = NSLocalizedString(@"Purchase Failed", @"");
+        NSLog(@"Transaction error: %@", error.localizedDescription);
+    }
+    HUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"buy_failed.png"]];
+    HUD.mode = MBProgressHUDModeCustomView;
+	HUD.labelText = text;
+    [HUD hide: YES afterDelay:2.0f];
+
+}
 #pragma mark MBProgressHUDDelegate methods
 
 - (void)hudWasHidden:(MBProgressHUD *)hud {
