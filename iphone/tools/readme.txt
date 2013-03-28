@@ -14,3 +14,21 @@ When ui designer added a package to ui/icons/ dir, we need to:
         and necessary manual work will be done.
     5, when release the app to simulator or device, usually need to uninstall the app and execute product->clean in xcode.
 
+git related commands:
+
+git rm -r "Apparel and shoes" Automotive Countries Electronics "Food and drink" "Fortune 500" "Health and beauty" "Sports club"
+
+git add "Apparel and shoes" Automotive Countries Electronics "Food and drink" "Fortune 500" "Health and beauty" "Sports club"
+
+
+
+
+
+
+
+
+
+
+
+
+
