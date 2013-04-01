@@ -32,7 +32,7 @@
             [[LZDataAccess singleton]initDbWithGeneratedSql];
             [[NSUserDefaults standardUserDefaults]setBool:YES forKey:appKey];
             [[NSUserDefaults standardUserDefaults]synchronize];
-
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"AppFirstDataInitialized" object:nil];
         });
     }
     

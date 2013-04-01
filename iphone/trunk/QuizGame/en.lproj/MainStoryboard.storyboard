@@ -72,6 +72,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ehk-4o-BKK"/>
+                    <connections>
+                        <outlet property="playButton" destination="7UD-Rl-FDL" id="BDC-n4-pQl"/>
+                        <outlet property="settingButton" destination="9u5-Ip-082" id="V2w-CE-dqg"/>
+                        <outlet property="storeButton" destination="USM-xU-c49" id="sUj-3D-g3y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
@@ -682,6 +687,10 @@
         </class>
         <class className="LZViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LZViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="playButton" candidateClass="LZButton"/>
+                <relationship kind="outlet" name="storeButton" candidateClass="LZButton"/>
+            </relationships>
         </class>
         <class className="LevelCell" superclassName="LZCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LevelCell.h"/>
