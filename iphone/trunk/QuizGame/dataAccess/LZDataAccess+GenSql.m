@@ -19,7 +19,7 @@
 - (void)initDb
 {
     sqlite3 *db;
-    if (sqlite3_open([[self dbFilePath] UTF8String], &db)!= SQLITE_OK) {
+    if (sqlite3_open([[self.class dbFilePath] UTF8String], &db)!= SQLITE_OK) {
         sqlite3_close(db);
         NSLog(@"initDb sqlite3_open failed");
     }
@@ -45,7 +45,7 @@
 
 -(void)cleanDb{
     sqlite3 *db;
-    if (sqlite3_open([[self dbFilePath] UTF8String], &db)!= SQLITE_OK) {
+    if (sqlite3_open([[self.class dbFilePath] UTF8String], &db)!= SQLITE_OK) {
         sqlite3_close(db);
         NSLog(@"cleanDb sqlite3_open failed");
     }
@@ -82,7 +82,7 @@
 - (void)initDbByGeneratedSql
 {
     sqlite3 *db;
-    if (sqlite3_open([[self dbFilePath] UTF8String], &db)!= SQLITE_OK) {
+    if (sqlite3_open([[self.class dbFilePath] UTF8String], &db)!= SQLITE_OK) {
         sqlite3_close(db);
         NSLog(@"initDbByGeneratedSql sqlite3_open failed");
     }
@@ -392,7 +392,39 @@
 }
 
 
++ (void)initDbMain
+{
+    NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
+    NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
+    if ([appVersion isEqualToString:@"1.0"]){
+        NSLog(@"initDbMain, appVersion isEqualToString:1.0");
+        NSBundle *bundle = [NSBundle mainBundle];
+        NSString *prepareDbFilePath = [bundle pathForResource:@"quizDbV1" ofType:@"dat"];
+        NSLog(@"initDbMain, prepareDbFilePath=%@",prepareDbFilePath);
+        if (prepareDbFilePath.length > 0){
+            NSFileManager * defFileManager = [NSFileManager defaultManager];
+            BOOL fileExists = [defFileManager fileExistsAtPath:prepareDbFilePath];
+            NSLog(@"initDbMain, prepareDbFilePath exists=%d",fileExists);
+            if (fileExists){
+                BOOL dbfileExists = [defFileManager fileExistsAtPath:self.dbFilePath];
+                NSLog(@"initDbMain, self.dbFilePath exists=%d",dbfileExists);
+                if (!dbfileExists){
+                    NSError *err = nil;
+                    [defFileManager copyItemAtPath:prepareDbFilePath toPath:self.dbFilePath error:&err];
+                    if (err != nil){
+                        NSLog(@"initDbMain, fail to copy prepareDbFile to dbFilePath");
+                    }else{
+                        NSLog(@"initDbMain, init db data by to copy prepareDbFile to dbFilePath");
+                        return;
+                    }
+                }
+            }
+        }
+    }//
+    //if not init db data by copy some prepared file, then by generate sql
+    [[self singleton]initDbWithGeneratedSql];
 
+}
 
 
 
@@ -404,7 +436,7 @@
 - (void)initDbWithGeneratedSql
 {
     sqlite3 *db;
-    if (sqlite3_open([[self dbFilePath] UTF8String], &db)!= SQLITE_OK) {
+    if (sqlite3_open([[self.class dbFilePath] UTF8String], &db)!= SQLITE_OK) {
         sqlite3_close(db);
         NSLog(@"initDbWithGeneratedSql sqlite3_open failed");
         return;

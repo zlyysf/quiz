@@ -16,6 +16,7 @@
 
 //- (void)initDbByGeneratedSql;
 - (void)initDbWithGeneratedSql;
++ (void)initDbMain;
 
 -(NSMutableString*)generateInitSqlForPackages:(NSString *)topDirPath;
 +(void)generateConfigTemplateForPackages:(NSString *)topDirPath;

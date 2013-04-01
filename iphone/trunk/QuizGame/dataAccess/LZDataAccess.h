@@ -25,7 +25,7 @@
 - (NSArray *)selectAllForTable:(NSString *)tableName;
 - (NSArray *)selectTableByEqualFilter:(NSString *)tableName andField:(NSString *)fieldName andValue:(NSObject*)fieldValue;
 
-- (NSString *)dbFilePath;
++ (NSString *)dbFilePath;
 
 
 

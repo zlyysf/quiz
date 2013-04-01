@@ -28,12 +28,15 @@
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZSoundOn"];
         [[NSUserDefaults standardUserDefaults]synchronize];
         //[[LZDataAccess singleton]cleanDb];//should NOT cleadDb , for upgrade support
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, NULL), ^{
-            [[LZDataAccess singleton]initDbWithGeneratedSql];
-            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:appKey];
-            [[NSUserDefaults standardUserDefaults]synchronize];
-            [[NSNotificationCenter defaultCenter]postNotificationName:@"AppFirstDataInitialized" object:nil];
-        });
+        [LZDataAccess initDbMain];
+        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:appKey];
+        [[NSUserDefaults standardUserDefaults]synchronize];
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, NULL), ^{
+//            [LZDataAccess initDbMain];
+//            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:appKey];
+//            [[NSUserDefaults standardUserDefaults]synchronize];
+//            [[NSNotificationCenter defaultCenter]postNotificationName:@"AppFirstDataInitialized" object:nil];
+//        });
     }
     
     DefaultSHKConfigurator *configurator = [[LZSHKConfigurator alloc] init];
@@ -48,7 +51,7 @@
     
     [[LZSoundManager SharedInstance] playBackGroundMusic];
     [[GameKitHelper sharedGameKitHelper]
-     authenticateLocalPlayer];
+    authenticateLocalPlayer];
     return YES;
 }
 

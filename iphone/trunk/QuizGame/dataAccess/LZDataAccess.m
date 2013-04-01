@@ -23,7 +23,7 @@
 - (id)initDBConnection{
     self = [super init];
     if (self) {
-        NSString *dbFilePath = [self dbFilePath];
+        NSString *dbFilePath = [self.class dbFilePath];
         
         NSFileManager * defFileManager = [NSFileManager defaultManager];
         BOOL fileExists,isDir;
@@ -59,10 +59,12 @@
 }
 
 
-- (NSString *)dbFilePath {
++ (NSString *)dbFilePath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    return [documentsDirectory stringByAppendingPathComponent:cDbFile];
+    NSString *filePath = [documentsDirectory stringByAppendingPathComponent:cDbFile];
+    NSLog(@"dbFilePath=%@",filePath);
+    return filePath;
 }
 
 
