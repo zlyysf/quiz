@@ -25,11 +25,15 @@
     NSString *appVersion = [infoDictionary objectForKey:@"CFBundleShortVersionString"];
     NSString *appKey = [NSString stringWithFormat:@"%@%@",appName,appVersion];
     if (![[NSUserDefaults standardUserDefaults]boolForKey:appKey]) {
-        //[[LZDataAccess singleton]cleanDb];//should NOT cleadDb , for upgrade support
-        [[LZDataAccess singleton]initDbWithGeneratedSql];
-        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:appKey];
         [[NSUserDefaults standardUserDefaults]setBool:YES forKey:@"LZSoundOn"];
         [[NSUserDefaults standardUserDefaults]synchronize];
+        //[[LZDataAccess singleton]cleanDb];//should NOT cleadDb , for upgrade support
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, NULL), ^{
+            [[LZDataAccess singleton]initDbWithGeneratedSql];
+            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:appKey];
+            [[NSUserDefaults standardUserDefaults]synchronize];
+
+        });
     }
     
     DefaultSHKConfigurator *configurator = [[LZSHKConfigurator alloc] init];
