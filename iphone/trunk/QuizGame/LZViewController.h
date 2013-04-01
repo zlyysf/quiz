@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MBProgressHUD.h"
 #import "LZButton.h"
-@interface LZViewController : UIViewController<MBProgressHUDDelegate>
+@interface LZViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet LZButton *storeButton;
 @property (strong, nonatomic) IBOutlet LZButton *settingButton;
