@@ -24,6 +24,7 @@
 		0880C03316F06DB400C32742 /* LZDataAccess+GenSql.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C02E16F06DB400C32742 /* LZDataAccess+GenSql.m */; };
 		0880C03416F06DB400C32742 /* LZDataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C03016F06DB400C32742 /* LZDataAccess.m */; };
 		0880C03516F06DB400C32742 /* LZDATest1.m in Sources */ = {isa = PBXBuildFile; fileRef = 0880C03216F06DB400C32742 /* LZDATest1.m */; };
+		0880D9FF17093138007612F4 /* readme.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0880D9FE17093138007612F4 /* readme.txt */; };
 		5F08BD7C16E598A600B8CB08 /* LZSoundManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F08BD7B16E598A600B8CB08 /* LZSoundManager.m */; };
 		5F08BD8116E5A78900B8CB08 /* LZSoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F08BD8016E5A78900B8CB08 /* LZSoundButton.m */; };
 		5F08BDA416E5B03D00B8CB08 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F08BDA316E5B03D00B8CB08 /* AVFoundation.framework */; };
@@ -437,6 +438,7 @@
 		0880C03016F06DB400C32742 /* LZDataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDataAccess.m; sourceTree = "<group>"; };
 		0880C03116F06DB400C32742 /* LZDATest1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZDATest1.h; sourceTree = "<group>"; };
 		0880C03216F06DB400C32742 /* LZDATest1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZDATest1.m; sourceTree = "<group>"; };
+		0880D9FE17093138007612F4 /* readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme.txt; sourceTree = "<group>"; };
 		0899E86F16E5DC78009250A7 /* Config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Config.h; sourceTree = "<group>"; };
 		5F08BD7A16E598A600B8CB08 /* LZSoundManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZSoundManager.h; sourceTree = "<group>"; };
 		5F08BD7B16E598A600B8CB08 /* LZSoundManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZSoundManager.m; sourceTree = "<group>"; };
@@ -921,6 +923,7 @@
 		5FE7371116B8E08400194CF0 = {
 			isa = PBXGroup;
 			children = (
+				0880D9FE17093138007612F4 /* readme.txt */,
 				5FE7372616B8E08400194CF0 /* QuizGame */,
 				5FE7371F16B8E08400194CF0 /* Frameworks */,
 				5FE7371D16B8E08400194CF0 /* Products */,
@@ -1421,6 +1424,7 @@
 				5FC4046B1701AF6000E272D6 /* Food and drink@2x.jpg in Resources */,
 				5FC4046C1701AF6000E272D6 /* Fortune 500@2x.jpg in Resources */,
 				5FC4046D1701AF6000E272D6 /* Health and beauty@2x.jpg in Resources */,
+				0880D9FF17093138007612F4 /* readme.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
