@@ -403,13 +403,6 @@
                                                     <rect key="frame" x="35" y="19" width="31" height="31"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="20" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iGx-T0-gc3">
-                                                    <rect key="frame" x="260" y="22" width="25" height="26"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
                                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Z9F-5x-h2h">
                                                     <rect key="frame" x="76" y="10" width="160" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -417,15 +410,10 @@
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="tokens.png" id="nRC-uX-vNt">
-                                                    <rect key="frame" x="241" y="28" width="16" height="14"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="descriptionLabel" destination="iGx-T0-gc3" id="QJE-L0-YRz"/>
                                             <outlet property="iconImageView" destination="b4B-wH-3eR" id="qqY-BR-xDH"/>
                                             <outlet property="profitLabel" destination="Z9F-5x-h2h" id="bGB-W8-yiH"/>
                                             <outlet property="selectButton" destination="4yD-bu-DkR" id="V9b-jY-DDA"/>
@@ -689,6 +677,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/LZViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="playButton" candidateClass="LZButton"/>
+                <relationship kind="outlet" name="settingButton" candidateClass="LZButton"/>
                 <relationship kind="outlet" name="storeButton" candidateClass="LZButton"/>
             </relationships>
         </class>

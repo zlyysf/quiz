@@ -81,16 +81,16 @@
     }];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(productPurchased:) name:IAPHelperProductPurchasedNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(twitterShareDidSend:) name:LZShareTwitterDidSendNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookShareDidSend:) name:LZShareFacebookDidSendNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(twitterShareDidSend:) name:LZShareTwitterDidSendNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(facebookShareDidSend:) name:LZShareFacebookDidSendNotification object:nil];
     
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [MBProgressHUD hideAllHUDsForView:self.listView animated:YES];
     [[LZIAPManager sharedInstance]cancelQueryProducts];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:IAPHelperProductPurchasedNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:LZShareTwitterDidSendNotification object:nil];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:LZShareFacebookDidSendNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:LZShareTwitterDidSendNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self name:LZShareFacebookDidSendNotification object:nil];
     
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -180,28 +180,28 @@
             cell.profitLabel.text = NSLocalizedString(@"Tell your facebook friends", @"");
             NSString *path = [[NSBundle mainBundle] pathForResource:@"facebook@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
-            if ([[NSUserDefaults standardUserDefaults]boolForKey:kFacebookBonusKey])
-            {
-                [cell.selectButton setEnabled:NO];
-            }
-            else
-            {
-                [cell.selectButton setEnabled:YES];
-            }
+//            if ([[NSUserDefaults standardUserDefaults]boolForKey:kFacebookBonusKey])
+//            {
+//                [cell.selectButton setEnabled:NO];
+//            }
+//            else
+//            {
+//                [cell.selectButton setEnabled:YES];
+//            }
         }
         else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:NSLocalizedString(@"Twitter", @"")])
         {
             cell.profitLabel.text = NSLocalizedString(@"Tell your twitter followers", @"");
             NSString *path = [[NSBundle mainBundle] pathForResource:@"twitter@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
-            if ([[NSUserDefaults standardUserDefaults]boolForKey:kTwitterBonusKey])
-            {
-                [cell.selectButton setEnabled:NO];
-            }
-            else
-            {
-                [cell.selectButton setEnabled:YES];
-            }
+//            if ([[NSUserDefaults standardUserDefaults]boolForKey:kTwitterBonusKey])
+//            {
+//                [cell.selectButton setEnabled:NO];
+//            }
+//            else
+//            {
+//                [cell.selectButton setEnabled:YES];
+//            }
 
         }
         else if ([[freebieItemArray objectAtIndex:indexPath.row] isEqualToString:NSLocalizedString(@"Review our app", @"")])
@@ -209,14 +209,14 @@
             cell.profitLabel.text = NSLocalizedString(@"Review our app", @"");
             NSString *path = [[NSBundle mainBundle] pathForResource:@"review@2x" ofType:@"png"];
             [cell.iconImageView setImage:[UIImage imageWithContentsOfFile:path]];
-            if ([[NSUserDefaults standardUserDefaults]boolForKey:kReviewAppBonusKey])
-            {
-                [cell.selectButton setEnabled:NO];
-            }
-            else
-            {
-                [cell.selectButton setEnabled:YES];
-            }
+//            if ([[NSUserDefaults standardUserDefaults]boolForKey:kReviewAppBonusKey])
+//            {
+//                [cell.selectButton setEnabled:NO];
+//            }
+//            else
+//            {
+//                [cell.selectButton setEnabled:YES];
+//            }
         }
 
         cell.descriptionLabel.text = @"20";
@@ -284,12 +284,12 @@
         {
             NSURL *ourAppUrl = [ [ NSURL alloc ] initWithString: @"https://itunes.apple.com/app/id611092526" ];
             [[UIApplication sharedApplication] openURL:ourAppUrl];
-            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kReviewAppBonusKey];
-            [[NSUserDefaults standardUserDefaults]synchronize];
-            [[LZDataAccess singleton]updateUserTotalCoinByDelta:kFreebieBonusDelta];
-            NSArray *reloadCellIndex = [NSArray arrayWithObject:LZCellIndexPath];
-            [self.listView reloadRowsAtIndexPaths:reloadCellIndex withRowAnimation:UITableViewRowAnimationNone];
-            [self refreshGold];
+//            [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kReviewAppBonusKey];
+//            [[NSUserDefaults standardUserDefaults]synchronize];
+//            [[LZDataAccess singleton]updateUserTotalCoinByDelta:kFreebieBonusDelta];
+//            NSArray *reloadCellIndex = [NSArray arrayWithObject:LZCellIndexPath];
+//            [self.listView reloadRowsAtIndexPaths:reloadCellIndex withRowAnimation:UITableViewRowAnimationNone];
+//            [self refreshGold];
         }
 
     }
@@ -312,35 +312,35 @@
      */
 
   }
-- (void)twitterShareDidSend:(NSNotification *)notification
-{
-    for (NSString *freebie in freebieItemArray)
-    {
-        if ([freebie isEqualToString:NSLocalizedString(@"Twitter", @"")])
-        {
-            int index = [freebieItemArray indexOfObject:freebie];
-            NSIndexPath *reloadCellIndex = [NSIndexPath indexPathForRow:index inSection:2];
-            NSArray *reloadCell = [NSArray arrayWithObject:reloadCellIndex];
-            [self.listView reloadRowsAtIndexPaths:reloadCell withRowAnimation:UITableViewRowAnimationNone];
-            [self refreshGold];
-        }
-    }
-}
-- (void)facebookShareDidSend:(NSNotification *)notification
-{
-    for (NSString *freebie in freebieItemArray)
-    {
-        if ([freebie isEqualToString:NSLocalizedString(@"Facebook", @"")])
-        {
-            int index = [freebieItemArray indexOfObject:freebie];
-            NSIndexPath *reloadCellIndex = [NSIndexPath indexPathForRow:index inSection:2];
-            NSArray *reloadCell = [NSArray arrayWithObject:reloadCellIndex];
-            [self.listView reloadRowsAtIndexPaths:reloadCell withRowAnimation:UITableViewRowAnimationNone];
-            [self refreshGold];
-        }
-    }
-
-}
+//- (void)twitterShareDidSend:(NSNotification *)notification
+//{
+//    for (NSString *freebie in freebieItemArray)
+//    {
+//        if ([freebie isEqualToString:NSLocalizedString(@"Twitter", @"")])
+//        {
+//            int index = [freebieItemArray indexOfObject:freebie];
+//            NSIndexPath *reloadCellIndex = [NSIndexPath indexPathForRow:index inSection:2];
+//            NSArray *reloadCell = [NSArray arrayWithObject:reloadCellIndex];
+//            [self.listView reloadRowsAtIndexPaths:reloadCell withRowAnimation:UITableViewRowAnimationNone];
+//            [self refreshGold];
+//        }
+//    }
+//}
+//- (void)facebookShareDidSend:(NSNotification *)notification
+//{
+//    for (NSString *freebie in freebieItemArray)
+//    {
+//        if ([freebie isEqualToString:NSLocalizedString(@"Facebook", @"")])
+//        {
+//            int index = [freebieItemArray indexOfObject:freebie];
+//            NSIndexPath *reloadCellIndex = [NSIndexPath indexPathForRow:index inSection:2];
+//            NSArray *reloadCell = [NSArray arrayWithObject:reloadCellIndex];
+//            [self.listView reloadRowsAtIndexPaths:reloadCell withRowAnimation:UITableViewRowAnimationNone];
+//            [self refreshGold];
+//        }
+//    }
+//
+//}
 - (void)productPurchased:(NSNotification *)notification
 {
     NSString * productIdentifier = notification.object;

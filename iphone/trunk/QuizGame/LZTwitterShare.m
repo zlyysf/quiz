@@ -42,17 +42,17 @@
 - (void)sharerFinishedSending:(SHKSharer *)sharer
 {
     isSending = NO;
-    if ([[NSUserDefaults standardUserDefaults]boolForKey:kTwitterBonusKey])
-    {
-        return;
-    }
-    else
-    {
-        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kTwitterBonusKey];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-        [[LZDataAccess singleton]updateUserTotalCoinByDelta:kTwitterBonusDelta];
-        [[NSNotificationCenter defaultCenter]postNotificationName:LZShareTwitterDidSendNotification object:nil];
-    }
+//    if ([[NSUserDefaults standardUserDefaults]boolForKey:kTwitterBonusKey])
+//    {
+//        return;
+//    }
+//    else
+//    {
+//        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kTwitterBonusKey];
+//        [[NSUserDefaults standardUserDefaults]synchronize];
+//        [[LZDataAccess singleton]updateUserTotalCoinByDelta:kTwitterBonusDelta];
+//        [[NSNotificationCenter defaultCenter]postNotificationName:LZShareTwitterDidSendNotification object:nil];
+//    }
 }
 - (void)sharer:(SHKSharer *)sharer failedWithError:(NSError *)error shouldRelogin:(BOOL)shouldRelogin
 {

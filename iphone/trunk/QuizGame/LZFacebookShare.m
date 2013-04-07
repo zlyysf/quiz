@@ -42,17 +42,17 @@
 - (void)sharerFinishedSending:(SHKSharer *)sharer
 {
     isSending = NO;
-    if ([[NSUserDefaults standardUserDefaults]boolForKey:kFacebookBonusKey])
-    {
-        return;
-    }
-    else
-    {
-        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kFacebookBonusKey];
-        [[NSUserDefaults standardUserDefaults]synchronize];
-        [[LZDataAccess singleton]updateUserTotalCoinByDelta:kFacebookBonusDelta];
-        [[NSNotificationCenter defaultCenter]postNotificationName:LZShareFacebookDidSendNotification object:nil];
-    }
+//    if ([[NSUserDefaults standardUserDefaults]boolForKey:kFacebookBonusKey])
+//    {
+//        return;
+//    }
+//    else
+//    {
+//        [[NSUserDefaults standardUserDefaults]setBool:YES forKey:kFacebookBonusKey];
+//        [[NSUserDefaults standardUserDefaults]synchronize];
+//        [[LZDataAccess singleton]updateUserTotalCoinByDelta:kFacebookBonusDelta];
+//        [[NSNotificationCenter defaultCenter]postNotificationName:LZShareFacebookDidSendNotification object:nil];
+//    }
 
 }
 - (void)sharer:(SHKSharer *)sharer failedWithError:(NSError *)error shouldRelogin:(BOOL)shouldRelogin
